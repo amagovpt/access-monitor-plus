@@ -1,0 +1,36 @@
+<main id="main" fxLayout="row" fxLayoutAlign="center center">
+  <section fxFlex.lt-md="95" fxFlex.md="80" fxFlex.lg="80" fxFlex.gt-lg="60">
+    <mat-card class="mat-typography">
+      <mat-card-header fxLayout="row" fxLayoutAlign="center center">
+        <mat-card-title *ngIf="url">
+          <h1>{{ url }}</h1>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <h2>{{ "CODE.subtitle" | translate }}</h2>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-actions>
+        <a *ngIf="url" mat-icon-button class="tools" [routerLink]="['/results', url]" matTooltip="{{ 'RESULTS.actions.back' | translate }}">
+          <mat-icon aria-label="'RESULTS.actions.back' | translate">arrow_back</mat-icon>
+        </a>
+        <a *ngIf="!url" mat-icon-button class="tools" [routerLink]="['/results', 'html']" matTooltip="{{ 'RESULTS.actions.back' | translate }}">
+          <mat-icon aria-label="'RESULTS.actions.back' | translate">arrow_back</mat-icon>
+        </a>
+        <span fxFlex></span>
+        <button mat-icon-button class="tools" matTooltip="{{ 'CODE.actions.download_code' | translate }}" (click)="downloadCode();">
+          <mat-icon aria-label="'CODE.actions.download_code' | translate">file_download</mat-icon>
+        </button>
+        <a *ngIf="url" mat-icon-button class="tools" matTooltip="{{ 'CODE.actions.open_webpage' | translate }}" href="http://{{url}}"
+          target="_blank">
+          <mat-icon aria-label="'CODE.actions.open_webpage' | translate">open_in_new</mat-icon>
+        </a>
+      </mat-card-actions>
+    </mat-card>
+    <br>
+    <mat-card>
+      <mat-card-content>
+        <pre><code>{{ pagecode }}</code></pre>
+      </mat-card-content>
+    </mat-card>
+  </section>
+</main>

@@ -1,0 +1,123 @@
+mat-card {
+  width: 100%;
+}
+
+.header {
+  text-align: center;
+}
+
+.metadata th, .metadata td {
+  padding: 0.5em;
+}
+
+::ng-deep .reading-block {
+  line-height: 50px !important;
+}
+
+@media only screen and (max-width:960px){
+	.score {
+    height: 200px;
+  }
+}
+
+.text-center {
+	text-align: center;
+}
+
+.vertical-middle {
+	vertical-align: middle;
+}
+
+#score {
+	font-weight: bold;
+	font-size: 4rem;
+}
+
+.summary-table th, .summary-table td {
+  text-align: center;
+  border: thin solid #fff;
+  padding: 0.5em;
+}
+
+.summary-header {
+  background-color: #eee;
+  font-weight: bold;
+}
+
+.summary-header2 {
+  background-color: black;
+  color: white;
+}
+
+.summary-table tr:nth-child(3) td {
+  border-bottom: medium solid black;
+}
+
+th {
+  text-align: center;
+}
+
+td {
+  text-align: left;
+}
+
+.tr-err, .rowerr {
+	background-color: #f99;
+}
+
+.tr-ok, .rowok {
+	background-color: #9c9;
+}
+
+.tr-war, .rowwar {
+	background-color: #ff9;
+}
+
+.tools:focus {
+  outline: 0;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.grade {
+  background-color: #425C6B;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+}
+
+.desc a {
+  color: black;
+  text-decoration: underline;
+}
+
+.results-table {
+  width: 100%;
+}
+
+.results-table td {
+  padding: 1em;
+}
+
+::ng-deep mark {
+  background-color: white;
+  font-weight: bold;
+}
+
+::ng-deep code {
+  background-color: whitesmoke;
+}
+
+::ng-deep table th, table td.center { text-align:center; }
+::ng-deep table th { padding:0px 0.5em; }
+::ng-deep table th.mini { width:3em; }
+::ng-deep table td { text-align:right; }
+::ng-deep table td.left, table th.left { text-align:left; }
+::ng-deep .scoreok td { background-color:#cfc; }
+::ng-deep .scorewar td { background-color:#ffc; }
+::ng-deep .scorerror td { background-color:#fcc; }
+::ng-deep .scorereg td { background-color:#ffe; }

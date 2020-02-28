@@ -1,0 +1,198 @@
+<main id="main" fxLayout="row" fxLayoutAlign="center center">
+  <section fxFlex.lt-md="95" fxFlex.md="80" fxFlex.lg="80" fxFlex.gt-lg="60">
+    <mat-card class="mat-typography">
+      <mat-card-header class="header" fxLayout="row" fxLayoutAlign="center center">
+        <mat-card-title *ngIf="url">
+          <h1>{{ url }}</h1>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <h2>{{ "RESULTS.title" | translate }}</h2>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-actions *ngIf="!loading && !error">
+        <a mat-icon-button class="tools" routerLink="/" matTooltip="{{ 'RESULTS.actions.back' | translate }}">
+          <mat-icon aria-label="'RESULTS.actions.back' | translate">arrow_back</mat-icon>
+        </a>
+        <span fxFlex></span>
+        <button *ngIf="url" mat-icon-button class="tools" (click)="evaluate(true)" matTooltip="{{ 'RESULTS.actions.re_evaluate' | translate }}">
+          <mat-icon aria-label="'RESULTS.actions.re_evaluate' | translate">autorenew</mat-icon>
+        </button>
+        <a mat-icon-button class="tools" (click)="downloadEvaluation()" download="eval.csv" matTooltip="{{ 'RESULTS.actions.download' | translate }}">
+          <mat-icon aria-label="'RESULTS.actions.download' | translate">file_download</mat-icon>
+        </a>
+        <a *ngIf="url" mat-icon-button class="tools" [routerLink]="['/results', url, 'code']" matTooltip="{{ 'RESULTS.actions.pagecode' | translate }}">
+          <mat-icon aria-label="'RESULTS.actions.pagecode' | translate">code</mat-icon>
+        </a>
+        <a *ngIf="!url" mat-icon-button class="tools" [routerLink]="['/results', 'html', 'code']" matTooltip="{{ 'RESULTS.actions.pagecode' | translate }}">
+          <mat-icon aria-label="'RESULTS.actions.pagecode' | translate">code</mat-icon>
+        </a>
+        <a *ngIf="url" mat-icon-button class="tools" matTooltip="{{ 'RESULTS.actions.open_webpage' | translate }}" href="http://{{url}}"
+          target="_blank">
+          <mat-icon aria-label="'RESULTS.actions.open_webpage' | translate">open_in_new</mat-icon>
+        </a>
+      </mat-card-actions>
+    </mat-card>
+    <br>
+    <mat-card class="mat-typography" *ngIf="!loading && !error" aria-live="polite">
+      <mat-card-header>
+        <mat-card-title>
+          <h1>{{ "RESULTS.summary.title" | translate }}</h1>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around center">
+        <ngx-gauge [type]="'semi'" [thick]="'10'" [value]="eval.metadata.score" [label]="'RESULTS.summary.score' | translate"
+          [min]="0" [max]="10" [duration]="2000" [thresholds]="thresholdConfig">
+        </ngx-gauge>
+        <table class="metadata" border="1" frame="void" rules="rows">
+          <tr *ngIf="eval.metadata.url">
+            <th scope="row">
+              <strong>URI</strong>
+            </th>
+            <td>{{eval.metadata.url}}</td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <strong>{{ "RESULTS.summary.metadata.title_label" | translate }}</strong>
+            </th>
+            <td>{{eval.metadata.title}}</td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <strong>{{ "RESULTS.summary.metadata.n_elements_label" | translate }}</strong>
+            </th>
+            <td>{{eval.metadata.n_elements}}</td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <strong>{{ "RESULTS.summary.metadata.page_size_label" | translate }}</strong>
+            </th>
+            <td [innerHTML]="eval.metadata.size | html"></td>
+          </tr>
+        </table>
+      </mat-card-content>
+    </mat-card>
+    <br>
+    <mat-card class="mat-typography" *ngIf="!loading && !error">
+      <mat-card-content fxLayout="row" fxLayoutAlign="center center">
+        <table class="summary-table" fxFlex.gt-sm="60" fxFlex.lt-md>
+          <thead>
+            <tr>
+              <th class="summary-header2" rowspan="2">
+                {{ "RESULTS.summary.table.labels.p" | translate }}
+              </th>
+              <th class="summary-header2" colspan="4">
+                {{ "RESULTS.summary.table.title" | translate }}
+              </th>
+            </tr>
+            <tr>
+              <th class="summary-header" scope="col">{{ "RESULTS.summary.table.labels.ok" | translate }}</th>
+              <th class="summary-header" scope="col">{{ "RESULTS.summary.table.labels.err" | translate }}</th>
+              <th class="summary-header" scope="col">{{ "RESULTS.summary.table.labels.warn" | translate }}</th>
+              <th class="summary-header" scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="summary-header" scope="row">A</td>
+              <td class="tr-ok">{{ eval.infoak.A.ok }}</td>
+              <td class="tr-err">{{ eval.infoak.A.err }}</td>
+              <td class="tr-war">{{ eval.infoak.A.war }}</td>
+              <td>{{ eval.infoak.A.ok + eval.infoak.A.err + eval.infoak.A.war }}</td>
+            </tr>
+            <tr>
+              <td class="summary-header" scope="row">AA</td>
+              <td class="tr-ok">{{ eval.infoak.AA.ok }}</td>
+              <td class="tr-err">{{ eval.infoak.AA.err }}</td>
+              <td class="tr-war">{{ eval.infoak.AA.war }}</td>
+              <td>{{ eval.infoak.AA.ok + eval.infoak.AA.err + eval.infoak.AA.war }}</td>
+            </tr>
+            <tr>
+              <td class="summary-header" scope="row">AAA</td>
+              <td class="tr-ok">{{ eval.infoak.AAA.ok }}</td>
+              <td class="tr-err">{{ eval.infoak.AAA.err }}</td>
+              <td class="tr-war">{{ eval.infoak.AAA.war }}</td>
+              <td>{{ eval.infoak.AAA.ok + eval.infoak.AAA.err + eval.infoak.AAA.war }}</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td class="summary-header">Total</td>
+              <td>{{ eval.infoak.A.ok + eval.infoak.AA.ok + eval.infoak.AAA.ok }}</td>
+              <td>{{ eval.infoak.A.err + eval.infoak.AA.err + eval.infoak.AAA.err }}</td>
+              <td>{{ eval.infoak.A.war + eval.infoak.AA.war + eval.infoak.AAA.war }}</td>
+              <td>
+                {{
+                eval.infoak.A.ok + eval.infoak.AA.ok + eval.infoak.AAA.ok +
+                eval.infoak.A.err + eval.infoak.AA.err + eval.infoak.AAA.err +
+                eval.infoak.A.war + eval.infoak.AA.war + eval.infoak.AAA.war
+                }}
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </mat-card-content>
+    </mat-card>
+    <br>
+    <mat-card class="mat-typography" *ngIf="!loading && !error">
+      <mat-card-header>
+        <mat-card-title>
+          <h1>{{ "RESULTS.results.title" | translate }}</h1>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th scope="col">{{ "RESULTS.results.practice" | translate }}</th>
+              <th scope="col" fxHide.lt-sm>{{ "RESULTS.results.lvl" | translate }}</th>
+              <th scope="col">{{ "RESULTS.results.details" | translate }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let r of eval.results" class="{{ 'row' + r.color }}">
+              <td>
+                <mat-expansion-panel [class.mat-elevation-z0]="true" class="{{ 'row' + r.color }}">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <span fxFlex="4"><img src="{{ r.ico }}" alt="{{ 'RESULTS.results.alt_row' + r.color | translate }}"></span>
+                      <span *ngIf="r.value === 1" [innerHTML]="'TESTS_RESULTS.'+r.msg+'.s' | translate:{value: r.value} | html"></span>
+                      <span *ngIf="r.value !== 1" [innerHTML]="'TESTS_RESULTS.'+r.msg+'.p' | translate:{value: r.value} | html"></span>
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <ng-template matExpansionPanelContent>
+                    <div [innerHTML]="'TXT_TECHNIQUES.' + r.ref | translate">
+
+                    </div>
+                    <div class="desc" fxLayout="column">
+                      <span><strong><a href="{{ r.ref_website }}" target="_blank">{{ r.ref }}: {{ "TECHS." + r.ref | translate }}</a></strong></span>
+                      <span>{{ "TECHFAIL." + r.relation | translate }}</span>
+                      <ul>
+                        <li *ngFor="let li of r.ref_related_sc">
+                          {{ "RESULTS.results.sc" | translate }}
+                          {{ li.sc }}
+                          <em>({{ "RESULTS.results.lvl" | translate }} {{ li.lvl }}) </em>
+                          <a href="{{ li.link }}" target="_blank">{{ "RESULTS.results.understanding" | translate }} {{ li.sc }}</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </ng-template>
+                </mat-expansion-panel>
+              </td>
+              <td class="text-center" fxHide.lt-sm>{{ r.lvl }}</td>
+              <td class="text-center">
+                <a *ngIf="r.tech_list.ele && !r.tech_list.html_validator" [routerLink]="[r.tech_list.ele]" attr.aria-label="{{ 'RESULTS.results.practice' | translate }}">
+                  <img src="assets/images/see2.png" width="25" height="25" alt="{{ 'RESULTS.results.alt_see' | translate }}">
+                </a>
+                <a *ngIf="r.tech_list.ele && r.tech_list.html_validator" target="_blank" href="{{ r.tech_list.ele }}" attr.aria-label="{{ 'RESULTS.results.practice' | translate }}">
+                  <img src="assets/images/see2.png" width="25" height="25" alt="{{ 'RESULTS.results.alt_see' | translate }}">
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-card-content>
+    </mat-card>
+    <app-loading *ngIf="loading && !error"></app-loading>
+    <app-error *ngIf="error"></app-error>
+  </section>
+</main>

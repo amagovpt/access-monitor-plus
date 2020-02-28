@@ -1,0 +1,22 @@
+<nav id="navBar" fxLayout="row">
+	<span>{{ "HEADER.NAV.location" | translate }} &nbsp;</span>
+	<a href="http://www.acessibilidade.gov.pt/">{{ "HEADER.NAV.access" | translate }}</a>
+
+	<mat-icon>keyboard_arrow_right</mat-icon>
+	<a routerLink="/" routerLinkActive="active">
+    Access Monitor Plus
+  </a>
+
+	<mat-icon *ngIf="bc.results.self">keyboard_arrow_right</mat-icon>
+	<a [routerLink]="['/results', page]" routerLinkActive="active" *ngIf="bc.results.self">
+    {{ page }}
+  </a>
+
+	<mat-icon *ngIf="bc.results.ele">keyboard_arrow_right</mat-icon>
+	<a [routerLink]="['/results', page, elementName]" routerLinkActive="active" *ngIf="bc.results.ele" [innerHtml]="'ELEMS.' + elementName | translate"></a>
+
+	<mat-icon *ngIf="bc.results.code">keyboard_arrow_right</mat-icon>
+	<a [routerLink]="['/results', page, 'code']" routerLinkActive="active" *ngIf="bc.results.code">
+    {{ "HEADER.NAV.code" | translate }}
+  </a>
+</nav>

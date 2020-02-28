@@ -1,0 +1,75 @@
+<main id="main" fxLayout="row" fxLayoutAlign="center center">
+  <section fxLayout="column" fxFlex.lt-md="95" fxFlex.md="80" fxFlex.lg="80" fxFlex.gt-lg="60">
+    <mat-card class="mat-typography" aria-live="polite">
+      <mat-card-header fxLayout="row" fxLayoutAlign="center center">
+        <mat-card-title *ngIf="url">
+          <h1>{{ url }}</h1>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <h2>{{ "ELEMENT_RESULTS.subtitle" | translate }} <strong [innerHTML]="'ELEMS.' + ele | translate"></strong></h2>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-actions>
+        <a *ngIf="url" mat-icon-button class="tools" [routerLink]="['/results', url]" matTooltip="{{ 'RESULTS.actions.back' | translate }}">
+          <mat-icon aria-label="'RESULTS.actions.back' | translate">arrow_back</mat-icon>
+        </a>
+        <a *ngIf="!url" mat-icon-button class="tools" [routerLink]="['/results', 'html']" matTooltip="{{ 'RESULTS.actions.back' | translate }}">
+          <mat-icon aria-label="'RESULTS.actions.back' | translate">arrow_back</mat-icon>
+        </a>
+      </mat-card-actions>
+    </mat-card>
+    <br>
+    <mat-tab-group (selectedTabChange)="tabChanged($event)">
+      <mat-tab *ngIf="data.elements" label="{{ 'ELEMENT_RESULTS.elements_tab' | translate }}" fxLayout="column"
+        fxLayoutAlign="start streth">
+        <br>
+        <span class="total_results">
+          {{ "ELEMENT_RESULTS.total_elements" | translate }} {{ data.size }}
+        </span>
+        <br>
+        <ol>
+          <li *ngFor="let e of data.elements; let i = index;" fxLayout="column">
+            <div fxLayout="row">
+              <mat-card fxLayout="column" fxLayoutAlign="center center" fxHide.lt-md style="width: 5%;">
+                <strong>{{ i+1 }}</strong>
+              </mat-card>
+              <mat-card class="result">
+                <mat-card-content>
+                  <table>
+                    <tr>
+                      <td scope="row"><strong>{{ "ELEMENT_RESULTS.result.element" | translate }}</strong></td>
+                      <td><span class="element">{{ e.ele }}</span></td>
+                    </tr>
+                    <tr>
+                      <td scope="row"><strong>{{ "ELEMENT_RESULTS.result.attributes" | translate }}</strong></td>
+                      <td><span>{{ e.attr }}</span></td>
+                    </tr>
+                    <tr>
+                      <td scope="row"><strong>{{ "ELEMENT_RESULTS.result.content" | translate }}</strong></td>
+                      <td><div [innerHTML]="e.code | html"></div></td>
+                    </tr>
+                    <tr>
+                      <td scope="row"><strong>{{ "ELEMENT_RESULTS.result.code" | translate }}</strong></td>
+                      <td><code>{{ e.showCode }}</code></td>
+                    </tr>
+                  </table>
+                </mat-card-content>
+              </mat-card>
+            </div>
+            <br>
+          </li>
+        </ol>
+      </mat-tab>
+      <mat-tab *ngIf="data.page" label="{{ 'ELEMENT_RESULTS.page_tab' | translate }}">
+        <iframe id="iframe" #iframe></iframe>
+      </mat-tab>
+      <mat-tab label="{{ 'ELEMENT_RESULTS.inline_css_tab' | translate }}" fxLayout="column" fxLayoutAlign="start streth"
+        *ngIf="data.inline_css">
+        <pre [innerHTML]="data.inline_css | html"></pre>
+      </mat-tab>
+      <mat-tab label="{{ 'ELEMENT_RESULTS.embedded_css_tab' | translate }}" *ngIf="data.embedded_css">
+        <pre [innerHTML]="data.embedded_css | html"></pre>
+      </mat-tab>
+    </mat-tab-group>
+  </section>
+</main>

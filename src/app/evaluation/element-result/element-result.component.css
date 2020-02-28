@@ -1,0 +1,43 @@
+mat-card {
+  width: 100%;
+}
+
+mat-card-header {
+  text-align: center;
+}
+
+.result {
+  width: 91%;
+}
+
+table tr td {
+  padding: 0.5em;
+}
+
+table tr td:first-child {
+  text-align: right;
+  border-right: thin solid black;
+}
+
+table tr td:nth-child(2) {
+  text-align: left;
+}
+
+code {
+  vertical-align: middle;
+}
+
+.element {
+	text-decoration: underline;
+  color: blue;
+}
+
+iframe {
+	width: 100%;
+	height: 800px;
+}
+
+.total_results {
+  margin-left: 3rem;
+  color: rgba(0,0,0,.54);
+}

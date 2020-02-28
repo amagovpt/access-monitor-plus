@@ -1,0 +1,68 @@
+<main id="main" fxLayout="row" fxLayoutAlign="center center">
+  <section fxLayout="column" fxLayoutAlign="center center" fxFlex.lt-md="95" fxFlex.md="80" fxFlex.lg="80" fxFlex.gt-lg="60">
+    <mat-card class="mat-typography">
+      <mat-card-header class="header" fxLayout="row" fxLayoutAlign="center center">
+        <mat-card-title fxHide.lt-md>
+          <h1>Access Monitor Plus</h1>
+        </mat-card-title>
+        <mat-card-subtitle class="header-card-subtitle">
+          <h2>{{ "HOME_PAGE.header" | translate }}</h2>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <br>
+      <mat-card-content>
+        <mat-tab-group mat-stretch-tabs>
+          <mat-tab label="{{ 'HOME_PAGE.tabs.url' | translate }}">
+            <form name="url_validate" (submit)="validateURL()" fxLayout="column" fxLayoutAlign="start center"
+              novalidate>
+              <mat-form-field class="input_field">
+                <label for="url">{{ 'HOME_PAGE.url_label' | translate }}</label>
+                <input id="url" name="url" matInput type="url" [formControl]="url" [errorStateMatcher]="urlMatcher">
+                <mat-hint align="start" [innerHTML]="'HOME_PAGE.url_hint' | translate"></mat-hint>
+                <mat-error *ngIf="url.hasError('url')" [innerHTML]="'HOME_PAGE.url_error' | translate">
+                </mat-error>
+              </mat-form-field>
+              <button mat-flat-button color="primary" type="submit" [disabled]="url.invalid || url.value === ''">
+                {{ "HOME_PAGE.submit" | translate }}
+              </button>
+            </form>
+          </mat-tab>
+          <mat-tab label="{{ 'HOME_PAGE.tabs.input' | translate }}">
+            <form name="input_html_validate" (submit)="validateHTML()" fxLayout="column" fxLayoutAlign="start center"
+              novalidate>
+              <mat-form-field class="input_field">
+                <label for="html_input">{{ 'HOME_PAGE.input_label' | translate }}</label>
+                <textarea id="html_input" name="html" matInput type="text" [formControl]="htmlInput"
+                  cdkTextareaAutosize cdkAutosizeMinRows="5"></textarea>
+              </mat-form-field>
+              <button mat-flat-button color="primary" type="submit" [disabled]="htmlInput.invalid || htmlInput.value === ''">
+                {{ "HOME_PAGE.submit" | translate }}
+              </button>
+            </form>
+          </mat-tab>
+          <mat-tab label="{{ 'HOME_PAGE.tabs.file' | translate }}">
+            <form name="input_file_validate" (submit)="validateFile()" fxLayout="column" fxLayoutAlign="start center"
+              novalidate>
+              <div class="input_field">
+                <button mat-raised-button color="primary" (click)="fileInputField.click()" type="button">
+                  {{ 'HOME_PAGE.file_label' | translate }}
+                </button>
+                <input style="display: none;" type="file" accept=".html" (change)="onFileChanged($event)" #fileInputField>
+                <span fxFlex="2"></span>
+                <mat-form-field fxFlex>
+                  <label for="input_file_name">
+                    {{ 'HOME_PAGE.file_name_label' | translate }}
+                  </label>
+                  <input matInput id="input_file_name" [formControl]="fileInput" type="text">
+                </mat-form-field>
+              </div>
+              <button mat-flat-button color="primary" type="submit" [disabled]="fileInput.invalid || fileInput.value === ''">
+                {{ "HOME_PAGE.submit" | translate }}
+              </button>
+            </form>
+          </mat-tab>
+        </mat-tab-group>
+      </mat-card-content>
+    </mat-card>
+  </section>
+</main>

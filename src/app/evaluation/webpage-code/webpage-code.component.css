@@ -1,0 +1,11 @@
+mat-card {
+	width: 100%;
+}
+
+mat-card-header {
+  text-align: center;
+}
+
+mat-card-content {
+  overflow: scroll;
+}

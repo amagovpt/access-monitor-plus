@@ -1,0 +1,63 @@
+.skip-to-main {
+  visibility: hidden;
+  position: absolute;
+  z-index: -100;
+}
+
+mat-sidenav-container {
+  height: 100%;
+}
+
+mat-sidenav {
+  width: 60%;
+}
+
+mat-sidenav div {
+	height: 95%;
+}
+
+mat-nav-list, mat-list {
+	width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  mat-sidenav {
+    width: 40%;
+  }
+}
+
+.main {
+	margin-bottom: -115px;
+  min-height: 100vh;
+}
+
+.main:after {
+  content: "";
+  display: block;
+  height: 115px;
+}
+
+.footer {
+  border-top: thin solid black;
+}
+
+.go_to_top {
+  display: block;
+  position: fixed;
+  bottom: 12vh;
+  right: 5vw;
+  z-index: 100;
+}
+
+.go_to_top_mini {
+  display: block;
+  position: fixed;
+  bottom: 12vh;
+  right: 5vw;
+  z-index: 100;
+}
+
+.go_to_top:focus,
+.go_to_top_mini:focus {
+  outline: 0;
+}

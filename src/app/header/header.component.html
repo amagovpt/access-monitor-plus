@@ -1,0 +1,13 @@
+<header>
+  <button class="menu-button" fxHide.gt-sm mat-icon-button (click)="toggleSideNav()">
+    <mat-icon aria-label="Open sidebar menu">menu</mat-icon>
+  </button>
+  <div fxLayout="row" fxLayoutAlign="space-between center" fxHide.lt-md>
+    <app-breadcrumbs fxFlex></app-breadcrumbs>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <a routerLink="/" routerLinkActive="active" fxLayout="row" fxLayoutAlign="center center">
+      <img class="small-logo" src="assets/images/accessmonitor_50.png" alt="{{ 'HEADER.logo_alt' | translate }}">
+    </a>
+  </div>
+</header>
