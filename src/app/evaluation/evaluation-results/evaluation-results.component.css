@@ -11,7 +11,7 @@ mat-card {
 }
 
 ::ng-deep .reading-block {
-  line-height: 50px !important;
+  line-height: 40px;
 }
 
 @media only screen and (max-width:960px){
@@ -71,10 +71,6 @@ td {
 
 .tr-war, .rowwar {
 	background-color: #ff9;
-}
-
-.tools:focus {
-  outline: 0;
 }
 
 .pointer {
