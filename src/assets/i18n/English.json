@@ -186,7 +186,7 @@
     "img": "Images",
     "imgAltLong": "Images with a long attribute <code>alt</code>",
     "imgAltNo": "Images without <code>alt</code>",
-    "imgAltNot": "mages with incorrect alternative text",
+    "imgAltNot": "Images with incorrect alternative text",
     "imgAltNull": "Images with null <code>alt</code>",
     "inpImg": "Graphic buttons",
     "inpImgAltNo": "Graphic buttons without <code>alt</code>",

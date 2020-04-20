@@ -78,7 +78,7 @@ export class EvaluationService {
   }
 
   evaluateHtml(html: string): Observable<any> {
-    return this.http.post<any>('http://localhost:3000/amp/eval/html', {html}, {observe: 'response'}).pipe(
+    return this.http.post<any>('/api/amp/eval/html', {html}, {observe: 'response'}).pipe(
       retry(3),
       map(res => {
         const response = res.body;
