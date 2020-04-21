@@ -67,7 +67,7 @@ export class EvaluationResultsPageComponent implements OnInit, OnDestroy {
     }
 
     this.evaluationSub = this.evaluation.evaluateUrl(this.url, force)
-      .subscribe(async data => {
+      .subscribe(data => {
         if (!data) {
           this.error = true;
         } else {
@@ -81,10 +81,6 @@ export class EvaluationResultsPageComponent implements OnInit, OnDestroy {
 
   downloadEvaluation(): void {
     this.evaluation.downloadCSV();
-  }
-
-  getTabsNames(): Array<string> {
-    return Object.keys(this.eval.tabs);
   }
 
   ngOnDestroy(): void {

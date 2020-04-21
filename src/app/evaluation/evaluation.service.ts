@@ -41,7 +41,7 @@ export class EvaluationService {
         this.evaluation = JSON.parse(sessionStorage.getItem('evaluation'));
         return of(this.evaluation.processed);
       } else {
-        return this.http.get<any>(this.config.getServer('/amp/eval/' + + encodeURIComponent(url)), {observe: 'response'}).pipe(
+        return this.http.get<any>(this.config.getServer('/amp/eval/' + encodeURIComponent(url)), {observe: 'response'}).pipe(
           retry(3),
           map(res => {
             const response = res.body;

@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {}
 
   validateURL(): void {
-    this.router.navigateByUrl('/results/' + encodeURIComponent(this.fixURL(this.url.value)));
+    this.router.navigateByUrl('/results/' + encodeURIComponent(this.url.value));
   }
 
   validateHTML(): void {
@@ -71,18 +71,6 @@ export class HomeComponent implements OnInit {
   onFileChanged(e): void {
     this.file = e.target.files[0];
     this.fileInput.setValue(this.file.name);
-  }
-
-  private fixURL(url: string): string {
-    url = url.replace('http://', '');
-    url = url.replace('https://', '');
-    url = url.replace('www.', '');
-
-    if (url[url.length - 1] === '/') {
-      url = url.substring(0, url.length - 1);
-    }
-
-    return url.trim();
   }
 }
 
