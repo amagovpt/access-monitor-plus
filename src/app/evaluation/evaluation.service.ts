@@ -7,6 +7,7 @@ import { map, retry, catchError } from 'rxjs/operators';
 import { saveAs } from 'file-saver';
 import clone from 'lodash.clone';
 
+import { ConfigService } from '../config.service';
 import { MessageService } from '../message.service';
 
 import tests from './lib/tests';
@@ -26,6 +27,7 @@ export class EvaluationService {
     private readonly http: HttpClient,
     private readonly router: Router,
     private readonly message: MessageService,
+    private readonly config: ConfigService,
     private readonly translate: TranslateService
   ) {}
 
@@ -39,7 +41,7 @@ export class EvaluationService {
         this.evaluation = JSON.parse(sessionStorage.getItem('evaluation'));
         return of(this.evaluation.processed);
       } else {
-        return this.http.get<any>('http://localhost:3000/amp/eval/' + encodeURIComponent(url), {observe: 'response'}).pipe(
+        return this.http.get<any>(this.config.getServer('/amp/eval/' + + encodeURIComponent(url)), {observe: 'response'}).pipe(
           retry(3),
           map(res => {
             const response = res.body;
@@ -78,7 +80,7 @@ export class EvaluationService {
   }
 
   evaluateHtml(html: string): Observable<any> {
-    return this.http.post<any>('/api/amp/eval/html', {html}, {observe: 'response'}).pipe(
+    return this.http.post<any>(this.config.getServer('/amp/eval/html'), {html}, {observe: 'response'}).pipe(
       retry(3),
       map(res => {
         const response = res.body;
