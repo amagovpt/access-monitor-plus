@@ -8,8 +8,7 @@
     "build:stats": "ng build --prod --build-optimizer --stats-json",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "doc": "npx compodoc -p tsconfig.app.json"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -29,7 +28,6 @@
     "file-saver": "^2.0.2",
     "lodash.clone": "^4.5.0",
     "ngx-gauge": "^1.1.0",
-    "ngx-socket-io": "^3.0.1",
     "rxjs": "~6.5.5",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.3"
