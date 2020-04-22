@@ -58,12 +58,12 @@ export class BreadcrumbsComponent implements OnInit, OnDestroy {
           this.createNavbarItems(this.bc, data, 0);
 
           if (this.bc.results.self) {
-            this.encodedPage = segments[2];
+            this.encodedPage = path.startsWith('/amp') ? segments[3] : segments[2];
             this.page = decodeURIComponent(this.encodedPage);
           }
 
           if (this.bc.results.ele) {
-            this.elementName = segments[3];
+            this.elementName = path.startsWith('/amp') ? segments[4] : segments[3];
           }
         }
       }

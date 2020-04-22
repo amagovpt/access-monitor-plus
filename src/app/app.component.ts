@@ -30,9 +30,9 @@ export class AppComponent implements OnInit {
   url: string;
 
   constructor(
-    public el: ElementRef,
-    public translate: TranslateService,
-    private router: Router
+    private readonly el: ElementRef,
+    public readonly translate: TranslateService,
+    private readonly router: Router
   ) {
     this.translate.addLangs(Object.values(this.langs));
     this.translate.setDefaultLang('Portuguese');
