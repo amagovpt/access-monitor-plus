@@ -42,7 +42,6 @@ export class EvaluationService {
         return of(this.evaluation.processed);
       } else {
         return this.http.get<any>(this.config.getServer('/amp/eval/' + encodeURIComponent(url)), {observe: 'response'}).pipe(
-          retry(3),
           map(res => {
             const response = res.body;
 
@@ -536,7 +535,7 @@ export class EvaluationService {
   private getElements(url: string, webpage: string, allNodes: Array < string > , ele: string, inpage: boolean): any {
     let path: string;
 
-    if (allNodes[ele]) {
+    if (ele !== 'aSkipFirst' && allNodes[ele]) {
       path = allNodes[ele];
     } else {
       path = xpath[ele];
@@ -549,7 +548,7 @@ export class EvaluationService {
     return {
       elements,
       size: elements.length,
-      page: inpage ? this.showElementsHighlightedInPage(path, webpage, inpage) : undefined,
+      page: inpage ? this.showElementsHighlightedInPage(path, webpage, inpage, ele) : undefined,
       finalUrl: clone(this.evaluation.processed.metadata.url)
     };
   }
@@ -605,7 +604,7 @@ export class EvaluationService {
     return imgDoc.getElementsByTagName('html')[0]['outerHTML'];
   }
 
-  private showElementsHighlightedInPage(path: string, webpage: string, inpage: boolean): string {
+  private showElementsHighlightedInPage(path: string, webpage: string, inpage: boolean, ele: string): string {
     const parser = new DOMParser();
     const doc = parser.parseFromString(webpage, 'text/html');
     const nodes = doc.evaluate(path, doc, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -616,6 +615,10 @@ export class EvaluationService {
     while (n) {
       if (inpage) {
         n['style'] = 'background:#ff0 !important;border:2px dotted #900 !important;padding:2px !important;visibility:visible !important;display:inherit !important;';
+      }
+
+      if (ele === 'aSkipFirst') {
+        break;
       }
 
       i++;
@@ -780,6 +783,10 @@ export class EvaluationService {
             showCode: eleOuterHtml
           });
 
+          if (test === 'aSkipFirst') {
+            break;
+          }
+
           i++;
           n = nodes.snapshotItem(i);
         }
@@ -923,10 +930,12 @@ export class EvaluationService {
       item['ele'] = 'http://validador-html.fccn.pt/check?uri=' + encodeURIComponent(this.url);
     } else if (tot || tot > 0) {
       item['ele'] = ele;
-
-      if ((test === 'aSkipFirst' || test === 'aSkip' || test === 'langNo' || test === 'h1' || test === 'titleNo') && color === 'err') {
+      
+      if ((/*test === 'aSkipFirst' ||*/ test === 'aSkip' || test === 'langNo' || test === 'h1' || test === 'titleNo') && color === 'err') {
         delete item['ele'];
       }
+    } else if (test === 'aSkipFirst') {
+      item['ele'] = ele;
     }
 
     return item;
