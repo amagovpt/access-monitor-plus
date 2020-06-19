@@ -35,7 +35,7 @@
               </mat-card>
               <mat-card class="result">
                 <mat-card-content>
-                  <table>
+                  <table *ngIf="data.type === 'html'">
                     <tr>
                       <td scope="row"><strong>{{ "ELEMENT_RESULTS.result.element" | translate }}</strong></td>
                       <td><span class="element">{{ e.ele }}</span></td>
@@ -51,6 +51,32 @@
                     <tr>
                       <td scope="row"><strong>{{ "ELEMENT_RESULTS.result.code" | translate }}</strong></td>
                       <td><code>{{ e.showCode }}</code></td>
+                    </tr>
+                  </table>
+                  <table *ngIf="data.type === 'css'">
+                    <tr *ngIf="e.file">
+                      <td scope="row"><strong>File:</strong></td>
+                      <td><span>{{ e.file }}</span></td>
+                    </tr>
+                    <tr *ngIf="e.description">
+                      <td scope="row"><strong>Description:</strong></td>
+                      <td><span>{{ e.description }}</span></td>
+                    </tr>
+                    <tr>
+                      <td scope="row"><strong>Line:</strong></td>
+                      <td><span>{{ e.line }}</span></td>
+                    </tr>
+                    <tr>
+                      <td scope="row"><strong>Location:</strong></td>
+                      <td><span>{{ e.location }}</span></td>
+                    </tr>
+                    <tr>
+                      <td scope="row"><strong>Property name:</strong></td>
+                      <td><span>{{ e.property }}</span></td>
+                    </tr>
+                    <tr>
+                      <td scope="row"><strong>Value:</strong></td>
+                      <td><code>{{ e.value }}</code></td>
                     </tr>
                   </table>
                 </mat-card-content>

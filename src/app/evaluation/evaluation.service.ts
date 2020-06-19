@@ -51,6 +51,7 @@ export class EvaluationService {
 
             this.url = url;
             this.evaluation = response.result;
+            
             this.evaluation.processed = this.processData();
             this.preLoadImages(this.fixImgSrc(url, this.evaluation.pagecode));
 
@@ -143,7 +144,6 @@ export class EvaluationService {
     }
 
     const data = this.evaluation.data;
-    const tot = data.tot;
     const allNodes = data.nodes;
     const webpage = this.evaluation.pagecode;
     const url = this.url;
@@ -171,12 +171,35 @@ export class EvaluationService {
 
     let results = {};
     if (testSee['css'].includes(ele)) {
-      results = this.getCSS(webpage, ele);
+      results = this.getCSSList(ele, JSON.parse(allNodes[ele])); //this.getCSS(webpage, ele);
     } else {
       results = this.getElements(url, webpage, allNodes, ele, testSee['div'].includes(ele) || testSee['span'].includes(ele));
     }
 
     return results;
+  }
+
+  private getCSSList(ele: string, cssResults: any): any {
+    const results = new Array();
+    
+    for (const result of cssResults || []) {
+      results.push({
+        file: result.stylesheetFile,
+        property: ele === 'colorFgBgNo' ? result.resultCode === 'RC2' ? 'color' : 'background-color' : result.property.name,
+        value: result.property.value,
+        location: result.selector.value,
+        line: result.property.position?.start.line,
+        description: ele === 'colorFgBgNo' ? result.description : undefined
+      });
+    }
+
+    return {
+      type: 'css',
+      elements: results,
+      size: results.length,
+      page: undefined,
+      finalUrl: clone(this.evaluation.processed.metadata.url)
+    };
   }
 
   downloadCSV(): void {
@@ -532,20 +555,167 @@ export class EvaluationService {
     };
   }
 
+  
+
   private getElements(url: string, webpage: string, allNodes: Array < string > , ele: string, inpage: boolean): any {
     let path: string;
 
+    var sub_regexes = {
+      "tag": "([a-zA-Z][a-zA-Z0-9]{0,10}|\\*)",
+      "attribute": "[.a-zA-Z_:][-\\w:.]*(\\(\\))?)",
+      "value": "\\s*[\\w/:][-/\\w\\s,:;.]*"
+  };
+  
+  var validation_re =
+      "(?P<node>"+
+        "("+
+          "^id\\([\"\\']?(?P<idvalue>%(value)s)[\"\\']?\\)"+// special case! `id(idValue)`
+        "|"+
+          "(?P<nav>//?(?:following-sibling::)?)(?P<tag>%(tag)s)" + //  `//div`
+          "(\\[("+
+            "(?P<matched>(?P<mattr>@?%(attribute)s=[\"\\'](?P<mvalue>%(value)s))[\"\\']"+ // `[@id="well"]` supported and `[text()="yes"]` is not
+          "|"+
+            "(?P<contained>contains\\((?P<cattr>@?%(attribute)s,\\s*[\"\\'](?P<cvalue>%(value)s)[\"\\']\\))"+// `[contains(@id, "bleh")]` supported and `[contains(text(), "some")]` is not 
+          ")\\])?"+
+          "(\\[\\s*(?P<nth>\\d|last\\(\\s*\\))\\s*\\])?"+
+        ")"+
+      ")";
+  
+  for(var prop in sub_regexes) 
+      validation_re = validation_re.replace(new RegExp('%\\(' + prop + '\\)s', 'gi'), sub_regexes[prop]);
+  validation_re = validation_re.replace(/\?P<node>|\?P<idvalue>|\?P<nav>|\?P<tag>|\?P<matched>|\?P<mattr>|\?P<mvalue>|\?P<contained>|\?P<cattr>|\?P<cvalue>|\?P<nth>/gi, '');
+  
+  function XPathException(message) {
+      this.message = message;
+      this.name = "[XPathException]";
+  }
+  
+  var log = window.console.log;
+  
+  function cssify(xpath) {
+      var prog, match, result, nav, tag, attr, nth, nodes, css, node_css = '', csses = [], xindex = 0, position = 0;
+  
+      // preparse xpath: 
+      // `contains(concat(" ", @class, " "), " classname ")` => `@class=classname` => `.classname`
+      xpath = xpath.replace(/contains\s*\(\s*concat\(["']\s+["']\s*,\s*@class\s*,\s*["']\s+["']\)\s*,\s*["']\s+([a-zA-Z0-9-_]+)\s+["']\)/gi, '@class="$1"');
+      
+      if (typeof xpath == 'undefined' || (
+              xpath.replace(/[\s-_=]/g,'') === '' || 
+              xpath.length !== xpath.replace(/[-_\w:.]+\(\)\s*=|=\s*[-_\w:.]+\(\)|\sor\s|\sand\s|\[(?:[^\/\]]+[\/\[]\/?.+)+\]|starts-with\(|\[.*last\(\)\s*[-\+<>=].+\]|number\(\)|not\(|count\(|text\(|first\(|normalize-space|[^\/]following-sibling|concat\(|descendant::|parent::|self::|child::|/gi,'').length)) {
+          //`number()=` etc or `=normalize-space()` etc, also `a or b` or `a and b` (to fix?) or other unsupported keywords
+          throw new XPathException('Invalid or unsupported XPath: ' + xpath);
+      }
+      
+      var xpatharr = xpath.split('|');
+      while(xpatharr[xindex]) {
+          prog = new RegExp(validation_re,'gi');
+          css = [];
+          log('working with xpath: ' + xpatharr[xindex]);
+          while(nodes = prog.exec(xpatharr[xindex])) {
+              if(!nodes && position === 0) {
+                  throw new XPathException('Invalid or unsupported XPath: ' + xpath);
+              }
+      
+              log('node found: ' + JSON.stringify(nodes));
+              match = {
+                  node: nodes[5],
+                  idvalue: nodes[12] || nodes[3],
+                  nav: nodes[4],
+                  tag: nodes[5],
+                  matched: nodes[7],
+                  mattr: nodes[10] || nodes[14],
+                  mvalue: nodes[12] || nodes[16],
+                  contained: nodes[13],
+                  cattr: nodes[14],
+                  cvalue: nodes[16],
+                  nth: nodes[18]
+              };
+              log('broke node down to: ' + JSON.stringify(match));
+      
+              if(position != 0 && match['nav']) {
+                  if (~match['nav'].indexOf('following-sibling::')) nav = ' + ';
+                  else nav = (match['nav'] == '//') ? ' ' : ' > ';
+              } else {
+                  nav = '';
+              }
+              tag = (match['tag'] === '*') ? '' : (match['tag'] || '');
+      
+              if(match['contained']) {
+                  if(match['cattr'].indexOf('@') === 0) {
+                      attr = '[' + match['cattr'].replace(/^@/, '') + '*=' + match['cvalue'] + ']';
+                  } else { //if(match['cattr'] === 'text()')
+                      throw new XPathException('Invalid or unsupported XPath attribute: ' + match['cattr']);
+                  }
+              } else if(match['matched']) {
+                  switch (match['mattr']){
+                      case '@id':
+                          attr = '#' + match['mvalue'].replace(/^\s+|\s+$/,'').replace(/\s/g, '#');
+                          break;
+                      case '@class':
+                          attr = '.' + match['mvalue'].replace(/^\s+|\s+$/,'').replace(/\s/g, '.');
+                          break;
+                      case 'text()':
+                      case '.':
+                          throw new XPathException('Invalid or unsupported XPath attribute: ' + match['mattr']);
+                      default:
+                          if (match['mattr'].indexOf('@') !== 0) {
+                              throw new XPathException('Invalid or unsupported XPath attribute: ' + match['mattr']);
+                          }
+                          if(match['mvalue'].indexOf(' ') !== -1) {
+                              match['mvalue'] = '\"' + match['mvalue'].replace(/^\s+|\s+$/,'') + '\"';
+                          }
+                          attr = '[' + match['mattr'].replace('@', '') + '=' + match['mvalue'] + ']';
+                          break;
+                  }
+              } else if(match['idvalue'])
+                  attr = '#' + match['idvalue'].replace(/\s/, '#');
+              else
+                  attr = '';
+      
+              if(match['nth']) {
+                  if (match['nth'].indexOf('last') === -1){
+                      if (isNaN(parseInt(match['nth'], 10))) {
+                          throw new XPathException('Invalid or unsupported XPath attribute: ' + match['nth']);
+                      }
+                      nth = parseInt(match['nth'], 10) !== 1 ? ':nth-of-type(' + match['nth'] + ')' : ':first-of-type';
+                  } else {
+                      nth = ':last-of-type';
+                  }
+              } else {
+                  nth = '';
+              }
+              node_css = nav + tag + attr + nth;
+      
+              log('final node css: ' + node_css);
+              css.push(node_css);
+              position++;
+          } //while(nodes
+          
+          result = css.join('');
+    if (result === '') {
+        throw new XPathException('Invalid or unsupported XPath: ' + match['node']);
+    }
+          csses.push(result);
+          xindex++;
+  
+      } //while(xpatharr
+  
+      return csses.join(', ');
+  }
+  
+    
     if (ele !== 'aSkipFirst' && allNodes[ele]) {
       path = allNodes[ele];
     } else {
-      path = xpath[ele];
+      path = !xpath[ele].includes('|') ? cssify(xpath[ele]) : xpath[ele].split('|').map(selector => cssify(selector)).join('|');
     }
-
+    
     webpage = this.fixImgSrc(url, webpage);
 
     const elements = this.getElementsList(ele, path, webpage);
 
     return {
+      type: 'html',
       elements,
       size: elements.length,
       page: inpage ? this.showElementsHighlightedInPage(path, webpage, inpage, ele) : undefined,
@@ -607,10 +777,11 @@ export class EvaluationService {
   private showElementsHighlightedInPage(path: string, webpage: string, inpage: boolean, ele: string): string {
     const parser = new DOMParser();
     const doc = parser.parseFromString(webpage, 'text/html');
-    const nodes = doc.evaluate(path, doc, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-
+    
+    const nodes = doc.querySelectorAll(path.replace(/\|/g, ', ')); //doc.evaluate(path, doc, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    
     let i = 0;
-    let n = nodes.snapshotItem(i);
+    let n = nodes[i];
 
     while (n) {
       if (inpage) {
@@ -622,7 +793,7 @@ export class EvaluationService {
       }
 
       i++;
-      n = nodes.snapshotItem(i);
+      n = nodes[i];
     }
 
     return doc.getElementsByTagName('html')[0]['outerHTML'];
@@ -630,169 +801,86 @@ export class EvaluationService {
 
   private getElementsList(test: string, path: string, webpage: string): Array < any > {
     const parser = new DOMParser();
-
-    const imgDoc = parser.parseFromString(webpage, 'text/html');
-    const imgNodes = imgDoc.evaluate('//img', imgDoc, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-    let i = 0;
-    let n = imgNodes.snapshotItem(i);
-
-    const doc = parser.parseFromString(imgDoc.getElementsByTagName('html')[0]['outerHTML'], 'text/html');
+    const doc = parser.parseFromString(webpage, 'text/html');
+    
     const elements = new Array();
-    const paths = path.split('|') || [path];
+    let paths = path.replace(/\|/g, ', ');
 
-    for (const p of paths) {
-      if (p.includes('template')) {
-        const tPath = p.split('/').slice(0, p.split('/').indexOf('template') + 1).join('/');
-        const tNodes = doc.evaluate(tPath, doc, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        const tNode = tNodes.snapshotItem(0);
-        if (tNode) {
-          const newDoc = parser.parseFromString(tNode['innerHTML'], 'text/html');
-          const newPath = '//' + p.split('/').slice(p.split('/').indexOf('template') + 1).join('/');
-          const fNodes = newDoc.evaluate(newPath, newDoc, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-          const newNode = fNodes.snapshotItem(0);
-          if (newNode) {
-            let attrs = '';
-            const fixed = newNode['attributes']['fixed'];
-            for (const key of Object.keys(newNode['attributes']) || []) {
-              const attr = <Attr> newNode['attributes'][key];
-              if ((attr.name === 'width' || attr.name === 'height' || attr.name === 'fixed') && fixed) {
-                continue;
-              }
-              if (attr.value) {
-                attrs += attr.name + '="' + attr.value + '" ';
-              } else {
-                attrs += attr.name + ' ';
-              }
-            }
-
-            const eleOuterHtml = clone(newNode['outerHTML']);
-
-            if (newNode.nodeName.toLowerCase() === 'img') {
-              if (newNode['attributes']['src']) {
-                const img = new Image();
-                img.onload = function () {
-                  return true;
-                };
-                img.src = newNode['attributes']['src'].value;
-
-                if (img.width > 500 || img.height > 200) {
-                  if (img.width > img.height) {
-                    newNode['width'] = '500';
-                  } else {
-                    newNode['height'] = '200';
-                  }
-                }
-              }
-
-              if (newNode['attributes']['srcset']) {
-                const img = new Image();
-                img.onload = function () {
-                  return true;
-                };
-                img.src = newNode['attributes']['srcset'].value;
-
-                if (img.width > 500 || img.height > 200) {
-                  if (img.width > img.height) {
-                    newNode['width'] = '500';
-                  } else {
-                    newNode['height'] = '200';
-                  }
-                }
-              }
-            }
-
-            elements.push({
-              ele: newNode.nodeName.toLowerCase(),
-              attr: attrs,
-              code: newNode['outerHTML'],
-              showCode: eleOuterHtml
-            });
-          }
+    if (test === 'titleOk') {
+      paths = 'title';
+    }
+    
+    const nodes = doc.querySelectorAll(paths);
+    
+    nodes.forEach(node => {
+      let attrs = '';
+      const fixed = node['attributes']['fixed'];
+      for (const key of Object.keys(node['attributes']) || []) {
+        const attr = < Attr > node['attributes'][key];
+        if ((attr.name === 'width' || attr.name === 'height' || attr.name === 'fixed') && fixed) {
+          continue;
         }
-      } else {
-        const nodes = doc.evaluate(p, doc, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-
-        i = 0;
-        n = nodes.snapshotItem(i);
-
-        while (n) {
-          let attrs = '';
-          const fixed = n['attributes']['fixed'];
-          for (const key of Object.keys(n['attributes']) || []) {
-            const attr = < Attr > n['attributes'][key];
-            if ((attr.name === 'width' || attr.name === 'height' || attr.name === 'fixed') && fixed) {
-              continue;
-            }
-            if (attr.value) {
-              attrs += attr.name + '="' + attr.value + '" ';
-            } else {
-              attrs += attr.name + ' ';
-            }
-          }
-
-          let eleOuterHtml = clone(n['outerHTML']);
-          let code = null;
-          if (n.nodeName.toLowerCase() === 'img') {
-            if (n['attributes']['src']) {
-              const img = new Image();
-              img.onload = function () {
-                return true;
-              };
-              img.src = n['attributes']['src'].value;
-
-              if (img.width > 500 || img.height > 200) {
-                if (img.width > img.height) {
-                  n['width'] = '500';
-                } else {
-                  n['height'] = '200';
-                }
-              }
-
-            }
-
-            if (n['attributes']['srcset']) {
-              const img = new Image();
-              img.onload = function () {
-                return true;
-              };
-              img.src = n['attributes']['srcset'].value;
-
-              if (img.width > 500 || img.height > 200) {
-                if (img.width > img.height) {
-                  n['width'] = '500';
-                } else {
-                  n['height'] = '200';
-                }
-              }
-            }
-            code = n['outerHTML'];
-          } else if (n.nodeName.toLowerCase() === 'title') {
-            code = n.firstChild.nodeValue;
-          } else if (n.nodeName.toLowerCase() === 'html') {
-            code = n['attributes']['lang'].nodeValue;
-            n['innerHTML'] = '';
-            eleOuterHtml = n['outerHTML'];
-          } else {
-            code = n['outerHTML'];
-          }
-
-          elements.push({
-            ele: n.nodeName.toLowerCase(),
-            attr: attrs,
-            code: code,
-            showCode: eleOuterHtml
-          });
-
-          if (test === 'aSkipFirst') {
-            break;
-          }
-
-          i++;
-          n = nodes.snapshotItem(i);
+        if (attr.value) {
+          attrs += attr.name + '="' + attr.value + '" ';
+        } else {
+          attrs += attr.name + ' ';
         }
       }
-    }
 
+      let eleOuterHtml = clone(node['outerHTML']);
+      let code = null;
+      if (node.nodeName.toLowerCase() === 'img') {
+        if (node['attributes']['src']) {
+          const img = new Image();
+          img.onload = function () {
+            return true;
+          };
+          img.src = node['attributes']['src'].value;
+
+          if (img.width > 500 || img.height > 200) {
+            if (img.width > img.height) {
+              node['width'] = '500';
+            } else {
+              node['height'] = '200';
+            }
+          }
+
+        }
+
+        if (node['attributes']['srcset']) {
+          const img = new Image();
+          img.onload = function () {
+            return true;
+          };
+          img.src = node['attributes']['srcset'].value;
+
+          if (img.width > 500 || img.height > 200) {
+            if (img.width > img.height) {
+              node['width'] = '500';
+            } else {
+              node['height'] = '200';
+            }
+          }
+        }
+        code = node['outerHTML'];
+      } else if (node.nodeName.toLowerCase() === 'title') {
+        code = node.firstChild.nodeValue;
+      } else if (node.nodeName.toLowerCase() === 'html') {
+        code = node['attributes']['lang'].nodeValue;
+        node['innerHTML'] = '';
+        eleOuterHtml = node['outerHTML'];
+      } else {
+        code = node['outerHTML'];
+      }
+
+      elements.push({
+        ele: node.nodeName.toLowerCase(),
+        attr: attrs,
+        code: code,
+        showCode: eleOuterHtml
+      });
+    });
+    
     return elements;
   }
 
@@ -810,13 +898,6 @@ export class EvaluationService {
     data['metadata']['count_results'] = tot['results'].length;
 
     data['results'] = [];
-
-    const infotot = {
-      'ok': 0,
-      'err': 0,
-      'war': 0,
-      'tot': 0
-    };
 
     const infoak = {
       'A': {
