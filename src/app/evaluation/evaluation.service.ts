@@ -811,8 +811,10 @@ export class EvaluationService {
     }
     
     const nodes = doc.querySelectorAll(paths);
-    
-    nodes.forEach(node => {
+
+    for (let i = 0; i < nodes.length; i++) {
+      const node = nodes.item(i);
+
       let attrs = '';
       const fixed = node['attributes']['fixed'];
       for (const key of Object.keys(node['attributes']) || []) {
@@ -879,7 +881,11 @@ export class EvaluationService {
         code: code,
         showCode: eleOuterHtml
       });
-    });
+
+      if (test === 'aSkipFirst') {
+        break;
+      }
+    }
     
     return elements;
   }
@@ -946,13 +952,15 @@ export class EvaluationService {
               tnum = tot.info.title;
             } else if (tes === 'lang') {
               tnum = tot.info.lang;
+            } else if (tes === 'titleLong') {
+              tnum = tot.info.title.length;
             } else {
               tnum = tot['elems'][tes];
             }
           } else {
             tnum = tot['elems'][ele];
           }
-
+          
           const result = {};
           result['ico'] = 'assets/images/ico' + color + '.png';
           result['color'] = color;

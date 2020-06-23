@@ -1,6 +1,6 @@
 const xpath: any = {
   'a': '//a[@href]',
-  'aSkipFirst': '//html/body/a[1]',
+  'aSkipFirst': '//a',
   'abbrNo': '//abbr[not(@title) or normalize-space(@title)=""]|//acronym[not(@title) or normalize-space(@title)=""]',
   'applet': '//applet',
   'area': '//area',
