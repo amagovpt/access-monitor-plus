@@ -46,36 +46,40 @@
                     </tr>
                     <tr>
                       <td scope="row"><strong>{{ "ELEMENT_RESULTS.result.content" | translate }}</strong></td>
-                      <td><div [innerHTML]="e.code | html"></div></td>
+                      <td><div class="img" [innerHTML]="e.code | html"></div></td>
                     </tr>
                     <tr>
                       <td scope="row"><strong>{{ "ELEMENT_RESULTS.result.code" | translate }}</strong></td>
                       <td><code>{{ e.showCode }}</code></td>
                     </tr>
+                    <!--<tr>
+                      <td scope="row"><strong>{{ "ELEMENT_RESULTS.result.location" | translate }}</strong></td>
+                      <td><code>{{ e.pointer }}</code></td>
+                    </tr>-->
                   </table>
                   <table *ngIf="data.type === 'css'">
                     <tr *ngIf="e.file">
-                      <td scope="row"><strong>File:</strong></td>
+                      <td scope="row"><strong>{{ "ELEMENT_RESULTS.result.file" | translate }}</strong></td>
                       <td><span>{{ e.file }}</span></td>
                     </tr>
                     <tr *ngIf="e.description">
-                      <td scope="row"><strong>Description:</strong></td>
+                      <td scope="row"><strong>{{ "ELEMENT_RESULTS.result.description" | translate }}</strong></td>
                       <td><span>{{ e.description }}</span></td>
                     </tr>
                     <tr>
-                      <td scope="row"><strong>Line:</strong></td>
+                      <td scope="row"><strong>{{ "ELEMENT_RESULTS.result.line" | translate }}</strong></td>
                       <td><span>{{ e.line }}</span></td>
                     </tr>
                     <tr>
-                      <td scope="row"><strong>Location:</strong></td>
+                      <td scope="row"><strong>{{ "ELEMENT_RESULTS.result.location" | translate }}</strong></td>
                       <td><span>{{ e.location }}</span></td>
                     </tr>
                     <tr>
-                      <td scope="row"><strong>Property name:</strong></td>
+                      <td scope="row"><strong>{{ "ELEMENT_RESULTS.result.property" | translate }}</strong></td>
                       <td><span>{{ e.property }}</span></td>
                     </tr>
                     <tr>
-                      <td scope="row"><strong>Value:</strong></td>
+                      <td scope="row"><strong>{{ "ELEMENT_RESULTS.result.value" | translate }}</strong></td>
                       <td><code>{{ e.value }}</code></td>
                     </tr>
                   </table>

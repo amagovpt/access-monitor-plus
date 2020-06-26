@@ -17,7 +17,7 @@ const xpath: any = {
   'frame': '//frame',
   'frameTitleNo': '//frame[not(@title) or normalize-space(@title)=""]',
   'frameset': '//frameset',
-  'hx': '//h1|//h2|//h3|//h4|//h5|//h6',
+  'hx': '//h1|//h2|//h3|//h4|//h5|//h6|//[@aria-level][@role="heading"]',
   'id': '//*[@id]',
   'iframe': '//iframe',
   'iframeTitleNo': '//iframe[not(@title) or normalize-space(@title)=""]',

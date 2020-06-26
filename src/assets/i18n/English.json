@@ -98,7 +98,13 @@
       "element": "Element:",
       "attributes": "Attributes:",
       "content": "Content/text:",
-      "code": "Code:"
+      "code": "Code:",
+      "file": "File:",
+      "description": "Description:",
+      "line": "Line:",
+      "location": "Location:",
+      "property": "Property:",
+      "value": "Value:"
     }
   },
   "CODE": {
@@ -169,7 +175,7 @@
     "fontAbsVal": "Font sizes defined in absolute units of measure",
     "fontHtml": "Elements and Attributes (X) HTML to format the Text of pages (eg <code>basefont</code>, <code>font</code>, <code>link</code>, and <code>alink</code>)",
     "fontValues": "Font sizes defined in CSS",
-    "form": "Forms",
+    "form": "Forms with the submit button",
     "formSubmitNo": "Forms without the submit button",
     "frame": "Elements <code>frame</code>",
     "frameDtdNo": "Document <code>frameset</code> with incorrect or missing doctype",
@@ -183,9 +189,9 @@
     "idRep": "Attributes <code>id</code> with duplicate values",
     "iframe": "Elements <code>iframe</code>",
     "iframeTitleNo": "<code>iframe</code> elements without <code>title</code>",
-    "img": "Images",
+    "img": "Images with equivalent alternative in text",
     "imgAltLong": "Images with a long attribute <code>alt</code>",
-    "imgAltNo": "Images without <code>alt</code>",
+    "imgAltNo": "Images without equivalent alternative in text",
     "imgAltNot": "Images with incorrect alternative text",
     "imgAltNull": "Images with null <code>alt</code>",
     "inpImg": "Graphic buttons",
@@ -195,7 +201,7 @@
     "inputLabel": "Form controls that have explicitly associated a label (<code>label</code>)",
     "inputLabelNo": "Form controls without associated labels",
     "justifiedCss": "Justified text with CSS",
-    "justifiedTxt": "ustified text with (X)HTML attributes",
+    "justifiedTxt": "Justified text with (X)HTML attributes",
     "label": "Elements <code>label</code>",
     "labelForNo": "Elements <code>label</code> without explicit association",
     "labelPosNo": "Incorrectly positioned <code>label</code> elements",
@@ -225,9 +231,9 @@
     "tableComplex": "Complex data tables",
     "tableComplexError": "Complex data tables without the <code>headers</code> attribute in the data cells",
     "tableData": "Data tables",
-    "tableDataCaption": "Data tables without the <code>caption</code> element or the <code>summary</code> attribute",
+    "tableDataCaption": "Data tables without the <code>caption</code> element",
     "tableLayout": "Tables without headers cells (i.e. <code>th</code> elements)",
-    "tableLayoutCaption": "Tables without headers cells, but with the <code>caption</code> element or the <code>summary</code>",
+    "tableLayoutCaption": "Tables without headers cells, but with the <code>caption</code> element",
     "tableNested": "Threaded tables",
     "titleChars": "Title with non-textual string (probably ASCII art)",
     "titleLong": "Number of characters in the <code>title</code> element",
@@ -423,12 +429,12 @@
       "p": "I found <mark>{{value}}</mark> <code>&lt;iframe&gt;</code> elements without <code>title</code>."
     },
     "img_01a": {
-      "s": "I noticed that <mark>all</mark> the images on the page make use of the <code>alt</code> attribute.",
-      "p": "I noticed that <mark>all</mark> the images on the page make use of the <code>alt</code> attribute."
+      "s": "I noticed that <mark>all</mark> the images on the page have an alternative equivalent in text.",
+      "p": "I noticed that <mark>all</mark> the images on the page have an alternative equivalent in text."
     },
     "img_01b": {
-      "s": "I found <mark>{{value}}</mark> image on the page without <code>alt</code> attribute.",
-      "p": "I found <mark>{{value}}</mark> images on the page without <code>alt</code> attribute."
+      "s": "I found <mark>{{value}}</mark> image on the page without the alternative equivalent in text.",
+      "p": "I found <mark>{{value}}</mark> images on the page without the alternative equivalent in text."
     },
     "img_02": {
       "s": "I found <mark>{{value}}</mark> image on the page with <code>alt=\"\"</code> (alt null).",
@@ -535,20 +541,20 @@
       "p": "I found <mark>{{value}}</mark> list items marked out of the list."
     },
     "long_01": {
-      "s": "I located <mark>{<value>} <code>longdesc</code></mark> attribute in the images with incorrect content.",
-      "p": "I located <mark>{<value>} <code>longdesc</code></mark> attribute in the images with incorrect content."
+      "s": "I located <mark>{value} <code>longdesc</code></mark> attribute in the images with incorrect content.",
+      "p": "I located <mark>{value} <code>longdesc</code></mark> attribute in the images with incorrect content."
     },
     "marquee_01": {
       "s": "I observed that exists content in movement <mark>done with the <code>&lt;marquee&gt;</code></mark> element.",
       "p": "I observed that exists content in movement <mark>done with the <code>&lt;marquee&gt;</code></mark> element."
     },
     "meta_01": {
-      "s": "I observed that the webpage restarts automatically throug the <code>&lt;meta http-equiv=\"refresh\"&gt;</code> element.",
-      "p": "I observed that the webpage restarts automatically throug the <code>&lt;meta http-equiv=\"refresh\"&gt;</code> element."
+      "s": "I observed that the webpage restarts automatically through the <code>&lt;meta http-equiv=\"refresh\"&gt;</code> element.",
+      "p": "I observed that the webpage restarts automatically through the <code>&lt;meta http-equiv=\"refresh\"&gt;</code> element."
     },
     "meta_02": {
-      "s": "I observed that the webpage is redirected automatically throug the <code>&lt;meta http-equiv=\"redirect\"&gt;</code> element.",
-      "p": "I observed that the webpage is redirected automatically throug the <code>&lt;meta http-equiv=\"redirect\"&gt;</code> element."
+      "s": "I observed that the webpage is redirected automatically through the <code>&lt;meta http-equiv=\"redirect\"&gt;</code> element.",
+      "p": "I observed that the webpage is redirected automatically through the <code>&lt;meta http-equiv=\"redirect\"&gt;</code> element."
     },
     "object_01": {
       "s": "I located <mark>{{value}}</mark> <code>&lt;object&gt;</code> element without the alternative textual equivalent.",
@@ -559,24 +565,24 @@
       "p": "I checked that there are <mark>{{value}}</mark> cases where the <code>scope</code> attribute from the data table is invalid."
     },
     "table_01": {
-      "s": "I found <mark>{{value}}</mark> table without identified heading but that use the <code>&lt;caption&gt;</code> and / or the <code>summary</code> attribute.",
-      "p": "I found <mark>{{value}}</mark> tables without identified heading but that use the <code>&lt;caption&gt;</code> and / or the <code>summary</code> attribute "
+      "s": "I found <mark>{{value}}</mark> table without identified heading but that use the <code>&lt;caption&gt;</code> element.",
+      "p": "I found <mark>{{value}}</mark> tables without identified heading but that use the <code>&lt;caption&gt;</code> element."
     },
     "table_02": {
-      "s": "I located <mark>{{value}}</mark> data table without the <code>&lt;caption&gt;</code> element or the <code>summary</code> attribute.",
-      "p": "I located <mark>{{value}}</mark> data tables without the <code>&lt;caption&gt;</code> element or the <code>summary</code> attribute."
+      "s": "I located <mark>{{value}}</mark> data table without the <code>&lt;caption&gt;</code> element",
+      "p": "I located <mark>{{value}}</mark> data tables without the <code>&lt;caption&gt;</code> element"
     },
     "table_03": {
       "s": "I located <mark>{{value}}</mark> table where the fixed text at <code>&lt;caption&gt;</code> and <code>summary</code> is the same.",
       "p": "I located <mark>{{value}}</mark> tables where the fixed text at <code>&lt;caption&gt;</code> and <code>summary</code> is the same."
     },
     "table_04": {
-      "s": "I checked that <mark>{{<value>}}</mark> table is inside other table.",
-      "p": "I checked that <mark>{{<value>}}</mark> tables are inside other tables."
+      "s": "I checked that <mark>{{value}}</mark> table is inside other table.",
+      "p": "I checked that <mark>{{value}}</mark> tables are inside other tables."
     },
     "table_05a": {
-      "s": "I found <mark>{{<value>}}</mark> table marked without headings.",
-      "p": "I found <mark>{{<value>}}</mark> tables marked without headings."
+      "s": "I found <mark>{{value}}</mark> table marked without headings.",
+      "p": "I found <mark>{{value}}</mark> tables marked without headings."
     },
     "table_06": {
       "s": "I found <mark>{{value}}</mark> complex data table where there are data cells without the <code>headers</code> attribute.",
@@ -619,7 +625,7 @@
       "p": "I checked that in <mark>{{value}}</mark> cases the measure units that define the width of the content elements that exist in the HTML are expressed in relative values."
     },
     "values_02a": {
-      "s": "I identified <mark>{{value}}</mark> case in the CSS where is used aboslute measure unit to define the width of the content boxes.",
+      "s": "I identified <mark>{{value}}</mark> case in the CSS where is used absolute measure unit to define the width of the content boxes.",
       "p": "I identified <mark>{{value}}</mark> cases in the CSS where are used absolute measure units to define the width of the content boxes."
     },
     "values_02b": {
@@ -709,9 +715,9 @@
     "SCR20": "Using the keyboard and other device-specific functions"
   },
   "TXT_TECHNIQUES": {
-    "C12": "<p>When the text size is expressed in absolute units there are browsers that will have dificulty in zoom the text.</p>",
-    "C19": "<p>Some persons with low vision and persons with cognitive impairements have big dificulty in dealing with the text blocks when are justified.</p>",
-    "C21": "<p>Many people with cognitive disability have dificulty to follow the text lines when the text has a simple spacement. To use a spacement between 1,5 and 2, will help them when skipping lines.</p>",
+    "C12": "<p>When the text size is expressed in absolute units there are browsers that will have difficulty in zoom the text.</p>",
+    "C19": "<p>Some persons with low vision and persons with cognitive impairments have big difficulty in dealing with the text blocks when are justified.</p>",
+    "C21": "<p>Many people with cognitive disability have difficulty to follow the text lines when the text has a simple spacement. To use a spacement between 1,5 and 2, will help them when skipping lines.</p>",
     "C22": "<p>This practice is obsolete. Instead of it, you should use the CSS to control the visual text presentation. When this error occurs is because you are using inside the <code>&lt;body&gt;</code> element of the webpage, the elements: b, basefont, font, i, s, strike, u, or the attributes: text, vlink, alink, link.</p>",
     "C24": "<p>Zoom 200% the screen and check that all the content is visible without the need to make horizontal scannings</p>",
     "C9": "<p>The use of null or empty alternative texts in HTML is a common practice for images classified as decorative. However, all images classified as decorative must be affixed via CSS and not via HTML.</p>",
@@ -723,50 +729,50 @@
     "F4": "<p>Some user groups, particularly those who have disturbs that cause attention deficit, find in the shinning content distraction elements, making dificult the concentration capacity in the other parts of the webpage.</p>",
     "F40": "<p>The value \"refresh\" should be used carefully, as it takes the control of a page away from the user.</p>",
     "F41": "<p>The value \"refresh\" should be used carefully, as it takes the control of a page away from the user.</p>",
-    "F46": "<p>I suspect that I might find data tables which is missing headings identification. Otherwise, it could be layout tables and in this case have a title and a summary marked, which you must remove.</p>",
-    "F47": "<p>Some user groups, particularly those who have disturbs that cause attention deficit, find in the shinning content distraction elements, making dificult the concentration capacity in the other parts of the webpage.</p>",
-    "F49": "<p>When linearize the tables check if the content is perceptible.</p>",
+    "F46": "<p>I suspect that I might find data tables which is missing headings identification. Otherwise, it could be layout tables and in this case have a title, which you must remove.</p>",
+    "F47": "<p>Some user groups, particularly those who have disturbs that cause attention deficit, find in the shinning content distraction elements, making difficult the concentration capacity in the other parts of the webpage.</p>",
+    "F49": "<p>When linearized the tables check if the content is perceptible.</p>",
     "F52": "<p></p>",
     "F54": "<p>Check if you use the event manipulators onDblClick e/ou onMouseMove. When using event manipulators which depend on mouses, or \"depending on pointing devices\", the users who need to use the keyboard or other alternative input devices that work as emulated keyboards, will be unable to access.</p>",
     "F55": "<p>Scroll the edition fields and check if the focus is inhibited by programation techniques. When removing the focus of the content, this becomes no longer operable by those who use only keyboard to navigate.</p>",
     "F59": "<p>The generic elements as <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> don't have a predefined role. When using these generic elements to create the user interface controls in HTML, the Assistive Technologies don't have enogh information to describe and interact with the controls, namely if doesn't define a \"role\" with ARIA techniques.</p>",
     "F65": "<p>Verify if the alternative textual equivalent found in the graphic buttons serves the equal information or function performed by the graphic button on the page.</p>",
     "F68": "<p>It isn't mandatory to exist always an explicit relation between the edition fields (<code>&lt;input&gt;</code>) and the labels (<code>&lt;label&gt;</code>) but it always be useful to the Assistive Technologies that this relation be established. Therefore, each <code>&lt;label&gt;</code> element must have the for attribute.</p>",
-    "F77": "<p>Duplicates ids attributes can cause undesirable behaviours. The ids are content uniques identifiers and that's why are unrepeatable. They can serve to point content or define relations between content parts.</p>",
-    "F84": "<p>It is important that the users be able to determine the link prupose and destiny without the need to access to content where is located. There are users whose Assistive Technologies provide them all the webpage links presented in list, without any content.</p>",
-    "F88": "<p>Some persons with low vision and persons with cognitive impairements have big dificulty in dealing with the text blocks when are justified.</p>",
+    "F77": "<p>Duplicates ids attributes can cause undesirable behaviors. The ids are content uniques identifiers and that's why are unrepeatable. They can serve to point content or define relations between content parts.</p>",
+    "F84": "<p>It is important that the users be able to determine the link purpose and destiny without the need to access to content where is located. There are users whose Assistive Technologies provide them all the webpage links presented in list, without any content.</p>",
+    "F88": "<p>Some persons with low vision and persons with cognitive impairements have big difficulty in dealing with the text blocks when are justified.</p>",
     "F89": "<p>This fail occurs always that a link is composed by an image and that image has an empty nature as alternative textual equivalent - I suspect that the Assistive Technologies' users don't know their destiny or purpose, or may even don't realize the existence of the link.</p>",
     "G1": "<p>Make available at the top of the webpage a link that allows skipping directly to the main content of the webpage. This link facilitates the navigation to many users, namely those who use scanning selection software. These users use vision to read information so the links must be always visible ou become visible when receiving the focus.</p>",
     "G102": "<p>Mark the abbreviations and/or acronyms with the respective extension. In the HTML5 case it is used the <code>&lt;code&gt;</code>abbr<code>&lt;/code&gt;</code> element to mark abbreviations or acronyms. For instance: <code>&lt;abbr title=\"Fundação para a Ciência e a Tecnologia\"&gt;</code>FCT<code>&lt;/abbr&gt;</code></p>",
-    "G115": "<p>With the apperance of the CSS all the HTML elements used to control styles of the webpages became obsolete. Elements as: b, big, blink, center, font, i, s, strike, u became obsolete - use CSS to replace them.</p>",
+    "G115": "<p>With the appearance of the CSS all the HTML elements used to control styles of the webpages became obsolete. Elements as: b, big, blink, center, font, i, s, strike, u became obsolete - use CSS to replace them.</p>",
     "G123": "<p>Check if the links that I found provide the most suitable skips to the content; if  they are  always visible or if become visible when receiving focus by keyboard.</p>",
     "G125": "<p>The WWW nature is to provide links on webpages to other related webpages. It is this that allow to users navigate information. One webpage without links is strange, at first sight!</p>",
-    "G130": "<p>The headers must be descriptives but at the same time brief. Its content, in any situation, should never be null - it is what's happenning in this case.</p>",
-    "G134": "<p>The CSS errors are one of the causes of the webpages be presented in a inconsistent way in the different browsers. To meet a specification and to validate the syntax according to that specification enhaces the consistency and the correct interpretation from the technologies, namely the Assistive Technologies.</p>",
-    "G140": "<p>With the apperance of the CSS all the HTML attributes used to control styles of the webpages became obsolete. Attributes as: align, hspace, vspace, color, face, size (in the elements basefont, font), text, link, alink, vlink, bgcolor, background  became obsolete - use CSS to replace them.</p>",
+    "G130": "<p>The headers must be descriptive but at the same time brief. Its content, in any situation, should never be null - it is what's happening in this case.</p>",
+    "G134": "<p>The CSS errors are one of the causes of the webpages be presented in a inconsistent way in the different browsers. To meet a specification and to validate the syntax according to that specification enhances the consistency and the correct interpretation from the technologies, namely the Assistive Technologies.</p>",
+    "G140": "<p>With the appearance of the CSS all the HTML attributes used to control styles of the webpages became obsolete. Attributes as: align, hspace, vspace, color, face, size (in the elements basefont, font), text, link, alink, vlink, bgcolor, background  became obsolete - use CSS to replace them.</p>",
     "G141": "<p>The web pages must be marked with a hierarchical structure of headers and subheadings. Each page should have, at least, one header level 1. The level 2 should mark the sections and the level 3 the subsections of these. This same logic must be applied until to the subsections of level 6.</p>",
     "G145": "<p>According to the success criteria 1.4.3, the ratio 3 to 1 corresponds to the minimum for text \"in large size\" (18pt or 14 pt bold, or larger). I remind that for the size of normal font the minimum ratio is 4,5 to 1.</p>",
     "G146": "<p>Zoom 200% the screen and check that all the content is visible without the need to make horizontal scannings.</p>",
     "G162": "<p>The labels must be positioned just before the fields. The labels to the fields of checkbox list types and the radio buttons type should be positioned just after the fields.</p>",
     "G88": "<p>The <code>&lt;title&gt;</code> of each webpage should: (1) identify the page subject; (2) make sense when readable out of context; (3) be short.</p>",
     "G90": "<p>You must ensure that the javascript events are activated not only by mouse but also by keyboard. Check the pairs of manipulators: mousedown/keydown, mouseup/keyup, mouseover/focus, mouseout/blur. Note: The AccessMonitor doesn't check the pair onclick / onkeypress because considers that the browsers support the onclick also when using only the keyboard. This test is classified correct only when there aren't errors in the other tests of checked manipulators.</p>",
-    "H2": "<p>When adjacent links point to exactly the same resource, we can put them together in just one link. Usually, in these situations, we have the visual sentation of having one single link but in case of some Assistive Technologies' users they emerge duplicates, what can be confusing.</p>",
-    "H24": "<p>Check if the alternative textual equivalent that exists in the ative areas in the images map serves information ou has the function equal to the one performed by the image map on the page.</p>",
+    "H2": "<p>When adjacent links point to exactly the same resource, we can put them together in just one link. Usually, in these situations, we have the visual sensation of having one single link but in case of some Assistive Technologies' users they emerge duplicates, what can be confusing.</p>",
+    "H24": "<p>Check if the alternative textual equivalent that exists in the active areas in the images map serves information ou has the function equal to the one performed by the image map on the page.</p>",
     "H25": "<p>Take note that the <code>&lt;title&gt;</code> element should only appear once in the webpage.</p>",
     "H27": "<p>Always that you use an <code>&lt;object&gt;</code> element, make available the alternative textual equivalent in the element body.</p>",
     "H32": "<p>After being filled, it is necessary to submit the form data to the server. This is the function of the submit button.</p>",
-    "H33": "<p>The title attribute is used to provide additional information to that one existent in the text link. The attribute title and the text of the link should be suficient to understand the link purpose.</p>",
+    "H33": "<p>The title attribute is used to provide additional information to that one existent in the text link. The attribute title and the text of the link should be sufficient to understand the link purpose.</p>",
     "H35": "<p>Each applet element should contain one alternative textual equivalent in its body and a textual equivalent in its alt attribute. It is important using both mechanisms since the user agents support in an inconsistent way the alt attribute and the alternative text positioned in the body of <code>&lt;applet&gt;</code>.</p>",
     "H36": "<p>The <code>&lt;input&gt;</code> element is used to create many types of form controls. Despite of the DTD of HTML and XHTML allow the use of alt attribute in all its elements, the alt attribute should be used, in case of the <code>&lt;input&gt;</code> element, only in the graphical buttons.</p>",
     "H37": "<p>Verify if the alternative textual equivalent found in the images serves the equal information or function performed by the image on the page.</p>",
-    "H39": "<p>I suspect that I might find data tables which is missing title identification <code>&lt;caption&gt;</code> and also does not use the summary attribute.</p>",
+    "H39": "<p>I suspect that I might find data tables which is missing title identification <code>&lt;caption&gt;</code>.</p>",
     "H42": "<p>The web pages must be marked with a hierarchical structure of headers and subheadings. Each page should have, at least, one header level 1. The level 2 should mark the sections and the level 3 the subsections of these. This same logic must be applied until to the subsections of level 6.</p>",
-    "H43": "<p>In complex data tables (with headings in various rows) it is important to associate explicity the data cells to the various headings which contextualize them. That association is done with the headers attribute.</p>",
+    "H43": "<p>In complex data tables (with headings in various rows) it is important to associate explicitly the data cells to the various headings which contextualize them. That association is done with the headers attribute.</p>",
     "H44": "<p>The <code>&lt;label&gt;</code> elements associated to the <code>&lt;input&gt;</code> elements allow the Assistive Technologies users to identify the label that contextualize an edition field. The explicit association is done by the pair of id and dor attributes, respectively, from the <code>&lt;input&gt;</code> and <code>&lt;label&gt;</code> elements.</p>",
     "H45": "<p>The longdesc attribute must be composed by an URL that points the localization where its found the long description - it can be to other page or a bookmark to a page.</p>",
     "H46": "<p>When we use the <code>&lt;embed&gt;</code> element we have to make available an alternative textual equivalent <code>&lt;noembed&gt;</code>. The element <code>&lt;noembed&gt;</code> is only showed if the <code>&lt;embed&gt;</code> element is not supported.</p>",
     "H48": "<p>If the content that I identified is, in fact, a list of options then use the correct structural marking (i.e. <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>).</p>",
-    "H51": "<p>Despite the WCAG do not prohibit the use of layout tables it is recomended not to use them. If the tables used contain data then mark the heading cells conveniently.</p>",
+    "H51": "<p>Despite the WCAG do not prohibit the use of layout tables it is recommended not to use them. If the tables used contain data then mark the heading cells conveniently.</p>",
     "H57": "<p>The HTML just has the lang attribute. The XHTML 1.1 just allows the xml:lang. The XHTML 1.0 (as a transitional measure) allows both attributes. The XHTML served as text/html uses the lang and xml:lang attributes of the html element.</p>",
     "H59": "<p>Check if in each of the <code>&lt;link&gt;</code> elements, that exist in the <code>&lt;head&gt;</code> of the webpage, the href points to an apropriated resource.</p>",
     "H63": "<p>The scope attribute identifies if a cell constitutes a heading of a line, of a column, of a group of lines or of a group of columns. The values row, col, rowgroup and colgroup identify respectively the values that the scope may assume.</p>",

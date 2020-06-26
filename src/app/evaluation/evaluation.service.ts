@@ -6,6 +6,10 @@ import { HttpClient } from '@angular/common/http';
 import { map, retry, catchError } from 'rxjs/operators';
 import { saveAs } from 'file-saver';
 import clone from 'lodash.clone';
+import { Parser } from 'htmlparser2';
+import DomHandler from 'domhandler';
+import * as DomUtils from 'domutils';
+import * as CSSSelect from 'css-select';
 
 import { ConfigService } from '../config.service';
 import { MessageService } from '../message.service';
@@ -51,9 +55,10 @@ export class EvaluationService {
 
             this.url = url;
             this.evaluation = response.result;
-            
             this.evaluation.processed = this.processData();
-            this.preLoadImages(this.fixImgSrc(url, this.evaluation.pagecode));
+            this.fixImgSrc();
+            this.fixStyleSheet();
+            this.fixScripts();
 
             try {
               sessionStorage.setItem('url', url);
@@ -107,36 +112,6 @@ export class EvaluationService {
     );
   }
 
-  private preLoadImages(webpage: string): void {
-    const parser = new DOMParser();
-
-    const imgDoc = parser.parseFromString(webpage, 'text/html');
-    const imgNodes = imgDoc.evaluate('//img', imgDoc, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-    let i = 0;
-    let n = imgNodes.snapshotItem(i);
-
-    while (n) {
-      if (n['attributes']['src']) {
-        const img = new Image();
-        img.onload = function () {
-          return true;
-        };
-        img.src = n['attributes']['src'].value;
-      }
-
-      if (n['attributes']['srcset']) {
-        const img = new Image();
-        img.onload = function () {
-          return true;
-        };
-        img.srcset = n['attributes']['srcset'].value;
-      }
-
-      i++;
-      n = imgNodes.snapshotItem(i);
-    }
-  }
-
   getTestResults(test: string): any {
     if (!this.url || !this.evaluation) {
       this.url = sessionStorage.getItem('url');
@@ -145,8 +120,6 @@ export class EvaluationService {
 
     const data = this.evaluation.data;
     const allNodes = data.nodes;
-    const webpage = this.evaluation.pagecode;
-    const url = this.url;
     const ele = test;
 
     const testSee = {
@@ -173,7 +146,7 @@ export class EvaluationService {
     if (testSee['css'].includes(ele)) {
       results = this.getCSSList(ele, JSON.parse(allNodes[ele])); //this.getCSS(webpage, ele);
     } else {
-      results = this.getElements(url, webpage, allNodes, ele, testSee['div'].includes(ele) || testSee['span'].includes(ele));
+      results = this.getElements(allNodes, ele, testSee['div'].includes(ele) || testSee['span'].includes(ele));
     }
 
     return results;
@@ -255,309 +228,7 @@ export class EvaluationService {
     });
   }
 
-  //EMBEBED
-  private highLightCss(styles: any, ele: string): any {
-    const begin = '<em style=\'background-color: yellow;border: 0.3em solid Yellow;font-weight: bold;\'>';
-    const end = '}</em>\n';
-    let lines = '';
-
-    for (const s in styles) {
-      if (!isNaN(parseInt(s, 0))) {
-        const node = styles[s].firstChild.nodeValue;
-        const nodes = node.split('}');
-
-        if (ele === 'valueRelCss') {
-          for (const line in nodes) {
-            if (nodes[line].match(/width:[0-9]+(%|em|ex)/)) {
-              lines += begin + nodes[line] + end;
-            } else {
-              lines += nodes[line] + '}\n';
-            }
-          }
-        } else if (ele === 'valueAbsCss') {
-          for (const line in nodes) {
-            if (nodes[line].match(/width:[0-9]+(cm|mm|in|pt|pc)/)) {
-              lines += begin + nodes[line] + end;
-            } else {
-              lines += nodes[line] + '}\n';
-            }
-          }
-        } else if (ele === 'layoutFixed') {
-          for (const line in nodes || {}) {
-            if (nodes[line]) {
-              const w = nodes[line].split(';');
-              let t = false;
-              for (const i in w) {
-                if (w[i].match(/width:/) || w[i].match(/min-width/)) {
-                  const px = w[i].split(':')[1].replace('px', '');
-                  if (Number(px) > 120) {
-                    t = true;
-                    lines += begin + nodes[line] + end;
-                  }
-                }
-              }
-              if (!t) {
-                lines += nodes[line] + '}\n';
-              }
-            }
-          }
-        } else if (ele === 'justifiedCss') {
-          for (const line in nodes) {
-            if (nodes[line].match(/text-align:justify/) != null) {
-              lines += begin + nodes[line] + end;
-            } else {
-              lines += nodes[line] + '}\n';
-            }
-          }
-        } else if (ele === 'cssBlink') {
-          for (const line in nodes) {
-            if (nodes[line].match(/text-decoration:blink/)) {
-              lines += begin + nodes[line] + end;
-            } else {
-              lines += nodes[line] + '}\n';
-            }
-          }
-        } else if (ele === 'fontValues') {
-          for (const line in nodes) {
-            if (nodes[line].match(/font:/) || nodes[line].match(/font-size:/)) {
-              lines += begin + nodes[line] + end;
-            } else {
-              lines += nodes[line] + '}\n';
-            }
-          }
-
-        } else if (ele === 'fontAbsVal') {
-          for (const line in nodes) {
-            if (nodes[line].match(/font:[0-9]+(cm|mm|in|pt|pc|px)/) || nodes[line].match(/font-size:[0-9]+(cm|mm|in|pt|pc|px)/)) {
-              lines += begin + nodes[line] + end;
-            } else {
-              lines += nodes[line] + '}\n';
-            }
-          }
-
-        } else if (ele === 'lineHeightNo') {
-          for (const line in nodes) {
-            if (nodes[line].match(/line-height:([0-9]+)(%|em|ex)+/)) {
-              lines += begin + nodes[line] + end;
-            } else {
-              lines += nodes[line] + '}\n';
-            }
-          }
-        } else if (ele === 'colorFgBgNo') {
-          for (const line in nodes || {}) {
-            if (nodes[line]) {
-              let color = false;
-              let bg = false;
-              let ok = false;
-              if (nodes[line].match(/[;{\s]color/)) {
-                color = true;
-                ok = true;
-              }
-
-              if (nodes[line].match(/[;{\s]background:/) || nodes[line].match(/[;{\s]background-color:/)) {
-                bg = true;
-                ok = true;
-              }
-              if (ok && bg && color) {
-                lines += nodes[line] + '}\n';
-
-              } else if (!ok) {
-                lines += nodes[line] + '}\n';
-              } else {
-                lines += begin + nodes[line] + end;
-              }
-            }
-          }
-        } else if (ele === 'colorContrast') {
-          for (const line in nodes) {
-            if (nodes[line]) {
-              let color = false;
-              let bg = false;
-              let ok = false;
-              if (nodes[line].trim().match(/[;{\s]color:/)) {
-                const colorElem = nodes[line].trim().split(/[;{\s]color:/)[1].split(/[;}]/)[0];
-
-                const color_array = this.evaluation.data.tot['elems']['color_array'];
-                for (const c in color_array) {
-                  if (color_array[c]['c'].split(':')[1].trim() === colorElem) {
-                    color = true;
-                    ok = true;
-
-                    break;
-                  }
-                }
-              }
-              if (nodes[line].trim().match(/[;{\s]background-color:/) || nodes[line].match(/[;{\s]background:/)) {
-                let b = nodes[line].trim().split(/[;{\s]background-color:/);
-                if (!b[1]) {
-                  b = nodes[line].trim().split(/[;{\s]background:/);
-                }
-                const colorElem = b[1].trim().split(/[;}]/)[0];
-                const color_array = this.evaluation.data.tot['elems']['color_array'];
-                for (const c in color_array) {
-                  if (color_array[c]['b'].split(':')[1].trim() === colorElem) {
-                    bg = true;
-                    ok = true;
-
-                    break;
-                  }
-                }
-              }
-              if (ok && bg && color) {
-                lines += begin + nodes[line] + end;
-
-              } else if (ok) {
-                lines += nodes[line] + '}\n';
-              } else {
-                lines += nodes[line] + '}\n';
-              }
-            }
-          }
-        }
-
-      }
-    }
-
-    return lines;
-  }
-
-  // INLINE
-  private highLightCss2(styles: any, ele: string): any {
-    const begin = '<em style=\'background-color: yellow;border: 0.3em solid Yellow;font-weight: bold;\'>';
-    const end = '}</em>\n';
-    let inline = '';
-
-    for (const s in styles) {
-      if (ele === 'fontValues' && (styles[s].match(/font:/) || styles[s].match(/font-size:/))) {
-        inline += begin + styles[s] + end;
-
-      } else if (ele === 'fontAbsVal' && (styles[s].match(/font:[0-9]+(cm|mm|in|pt|pc|px)/) || styles[s].match(/font-size:[0-9]+(cm|mm|in|pt|pc|px)/))) {
-        inline += begin + styles[s] + end;
-      } else if (ele === 'cssBlink' && styles[s].match(/text-decoration:blink/)) {
-        inline += begin + styles[s] + end;
-      } else if (ele === 'justifiedCss' && styles[s].match(/text-align:justify/) != null) {
-        inline += begin + styles[s] + end;
-      } else if (ele === 'valueRelCss' && styles[s].match(/width:[0-9]+(%|em|ex)/)) {
-        inline += begin + styles[s] + end;
-      } else if (ele === 'valueAbsCss' && styles[s].match(/width:[0-9]+(cm|mm|in|pt|pc)/)) {
-        inline += begin + styles[s] + end;
-
-      } else if (ele === 'layoutFixed') {
-        if (styles[s].match(/[;{\s]width:[0-9]+(px)/)) {
-          const matches = styles[s].match(/[;{\s]width:[0-9]+(px)/);
-          const px = matches[0].split(':')[1].replace('px', '').replace(' ', '');
-          if (Number(px) > 120) {
-            inline += begin + styles[s] + end;
-          } else {
-            inline += styles[s] + '\n';
-          }
-        } else if (styles[s].match(/min-width:[0-9]+(px)/)) {
-          const matches = styles[s].match(/min-width:[0-9]+(px)/);
-          const px = matches[0].split(':')[1].replace('px', '').replace(' ', '');
-          if (Number(px) > 120) {
-            inline += begin + styles[s] + end;
-          } else {
-            inline += styles[s] + '\n';
-          }
-        } else {
-          inline += styles[s] + '\n';
-        }
-      } else if (ele === 'lineHeightNo' && (styles[s].match(/line-height:([0-9]+)(%|em|ex)+/))) {
-        inline += begin + styles[s] + end;
-      } else if (ele === 'colorFgBgNo') {
-        let color = false;
-        let bg = false;
-        let ok = false;
-        if (styles[s].match(/[;{\s]color/)) {
-          color = true;
-          ok = true;
-        }
-        if (styles[s].match(/[;{\s]background:/) || styles[s].match(/[;{\s]background-color:/)) {
-          bg = true;
-          ok = true;
-        }
-        if (ok && bg && color) {
-          inline += styles[s] + '\n';
-        } else if (!ok) {
-          inline += styles[s] + '\n';
-        } else {
-          inline += begin + styles[s] + end;
-        }
-      } else if (ele === 'colorContrast') {
-        let color = false;
-        const bg = false;
-        let ok = false;
-        if (styles[s].match(/[;{\s]color/)) {
-
-          const _color = styles[s].split(/[;{\s]color:/)[1].split(/[;}]/)[0];
-          const color_array = this.evaluation.data.tot['elems']['color_array'];
-          for (const c in color_array) {
-            if (color_array[c]['c'].split(':')[1].trim() === _color) {
-              color = true;
-              ok = true;
-              break;
-            }
-          }
-
-        }
-        if (styles[s].match(/[;{\s]background:/) || styles[s].match(/[;{\s]background-color:/)) {
-          const _color = styles[s].split(/[;{\s]background:/);
-          if (!color[1]) {
-            color = styles[s].split(/[;{\s]background-color:/);
-          }
-          color = color[1].split(/[;}]/)[0];
-          const color_array = this.evaluation.data.tot['elems']['color_array'];
-          for (const c in color_array) {
-            if (color_array[c]['b'].split(':')[1].trim() === _color) {
-              color = true;
-              ok = true;
-              break;
-            }
-          }
-        }
-      } else {
-        inline += styles[s] + '\n';
-      }
-    }
-    return inline;
-  }
-
-  private getCSS(pagecode: string, ele: string): any {
-    if (!this.url || !this.evaluation) {
-      this.url = sessionStorage.getItem('url');
-      this.evaluation = JSON.parse(sessionStorage.getItem('evaluation'));
-    }
-
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(pagecode, 'text/html');
-    // INLINE
-    const n = doc.evaluate('//*[@style][normalize-space(@style)!=\'\']', doc, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null);
-
-    let val = n.iterateNext();
-    let inline = '';
-    const classes = [];
-    while (val) {
-      inline = ' ' + val['tagName'].toLowerCase() + '{';
-      let i = 0;
-      while (i < val['style'].length) {
-        inline += val['style'][i] + ':' + val['style'][val['style'][i]] + ';';
-        i += 1;
-      }
-      classes.push(inline);
-      val = n.iterateNext();
-
-    }
-
-    const styles = doc.getElementsByTagName('style');
-    return {
-      'embedded_css': this.highLightCss(styles, ele),
-      'inline_css': this.highLightCss2(classes, ele)
-    };
-  }
-
-  
-
-  private getElements(url: string, webpage: string, allNodes: Array < string > , ele: string, inpage: boolean): any {
+  private getElements(allNodes: Array < string > , ele: string, inpage: boolean): any {
     let path: string;
 
     var sub_regexes = {
@@ -590,8 +261,6 @@ export class EvaluationService {
       this.name = "[XPathException]";
   }
   
-  var log = window.console.log;
-  
   function cssify(xpath) {
       var prog, match, result, nav, tag, attr, nth, nodes, css, node_css = '', csses = [], xindex = 0, position = 0;
   
@@ -610,13 +279,12 @@ export class EvaluationService {
       while(xpatharr[xindex]) {
           prog = new RegExp(validation_re,'gi');
           css = [];
-          log('working with xpath: ' + xpatharr[xindex]);
+          
           while(nodes = prog.exec(xpatharr[xindex])) {
               if(!nodes && position === 0) {
                   throw new XPathException('Invalid or unsupported XPath: ' + xpath);
               }
       
-              log('node found: ' + JSON.stringify(nodes));
               match = {
                   node: nodes[5],
                   idvalue: nodes[12] || nodes[3],
@@ -630,7 +298,6 @@ export class EvaluationService {
                   cvalue: nodes[16],
                   nth: nodes[18]
               };
-              log('broke node down to: ' + JSON.stringify(match));
       
               if(position != 0 && match['nav']) {
                   if (~match['nav'].indexOf('following-sibling::')) nav = ' + ';
@@ -686,7 +353,6 @@ export class EvaluationService {
               }
               node_css = nav + tag + attr + nth;
       
-              log('final node css: ' + node_css);
               css.push(node_css);
               position++;
           } //while(nodes
@@ -709,47 +375,46 @@ export class EvaluationService {
     } else {
       path = !xpath[ele].includes('|') ? cssify(xpath[ele]) : xpath[ele].split('|').map(selector => cssify(selector)).join('|');
     }
-    
-    webpage = this.fixImgSrc(url, webpage);
 
-    const elements = this.getElementsList(ele, path, webpage);
+    const elements = this.getElementsList(ele, path);
 
     return {
       type: 'html',
       elements,
       size: elements.length,
-      page: inpage ? this.showElementsHighlightedInPage(path, webpage, inpage, ele) : undefined,
+      page: inpage ? this.showElementsHighlightedInPage(path, inpage, ele) : undefined,
       finalUrl: clone(this.evaluation.processed.metadata.url)
     };
   }
 
-  private fixImgSrc(url: string, webpage: string): string {
-    const parser = new DOMParser();
-    const imgDoc = parser.parseFromString(webpage, 'text/html');
-
+  private fixImgSrc(): void {
     const protocol = this.evaluation.processed.metadata.url.startsWith('https://') ? 'https://' : 'http://';
     const www = this.evaluation.processed.metadata.url.includes('www.') ? 'www.' : '';
-
-    const imgNodes = imgDoc.evaluate('//*[@src]', imgDoc, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-    let i = 0;
-    let n = imgNodes.snapshotItem(i);
 
     let fixSrcUrl = clone(this.evaluation.processed.metadata.url.replace('http://', '').replace('https://', '').replace('www.', '').split('/')[0]);
     if (fixSrcUrl[fixSrcUrl.length - 1] === '/') {
       fixSrcUrl = fixSrcUrl.substring(0, fixSrcUrl.length - 2);
     }
 
-    while (n) {
-      if (n['attributes']['src'] && !n['attributes']['src'].value.startsWith('http') && !n['attributes']['src'].value.startsWith('https')) {
-        if (n['attributes']['src'].value.startsWith('/')) {
-          n['attributes']['src'].value = `${protocol}${www}${fixSrcUrl}${n['attributes']['src'].value}`;
+    const handler = new DomHandler(() => {}, { withStartIndices: true, withEndIndices: true });
+    const parser = new Parser(handler);
+
+    parser.write(this.evaluation.pagecode.replace(/(\r\n|\n|\r|\t)/gm, ''));
+    parser.end();
+
+    const dom = handler.dom;
+    const nodes = CSSSelect('img', dom);
+
+    for (const node of nodes || []) {
+      if (node['attribs']['src'] && !node['attribs']['src'].startsWith('http') && !node['attribs']['src'].startsWith('https')) {
+        if (node['attribs']['src'].startsWith('/')) {
+          node['attribs']['src'] = `${protocol}${www}${fixSrcUrl}${node['attribs']['src']}`;
         } else {
-          n['attributes']['src'].value = `${protocol}${www}${fixSrcUrl}/${n['attributes']['src'].value}`;
+          node['attribs']['src'] = `${protocol}${www}${fixSrcUrl}/${node['attribs']['src']}`;
         }
       }
-
-      if (n['attributes']['srcset']) {
-        const split = n['attributes']['srcset'].value.split(', ');
+      if (node['attribs']['srcset']) {
+        const split = node['attribs']['srcset'].split(', ');
         if (split.length > 0) {
           let value = '';
           for (const u of split) {
@@ -761,125 +426,148 @@ export class EvaluationService {
               }
             }
           }
-          n['attributes']['srcset'].value = clone(value.substring(0, value.length - 2));
+          node['attribs']['srcset'] = clone(value.substring(0, value.length - 2));
         } else {
-          n['attributes']['srcset'].value = `${protocol}${www}${fixSrcUrl}${n['attributes']['srcset'].value}`;
+          node['attribs']['srcset'] = `${protocol}${www}${fixSrcUrl}${node['attribs']['srcset']}`;
         }
       }
-
-      i++;
-      n = imgNodes.snapshotItem(i);
     }
 
-    return imgDoc.getElementsByTagName('html')[0]['outerHTML'];
+    this.evaluation.pagecode = DomUtils.getOuterHTML(dom);
   }
 
-  private showElementsHighlightedInPage(path: string, webpage: string, inpage: boolean, ele: string): string {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(webpage, 'text/html');
-    
-    const nodes = doc.querySelectorAll(path.replace(/\|/g, ', ')); //doc.evaluate(path, doc, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-    
-    let i = 0;
-    let n = nodes[i];
+  private fixStyleSheet(): void {
+    const protocol = this.evaluation.processed.metadata.url.startsWith('https://') ? 'https://' : 'http://';
+    const www = this.evaluation.processed.metadata.url.includes('www.') ? 'www.' : '';
 
-    while (n) {
+    let fixSrcUrl = clone(this.evaluation.processed.metadata.url.replace('http://', '').replace('https://', '').replace('www.', '').split('/')[0]);
+    if (fixSrcUrl[fixSrcUrl.length - 1] === '/') {
+      fixSrcUrl = fixSrcUrl.substring(0, fixSrcUrl.length - 2);
+    }
+
+    const handler = new DomHandler(() => {}, { withStartIndices: true, withEndIndices: true });
+    const parser = new Parser(handler);
+
+    parser.write(this.evaluation.pagecode.replace(/(\r\n|\n|\r|\t)/gm, ''));
+    parser.end();
+
+    const dom = handler.dom;
+    const nodes = CSSSelect('link', dom);
+
+    for (const node of nodes || []) {
+      if (node['attribs']['href'] && !node['attribs']['href'].startsWith('http') && !node['attribs']['href'].startsWith('https')) {
+        if (node['attribs']['href'].startsWith('//')) {
+          node['attribs']['href'] = 'http:' + node['attribs']['href'];
+        } else if (node['attribs']['href'].startsWith('/')) {
+          node['attribs']['href'] = `${protocol}${www}${fixSrcUrl}${node['attribs']['href']}`;
+        } else {
+          node['attribs']['href'] = `${protocol}${www}${fixSrcUrl}/${node['attribs']['href']}`;
+        }
+      }
+    }
+
+    this.evaluation.pagecode = DomUtils.getOuterHTML(dom);
+  }
+
+  private fixScripts(): void {
+    const protocol = this.evaluation.processed.metadata.url.startsWith('https://') ? 'https://' : 'http://';
+    const www = this.evaluation.processed.metadata.url.includes('www.') ? 'www.' : '';
+
+    let fixSrcUrl = clone(this.evaluation.processed.metadata.url.replace('http://', '').replace('https://', '').replace('www.', '').split('/')[0]);
+    if (fixSrcUrl[fixSrcUrl.length - 1] === '/') {
+      fixSrcUrl = fixSrcUrl.substring(0, fixSrcUrl.length - 2);
+    }
+
+    const handler = new DomHandler(() => {}, { withStartIndices: true, withEndIndices: true });
+    const parser = new Parser(handler);
+
+    parser.write(this.evaluation.pagecode.replace(/(\r\n|\n|\r|\t)/gm, ''));
+    parser.end();
+
+    const dom = handler.dom;
+    const nodes = CSSSelect('script', dom);
+
+    for (const node of nodes || []) {
+      if (node['attribs']['src'] && !node['attribs']['src'].startsWith('http') && !node['attribs']['src'].startsWith('https')) {
+        if (node['attribs']['src'].startsWith('//')) {
+          node['attribs']['src'] = 'http:' + node['attribs']['src'];
+        } else if (node['attribs']['src'].startsWith('/')) {
+          node['attribs']['src'] = `${protocol}${www}${fixSrcUrl}${node['attribs']['src']}`;
+        } else {
+          node['attribs']['src'] = `${protocol}${www}${fixSrcUrl}/${node['attribs']['src']}`;
+        }
+      }
+    }
+
+    this.evaluation.pagecode = DomUtils.getOuterHTML(dom);
+  }
+
+  private showElementsHighlightedInPage(paths: string, inpage: boolean, test: string): string {
+    const handler = new DomHandler(() => {}, { withStartIndices: true, withEndIndices: true });
+    const parser = new Parser(handler);
+
+    parser.write(this.evaluation.pagecode.replace(/(\r\n|\n|\r|\t)/gm, ''));
+    parser.end();
+
+    const dom = handler.dom;
+    const nodes = CSSSelect(paths, dom);
+
+    for (const node of nodes || []) {
       if (inpage) {
-        n['style'] = 'background:#ff0 !important;border:2px dotted #900 !important;padding:2px !important;visibility:visible !important;display:inherit !important;';
+        node['attribs']['style'] = 'background:#ff0 !important;border:2px dotted #900 !important;padding:2px !important;visibility:visible !important;display:inherit !important;';
       }
 
-      if (ele === 'aSkipFirst') {
+      if (test === 'aSkipFirst') {
         break;
       }
-
-      i++;
-      n = nodes[i];
     }
 
-    return doc.getElementsByTagName('html')[0]['outerHTML'];
+    return DomUtils.getOuterHTML(dom);
   }
 
-  private getElementsList(test: string, path: string, webpage: string): Array < any > {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(webpage, 'text/html');
-    
+  private getElementsList(test: string, paths: string): Array < any > {
+    const handler = new DomHandler(() => {}, { withStartIndices: true, withEndIndices: true });
+    const parser = new Parser(handler);
+
+    parser.write(this.evaluation.pagecode.replace(/(\r\n|\n|\r|\t)/gm, ''));
+    parser.end();
+
+    const dom = handler.dom;
+    const nodes = CSSSelect(paths, dom);
+
     const elements = new Array();
-    let paths = path.replace(/\|/g, ', ');
 
-    if (test === 'titleOk') {
-      paths = 'title';
-    }
-    
-    const nodes = doc.querySelectorAll(paths);
-
-    for (let i = 0; i < nodes.length; i++) {
-      const node = nodes.item(i);
-
+    for (const node of nodes || []) {
       let attrs = '';
-      const fixed = node['attributes']['fixed'];
-      for (const key of Object.keys(node['attributes']) || []) {
-        const attr = < Attr > node['attributes'][key];
-        if ((attr.name === 'width' || attr.name === 'height' || attr.name === 'fixed') && fixed) {
-          continue;
-        }
-        if (attr.value) {
-          attrs += attr.name + '="' + attr.value + '" ';
+      for (const attr of Object.keys(node['attribs']) || []) {
+        const value = node['attribs'][attr];
+        
+        if (value) {
+          attrs += attr + '="' + value + '" ';
         } else {
-          attrs += attr.name + ' ';
+          attrs += attr+ ' ';
         }
       }
 
-      let eleOuterHtml = clone(node['outerHTML']);
+      let eleOuterHtml = DomUtils.getOuterHTML(node);
       let code = null;
-      if (node.nodeName.toLowerCase() === 'img') {
-        if (node['attributes']['src']) {
-          const img = new Image();
-          img.onload = function () {
-            return true;
-          };
-          img.src = node['attributes']['src'].value;
-
-          if (img.width > 500 || img.height > 200) {
-            if (img.width > img.height) {
-              node['width'] = '500';
-            } else {
-              node['height'] = '200';
-            }
-          }
-
-        }
-
-        if (node['attributes']['srcset']) {
-          const img = new Image();
-          img.onload = function () {
-            return true;
-          };
-          img.src = node['attributes']['srcset'].value;
-
-          if (img.width > 500 || img.height > 200) {
-            if (img.width > img.height) {
-              node['width'] = '500';
-            } else {
-              node['height'] = '200';
-            }
-          }
-        }
-        code = node['outerHTML'];
-      } else if (node.nodeName.toLowerCase() === 'title') {
-        code = node.firstChild.nodeValue;
-      } else if (node.nodeName.toLowerCase() === 'html') {
-        code = node['attributes']['lang'].nodeValue;
-        node['innerHTML'] = '';
-        eleOuterHtml = node['outerHTML'];
+      if (node['tagName'].toLowerCase() === 'title') {
+        code = DomUtils.getText(node);
+      } else if (node['tagName'].toLowerCase() === 'html') {
+        code = node['attribs']['lang'];
+        const cloneNode = clone(node);
+        cloneNode['children'] = [];
+        eleOuterHtml = DomUtils.getOuterHTML(cloneNode);
       } else {
-        code = node['outerHTML'];
+        code = DomUtils.getOuterHTML(node);
       }
 
       elements.push({
-        ele: node.nodeName.toLowerCase(),
+        ele: node['tagName'].toLowerCase(),
         attr: attrs,
         code: code,
-        showCode: eleOuterHtml
+        showCode: eleOuterHtml,
+        //pointer: paths.split(',')[elements.length]
       });
 
       if (test === 'aSkipFirst') {

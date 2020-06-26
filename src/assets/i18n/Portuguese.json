@@ -98,7 +98,13 @@
       "element": "Elemento:",
       "attributes": "Atributos:",
       "content": "Conteúdo/texto:",
-      "code": "Código:"
+      "code": "Código:",
+      "file": "Ficheiro:",
+      "description": "Descrição:",
+      "line": "Linha:",
+      "location": "Localização:",
+      "property": "Propriedade:",
+      "value": "Valor:"
     }
   },
   "CODE": {
@@ -169,7 +175,7 @@
     "fontAbsVal": "Tamanhos de letra definidos em unidades de medida absolutos",
     "fontHtml": "Elementos e Atributos (X)HTML para formatar o Texto das páginas (p.e. <code>basefont</code>, <code>font</code>, <code>link</code> e <code>alink</code>)",
     "fontValues": "Tamanhos de letra definidos nas CSS",
-    "form": "Formulários",
+    "form": "Formulários com o botão de envio",
     "formSubmitNo": "Formulários sem o botão de envio",
     "frame": "Elementos <code>frame</code>",
     "frameDtdNo": "Documento <code>frameset</code> com doctype incorrecto ou inexistente",
@@ -183,9 +189,9 @@
     "idRep": "Atributos <code>id</code> com valores duplicados",
     "iframe": "Elementos <code>iframe</code>",
     "iframeTitleNo": "Elementos <code>iframe</code> sem <code>title</code>",
-    "img": "Imagens",
+    "img": "Imagens com equivalente alternativo em texto",
     "imgAltLong": "Imagens com um atributo <code>alt</code> longo",
-    "imgAltNo": "Imagens sem <code>alt</code>",
+    "imgAltNo": "Imagens sem equivalente alternativo em texto",
     "imgAltNot": "Imagens com um texto alternativo incorrecto",
     "imgAltNull": "Imagens com <code>alt</code> nulo",
     "inpImg": "Botões gráficos",
@@ -225,9 +231,9 @@
     "tableComplex": "Tabelas de dados complexas",
     "tableComplexError": "Tabelas de dados complexas sem o atributo <code>headers</code> nas células de dados",
     "tableData": "Tabelas de dados",
-    "tableDataCaption": "Tabelas de dados sem o elemento <code>caption</code> ou o atributo <code>summary</code>",
+    "tableDataCaption": "Tabelas de dados sem o elemento <code>caption</code>",
     "tableLayout": "Tabelas sem células de cabeçalhos (i.e. elementos <code>th</code>)",
-    "tableLayoutCaption": "Tabelas sem células de cabeçalhos, mas com o elemento <code>caption</code> ou o atributo <code>summary</code>",
+    "tableLayoutCaption": "Tabelas sem células de cabeçalhos, mas com o elemento <code>caption</code>",
     "tableNested": "Tabelas encadeadas",
     "titleChars": "Título com cadeia de caracteres não textuais (provavelmente arte ASCII)",
     "titleLong": "Quantidade de caracteres no elemento <code>title</code>",
@@ -423,12 +429,12 @@
       "p": "Encontrei <mark>{{value}}</mark> elementos <code>&lt;iframe&gt;</code> sem <code>title</code>."
     },
     "img_01a": {
-      "s": "Constatei que <mark>todas</mark> as imagens da página fazem uso do atributo <code>alt</code>.",
-      "p": "Constatei que <mark>todas</mark> as imagens da página fazem uso do atributo <code>alt</code>."
+      "s": "Constatei que <mark>todas</mark> as imagens da página têm o necessário equivalente alternativo em texto.",
+      "p": "Constatei que <mark>todas</mark> as imagens da página têm o necessário equivalente alternativo em texto."
     },
     "img_01b": {
-      "s": "Encontrei <mark>{{value}}</mark> imagem na página que não tem o atributo <code>alt</code>.",
-      "p": "Encontrei <mark>{{value}}</mark> imagens na página que não têm o atributo <code>alt</code>."
+      "s": "Encontrei <mark>{{value}}</mark> imagem na página que não tem o necessário equivalente alternativo em texto.",
+      "p": "Encontrei <mark>{{value}}</mark> imagens na página que não têm o necessário equivalente alternativo em texto."
     },
     "img_02": {
       "s": "Encontrei <mark>{{value}}</mark> imagem na página com <code>alt=\"\"</code> (alt nulo).",
@@ -559,12 +565,12 @@
       "p": "Verifiquei que há <mark>{{value}}</mark> casos em que o atributo <code>scope</code> da tabela de dados é inválido."
     },
     "table_01": {
-      "s": "Encontrei <mark>{{value}}</mark> tabela sem cabeçalhos identificados mas que usa o elemento <code>&lt;caption&gt;</code> e/ou o atributo <code>summary</code>.",
-      "p": "Encontrei <mark>{{value}}</mark> tabelas sem cabeçalhos identificados mas que usam o elemento <code>&lt;caption&gt;</code> e/ou o atributo <code>summary</code>."
+      "s": "Encontrei <mark>{{value}}</mark> tabela sem cabeçalhos identificados mas que usa o elemento <code>&lt;caption&gt;</code>.",
+      "p": "Encontrei <mark>{{value}}</mark> tabelas sem cabeçalhos identificados mas que usam o elemento <code>&lt;caption&gt;</code>."
     },
     "table_02": {
-      "s": "Localizei <mark>{{value}}</mark> tabela de dados sem o elemento <code>&lt;caption&gt;</code> ou o atributo <code>summary</code>.",
-      "p": "Localizei <mark>{{value}}</mark> tabelas de dados sem o elemento <code>&lt;caption&gt;</code> ou o atributo <code>summary</code>."
+      "s": "Localizei <mark>{{value}}</mark> tabela de dados sem o elemento <code>&lt;caption&gt;</code>.",
+      "p": "Localizei <mark>{{value}}</mark> tabelas de dados sem o elemento <code>&lt;caption&gt;</code>."
     },
     "table_03": {
       "s": "Localizei <mark>{{value}}</mark> tabela em que o texto afixado em <code>&lt;caption&gt;</code> e <code>summary</code> é o mesmo.",
@@ -723,7 +729,7 @@
     "F4": "<p>Alguns grupos de utilizadores, particularmente os que têm perturbações que causam défices de atenção, encontram no conteúdo cintilante elementos de distracção, dificultando-lhes a capacidade de concentração nas restantes partes do conteúdo da página Web.</p>",
     "F40": "<p>O valor \"refresh\" deve ser usado com cuidado, uma vez que ele retira o controlo da página ao utilizador.</p>",
     "F41": "<p>O valor \"refresh\" deve ser usado com cuidado, uma vez que ele retira o controlo da página ao utilizador.</p>",
-    "F46": "<p>Desconfio que possa ter encontrado tabelas de dados às quais lhes faltam a identificação dos cabeçalhos. Caso contrário, poderão ser tabelas layout e neste caso têm um título e um sumário marcado, os quais deve retrirar.</p>",
+    "F46": "<p>Desconfio que possa ter encontrado tabelas de dados às quais lhes faltam a identificação dos cabeçalhos. Caso contrário, poderão ser tabelas layout e neste caso têm um título, os quais deve retrirar.</p>",
     "F47": "<p>Alguns grupos de utilizadores, particularmente os que têm perturbações que causam défices de atenção, encontram no conteúdo cintilante elementos de distracção, dificultando-lhes a capacidade de concentração nas restantes partes do conteúdo da página Web.</p>",
     "F49": "<p>Ao linearizar as tabelas verifique se o conteúdo é percetível.</p>",
     "F52": "<p></p>",
@@ -759,7 +765,7 @@
     "H35": "<p>Cada elemento applet deve conter um equivalente textual alternativo no seu corpo e um equivalente textual no seu atributo alt. É importante o uso de ambos os mecanismos uma vez que os agentes de utilizador suportam de forma inconsistente o atributo alt e o texto alternativo posicionado no corpo do <code>&lt;applet&gt;</code>.</p>",
     "H36": "<p>O elemento <code>&lt;input&gt;</code> é utilizado para criar muitos tipos de controlos de formulário. Apesar das DTDs de HTML e XHTML permitirem o uso do atributo alt em todos os seus elementos, o atributo alt deve ser usado, no caso do elemento <code>&lt;input&gt;</code>, apenas nos botões gráficos.</p>",
     "H37": "<p>Verifique se o equivalente textual alternativo existente nas imagens serve informação ou função igual à desempenhada pela imagem na página.</p>",
-    "H39": "<p>Desconfio que possa ter encontrado tabelas de dados ás quais lhes faltam a identificação do título (<code>&lt;caption&gt;</code>) e que também não faz uso do atributo summary.</p>",
+    "H39": "<p>Desconfio que possa ter encontrado tabelas de dados ás quais lhes faltam a identificação do título (<code>&lt;caption&gt;</code>).</p>",
     "H42": "<p>As páginas Web devem ser marcadas com uma estrutura hierarquizada de títulos e subtítulos. Cada página deve ter, no mínimo, um título de nível 1. O nível 2 deve marcar as secções e o nível 3 as subsecções destas. Esta mesma lógica deve ser aplicada até às subsecções de nível 6.</p>",
     "H43": "<p>Em tabelas de dados complexas (com cabeçalhos em várias linhas) é importante associar explicitamente as células de dados aos vários cabeçalhos que lhe dão contexto. Essa associação é feita com o atributo headers.</p>",
     "H44": "<p>Os elementos <code>&lt;label&gt;</code> associados aos elementos <code>&lt;input&gt;</code> permitem aos utilizadores de Tecnologias de Apoio identificar a etiqueta que contextualiza um campo de edição. A associação explicita é feita pelo par de atributos id e for, respetivamente, dos elementos <code>&lt;input&gt;</code> e <code>&lt;label&gt;</code>.</p>",
