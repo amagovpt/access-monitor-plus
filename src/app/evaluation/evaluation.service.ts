@@ -143,10 +143,10 @@ export class EvaluationService {
     };
 
     let results = {};
-    if (testSee['css'].includes(ele)) {
-      results = this.getCSSList(ele, JSON.parse(allNodes[ele])); //this.getCSS(webpage, ele);
+    if (ele !== 'fontAbsVal' && ele !== 'justifiedCss' && ele !== 'lineHeightNo' && ele !== 'colorContrast' && testSee['css'].includes(ele)) {
+      results = this.getCSSList(ele, JSON.parse(allNodes[ele]));
     } else {
-      results = this.getElements(allNodes, ele, testSee['div'].includes(ele) || testSee['span'].includes(ele));
+      results = this.getElements(allNodes, ele, true /*testSee['div'].includes(ele) || testSee['span'].includes(ele)*/);
     }
 
     return results;
