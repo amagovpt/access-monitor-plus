@@ -30,7 +30,7 @@
     }
   },
   "RESULTS": {
-    "title": "Web accessibility practices report (W3C WCAG 2.0)",
+    "title": "Web accessibility practices report (W3C WCAG 2.1)",
     "actions": {
       "back": "Go back",
       "re_evaluate": "Re-evaluate page",
@@ -116,7 +116,7 @@
   },
   "FOOTER": {
     "language": "Language",
-    "link": "ACCESS Unit",
+    "link": "Administrative Modernization Agency",
     "rights": "All rights reserved."
   },
   "LANGUAGES": {
@@ -151,7 +151,7 @@
     "aTitleMatch": "Links with the same text in content and <code>title</code> attribute",
     "aGroupNo": "Group of 10 or more links non-grouped by structural elements",
     "abbrNo": "Elements <code>abbr</code> or <code>acronym</code> without definition",
-    "acckeyRep": "<code>accesskey/ code attributes with duplicate values",
+    "acckeyRep": "<code>accesskey</code> attributes with duplicate values",
     "applet": "Elements <code>applet</code>",
     "appletAltNo": "<code>applet</code> elements without alternative text",
     "area": "Active Zones of an Image Map",
@@ -785,7 +785,7 @@
     "H50": "<p>To group related links to each other is a facilitating action of navigation. To group, we can use lists - <code>&lt;ul&gt;</code>; <code>&lt;ol&gt;</code> - or the <code>&lt;map&gt;</code> element usual in the marking of images map.</p>"
   },
   "TECHFAIL": {
-    "relationF": "This WCAG 2.0 failure is related to:",
-    "relationT": "This WCAG 2.0 technique is related to:"
+    "relationF": "This WCAG 2.1 failure is related to:",
+    "relationT": "This WCAG 2.1 technique is related to:"
   }
 }
