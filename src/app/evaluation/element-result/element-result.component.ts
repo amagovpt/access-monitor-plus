@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
@@ -11,7 +11,7 @@ import { EvaluationService } from '../evaluation.service';
   templateUrl: './element-result.component.html',
   styleUrls: ['./element-result.component.css']
 })
-export class ElementResultPageComponent implements OnInit, OnDestroy {
+export class ElementResultPageComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @ViewChild('iframe') iframe: ElementRef;
 
