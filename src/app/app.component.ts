@@ -17,12 +17,14 @@ export class AppComponent implements OnInit {
 
   langs: any = {
     'pt': 'Portuguese',
-    'en': 'English'
+    'en': 'English',
+    'nk': 'Norwegian'
   };
 
   langCodes: any = {
     'English': 'en',
-    'Portuguese': 'pt'
+    'Portuguese': 'pt',
+    'Norwegian': 'nk'
   };
 
   showGoToTop: boolean;
