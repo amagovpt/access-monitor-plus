@@ -715,6 +715,10 @@ export class EvaluationService {
       item['ele'] = ele;
     }
 
+    if (test === 'ehandBoth' || test === 'ehandler') {
+      item['ele'] = 'ehandBoth';
+    }
+
     return item;
   }
 
