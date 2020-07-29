@@ -79,8 +79,12 @@ export class EvaluationResultsPageComponent implements OnInit, OnDestroy {
       });
   }
 
-  downloadEvaluation(): void {
+  downloadCSV(): void {
     this.evaluation.downloadCSV();
+  }
+
+  downloadEARL(): void {
+    this.evaluation.downloadEARL();
   }
 
   ngOnDestroy(): void {

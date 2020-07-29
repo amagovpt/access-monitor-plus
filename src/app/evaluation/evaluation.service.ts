@@ -59,7 +59,7 @@ export class EvaluationService {
             this.fixImgSrc();
             this.fixStyleSheet();
             this.fixScripts();
-
+            
             try {
               sessionStorage.setItem('url', url);
               sessionStorage.setItem('evaluation', JSON.stringify(this.evaluation));
@@ -143,10 +143,10 @@ export class EvaluationService {
     };
 
     let results = {};
-    if (ele !== 'fontAbsVal' && ele !== 'justifiedCss' && ele !== 'lineHeightNo' && ele !== 'colorContrast' && testSee['css'].includes(ele)) {
+    if (ele !== 'colorFgBgNo' && ele !== 'fontAbsVal' && ele !== 'justifiedCss' && ele !== 'lineHeightNo' && ele !== 'colorContrast' && testSee['css'].includes(ele)) {
       results = this.getCSSList(ele, JSON.parse(allNodes[ele]));
     } else {
-      results = this.getElements(allNodes, ele, true /*testSee['div'].includes(ele) || testSee['span'].includes(ele)*/);
+      results = this.getElements(allNodes, ele, ele !== 'titleOk' && ele !== 'lang' /*testSee['div'].includes(ele) || testSee['span'].includes(ele)*/);
     }
 
     return results;
@@ -226,6 +226,90 @@ export class EvaluationService {
       const blob = new Blob([csvContent], { type: 'text/csv' });
       saveAs(blob, 'eval.csv');
     });
+  }
+
+  downloadEARL(): void {
+    const data = {
+      '@context': 'https://act-rules.github.io/earl-context.json',
+      '@graph': new Array<any>()
+    };
+
+    const assertor = {
+      '@id': 'Access Monitor',
+      '@type': 'Software',
+      homepage: 'http://accessmonitor.acessibilidade.gov.pt/amp/'
+    };
+  
+    const testSubject = {
+      '@type': 'TestSubject',
+      source: this.url,
+      assertor,
+      assertions: new Array<any>()
+    };
+    
+    for (const test in this.evaluation.data.tot.results || {}) {
+      
+      const value = this.evaluation.processed.results.filter(r => r.msg === test)[0].tech_list.tot;
+      
+      const sources = new Array<any>();
+      
+      let pointers = new Array<any>(); 
+      
+      if (test === 'img_01a') {
+        pointers = this.evaluation.data.nodes['img'].split(',');
+      } else {
+        pointers = this.evaluation.data.nodes[tests[test].test].split(',');
+      }
+
+      for (const pointer of pointers || []) {
+
+        const source = {
+          result: {
+            pointer: pointer.trim(),
+            outcome: 'earl:' + (tests_colors[test] !== 'Y' ? tests_colors[test] === 'G' ? 'passed' : 'failed' : 'cantTell'),
+          }
+        };
+
+        sources.push(source);
+      }
+
+      const result = {
+        '@type': 'TestResult',
+        outcome: 'earl:' + (tests_colors[test] !== 'Y' ? tests_colors[test] === 'G' ? 'passed' : 'failed' : 'cantTell'),
+        source: sources,
+        description: this.translate.instant('TESTS_RESULTS.' + test + (value === 1 ? '.s' : '.p'), { value })
+                      .replace('<mark>', '')
+                      .replace('</mark>', '')
+                      .replace('<code>', '')
+                      .replace('</code>', ''),
+        date: this.evaluation.data.date
+      };
+      
+      const assertion = {
+        '@type': 'Assertion',
+        test: {
+          '@id': test,
+          '@type': 'TestCase',
+          title: this.translate.instant('TECHS.' + tests[test].ref),
+          description: this.translate.instant('TXT_TECHNIQUES.' + tests[test].ref)
+                        .replace('<p>', '')
+                        .replace('</p>', '')
+                        .replace('<code>', '')
+                        .replace('</code>', '')
+                        .replace('&lt;', '')
+                        .replace('&gt;', '')
+        },
+        mode: 'earl:automatic',
+        result
+      };
+
+      testSubject.assertions.push(assertion);
+    }
+
+    data['@graph'].push(testSubject);
+
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'text/json' });
+    saveAs(blob, 'eval.json');
   }
 
   private getElements(allNodes: Array < string > , ele: string, inpage: boolean): any {
@@ -370,7 +454,7 @@ export class EvaluationService {
   }
   
     
-    if (ele !== 'aSkipFirst' && allNodes[ele]) {
+    if (allNodes[ele]) {
       path = allNodes[ele];
     } else {
       path = !xpath[ele].includes('|') ? cssify(xpath[ele]) : xpath[ele].split('|').map(selector => cssify(selector)).join('|');
@@ -713,7 +797,7 @@ export class EvaluationService {
       }
     } else if (test === 'aSkipFirst') {
       item['ele'] = ele;
-    }
+    } 
 
     if (test === 'ehandBoth' || test === 'ehandler') {
       item['ele'] = 'ehandBoth';

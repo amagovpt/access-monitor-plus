@@ -17,9 +17,17 @@
         <button *ngIf="url" mat-icon-button class="tools" (click)="evaluate(true)" matTooltip="{{ 'RESULTS.actions.re_evaluate' | translate }}">
           <mat-icon aria-label="'RESULTS.actions.re_evaluate' | translate">autorenew</mat-icon>
         </button>
-        <a mat-icon-button class="tools" (click)="downloadEvaluation()" download="eval.csv" matTooltip="{{ 'RESULTS.actions.download' | translate }}">
+        <button mat-icon-button class="tools" [matMenuTriggerFor]="menu" matTooltip="{{ 'RESULTS.actions.download' | translate }}">
           <mat-icon aria-label="'RESULTS.actions.download' | translate">file_download</mat-icon>
-        </a>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="downloadCSV()">
+            <a download="eval.csv">CSV</a>
+          </button>
+          <button mat-menu-item (click)="downloadEARL()">
+            <a download="eval.json">EARL</a>
+          </button>
+        </mat-menu>
         <a *ngIf="url" mat-icon-button class="tools" [routerLink]="['/results', url, 'code']" matTooltip="{{ 'RESULTS.actions.pagecode' | translate }}">
           <mat-icon aria-label="'RESULTS.actions.pagecode' | translate">code</mat-icon>
         </a>
