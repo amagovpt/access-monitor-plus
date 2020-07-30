@@ -54,9 +54,11 @@
                     {{ 'HOME_PAGE.file_name_label' | translate }}
                   </label>
                   <input matInput id="input_file_name" [formControl]="fileInput" type="text">
+                  <mat-error *ngIf="fileInput.hasError('invalidType')" [innerHTML]="'HOME_PAGE.file_type_error' | translate">
+                  </mat-error>
                 </mat-form-field>
               </div>
-              <button mat-flat-button color="primary" type="submit" [disabled]="fileInput.invalid || fileInput.value === ''">
+              <button mat-flat-button color="primary" type="submit" [disabled]="fileInput.invalid || !validFile || fileInput.value === ''">
                 {{ "HOME_PAGE.submit" | translate }}
               </button>
             </form>

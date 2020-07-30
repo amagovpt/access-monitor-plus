@@ -24,6 +24,7 @@
     "input_label": "Inserir código HTML aqui",
     "file_label": "Escolher ficheiro",
     "file_name_label": "Nome do ficheiro",
+    "file_type_error": "Tipo de ficheiro inválido",
     "submit": "Avaliar",
     "messages": {
       "invalid_url": "O url inserido é inválido ou não existe"

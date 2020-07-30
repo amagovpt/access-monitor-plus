@@ -86,15 +86,18 @@ export class EvaluationService {
 
   evaluateHtml(html: string): Observable<any> {
     return this.http.post<any>(this.config.getServer('/amp/eval/html'), {html}, {observe: 'response'}).pipe(
-      retry(3),
       map(res => {
         const response = res.body;
+        
+        if (!res.body || (res.status !== 200 && res.status !== 201) || response.success !== 1) {
+          throw new Error();
+        }
 
-        if (!res.body || res.status !== 200 || response.success !== 1) {
-              throw new Error();
-            }
         this.evaluation = response.result;
         this.evaluation.processed = this.processData();
+        this.fixImgSrc();
+        this.fixStyleSheet();
+        this.fixScripts();
 
         try {
           sessionStorage.setItem('evaluation', JSON.stringify(this.evaluation));

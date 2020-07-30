@@ -26,11 +26,9 @@ export class HomeComponent implements OnInit {
 
   fileInput: FormControl;
   file: File;
+  validFile: boolean;
 
-  constructor(
-    private router: Router,
-    private message: MessageService
-  ) {
+  constructor(private readonly router: Router) {
 
     this.url = new FormControl('', [
       urlValidator
@@ -44,6 +42,7 @@ export class HomeComponent implements OnInit {
     ]);
 
     this.urlMatcher = new UrlStateMatcher();
+    this.validFile = false;
   }
 
   ngOnInit(): void {}
@@ -54,23 +53,35 @@ export class HomeComponent implements OnInit {
 
   validateHTML(): void {
     const html = this.htmlInput.value;
-    sessionStorage.setItem('html-validate', html);
+    sessionStorage.setItem('html-validate', this.getDOM(html));
     this.router.navigateByUrl('/results/html');
   }
 
   validateFile(): void {
     const reader = new FileReader();
     reader.onload = event => {
-      sessionStorage.setItem('html-validate', event.target['result'].toString());
+      sessionStorage.setItem('html-validate', this.getDOM(event.target['result'].toString()));
       this.router.navigateByUrl('/results/html');
     };
     reader.onerror = error => console.log(error);
     reader.readAsText(this.file);
   }
 
+  getDOM(content: string): string {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(content, 'text/html');
+    return doc.documentElement.outerHTML;
+  }
+
   onFileChanged(e): void {
     this.file = e.target.files[0];
     this.fileInput.setValue(this.file.name);
+
+    if (this.file.type !== 'text/html') {
+      this.validFile = false;
+    } else {
+      this.validFile = true;
+    }
   }
 }
 
@@ -81,22 +92,7 @@ function urlValidator(control: FormControl) {
     return null;
   }
 
-  if (!url.startsWith('http://') && !url.startsWith('https://') && !url.startsWith('www.')) {
-    if (url.includes('.') && url[url.length - 1] !== '.') {
-      return null;
-    }
-  } else if (url.startsWith('http://')) {
-    url = url.replace('http://', '');
-    if (url.includes('.') && url[url.length - 1] !== '.') {
-      return null;
-    }
-  } else if (url.startsWith('https://')) {
-    url = url.replace('https://', '');
-    if (url.includes('.') && url[url.length - 1] !== '.') {
-      return null;
-    }
-  } else if (url.startsWith('www.')) {
-    url = url.replace('www.', '');
+  if (url.startsWith('http://') || url.startsWith('https://')) {
     if (url.includes('.') && url[url.length - 1] !== '.') {
       return null;
     }

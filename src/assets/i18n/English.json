@@ -24,6 +24,7 @@
     "input_label": "Enter HTML code here",
     "file_label": "Select file",
     "file_name_label": "File name",
+    "file_type_error": "Invalid file type",
     "submit": "Evaluate",
     "messages": {
       "invalid_url": "The given url is invalid or doesn't exist"
