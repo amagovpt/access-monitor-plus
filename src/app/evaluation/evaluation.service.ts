@@ -223,7 +223,9 @@ export class EvaluationService {
       labels.push(res['CSV.desc']);
       labels.push(res['CSV.count']);
 
-      let csvContent = labels.join(',') + '\r\n';
+      let csvContent = this.evaluation.data.rawUrl + '\r\n';
+      csvContent += this.evaluation.data.date + '\r\n';
+      csvContent += labels.join(',') + '\r\n';
       for (const row of data || []) {
         csvContent += row.join(',') + '\r\n';
       }
@@ -729,6 +731,8 @@ export class EvaluationService {
               tnum = tot.info.title;
             } else if (tes === 'lang') {
               tnum = tot.info.lang;
+            } else if (tes === 'langNo') {
+              tnum = 'lang';
             } else if (tes === 'titleLong') {
               tnum = tot.info.title.length;
             } else {
