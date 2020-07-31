@@ -93,6 +93,10 @@ function urlValidator(control: FormControl) {
   }
 
   if (url.startsWith('http://') || url.startsWith('https://')) {
+    if (url.includes('www.')) {
+      url = url.replace('www.', '');
+    }
+
     if (url.includes('.') && url[url.length - 1] !== '.') {
       return null;
     }
