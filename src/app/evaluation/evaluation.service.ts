@@ -186,18 +186,17 @@ export class EvaluationService {
     const numTable = [];
 
     const _eval = this.evaluation.processed;
-
+    
     for (const row in _eval['results']) {
       if (_eval['results'][row]) {
         const rowData = [];
         error = 'CSV.' + (_eval['results'][row]['prio'] === 3 ? 'scoreok' : _eval['results'][row]['prio'] === 2 ? 'scorewar' : 'scorerror');
         level = _eval['results'][row]['lvl'];
-        //sc = _eval['scoreBoard'][row]['sc'];
         num = _eval['results'][row]['value'];
         desc = 'TESTS_RESULTS.' + _eval['results'][row]['msg'] + ((num === 1) ? '.s' : '.p');
 
         descs.push(desc, error);
-        rowData.push(error, level, /*sc,*/ desc, num);
+        rowData.push(_eval['results'][row]['msg'], error, level, desc, num);
         data.push(rowData);
       }
     }
@@ -207,14 +206,17 @@ export class EvaluationService {
 
       for (const row in data) {
         if (data[row]) {
-          data[row][2] = res[data[row][2]].replace('{{value}}', data[row][3]);
-          data[row][2] = data[row][2].replace(new RegExp('<mark>', 'g'), '');
-          data[row][2] = data[row][2].replace(new RegExp('</mark>', 'g'), '');
-          data[row][2] = data[row][2].replace(new RegExp('<code>', 'g'), '');
-          data[row][2] = data[row][2].replace(new RegExp('</code>', 'g'), '');
-          data[row][0] = res[data[row][0]];
+          data[row][3] = res[data[row][3]].replace('{{value}}', data[row][4]);
+          data[row][3] = data[row][3].replace(new RegExp('<mark>', 'g'), '');
+          data[row][3] = data[row][3].replace(new RegExp('</mark>', 'g'), '');
+          data[row][3] = data[row][3].replace(new RegExp('<code>', 'g'), '');
+          data[row][3] = data[row][3].replace(new RegExp('</code>', 'g'), '');
+          data[row][3] = data[row][3].replace(new RegExp('&lt;', 'g'), '');
+          data[row][3] = data[row][3].replace(new RegExp('&gt;', 'g'), '');
+          data[row][1] = res[data[row][1]];
         }
       }
+      labels.push('ID');
       labels.push(res['CSV.errorType']);
       labels.push(res['CSV.level']);
       //labels.push(res['CSV.criteria']);
