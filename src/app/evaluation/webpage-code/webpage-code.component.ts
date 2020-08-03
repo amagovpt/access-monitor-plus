@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { saveAs } from 'file-saver';
+import { html } from 'js-beautify';
 
 @Component({
   selector: 'app-webpage-code',
@@ -27,7 +28,7 @@ export class WebpageCodePageComponent implements OnInit, OnDestroy {
       if (params.url !== 'html') {
         this.url = params.url;
       }
-      this.pagecode = JSON.parse(sessionStorage.getItem('evaluation')).pagecode;
+      this.pagecode = html(JSON.parse(sessionStorage.getItem('evaluation')).pagecode, { indent_size: 2 });
     });
   }
 
