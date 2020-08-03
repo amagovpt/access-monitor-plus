@@ -31,7 +31,7 @@
     }
   },
   "RESULTS": {
-    "title": "Relatório de práticas de acessibilidade Web (WCAG 2.0 do W3C)",
+    "title": "Relatório de práticas de acessibilidade Web (WCAG 2.1 do W3C)",
     "actions": {
       "back": "Voltar",
       "re_evaluate": "Re-avaliar a página",
@@ -787,7 +787,7 @@
     "H50": "<p>Agrupar links relacionados entre si é uma prática facilitadora da navegação. Para agrupar, podemos usar listas - <code>&lt;ul&gt;</code>; <code>&lt;ol&gt;</code> - ou o elemento <code>&lt;map&gt;</code> usual na marcação de mapas de imagem.</p>"
   },
   "TECHFAIL": {
-    "relationF": "Esta falha WCAG 2.0 está relacionada com:",
-    "relationT": "Esta técnica WCAG 2.0 está relacionada com:"
+    "relationF": "Esta falha WCAG 2.1 está relacionada com:",
+    "relationT": "Esta técnica WCAG 2.1 está relacionada com:"
   }
 }
