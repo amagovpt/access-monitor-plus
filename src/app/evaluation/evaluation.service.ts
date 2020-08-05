@@ -748,7 +748,8 @@ export class EvaluationService {
           result['lvl'] = level;
           result['msg'] = test;
           result['ref'] = ref;
-          result['ref_website'] = 'http://www.acessibilidade.gov.pt/w3/TR/WCAG20-TECHS/' + ref + '.html';
+          const path = ref.startsWith('C') ? 'css/' : ref.startsWith('H') ? 'html/' : ref.startsWith('A') ? 'aria/' : ref.startsWith('S') ? 'client-side-script/' : ref.startsWith('G') ? 'general/' : 'failures/';
+          result['ref_website'] = 'https://www.w3.org/WAI/WCAG21/Techniques/' + path + ref + '.html';
           result['relation'] = tests[test]['ref'] === 'F' ? 'relationF' : 'relationT';
           result['ref_related_sc'] = new Array();
           result['value'] = tnum;
