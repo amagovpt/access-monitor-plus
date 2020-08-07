@@ -5,10 +5,20 @@ mat-card {
 mat-card {
   border-radius: 0;
   box-shadow: none !important;
+  padding-left: 60px;
+  padding-top: 78px;
 }
 
 .header {
   text-align: center;
+}
+
+.intro_text {
+  width: 51%;
+}
+
+.tabs03 {
+  width: 48%;
 }
 
 form,

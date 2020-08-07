@@ -1,16 +1,13 @@
 <main id="main" fxLayout="row" fxLayoutAlign="center center">
   <section fxLayout="column" fxLayoutAlign="center center" fxFlex.lt-md="95" fxFlex.md="87" fxFlex.lg="87" fxFlex.gt-lg="87">
-    <mat-card class="mat-typography">
-      <mat-card-header class="header" fxLayout="row" fxLayoutAlign="center center">
-        <mat-card-title fxHide.lt-md>
-          <h1>Access Monitor Plus</h1>
-        </mat-card-title>
-        <mat-card-subtitle class="header-card-subtitle">
-          <h2>{{ "HOME_PAGE.header" | translate }}</h2>
-        </mat-card-subtitle>
-      </mat-card-header>
-      <br>
-      <mat-card-content>
+    <mat-card class="mat-typography" fxLayout="column">
+      <mat-card-content class="intro_text">
+        {{ "HOME_PAGE.intro_text" | translate }
+        Aceda aqui ao nosso validador de práticas de acessibilidade Web.
+Lorem ipsum dolor sit amet de práticas de acessibilidade WCAG 2.1.
+Obtenha um relatório de acessibilidade através de um dos seguintes métodos:
+      </mat-card-content>
+      <mat-card-content class="tabs03">
         <mat-tab-group mat-stretch-tabs>
           <mat-tab label="{{ 'HOME_PAGE.tabs.url' | translate }}">
             <form name="url_validate" (submit)="validateURL()" fxLayout="column" fxLayoutAlign="start center"

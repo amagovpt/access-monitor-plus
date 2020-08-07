@@ -13,6 +13,7 @@
   },
   "HOME_PAGE": {
     "header": "Obtenha um relatório de acessibilidade através de um dos seguintes métodos",
+    "intro_text": "Aceda aqui ao nosso validador de práticas de acessibilidade Web. Lorem ipsum dolor sit amet de práticas de acessibilidade WCAG 2.1. Obtenha um relatório de acessibilidade através de um dos seguintes métodos:", 
     "tabs": {
       "url": "Inserir URL",
       "input": "Inserir código HTML",
