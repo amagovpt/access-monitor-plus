@@ -47,36 +47,39 @@
           <h1>{{ "RESULTS.summary.title" | translate }}</h1>
         </mat-card-title>
       </mat-card-header>
-      <mat-card-content fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around center">
-        <ngx-gauge [type]="'semi'" [thick]="'10'" [value]="eval.metadata.score" [label]="'RESULTS.summary.score' | translate"
-          [min]="0" [max]="10" [duration]="2000" [thresholds]="thresholdConfig">
-        </ngx-gauge>
-        <table class="metadata" border="1" frame="void" rules="rows">
-          <tr *ngIf="eval.metadata.url">
-            <th scope="row">
-              <strong>URI</strong>
-            </th>
-            <td>{{eval.metadata.url}}</td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <strong>{{ "RESULTS.summary.metadata.title_label" | translate }}</strong>
-            </th>
-            <td>{{eval.metadata.title}}</td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <strong>{{ "RESULTS.summary.metadata.n_elements_label" | translate }}</strong>
-            </th>
-            <td>{{eval.metadata.n_elements}}</td>
-          </tr>
-          <tr>
-            <th scope="row">
-              <strong>{{ "RESULTS.summary.metadata.page_size_label" | translate }}</strong>
-            </th>
-            <td [innerHTML]="eval.metadata.size | html"></td>
-          </tr>
-        </table>
+      <mat-card-content fxLayout="column" fxLayoutAlign="space-around center">
+        <div class="summary" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-around center">
+          <ngx-gauge [type]="'semi'" [thick]="'10'" [value]="eval.metadata.score" [label]="'RESULTS.summary.score' | translate"
+            [min]="0" [max]="10" [duration]="2000" [thresholds]="thresholdConfig">
+          </ngx-gauge>
+          <table class="metadata" border="1" frame="void" rules="rows">
+            <tr *ngIf="eval.metadata.url">
+              <th scope="row">
+                <strong>URI</strong>
+              </th>
+              <td>{{eval.metadata.url}}</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <strong>{{ "RESULTS.summary.metadata.title_label" | translate }}</strong>
+              </th>
+              <td>{{eval.metadata.title}}</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <strong>{{ "RESULTS.summary.metadata.n_elements_label" | translate }}</strong>
+              </th>
+              <td>{{eval.metadata.n_elements}}</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <strong>{{ "RESULTS.summary.metadata.page_size_label" | translate }}</strong>
+              </th>
+              <td [innerHTML]="eval.metadata.size | html"></td>
+            </tr>
+          </table>
+        </div>
+        <span *ngIf="!eval.metadata.validator"><strong>{{ "RESULTS.summary.metadata.validator" | translate }}</strong></span>
       </mat-card-content>
     </mat-card>
     <br>

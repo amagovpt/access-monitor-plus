@@ -46,7 +46,8 @@
         "title_label": "Tittel",
         "n_elements_label": "Antall (x) HTML-elementer",
         "page_size_label": "Sidestørrelse",
-        "last_update_label": "Sist oppdatert"
+        "last_update_label": "Sist oppdatert",
+        "validator": "We couldn't contact the W3C html markup validator"
       },
       "table": {
         "title": "Antall praksis funnet",

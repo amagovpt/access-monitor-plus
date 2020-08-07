@@ -681,6 +681,7 @@ export class EvaluationService {
     data['metadata']['size'] = this.convertBytes(tot['info']['size']);
     data['metadata']['last_update'] = tot['info']['date'];
     data['metadata']['count_results'] = tot['results'].length;
+    data['metadata']['validator'] = tot.elems['w3cValidator'] === 'true';
 
     data['results'] = [];
 
@@ -725,8 +726,7 @@ export class EvaluationService {
           infoak[level][color]++;
 
           let tnum;
-
-          if (tot.elems[tes]) {
+          if (tot.elems[tes] !== undefined) {
             if (tes === 'titleOk') {
               tnum = tot.info.title;
             } else if (tes === 'lang') {
@@ -738,6 +738,10 @@ export class EvaluationService {
             } else {
               tnum = tot['elems'][tes];
             }
+          } else if (tes === 'imgAltNo') {
+            tnum = tot.elems['img'];
+          } else if (tes === 'inputLabelNo') {
+            tnum = tot.elems['label'];
           } else {
             tnum = tot['elems'][ele];
           }
@@ -769,7 +773,7 @@ export class EvaluationService {
               }
             }
           }
-
+          
           if (color === 'ok' && ele !== 'all') {
             result['tech_list'] = this.testView(ele, ele, tes, color, tnum);
           } else {
@@ -798,11 +802,11 @@ export class EvaluationService {
 
     if (ele === 'w3cValidatorErrors') {
       item['html_validator'] = true;
-      item['ele'] = 'http://validador-html.fccn.pt/check?uri=' + encodeURIComponent(this.url);
+      item['ele'] = 'hhttps://validator.w3.org/nu/?doc=' + encodeURIComponent(this.url);
     } else if (tot || tot > 0) {
       item['ele'] = ele;
       
-      if ((/*test === 'aSkipFirst' ||*/ test === 'aSkip' || test === 'langNo' || test === 'h1' || test === 'titleNo') && color === 'err') {
+      if ((test === 'aSkip' || test === 'langNo' || test === 'h1' || test === 'titleNo') && color === 'err') {
         delete item['ele'];
       }
     } else if (test === 'aSkipFirst') {

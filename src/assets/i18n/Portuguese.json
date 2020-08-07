@@ -47,7 +47,8 @@
         "title_label": "Título",
         "n_elements_label": "Nº de elementos (x)HTML",
         "page_size_label": "Tamanho da página",
-        "last_update_label": "Última actualização"
+        "last_update_label": "Última actualização",
+        "validator": "Não se conseguiu contactar o validador de html do W3C"
       },
       "table": {
         "title": "Nº práticas encontradas",

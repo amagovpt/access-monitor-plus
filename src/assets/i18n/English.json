@@ -47,7 +47,8 @@
         "title_label": "Title",
         "n_elements_label": "Nº of (x)HTML elements",
         "page_size_label": "Page size",
-        "last_update_label": "Last update"
+        "last_update_label": "Last update",
+        "validator": "We couldn't contact the W3C html markup validator"
       },
       "table": {
         "title": "Nº practices found",
