@@ -2,20 +2,26 @@ mat-card {
   width: 100%;
 }
 
+mat-card {
+  border-radius: 0;
+  box-shadow: none !important;
+}
+
 .header {
   text-align: center;
 }
 
-form, mat-card-content {
-	width: 100%;
+form,
+mat-card-content {
+  width: 100%;
 }
 
 mat-hint {
-	height: 2rem;
+  height: 2rem;
 }
 
 button {
-	padding: 0.5rem;
+  padding: 0.5rem;
 }
 
 .input_field {
