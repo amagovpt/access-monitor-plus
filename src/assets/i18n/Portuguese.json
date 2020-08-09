@@ -19,8 +19,8 @@
       "input": "Inserir código HTML",
       "file": "Carregar ficheiro HTML"
     },
-    "url_label": "Inserir url aqui",
-    "url_hint": "<strong>Exemplo:</strong> http://www.google.pt",
+    "url_label": "Introduza o endereço de uma página",
+    "url_hint": "http(s)",
     "url_error": "Introduza um url válido. <strong>Ex.: http://www.google.pt</strong>",
     "input_label": "Inserir código HTML aqui",
     "file_label": "Escolher ficheiro",

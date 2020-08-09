@@ -26,7 +26,7 @@
                 novalidate
               >
                 <mat-form-field class="input_field">
-                  <label for="url">{{
+                  <label class="url_label" for="url">{{
                     "HOME_PAGE.url_label" | translate
                   }}</label>
                   <input
@@ -34,13 +34,14 @@
                     name="url"
                     matInput
                     type="url"
+                    [value]="'HOME_PAGE.url_hint' | translate"
                     [formControl]="url"
                     [errorStateMatcher]="urlMatcher"
                   />
-                  <mat-hint
+<!--                  <mat-hint
                     align="start"
                     [innerHTML]="'HOME_PAGE.url_hint' | translate"
-                  ></mat-hint>
+                  ></mat-hint>-->
                   <mat-error
                     *ngIf="url.hasError('url')"
                     [innerHTML]="'HOME_PAGE.url_error' | translate"

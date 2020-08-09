@@ -15,8 +15,8 @@ mat-card {
 
 .intro_text {
   width: 100%;
-  font-size: 20px;
-  line-height: 28px;
+  font-size: 1.25em;
+  line-height: 1.75em;
   color: #333333;
   font-weight: 400;
   font-family: "Red Hat Display";
@@ -27,8 +27,8 @@ mat-card {
 }
 
 ::ng-deep .mat-tab-label {
-  font-size: 16px;
-  line-height: 48px;
+  font-size: 1em;
+  line-height: 3em;
   color: #333399;
   font-weight: 700;
   font-family: "Red Hat Display";
@@ -41,6 +41,29 @@ mat-card {
 
 .home_logo {
   width: 237px;
+}
+
+::ng-deep .url_label {
+  font-size: 1em;
+  line-height: 3em;
+  color: #333333;
+  font-weight: 700;
+  font-family: "Red Hat Display";
+}
+
+::ng-deep .url_label + input {
+  border: 2px solid #333399;
+  width: 96%;
+  padding-left: 1em;
+  font-size: 1em;
+  line-height: 2em;
+  color: #333333;
+  font-weight: 400;
+  font-family: "Red Hat Display";
+}
+
+::ng-deep .mat-form-field-underline {
+  display: none;
 }
 
 form,
