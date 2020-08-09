@@ -15,10 +15,28 @@ mat-card {
 
 .intro_text {
   width: 51%;
+  font-size: 20px;
+  line-height: 28px;
+  color: #333333;
+  font-weight: 400;
+  font-family: 'Red Hat Display';
 }
 
 .tabs03 {
   width: 48%;
+}
+
+::ng-deep .mat-tab-label {
+  font-size: 16px;
+  line-height: 48px;
+  color: #333399;
+  font-weight: 700;
+  font-family: 'Red Hat Display';
+}
+
+::ng-deep .mat-tab-header {
+  color: #333399;
+  background-color: #eaeaea;
 }
 
 form,
