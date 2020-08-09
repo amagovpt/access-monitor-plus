@@ -5,8 +5,10 @@ mat-card {
 mat-card {
   border-radius: 0;
   box-shadow: none !important;
+  margin-top: 100px;
   padding-left: 60px;
-  padding-top: 78px;
+  padding-top: 62px;
+  padding-bottom: 62px;
 }
 
 .header {
@@ -24,6 +26,12 @@ mat-card {
 
 .tabs03 {
   width: 94%;
+  margin-top: 16px;
+}
+
+::ng-deep .mat-tab-header {
+  font-weight: 700;
+  width: 99%;
 }
 
 ::ng-deep .mat-tab-label {
@@ -32,12 +40,17 @@ mat-card {
   color: #333399;
   font-weight: 700;
   font-family: "Red Hat Display";
+  opacity: 1 !important;
 }
 
 ::ng-deep .mat-tab-header {
   color: #333399;
   background-color: #eaeaea;
   border-bottom: none;
+}
+
+::ng-deep .mat-tab-label-active {
+  border-bottom-width: 5px !important;
 }
 
 .home_logo {
