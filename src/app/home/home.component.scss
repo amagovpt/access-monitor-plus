@@ -67,6 +67,31 @@ mat-card {
   display: none;
 }
 
+.card_actions {
+  width: 100%;
+}
+
+.card_actions button {
+  width: 141px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #333399;
+  font-size: 1em;
+  color: #f1f1f1;
+  font-weight: 700;
+  font-family: "Red Hat Display";
+  text-align: center;
+}
+
+.card_actions button svg {
+  display: inline;
+  margin-left: 1em;
+}
+
+.card_actions button svg path {
+  fill: #f1f1f1;
+}
+
 form,
 mat-card-content {
   width: 100%;
