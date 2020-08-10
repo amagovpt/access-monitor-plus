@@ -1,10 +1,32 @@
 .menu-button {
-	position: fixed;
+  position: fixed;
   z-index: 100;
   background-color: lightblue;
 }
 
 .small-logo {
-	margin-top: 1em;
-	width: 60%;
+  margin-top: 1em;
+  width: 60%;
+}
+
+.header_wrapper {
+  width: 100%;
+  background-color: rgb(239, 239, 238);
+}
+
+.amp_header {
+  width: 100%;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.header_text {
+  text-align: right;
+  font-size: 1.125em;
+  line-height: 1.25em;
+  color: #333333;
+  font-weight: 400;
+  font-family: "Red Hat Display";
 }

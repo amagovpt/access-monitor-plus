@@ -7,25 +7,27 @@
       "results": "Resultados",
       "code": "Código"
     },
+    "line_text": "O validador de práticas de acessibilidade Web (WCAG 2.1)",
     "sidebar": {
       "evaluation": "Relatório da avaliação"
     }
   },
   "HOME_PAGE": {
     "header": "Obtenha um relatório de acessibilidade através de um dos seguintes métodos",
+    "intro_text": "Aceda aqui ao nosso validador de práticas de acessibilidade Web (WCAG 2.1). Obtenha um relatório de acessibilidade através de um dos seguintes métodos:", 
     "tabs": {
       "url": "Inserir URL",
       "input": "Inserir código HTML",
       "file": "Carregar ficheiro HTML"
     },
-    "url_label": "Inserir url aqui",
-    "url_hint": "<strong>Exemplo:</strong> http://www.google.pt",
+    "url_label": "Introduza o endereço de uma página",
+    "url_hint": "http(s)",
     "url_error": "Introduza um url válido. <strong>Ex.: http://www.google.pt</strong>",
     "input_label": "Inserir código HTML aqui",
     "file_label": "Escolher ficheiro",
     "file_name_label": "Nome do ficheiro",
     "file_type_error": "Tipo de ficheiro inválido",
-    "submit": "Avaliar",
+    "submit": "Validar",
     "messages": {
       "invalid_url": "O url inserido é inválido ou não existe"
     }

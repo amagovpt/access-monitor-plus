@@ -2,20 +2,120 @@ mat-card {
   width: 100%;
 }
 
+mat-card {
+  border-radius: 0;
+  box-shadow: none !important;
+  margin-top: 100px;
+  padding-left: 60px;
+  padding-top: 62px;
+  padding-bottom: 62px;
+}
+
 .header {
   text-align: center;
 }
 
-form, mat-card-content {
-	width: 100%;
+.intro_text {
+  width: 100%;
+  font-size: 1.25em;
+  line-height: 1.75em;
+  color: #333333;
+  font-weight: 400;
+  font-family: "Red Hat Display";
+}
+
+.tabs03 {
+  width: 94%;
+  margin-top: 16px;
+}
+
+::ng-deep .mat-tab-header {
+  font-weight: 700;
+  width: 99%;
+}
+
+::ng-deep .mat-tab-label {
+  font-size: 1em;
+  line-height: 3em;
+  color: #333399;
+  font-weight: 700;
+  font-family: "Red Hat Display";
+  opacity: 1 !important;
+}
+
+::ng-deep .mat-tab-header {
+  color: #333399;
+  background-color: #eaeaea;
+  border-bottom: none;
+}
+
+::ng-deep .mat-tab-label-active {
+  border-bottom-width: 5px !important;
+}
+
+.home_logo {
+  width: 237px;
+}
+
+::ng-deep .url_label {
+  font-size: 1em;
+  line-height: 3em;
+  color: #333333;
+  font-weight: 700;
+  font-family: "Red Hat Display";
+}
+
+::ng-deep .url_label + input {
+  border: 2px solid #333399;
+  width: 96%;
+  padding-left: 1em;
+  font-size: 1em;
+  line-height: 2em;
+  color: #333333;
+  font-weight: 400;
+  font-family: "Red Hat Display";
+}
+
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+
+.card_actions {
+  width: 100%;
+}
+
+.card_actions button {
+  width: 141px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #333399;
+  font-size: 1em;
+  color: #f1f1f1;
+  font-weight: 700;
+  font-family: "Red Hat Display";
+  text-align: center;
+}
+
+.card_actions button svg {
+  display: inline;
+  margin-left: 1em;
+}
+
+.card_actions button svg path {
+  fill: #f1f1f1;
+}
+
+form,
+mat-card-content {
+  width: 100%;
 }
 
 mat-hint {
-	height: 2rem;
+  height: 2rem;
 }
 
 button {
-	padding: 0.5rem;
+  padding: 0.5rem;
 }
 
 .input_field {
