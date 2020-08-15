@@ -1,29 +1,12 @@
 .skip-to-main {
-  visibility: hidden;
+  display: block;
   position: absolute;
+  left: 0;
+  top: 0;
   z-index: -100;
-}
 
-mat-sidenav-container {
-  height: 100%;
-  background-color: #e4e4e4;
-}
-
-mat-sidenav {
-  width: 60%;
-}
-
-mat-sidenav div {
-	height: 95%;
-}
-
-mat-nav-list, mat-list {
-	width: 100%;
-}
-
-@media screen and (min-width: 600px) {
-  mat-sidenav {
-    width: 40%;
+  &:focus {
+    z-index: 100;
   }
 }
 
@@ -36,29 +19,4 @@ mat-nav-list, mat-list {
   content: "";
   display: block;
   height: 115px;
-}
-
-.footer {
-  border-top: thin solid black;
-}
-
-.go_to_top {
-  display: block;
-  position: fixed;
-  bottom: 12vh;
-  right: 5vw;
-  z-index: 100;
-}
-
-.go_to_top_mini {
-  display: block;
-  position: fixed;
-  bottom: 12vh;
-  right: 5vw;
-  z-index: 100;
-}
-
-.go_to_top:focus,
-.go_to_top_mini:focus {
-  outline: 0;
 }

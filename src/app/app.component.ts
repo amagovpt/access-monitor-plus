@@ -1,40 +1,31 @@
-import { OnInit, Component, Injectable, ViewChild, ElementRef, ChangeDetectionStrategy } from '@angular/core';
+import { OnInit, Component, Injectable, ElementRef } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { ThemeService } from './theme.service';
 
 @Injectable()
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
 
-  @ViewChild('sideNav', { static: true }) sideNav: ElementRef;
-
-  selectedLang: string;
-
-  langs: any = {
+  private readonly langs: any = {
     'pt': 'Portuguese',
     'en': 'English',
     'nk': 'Norwegian'
   };
 
-  langCodes: any = {
+  private readonly langCodes: any = {
     'English': 'en',
     'Portuguese': 'pt',
     'Norwegian': 'nk'
   };
 
-  showGoToTop: boolean;
-
-  url: string;
-
   constructor(
-    private readonly el: ElementRef,
-    public readonly translate: TranslateService,
-    private readonly router: Router
+    private readonly el: ElementRef<Element>,
+    private readonly translate: TranslateService,
+    private readonly theme: ThemeService
   ) {
     this.translate.addLangs(Object.values(this.langs));
     this.translate.setDefaultLang('Portuguese');
@@ -51,55 +42,20 @@ export class AppComponent implements OnInit {
       this.translate.use(lang);
     }
 
-    this.selectedLang = this.translate.currentLang;
+    const currentTheme = localStorage.getItem('theme') || 'light';
 
-    this.showGoToTop = false;
+    if (currentTheme !== 'dark') {
+      this.theme.setLightTheme();
+    } else {
+      this.theme.setDarkTheme();
+    }
   }
 
   ngOnInit(): void {
     this.translate.onLangChange.subscribe(() => {
-      this.updateLanguage();
+      const lang = document.createAttribute('lang');
+      lang.value = this.langCodes[this.translate.currentLang];
+      this.el.nativeElement.parentElement.parentElement.attributes.setNamedItem(lang);
     });
-
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        const path = location.pathname;
-        const segments = path.split('/');
-        this.url = null;
-
-        if (segments.length > 2) {
-          this.url = decodeURIComponent(segments[2]);
-        }
-
-        document.getElementById('main').scrollIntoView();
-      }
-    });
-  }
-
-  /**
-   * Update the language in the lang attribute of the html element.
-   */
-  updateLanguage(): void {
-    const lang = document.createAttribute('lang');
-    lang.value = this.langCodes[this.translate.currentLang];
-    this.el.nativeElement.parentElement.parentElement.attributes.setNamedItem(lang);
-  }
-
-  changeLanguage(): void {
-    this.translate.use(this.selectedLang);
-    localStorage.setItem('language', this.selectedLang);
-    this.updateLanguage();
-  }
-
-  goToTop(): void {
-    document.getElementById('main').scrollIntoView();
-  }
-
-  onScroll(e: any): void {
-    if (e.srcElement.scrollTop > 300) {
-      this.showGoToTop = true;
-    } else {
-      this.showGoToTop = false;
-    }
   }
 }

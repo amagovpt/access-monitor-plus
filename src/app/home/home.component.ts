@@ -79,8 +79,10 @@ export class HomeComponent implements OnInit {
 
     if (this.file.type !== 'text/html') {
       this.validFile = false;
+      this.fileInput.setErrors({ invalidType: true })
     } else {
       this.validFile = true;
+      this.fileInput.setErrors(null);
     }
   }
 }

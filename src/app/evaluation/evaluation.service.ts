@@ -265,7 +265,7 @@ export class EvaluationService {
       if (test === 'img_01a') {
         pointers = this.evaluation.data.nodes['img'].split(',');
       } else {
-        pointers = this.evaluation.data.nodes[tests[test].test].split(',');
+        pointers = this.evaluation.data.nodes[tests[test].test]; //.split(',');
       }
 
       for (const pointer of pointers || []) {
