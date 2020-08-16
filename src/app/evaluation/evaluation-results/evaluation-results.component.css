@@ -1,3 +1,140 @@
+.header_wrapper {
+  width: 100%;
+  background-color: var(--background-secondary);
+}
+
+.amp_header {
+  width: 100%;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.amp_header svg path {
+  fill: var(--text-primary);
+}
+
+.amp_header svg circle {
+  fill: var(--text-primary);
+}
+
+.card_actions button {
+  /*width: 141px;*/
+  height: 50px;
+  border-radius: 25px;
+  background-color: #333399;
+  font-size: 1em;
+  color: #f1f1f1;
+  font-weight: 700;
+  font-family: "Red Hat Display";
+  text-align: center;
+}
+
+.card_actions button svg {
+  display: inline;
+  margin-left: 1em;
+}
+
+.card_actions button svg path {
+  fill: #f1f1f1;
+}
+
+section {
+  width: 87%;
+}
+
+section:first-child {
+  width: 100%;
+}
+
+section:nth-child(2) nav {
+  padding-top: 5em;
+  padding-bottom: 3em;
+}
+
+section:nth-child(2) nav span {
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+}
+
+section:nth-child(3) {
+  font-family: "Red Hat Display";
+  padding-bottom: 5em;
+}
+
+section:nth-child(3) div:first-child {
+  background-color: #339;
+  font-size: 1em;
+  padding: 0.3em;
+  width: 120px;
+  color: #f1f1f1;
+  font-weight: 700;
+  text-align: center;
+}
+
+.action {
+  color: #339;
+  font-weight: 700;
+  border-radius: 25px;
+}
+
+.action svg {
+  width: 2em;
+  height: 1.5em;
+}
+
+.action svg path, .action svg circle {
+  fill: #339;
+}
+
+.action:hover, .action:focus {
+  color: white;
+  background-color: #339;
+}
+
+.action:hover svg path, .action:focus svg path {
+  fill: white;
+}
+
+.action:hover svg circle, .action:focus svg circle {
+  fill: white;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  width: 200px;
+  margin-top: 1em;
+  padding: 1em;
+  border-radius: 25px;
+  color: white;
+  background-color: var(--text-tertiary);
+  position: absolute;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  display: block;
+  padding: 0.5em;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.dropdown-content a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.show_dropdown {
+  display: block !important;
+}
+
 mat-card {
   width: 100%;
 }

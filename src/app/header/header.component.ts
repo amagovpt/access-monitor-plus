@@ -1,4 +1,5 @@
-import { Component, Input, ElementRef } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,17 @@ import { Component, Input, ElementRef } from '@angular/core';
 })
 export class HeaderComponent {
 
-  @Input() sideNav: ElementRef;
+  constructor(private readonly theme: ThemeService, private readonly cd: ChangeDetectorRef) {}
 
-  toggleSideNav(): void {
-    (<any>this.sideNav).toggle();
+  toggleLightDarkTheme(): void {
+    if (this.theme.isDarkTheme()) {
+      this.theme.setLightTheme();
+      localStorage.setItem('theme', 'light');
+    } else {
+      this.theme.setDarkTheme();
+      localStorage.setItem('theme', 'dark');
+    }
+    
+    this.cd.detectChanges();
   }
 }

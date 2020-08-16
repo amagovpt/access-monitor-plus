@@ -1,50 +1,6 @@
 <a class="skip-to-main" href="#main" title="{{ 'MISC.skip_to_main' | translate }}">{{ "MISC.skip_to_main" | translate }}</a>
-<mat-sidenav-container>
-  <mat-sidenav #sideNav>
-    <div fxLayout="column" fxLayoutAlign="space-between start">
-      <mat-nav-list>
-        <h3 mat-subheader>Menu</h3>
-        <mat-list-item routerLink="/" (click)="sideNav.close()">
-          <mat-icon mat-list-icon>home</mat-icon>
-          <h4 mat-line>Access Monitor Plus</h4>
-        </mat-list-item>
-
-        <mat-list-item *ngIf="url" [routerLink]="['/results', url]" (click)="sideNav.close()">
-          <mat-icon mat-list-icon>list_alt</mat-icon>
-          <h4 mat-line>{{ "HEADER.sidebar.evaluation" | translate }}</h4>
-        </mat-list-item>
-      </mat-nav-list>
-      <mat-list fxLayout="row" fxLayoutAlign="center center">
-        <mat-list-item>
-          <mat-form-field>
-            <label for="sidenav-language">{{ 'FOOTER.language' | translate }}</label>
-            <mat-select id="sidenav-language" [(value)]="selectedLang" (selectionChange)="changeLanguage()">
-              <mat-option *ngFor="let lang of translate.getLangs()" [value]="lang">
-                {{ "LANGUAGES."+lang | translate }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </mat-list-item>
-      </mat-list>
-    </div>
-  </mat-sidenav>
-
-  <mat-sidenav-content (scroll)="onScroll($event)">
-
-    <div id="main" class="main">
-      <app-header [sideNav]="sideNav"></app-header>
-      <router-outlet></router-outlet>
-    </div>
-    <br>
-    <div class="footer">
-      <app-footer></app-footer>
-    </div>
-
-    <button class="go_to_top" *ngIf="showGoToTop" fxHide.lt-md mat-fab color="accent" matTooltip="{{ 'MISC.go_to_top' | translate }}" (click)="goToTop()">
-      <mat-icon aria-label="'MISC.go_to_top' | translate">arrow_upward</mat-icon>
-    </button>
-    <button class="go_to_top_mini" *ngIf="showGoToTop" fxHide.gt-sm mat-mini-fab color="accent" matTooltip="{{ 'MISC.go_to_top' | translate }}" (click)="goToTop()">
-      <mat-icon aria-label="'MISC.go_to_top' | translate">arrow_upward</mat-icon>
-    </button>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<div class="main">
+  <app-header></app-header>
+  <router-outlet></router-outlet>
+</div>
+<app-footer></app-footer>

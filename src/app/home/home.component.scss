@@ -1,25 +1,57 @@
-mat-card {
+.header_wrapper {
+  width: 100%;
+  background-color: var(--background-secondary);
+}
+
+.amp_header {
+  width: 100%;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  padding-left: 8px;
+  padding-right: 8px;
+
+  svg path {
+    fill: var(--text-primary);
+  }
+
+  svg circle {
+    fill: var(--text-primary);
+  }
+}
+
+.header_text {
+  text-align: right;
+  font-size: 18px;
+  line-height: 20px;
+  color: var(--text-secondary);
+  font-weight: 400;
+  font-family: "Red Hat Display";
+}
+
+section:first-child {
   width: 100%;
 }
 
-mat-card {
+section:nth-child(2) {
+  width: 87%;
+}
+
+.content {
+  width: 100%;
   border-radius: 0;
   box-shadow: none !important;
   margin-top: 100px;
   padding-left: 60px;
   padding-top: 62px;
   padding-bottom: 62px;
-}
-
-.header {
-  text-align: center;
+  background-color: var(--background-tertiary);
 }
 
 .intro_text {
   width: 100%;
   font-size: 1.25em;
   line-height: 1.75em;
-  color: #333333;
+  color: var(--text-secondary);
   font-weight: 400;
   font-family: "Red Hat Display";
 }
@@ -37,15 +69,15 @@ mat-card {
 ::ng-deep .mat-tab-label {
   font-size: 1em;
   line-height: 3em;
-  color: #333399;
+  color: var(--text-tertiary);
   font-weight: 700;
   font-family: "Red Hat Display";
   opacity: 1 !important;
 }
 
 ::ng-deep .mat-tab-header {
-  color: #333399;
-  background-color: #eaeaea;
+  color: var(--text-tertiary);
+  background-color: var(--background-default);
   border-bottom: none;
 }
 
@@ -53,27 +85,50 @@ mat-card {
   border-bottom-width: 5px !important;
 }
 
-.home_logo {
-  width: 237px;
+::ng-deep mat-ink-bar {
+  height: 4px !important;
+  background-color: var(--text-tertiary) !important;
 }
 
-::ng-deep .url_label {
+.home_logo {
+  width: 237px;
+
+  path {
+    fill: var(--logo-primary);
+  }
+}
+
+.url_label, .html_label, .file_label {
   font-size: 1em;
   line-height: 3em;
-  color: #333333;
+  color: var(--text-secondary);
   font-weight: 700;
   font-family: "Red Hat Display";
 }
 
-::ng-deep .url_label + input {
-  border: 2px solid #333399;
+input:not(:last-child), textarea {
+  border: 2px solid var(--text-tertiary);
   width: 96%;
-  padding-left: 1em;
   font-size: 1em;
-  line-height: 2em;
-  color: #333333;
+  padding-left: 1em;
+  line-height: 3em;
+  margin-top: 0 !important;
+  color: var(--text-tertiary);
   font-weight: 400;
   font-family: "Red Hat Display";
+  
+  &:invalid {
+    border-color: red;
+  } 
+}
+
+input:last-child {
+  color: var(--text-tertiary);
+}
+
+::placeholder {
+  color: var(--text-tertiary);
+  opacity: 1;
 }
 
 ::ng-deep .mat-form-field-underline {
@@ -84,16 +139,43 @@ mat-card {
   width: 100%;
 }
 
-.card_actions button {
+.card_actions button, .input_field button {
   width: 141px;
   height: 50px;
   border-radius: 25px;
-  background-color: #333399;
+  background-color: var(--text-tertiary);
   font-size: 1em;
-  color: #f1f1f1;
+  color: var(--text-quaternary);
   font-weight: 700;
   font-family: "Red Hat Display";
   text-align: center;
+  border: 2px solid var(--text-tertiary);
+
+  &:hover:not(:disabled) {
+    animation-name: submit-button;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+
+    svg path {
+      animation-name: submit-button;
+      animation-duration: 0.3s;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+@keyframes submit-button {
+  0% {
+    background-color: var(--text-tertiary);
+    color: var(--text-quaternary);
+    fill: var(--text-quaternary);
+  }
+
+  100% {
+    background-color: var(--text-quaternary);;
+    color: var(--text-tertiary);
+    fill: var(--text-tertiary);
+  }
 }
 
 .card_actions button svg {
@@ -102,12 +184,21 @@ mat-card {
 }
 
 .card_actions button svg path {
-  fill: #f1f1f1;
+  fill: var(--text-quaternary);
+}
+
+.url_error, .file_error {
+  color: red;
+  width: 100%;
 }
 
 form,
-mat-card-content {
+.content div > div > div {
   width: 100%;
+}
+
+::ng-deep .mat-form-field-infix {
+  background-color: var(--background-tertiary) !important;
 }
 
 mat-hint {
@@ -118,6 +209,48 @@ button {
   padding: 0.5rem;
 }
 
+.hidden-file-input {
+  display: none;
+}
+
 .input_field {
   width: 100%;
+}
+
+.input_field ::ng-deep .mat-form-field-flex {
+  background-color: #fff !important;
+  padding: 0 !important;
+}
+
+.input_field ::ng-deep .mat-form-field-wrapper {
+  padding: 0 !important;
+}
+
+button[type="submit"]:disabled {
+  background-color: gray;
+  border: 2px solid gray;
+}
+
+.file-button + div {
+  height: 50px;
+  border: 2px solid var(--text-tertiary);
+  border-left: none;
+  padding-left: 1em;
+  width: 86%;
+  font-size: 1em;
+  color: var(--text-tertiary);
+  font-weight: 400;
+  font-family: "Red Hat Display";
+
+  input {
+    margin-top: 0 !important;
+  }
+}
+
+.file_error {
+  border-color: red !important;
+}
+
+.file-button {
+  position: absolute;
 }

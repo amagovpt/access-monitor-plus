@@ -52,6 +52,17 @@ export class EvaluationResultsPageComponent implements OnInit, OnDestroy {
               this.eval = data;
             }
 
+            window.onclick = function(event) {
+              console.log(event.target)
+              if (!event.target.matches('#see_page_dropdown')) {
+                var dropdown = document.getElementById("see_page");
+                console.log(dropdown.classList)
+                if (dropdown.classList.contains('show_see_page')) {
+                  dropdown.classList.remove('show_see_page');
+                }
+              }
+            }
+
             this.loading = false;
             this.cd.detectChanges();
           });
@@ -74,9 +85,45 @@ export class EvaluationResultsPageComponent implements OnInit, OnDestroy {
           this.eval = data;
         }
 
+        window.onclick = function(event) {
+          if (!event.target.matches('.see_page_button, .see_page_button *')) {
+            const dropdowns = document.getElementsByClassName('dropdown-content');
+            for (let i = 0 ; i < dropdowns.length ; i++) {
+              if (dropdowns[i].classList.contains('show_dropdown')) {
+                dropdowns[i].classList.remove('show_dropdown');
+              }
+            }
+
+            if (event.target.matches('.download_data_button, .download_data_button *')) {
+              openDownloadData();
+            }
+          }
+
+          if (!event.target.matches('.download_data_button, .download_data_button *')) {
+            const dropdowns = document.getElementsByClassName('dropdown-content');
+            for (let i = 0 ; i < dropdowns.length ; i++) {
+              if (dropdowns[i].classList.contains('show_dropdown')) {
+                dropdowns[i].classList.remove('show_dropdown');
+              }
+            }
+
+            if (event.target.matches('.see_page_button, .see_page_button *')) {
+              openSeePage();
+            }
+          }
+        }
+
         this.loading = false;
         this.cd.detectChanges();
       });
+  }
+
+  openSeePage(): void {
+    document.querySelector('.see_page_button + .dropdown-content').classList.toggle("show_dropdown");
+  }
+
+  openDownloadData(): void {
+    document.querySelector('.download_data_button + .dropdown-content').classList.toggle("show_dropdown");
   }
 
   downloadCSV(): void {
@@ -91,4 +138,12 @@ export class EvaluationResultsPageComponent implements OnInit, OnDestroy {
     this.paramsSub.unsubscribe();
     this.evaluationSub.unsubscribe();
   }
+}
+
+function openSeePage(): void {
+  document.querySelector('.see_page_button + .dropdown-content').classList.toggle("show_dropdown");
+}
+
+function openDownloadData(): void {
+  document.querySelector('.download_data_button + .dropdown-content').classList.toggle("show_dropdown");
 }
