@@ -260,7 +260,8 @@ button[type="submit"]:disabled {
   outline: none;
 }
 
-[role="tabpanel"] input {
+[role="tabpanel"] input,
+textarea {
   border: 2px solid var(--text-tertiary);
   width: 96%;
   font-size: 1em;
@@ -268,6 +269,7 @@ button[type="submit"]:disabled {
   line-height: 3em;
   margin-top: 0 !important;
   color: var(--text-tertiary);
+  background-color: var(--background-tertiary);
   font-weight: 400;
   font-family: "Red Hat Display";
   outline: none;
