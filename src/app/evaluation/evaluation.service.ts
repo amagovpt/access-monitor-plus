@@ -469,8 +469,19 @@ export class EvaluationService {
 
     const elements = this.getElementsList(ele, path);
 
+    let result = 'G';
+
+    for (const test in tests) {
+      const _test = tests[test];
+      if (_test.test === ele && _test.type !== 'fals') {
+        result = tests_colors[test];
+        break;
+      }
+    }
+
     return {
       type: 'html',
+      result,
       elements,
       size: elements.length,
       page: inpage ? this.showElementsHighlightedInPage(path, inpage, ele) : undefined,

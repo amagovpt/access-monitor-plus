@@ -37,6 +37,7 @@ export class ElementResultPageComponent implements OnInit, AfterViewInit, OnDest
       this.ele = params.ele;
 
       this.data = this.evaluation.getTestResults(this.ele);
+      console.log(this.data)
     });
   }
 

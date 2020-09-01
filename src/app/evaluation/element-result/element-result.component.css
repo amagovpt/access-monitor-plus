@@ -1,4 +1,4 @@
-mat-card {
+/*mat-card {
   width: 100%;
 }
 
@@ -40,4 +40,167 @@ iframe {
 .total_results {
   margin-left: 3rem;
   color: rgba(0,0,0,.54);
+}*/
+
+.header_wrapper {
+  width: 100%;
+  background-color: var(--background-secondary);
+}
+
+.amp_header {
+  width: 100%;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.amp_header svg path {
+  fill: var(--text-primary);
+}
+
+.amp_header svg circle {
+  fill: var(--text-primary);
+}
+
+.card_actions button {
+  /*width: 141px;*/
+  height: 50px;
+  border-radius: 25px;
+  background-color: #333399;
+  font-size: 1em;
+  color: #f1f1f1;
+  font-weight: 700;
+  font-family: "Red Hat Display";
+  text-align: center;
+}
+
+.card_actions button svg {
+  display: inline;
+  margin-left: 1em;
+}
+
+.card_actions button svg path {
+  fill: #f1f1f1;
+}
+
+section {
+  width: 87%;
+}
+
+section:first-child {
+  width: 100%;
+}
+
+section:nth-child(2) nav {
+  padding-top: 5em;
+  padding-bottom: 3em;
+}
+
+section:nth-child(2) nav span {
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+}
+
+section:nth-child(3) {
+  font-family: "Red Hat Display";
+  padding-bottom: 5em;
+}
+
+section:nth-child(3) div:first-child:not(.result) {
+  background-color: #339;
+  font-size: 1em;
+  padding: 0.3em;
+  width: 120px;
+  color: #f1f1f1;
+  font-weight: 700;
+  text-align: center;
+}
+
+.test {
+  background-color: white;
+  width: 100%;
+}
+
+.test span:nth-child(2) {
+  padding: 20px;
+  border-right: thin solid black;
+}
+
+.test span:last-child {
+  margin-left: 30px;
+  margin-right: 56px;
+}
+
+.result {
+  margin: 10px;
+}
+
+.result svg {
+  padding: 22px;
+}
+
+.G {
+  background-color: #9c9;
+}
+
+.Y {
+  background-color: #ff9;
+}
+
+.R {
+  background-color: #f99;
+}
+
+::ng-deep .mat-tab-body {
+  background-color: white;
+}
+
+ol table {
+  border-bottom: thin solid black;
+  border-spacing: 0;
+}
+
+ol .table1 {
+  border-top: thin solid black;
+}
+
+.counter {
+  color: #333333;
+  font-family: Lato;
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 48px;
+  width: 70px;
+  padding: 15px;
+}
+
+.label {
+  background-color: lightgrey;
+  color: #333333;
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 40px;
+  text-align: right;
+  width: 120px;
+  padding-right: 15px;
+  padding-left: 10px;
+}
+
+.value {
+  color: #333333;
+  font-family: Lato;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 40px;
+  padding-left: 15px;
+  text-align: left;
+}
+
+iframe {
+	width: 100%;
+	height: 800px;
 }
