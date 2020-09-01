@@ -1,8 +1,65 @@
-div {
-  margin: 1rem;
+section {
+  width: 100%;
+  background-color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 span {
   padding: 1rem;
   font-weight: bold;
+}
+
+.line {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  background-color: #339;
+}
+
+.line {
+  margin-left: 3px;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.load-3 .line:nth-last-child(1) {
+  animation: loadingC 0.9s 0.1s linear infinite;
+}
+.load-3 .line:nth-last-child(2) {
+  animation: loadingC 0.9s 0.2s linear infinite;
+}
+.load-3 .line:nth-last-child(3) {
+  animation: loadingC 0.9s 0.3s linear infinite;
+}
+.load-3 .line:nth-last-child(4) {
+  animation: loadingC 0.9s 0.4s linear infinite;
+}
+.load-3 .line:nth-last-child(5) {
+  animation: loadingC 0.9s 0.5s linear infinite;
+}
+.load-3 .line:nth-last-child(6) {
+  animation: loadingC 0.9s 0.6s linear infinite;
+}
+.load-3 .line:nth-last-child(7) {
+  animation: loadingC 0.9s 0.7s linear infinite;
+}
+.load-3 .line:nth-last-child(8) {
+  animation: loadingC 0.9s 0.8s linear infinite;
+}
+.load-3 .line:nth-last-child(9) {
+  animation: loadingC 0.9s 0.9s linear infinite;
+}
+
+@keyframes loadingC {
+  0%{
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 15px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
