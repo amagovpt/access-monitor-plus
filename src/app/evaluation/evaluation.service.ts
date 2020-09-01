@@ -824,9 +824,9 @@ export class EvaluationService {
     if (length < 1024) {
       return length + ' bytes';
     } else if (length < 1024000) {
-      return Math.round((length / 1024)) + ' KB <em>(' + length + ' bytes)</em>';
+      return Math.round((length / 1024)) + ' KB';
     } else {
-      return Math.round((length / 1048576)) + ' MB <em>(' + length + ' bytes)</em>';
+      return Math.round((length / 1048576)) + ' MB';
     }
   }
 }

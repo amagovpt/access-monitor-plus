@@ -258,3 +258,203 @@ td {
 ::ng-deep .scorewar td { background-color:#ffc; }
 ::ng-deep .scorerror td { background-color:#fcc; }
 ::ng-deep .scorereg td { background-color:#ffe; }
+
+.summary-section { 
+  background-color: white;
+  width: 100%;
+}
+
+.summary-section h1 { 
+  height: 19px;
+  width: 89px;
+  color: #333333;
+  font-family: Lato;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 48px;
+  padding-left: 69px;
+  padding-top: 49px;
+  padding-bottom: 50px;
+}
+
+.summary-first-row {
+  margin-bottom: 100px;
+}
+
+.score {
+  margin-left: 80px;
+}
+
+.url_title {
+  margin-left: 91px;
+}
+
+.elements_size {
+  margin-left: 80px;
+}
+
+.elements_size span:first-child {
+  color: #333333;
+  font-family: Lato;
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-bottom: 12px;
+}
+
+.elements_size .elements {
+  margin-bottom: 64px;
+}
+
+.elements_size span:nth-child(2) {
+  color: #333333;
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 20px;
+}
+
+.elements_size .size {
+  margin-bottom: 119px;
+}
+
+.summary_practices {
+  border-spacing: 0;
+  margin-left: 100px;
+}
+
+.summary_practices th, .summary_practices td {
+  border-right: 1px solid black;
+}
+
+.summary_practices td {
+  width: 90px;
+  height: 90px;
+  text-align: center;
+}
+
+.summary_practices tbody td {
+  background-color: lightgrey;
+}
+
+.summary_practices tbody td:first-child {
+  width: 500px;
+}
+
+.summary_practices tfoot td {
+  height: 18px;
+  width: 27px;
+  color: #333333;
+  font-family: Lato;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 20px;
+  text-align: center;
+}
+
+::ng-deep .summary-section .reading-block {
+  font-size: 4em !important;
+  font-weight: bold;
+  letter-spacing: 5px;
+  overflow: unset;
+}
+
+.evaluation-section {
+  background-color: white;
+  width: 100%;
+}
+
+.evaluation-section h1 {
+  height: 23px;
+  width: 104px;
+  color: #333333;
+  font-family: Lato;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 48px;
+  padding-left: 63px;
+  padding-top: 47px;
+}
+
+.evaluation-table {
+  width: 100%;
+  border-spacing: 0;
+  padding-top: 29px;
+  padding-left: 60px;
+  padding-right: 63px;
+  padding-bottom: 59px;
+}
+
+.evaluation-table thead tr {
+  background-color: black;
+}
+
+.evaluation-table thead tr th {
+  background-color: black;
+  color: white;
+  height: 50px;
+  font-weight: bold;
+  line-height: 22px;
+  border: none;
+}
+
+.evaluation-table thead tr th:first-child {
+  padding-left: 29px;
+  text-align: left;
+}
+
+.evaluation-table tbody tr td:not(:first-child) svg path {
+  fill: #333399;
+}
+
+.evaluation-table tbody tr td {
+  border-bottom: 1px solid black;
+}
+
+.evaluation-table tbody tr td:first-child {
+  width: 70px;
+  height: 70px;
+}
+
+.evaluation-table tbody tr td:first-child svg {
+  display: block;
+  margin: auto;
+}
+
+.collapsible {
+  background-color: white;
+  color: #333333;
+  line-height: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  height: 70px;
+  border: none;
+  text-align: left;
+  outline: none;
+}
+
+.collapsible:before {
+  content: '\02304';
+  color: #333399;
+  font-size: 1.5em;
+}
+
+.collapsible-active:before {
+  content: '\02303';
+  color: #333399;
+  font-size: 1.5em;
+}
+
+.collapsible-content {
+  display: none;
+}
+
+.collapsible-content-active {
+  display: block;
+}
