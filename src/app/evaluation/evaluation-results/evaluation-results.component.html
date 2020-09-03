@@ -105,7 +105,7 @@
         </a>
       </mat-card-actions>
     </mat-card>
-    <br>-->
+    <br>-
     <mat-card class="mat-typography" *ngIf="!loading && !error" aria-live="polite">
       <mat-card-header>
         <mat-card-title>
@@ -207,15 +207,213 @@
           </tfoot>
         </table>
       </mat-card-content>
-    </mat-card>
+    </mat-card>-->
+    <div *ngIf="!loading && !error" class="summary-section">
+      <h1>{{ "RESULTS.summary.title" | translate }}</h1>
+      <div class="summary-first-row" fxLayout="row" fxLayoutAlign="start center">
+        <ngx-gauge class="score" [type]="'arch'" [thick]="'10'" [cap]="'round'" [value]="eval.metadata.score" [label]="'RESULTS.summary.score' | translate"
+            [min]="0" [max]="10" [duration]="2000" [thresholds]="thresholdConfig">
+        </ngx-gauge>
+        <div class="url_title" fxLayout="column" fxLayoutAlign="center start">
+          <span><strong>URI</strong></span>
+          <span>{{ url }}</span>
+          <br>
+          <span><strong>{{ "RESULTS.summary.metadata.title_label" | translate }}</strong></span>
+          <span>{{ eval.metadata.title }}</span>
+        </div>
+      </div>
+      <div fxLayout="row">
+        <div class="elements_size" fxLayout="column">
+          <div class="elements" fxLayout="column" fxLayoutAlign="center center">
+            <span>{{eval.metadata.n_elements}}</span>
+            <span>{{ "RESULTS.summary.metadata.n_elements_label" | translate }}</span>
+          </div>
+          <div class="size" fxLayout="column" fxLayoutAlign="center center">
+            <span [innerHTML]="eval.metadata.size | html"></span>
+            <span>{{ "RESULTS.summary.metadata.page_size_label" | translate }}</span>
+          </div>
+        </div>
+        <table class="summary_practices">
+          <thead>
+            <tr>
+              <th>
+                {{
+                  eval.infoak.A.ok + eval.infoak.AA.ok + eval.infoak.AAA.ok +
+                  eval.infoak.A.err + eval.infoak.AA.err + eval.infoak.AAA.err +
+                  eval.infoak.A.war + eval.infoak.AA.war + eval.infoak.AAA.war
+                }} Práticas enontradas
+              </th>
+              <th scope="col">A</th>
+              <th scope="col">AA</th>
+              <th scope="col">AAA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="practices_progress" scope="row">
+                <div fxLayout="row">
+                  <span fxFlex fxLayout="row" fxLayoutAlign="start center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><title>monitor_icons_praticas_status_correct</title><path d="M26,12.29a1.41,1.41,0,0,1,0,2l-9.43,9.43a1.41,1.41,0,0,1-2,0L10,19.22a1.41,1.41,0,0,1,2-2l3.5,3.5L24,12.29a1.41,1.41,0,0,1,2,0ZM36,18A18,18,0,1,1,18,0,18,18,0,0,1,36,18Zm-2.81,0A15.19,15.19,0,1,0,18,33.19,15.18,15.18,0,0,0,33.19,18Zm0,0"/></svg>
+                    <span>Aceitáveis</span>
+                  </span>
+                  <span>{{ eval.infoak.A.ok + eval.infoak.AA.ok + eval.infoak.AAA.ok }}</span>
+                </div>
+              </td>
+              <td>{{ eval.infoak.A.ok }}</td>
+              <td>{{ eval.infoak.AA.ok }}</td>
+              <td>{{ eval.infoak.AAA.ok }}</td>
+            </tr>
+            <tr>
+              <td class="practices_progress" scope="row">
+                <div fxLayout="row">
+                  <span fxFlex fxLayout="row" fxLayoutAlign="start center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><title>monitor_icons_praticas_status_review</title><path d="M21.5,19.5h3.86a1.5,1.5,0,0,0,0-3H21.5m3,0H20.64a1.5,1.5,0,1,0,0,3H24.5"/><path d="M11.5,19.5h3.86a1.5,1.5,0,0,0,0-3H11.5m3,0H10.64a1.5,1.5,0,1,0,0,3H14.5"/><path d="M34.63,24.89l.07-.17a18,18,0,0,0,0-13.44l-.07-.17-.07-.17a18,18,0,0,0-9.5-9.5l-.17-.07-.17-.07a18,18,0,0,0-13.43,0l-.17.07-.17.07a18,18,0,0,0-9.5,9.5l-.07.17-.07.17A18,18,0,0,0,.71,23l0,.08a18,18,0,0,0,7.13,9.79l.09.07a18,18,0,0,0,13.41,2.74h.1A18,18,0,0,0,34.56,25.06Zm-23.8,6.3-.07,0A15,15,0,0,1,4.08,12.4l.06-.14.06-.14A15.09,15.09,0,0,1,12.12,4.2l.14-.06.14-.06a15.09,15.09,0,0,1,11.2,0l.14.06.14.06a15.09,15.09,0,0,1,7.92,7.92l.06.14.06.14a15.09,15.09,0,0,1,0,11.2l-.06.14-.06.14a15,15,0,0,1-21,7.3Z"/></svg>
+                    <span>Para ver manualemente</span>
+                  </span>
+                  <span>{{ eval.infoak.A.war + eval.infoak.AA.war + eval.infoak.AAA.war }}</span>
+                </div>
+              </td>
+              <td>{{ eval.infoak.A.war }}</td>
+              <td>{{ eval.infoak.AA.war }}</td>
+              <td>{{ eval.infoak.AAA.war }}</td>
+            </tr>
+            <tr>
+              <td class="practices_progress" scope="row">
+                <div fxLayout="row">
+                  <span fxFlex fxLayout="row" fxLayoutAlign="start center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><title>monitor_icons_praticas_status_incorrect</title><path d="M12.44,23.56a1.5,1.5,0,0,0,2.12,0L18,20.12l3.44,3.44a1.5,1.5,0,1,0,2.12-2.12L20.12,18l3.44-3.44a1.5,1.5,0,1,0-2.12-2.12L18,15.88l-3.44-3.44a1.5,1.5,0,0,0-2.12,2.12L15.88,18l-3.44,3.44a1.5,1.5,0,0,0,0,2.12Zm0,0"/><path d="M34.63,24.89l.07-.17a18,18,0,0,0,0-13.44l-.07-.17-.07-.17a18,18,0,0,0-9.5-9.5l-.17-.07-.17-.07a18,18,0,0,0-13.43,0l-.17.07-.17.07a18,18,0,0,0-9.5,9.5l-.07.17-.07.17A18,18,0,0,0,.71,23l0,.08a18,18,0,0,0,7.13,9.79l.09.07a18,18,0,0,0,13.41,2.74h.1A18,18,0,0,0,34.56,25.06Zm-23.8,6.3-.07,0A15,15,0,0,1,4.08,12.4l.06-.14.06-.14A15.09,15.09,0,0,1,12.12,4.2l.14-.06.14-.06a15.09,15.09,0,0,1,11.2,0l.14.06.14.06a15.09,15.09,0,0,1,7.92,7.92l.06.14.06.14a15.09,15.09,0,0,1,0,11.2l-.06.14-.06.14a15,15,0,0,1-21,7.3Z"/></svg>
+                    <span>Não aceitáveis</span>
+                  </span>
+                  <span>{{ eval.infoak.A.err + eval.infoak.AA.err + eval.infoak.AAA.err }}</span>
+                </div>
+              </td>
+              <td>{{ eval.infoak.A.err }}</td>
+              <td>{{ eval.infoak.AA.err }}</td>
+              <td>{{ eval.infoak.AAA.err }}</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td></td>
+              <td scope="col">{{ eval.infoak.A.ok + eval.infoak.A.err + eval.infoak.A.war }}</td>
+              <td scope="col">{{ eval.infoak.AA.ok + eval.infoak.AA.err + eval.infoak.AA.war }}</td>
+              <td scope="col">{{ eval.infoak.AAA.ok + eval.infoak.AAA.err + eval.infoak.AAA.war }}</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
     <br>
-    <mat-card *ngIf="!loading && !error">
+    <div *ngIf="!loading && !error" class="evaluation-section">
+      <h1>{{ "RESULTS.results.title" | translate }}</h1>
+      <table class="evaluation-table">
+        <thead>
+          <tr>
+            <th scope="col" colspan="2">{{ "RESULTS.results.practice" | translate }}</th>
+            <th scope="col">{{ "RESULTS.results.lvl" | translate }}</th>
+            <th scope="col">{{ "RESULTS.results.details" | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let r of eval.results; let i = index">
+            <td class="{{ 'row' + r.color }}">
+              <svg *ngIf="r.ico === 'assets/images/icook.png'" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><title>monitor_icons_praticas_status_correct</title><path d="M26,12.29a1.41,1.41,0,0,1,0,2l-9.43,9.43a1.41,1.41,0,0,1-2,0L10,19.22a1.41,1.41,0,0,1,2-2l3.5,3.5L24,12.29a1.41,1.41,0,0,1,2,0ZM36,18A18,18,0,1,1,18,0,18,18,0,0,1,36,18Zm-2.81,0A15.19,15.19,0,1,0,18,33.19,15.18,15.18,0,0,0,33.19,18Zm0,0"/></svg>
+              <svg *ngIf="r.ico === 'assets/images/icoerr.png'" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><title>monitor_icons_praticas_status_incorrect</title><path d="M12.44,23.56a1.5,1.5,0,0,0,2.12,0L18,20.12l3.44,3.44a1.5,1.5,0,1,0,2.12-2.12L20.12,18l3.44-3.44a1.5,1.5,0,1,0-2.12-2.12L18,15.88l-3.44-3.44a1.5,1.5,0,0,0-2.12,2.12L15.88,18l-3.44,3.44a1.5,1.5,0,0,0,0,2.12Zm0,0"/><path d="M34.63,24.89l.07-.17a18,18,0,0,0,0-13.44l-.07-.17-.07-.17a18,18,0,0,0-9.5-9.5l-.17-.07-.17-.07a18,18,0,0,0-13.43,0l-.17.07-.17.07a18,18,0,0,0-9.5,9.5l-.07.17-.07.17A18,18,0,0,0,.71,23l0,.08a18,18,0,0,0,7.13,9.79l.09.07a18,18,0,0,0,13.41,2.74h.1A18,18,0,0,0,34.56,25.06Zm-23.8,6.3-.07,0A15,15,0,0,1,4.08,12.4l.06-.14.06-.14A15.09,15.09,0,0,1,12.12,4.2l.14-.06.14-.06a15.09,15.09,0,0,1,11.2,0l.14.06.14.06a15.09,15.09,0,0,1,7.92,7.92l.06.14.06.14a15.09,15.09,0,0,1,0,11.2l-.06.14-.06.14a15,15,0,0,1-21,7.3Z"/></svg>
+              <svg *ngIf="r.ico === 'assets/images/icowar.png'" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><title>monitor_icons_praticas_status_review</title><path d="M21.5,19.5h3.86a1.5,1.5,0,0,0,0-3H21.5m3,0H20.64a1.5,1.5,0,1,0,0,3H24.5"/><path d="M11.5,19.5h3.86a1.5,1.5,0,0,0,0-3H11.5m3,0H10.64a1.5,1.5,0,1,0,0,3H14.5"/><path d="M34.63,24.89l.07-.17a18,18,0,0,0,0-13.44l-.07-.17-.07-.17a18,18,0,0,0-9.5-9.5l-.17-.07-.17-.07a18,18,0,0,0-13.43,0l-.17.07-.17.07a18,18,0,0,0-9.5,9.5l-.07.17-.07.17A18,18,0,0,0,.71,23l0,.08a18,18,0,0,0,7.13,9.79l.09.07a18,18,0,0,0,13.41,2.74h.1A18,18,0,0,0,34.56,25.06Zm-23.8,6.3-.07,0A15,15,0,0,1,4.08,12.4l.06-.14.06-.14A15.09,15.09,0,0,1,12.12,4.2l.14-.06.14-.06a15.09,15.09,0,0,1,11.2,0l.14.06.14.06a15.09,15.09,0,0,1,7.92,7.92l.06.14.06.14a15.09,15.09,0,0,1,0,11.2l-.06.14-.06.14a15,15,0,0,1-21,7.3Z"/></svg>
+            </td>
+            <td>
+              <button type="button" class="collapsible" (click)="openCollapsible(i)">
+                <span *ngIf="r.value === 1" [innerHTML]="'TESTS_RESULTS.'+r.msg+'.s' | translate:{value: r.value} | html"></span>
+                <span *ngIf="r.value !== 1" [innerHTML]="'TESTS_RESULTS.'+r.msg+'.p' | translate:{value: r.value} | html"></span>
+              </button>
+              <div class="collapsible-content">
+                <div [innerHTML]="'TXT_TECHNIQUES.' + r.ref | translate">
+
+                </div>
+                <div class="desc" fxLayout="column">
+                  <span><strong><a href="{{ r.ref_website }}" target="_blank">{{ r.ref }}: {{ "TECHS." + r.ref | translate }}</a></strong></span>
+                  <span>{{ "TECHFAIL." + r.relation | translate }}</span>
+                  <ul>
+                    <li *ngFor="let li of r.ref_related_sc">
+                      {{ "RESULTS.results.sc" | translate }}
+                      {{ li.sc }}
+                      <em>({{ "RESULTS.results.lvl" | translate }} {{ li.lvl }}) </em>
+                      <a href="{{ li.link }}" target="_blank">{{ "RESULTS.results.understanding" | translate }} {{ li.sc }}</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </td>
+            <td class="text-center" fxHide.lt-sm>{{ r.lvl }}</td>
+            <td class="text-center">
+              <a *ngIf="r.tech_list.ele && !r.tech_list.html_validator" [routerLink]="[r.tech_list.ele]" attr.aria-label="{{ 'RESULTS.results.practice' | translate }}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="33.46" height="22.59" viewBox="0 0 33.46 22.59"><title>{{ 'RESULTS.results.alt_see' | translate }}</title><path d="M32.71,22.11l.13-.13.13-.13a1.69,1.69,0,0,0,0-2.39h0L31.48,18,28.81,15.3a8,8,0,0,0,.57-1.07,2.05,2.05,0,0,1,.14-.46,6.37,6.37,0,0,0,.35-1.12v-.09A4.84,4.84,0,0,1,30,12,8,8,0,1,0,23,19l.28,0,.55-.11a5.12,5.12,0,0,0,.7-.23,2.05,2.05,0,0,1,.41-.12,8,8,0,0,0,1.14-.59l4.22,4.22A1.69,1.69,0,0,0,32.71,22.11ZM22.06,16a5,5,0,1,1,5-5A5,5,0,0,1,22.06,16Z"/><path d="M1.37,14.73H9.59a1.36,1.36,0,1,0,0-2.73H1.37a1.36,1.36,0,1,0,0,2.73Z"/><path d="M1.37,2.73H12.59a1.36,1.36,0,1,0,0-2.73H1.37a1.36,1.36,0,1,0,0,2.73Z" /><path d="M1.37,8.73H9.59A1.36,1.36,0,1,0,9.59,6H1.37a1.36,1.36,0,1,0,0,2.73Z" /></svg>
+              </a>
+              <a *ngIf="r.tech_list.ele && r.tech_list.html_validator" target="_blank" href="{{ r.tech_list.ele }}" attr.aria-label="{{ 'RESULTS.results.practice' | translate }}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="33.46" height="22.59" viewBox="0 0 33.46 22.59"><title>{{ 'RESULTS.results.alt_see' | translate }}</title><path d="M32.71,22.11l.13-.13.13-.13a1.69,1.69,0,0,0,0-2.39h0L31.48,18,28.81,15.3a8,8,0,0,0,.57-1.07,2.05,2.05,0,0,1,.14-.46,6.37,6.37,0,0,0,.35-1.12v-.09A4.84,4.84,0,0,1,30,12,8,8,0,1,0,23,19l.28,0,.55-.11a5.12,5.12,0,0,0,.7-.23,2.05,2.05,0,0,1,.41-.12,8,8,0,0,0,1.14-.59l4.22,4.22A1.69,1.69,0,0,0,32.71,22.11ZM22.06,16a5,5,0,1,1,5-5A5,5,0,0,1,22.06,16Z"/><path d="M1.37,14.73H9.59a1.36,1.36,0,1,0,0-2.73H1.37a1.36,1.36,0,1,0,0,2.73Z"/><path d="M1.37,2.73H12.59a1.36,1.36,0,1,0,0-2.73H1.37a1.36,1.36,0,1,0,0,2.73Z" /><path d="M1.37,8.73H9.59A1.36,1.36,0,1,0,9.59,6H1.37a1.36,1.36,0,1,0,0,2.73Z" /></svg>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!--<mat-card *ngIf="!loading && !error">
       <mat-card-header>
         <mat-card-title>
           <h1>{{ "RESULTS.results.title" | translate }}</h1>
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
+        <table class="evaluation-table">
+          <thead>
+            <tr>
+              <th scope="col" colspan="2">{{ "RESULTS.results.practice" | translate }}</th>
+              <th scope="col">{{ "RESULTS.results.lvl" | translate }}</th>
+              <th scope="col">{{ "RESULTS.results.details" | translate }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let r of eval.results; let i = index">
+              <td class="{{ 'row' + r.color }}">
+                <svg *ngIf="r.ico === 'assets/images/icook.png'" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><title>monitor_icons_praticas_status_correct</title><path d="M26,12.29a1.41,1.41,0,0,1,0,2l-9.43,9.43a1.41,1.41,0,0,1-2,0L10,19.22a1.41,1.41,0,0,1,2-2l3.5,3.5L24,12.29a1.41,1.41,0,0,1,2,0ZM36,18A18,18,0,1,1,18,0,18,18,0,0,1,36,18Zm-2.81,0A15.19,15.19,0,1,0,18,33.19,15.18,15.18,0,0,0,33.19,18Zm0,0"/></svg>
+                <svg *ngIf="r.ico === 'assets/images/icoerr.png'" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><title>monitor_icons_praticas_status_incorrect</title><path d="M12.44,23.56a1.5,1.5,0,0,0,2.12,0L18,20.12l3.44,3.44a1.5,1.5,0,1,0,2.12-2.12L20.12,18l3.44-3.44a1.5,1.5,0,1,0-2.12-2.12L18,15.88l-3.44-3.44a1.5,1.5,0,0,0-2.12,2.12L15.88,18l-3.44,3.44a1.5,1.5,0,0,0,0,2.12Zm0,0"/><path d="M34.63,24.89l.07-.17a18,18,0,0,0,0-13.44l-.07-.17-.07-.17a18,18,0,0,0-9.5-9.5l-.17-.07-.17-.07a18,18,0,0,0-13.43,0l-.17.07-.17.07a18,18,0,0,0-9.5,9.5l-.07.17-.07.17A18,18,0,0,0,.71,23l0,.08a18,18,0,0,0,7.13,9.79l.09.07a18,18,0,0,0,13.41,2.74h.1A18,18,0,0,0,34.56,25.06Zm-23.8,6.3-.07,0A15,15,0,0,1,4.08,12.4l.06-.14.06-.14A15.09,15.09,0,0,1,12.12,4.2l.14-.06.14-.06a15.09,15.09,0,0,1,11.2,0l.14.06.14.06a15.09,15.09,0,0,1,7.92,7.92l.06.14.06.14a15.09,15.09,0,0,1,0,11.2l-.06.14-.06.14a15,15,0,0,1-21,7.3Z"/></svg>
+                <svg *ngIf="r.ico === 'assets/images/icowar.png'" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><title>monitor_icons_praticas_status_review</title><path d="M21.5,19.5h3.86a1.5,1.5,0,0,0,0-3H21.5m3,0H20.64a1.5,1.5,0,1,0,0,3H24.5"/><path d="M11.5,19.5h3.86a1.5,1.5,0,0,0,0-3H11.5m3,0H10.64a1.5,1.5,0,1,0,0,3H14.5"/><path d="M34.63,24.89l.07-.17a18,18,0,0,0,0-13.44l-.07-.17-.07-.17a18,18,0,0,0-9.5-9.5l-.17-.07-.17-.07a18,18,0,0,0-13.43,0l-.17.07-.17.07a18,18,0,0,0-9.5,9.5l-.07.17-.07.17A18,18,0,0,0,.71,23l0,.08a18,18,0,0,0,7.13,9.79l.09.07a18,18,0,0,0,13.41,2.74h.1A18,18,0,0,0,34.56,25.06Zm-23.8,6.3-.07,0A15,15,0,0,1,4.08,12.4l.06-.14.06-.14A15.09,15.09,0,0,1,12.12,4.2l.14-.06.14-.06a15.09,15.09,0,0,1,11.2,0l.14.06.14.06a15.09,15.09,0,0,1,7.92,7.92l.06.14.06.14a15.09,15.09,0,0,1,0,11.2l-.06.14-.06.14a15,15,0,0,1-21,7.3Z"/></svg>
+              </td>
+              <td>
+                <button type="button" class="collapsible" (click)="openCollapsible(i)">
+                  <span *ngIf="r.value === 1" [innerHTML]="'TESTS_RESULTS.'+r.msg+'.s' | translate:{value: r.value} | html"></span>
+                  <span *ngIf="r.value !== 1" [innerHTML]="'TESTS_RESULTS.'+r.msg+'.p' | translate:{value: r.value} | html"></span>
+                </button>
+                <div class="collapsible-content">
+                  <div [innerHTML]="'TXT_TECHNIQUES.' + r.ref | translate">
+
+                  </div>
+                  <div class="desc" fxLayout="column">
+                    <span><strong><a href="{{ r.ref_website }}" target="_blank">{{ r.ref }}: {{ "TECHS." + r.ref | translate }}</a></strong></span>
+                    <span>{{ "TECHFAIL." + r.relation | translate }}</span>
+                    <ul>
+                      <li *ngFor="let li of r.ref_related_sc">
+                        {{ "RESULTS.results.sc" | translate }}
+                        {{ li.sc }}
+                        <em>({{ "RESULTS.results.lvl" | translate }} {{ li.lvl }}) </em>
+                        <a href="{{ li.link }}" target="_blank">{{ "RESULTS.results.understanding" | translate }} {{ li.sc }}</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </td>
+              <td class="text-center" fxHide.lt-sm>{{ r.lvl }}</td>
+              <td class="text-center">
+                <a *ngIf="r.tech_list.ele && !r.tech_list.html_validator" [routerLink]="[r.tech_list.ele]" attr.aria-label="{{ 'RESULTS.results.practice' | translate }}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="33.46" height="22.59" viewBox="0 0 33.46 22.59"><title>{{ 'RESULTS.results.alt_see' | translate }}</title><path d="M32.71,22.11l.13-.13.13-.13a1.69,1.69,0,0,0,0-2.39h0L31.48,18,28.81,15.3a8,8,0,0,0,.57-1.07,2.05,2.05,0,0,1,.14-.46,6.37,6.37,0,0,0,.35-1.12v-.09A4.84,4.84,0,0,1,30,12,8,8,0,1,0,23,19l.28,0,.55-.11a5.12,5.12,0,0,0,.7-.23,2.05,2.05,0,0,1,.41-.12,8,8,0,0,0,1.14-.59l4.22,4.22A1.69,1.69,0,0,0,32.71,22.11ZM22.06,16a5,5,0,1,1,5-5A5,5,0,0,1,22.06,16Z"/><path d="M1.37,14.73H9.59a1.36,1.36,0,1,0,0-2.73H1.37a1.36,1.36,0,1,0,0,2.73Z"/><path d="M1.37,2.73H12.59a1.36,1.36,0,1,0,0-2.73H1.37a1.36,1.36,0,1,0,0,2.73Z" /><path d="M1.37,8.73H9.59A1.36,1.36,0,1,0,9.59,6H1.37a1.36,1.36,0,1,0,0,2.73Z" /></svg>
+                </a>
+                <a *ngIf="r.tech_list.ele && r.tech_list.html_validator" target="_blank" href="{{ r.tech_list.ele }}" attr.aria-label="{{ 'RESULTS.results.practice' | translate }}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="33.46" height="22.59" viewBox="0 0 33.46 22.59"><title>{{ 'RESULTS.results.alt_see' | translate }}</title><path d="M32.71,22.11l.13-.13.13-.13a1.69,1.69,0,0,0,0-2.39h0L31.48,18,28.81,15.3a8,8,0,0,0,.57-1.07,2.05,2.05,0,0,1,.14-.46,6.37,6.37,0,0,0,.35-1.12v-.09A4.84,4.84,0,0,1,30,12,8,8,0,1,0,23,19l.28,0,.55-.11a5.12,5.12,0,0,0,.7-.23,2.05,2.05,0,0,1,.41-.12,8,8,0,0,0,1.14-.59l4.22,4.22A1.69,1.69,0,0,0,32.71,22.11ZM22.06,16a5,5,0,1,1,5-5A5,5,0,0,1,22.06,16Z"/><path d="M1.37,14.73H9.59a1.36,1.36,0,1,0,0-2.73H1.37a1.36,1.36,0,1,0,0,2.73Z"/><path d="M1.37,2.73H12.59a1.36,1.36,0,1,0,0-2.73H1.37a1.36,1.36,0,1,0,0,2.73Z" /><path d="M1.37,8.73H9.59A1.36,1.36,0,1,0,9.59,6H1.37a1.36,1.36,0,1,0,0,2.73Z" /></svg>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
         <table class="results-table">
           <thead>
             <tr>
@@ -267,7 +465,7 @@
           </tbody>
         </table>
       </mat-card-content>
-    </mat-card>
+    </mat-card>-->
     <app-loading *ngIf="loading && !error"></app-loading>
     <app-error *ngIf="error"></app-error>
   </section>

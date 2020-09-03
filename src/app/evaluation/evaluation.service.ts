@@ -469,8 +469,19 @@ export class EvaluationService {
 
     const elements = this.getElementsList(ele, path);
 
+    let result = 'G';
+
+    for (const test in tests) {
+      const _test = tests[test];
+      if (_test.test === ele && _test.type !== 'fals') {
+        result = tests_colors[test];
+        break;
+      }
+    }
+
     return {
       type: 'html',
+      result,
       elements,
       size: elements.length,
       page: inpage ? this.showElementsHighlightedInPage(path, inpage, ele) : undefined,
@@ -824,9 +835,9 @@ export class EvaluationService {
     if (length < 1024) {
       return length + ' bytes';
     } else if (length < 1024000) {
-      return Math.round((length / 1024)) + ' KB <em>(' + length + ' bytes)</em>';
+      return Math.round((length / 1024)) + ' KB';
     } else {
-      return Math.round((length / 1048576)) + ' MB <em>(' + length + ' bytes)</em>';
+      return Math.round((length / 1048576)) + ' MB';
     }
   }
 }

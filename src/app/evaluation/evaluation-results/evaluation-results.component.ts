@@ -115,7 +115,52 @@ export class EvaluationResultsPageComponent implements OnInit, OnDestroy {
 
         this.loading = false;
         this.cd.detectChanges();
+
+        const totalPractices = this.eval.infoak.A.ok + this.eval.infoak.AA.ok + this.eval.infoak.AAA.ok +
+        this.eval.infoak.A.err + this.eval.infoak.AA.err + this.eval.infoak.AAA.err +
+        this.eval.infoak.A.war + this.eval.infoak.AA.war + this.eval.infoak.AAA.war;
+
+        const totalOk = this.eval.infoak.A.ok + this.eval.infoak.AA.ok + this.eval.infoak.AAA.ok;
+        const totalWar = this.eval.infoak.A.war + this.eval.infoak.AA.war + this.eval.infoak.AAA.war;
+        const totalErr = this.eval.infoak.A.err + this.eval.infoak.AA.err + this.eval.infoak.AAA.err;
+
+        const practicesProgress = <HTMLCollectionOf<HTMLElement>> document.getElementsByClassName('practices_progress');
+
+        practicesProgress[0].style.background = `-webkit-linear-gradient(left, #9c9, #9c9 ${totalOk / totalPractices * 100}%, lightgrey ${totalOk / totalPractices * 100}%, lightgrey ${100 - (totalOk / totalPractices * 100)}%)`;
+        practicesProgress[0].style.background = `-moz-linear-gradient(left, #9c9, #9c9 ${totalOk / totalPractices * 100}%, lightgrey ${totalOk / totalPractices * 100}%, lightgrey ${100 - (totalOk / totalPractices * 100)}%)`;
+        practicesProgress[0].style.background = `-ms-linear-gradient(left, #9c9, #9c9 ${totalOk / totalPractices * 100}%, lightgrey ${totalOk / totalPractices * 100}%, lightgrey ${100 - (totalOk / totalPractices * 100)}%)`;
+        practicesProgress[0].style.background = `linear-gradient(left, #9c9, #9c9 ${totalOk / totalPractices * 100}%, lightgrey ${totalOk / totalPractices * 100}%, lightgrey ${100 - (totalOk / totalPractices * 100)}%)`;
+        
+        practicesProgress[1].style.background = `-webkit-linear-gradient(left, #ff9, #ff9 ${totalWar / totalPractices * 100}%, lightgrey ${totalWar / totalPractices * 100}%, lightgrey ${100 - (totalWar / totalPractices * 100)}%)`;
+        practicesProgress[1].style.background = `-moz-linear-gradient(left, #ff9, #ff9 ${totalWar / totalPractices * 100}%, lightgrey ${totalWar / totalPractices * 100}%, lightgrey ${100 - (totalWar / totalPractices * 100)}%)`;
+        practicesProgress[1].style.background = `-ms-linear-gradient(left, #ff9, #ff9 ${totalWar / totalPractices * 100}%, lightgrey ${totalWar / totalPractices * 100}%, lightgrey ${100 - (totalWar / totalPractices * 100)}%)`;
+        practicesProgress[1].style.background = `linear-gradient(left, #ff9, #ff9 ${totalWar / totalPractices * 100}%, lightgrey ${totalWar / totalPractices * 100}%, lightgrey ${100 - (totalWar / totalPractices * 100)}%)`;
+
+        practicesProgress[2].style.background = `-webkit-linear-gradient(left, #f99, #f99 ${totalErr / totalPractices * 100}%, lightgrey ${totalErr / totalPractices * 100}%, lightgrey ${100 - (totalErr / totalPractices * 100)}%)`;
+        practicesProgress[2].style.background = `-moz-linear-gradient(left, #f99, #f99 ${totalErr / totalPractices * 100}%, lightgrey ${totalErr / totalPractices * 100}%, lightgrey ${100 - (totalErr / totalPractices * 100)}%)`;
+        practicesProgress[2].style.background = `-ms-linear-gradient(left, #f99, #f99 ${totalErr / totalPractices * 100}%, lightgrey ${totalErr / totalPractices * 100}%, lightgrey ${100 - (totalErr / totalPractices * 100)}%)`;
+        practicesProgress[2].style.background = `linear-gradient(left, #f99, #f99 ${totalErr / totalPractices * 100}%, lightgrey ${totalErr / totalPractices * 100}%, lightgrey ${100 - (totalErr / totalPractices * 100)}%)`;
+
+        this.cd.detectChanges();
       });
+  }
+
+  openCollapsible(index: number): void {
+    const table = document.getElementsByClassName('evaluation-table')[0];
+    const collapsible = table.getElementsByClassName('collapsible')[index];
+
+    if (collapsible.classList.contains('collapsible-active')) {
+      collapsible.classList.remove('collapsible-active');
+    } else {
+      collapsible.classList.add('collapsible-active');
+    }
+
+    const collapsibleContent = table.getElementsByClassName('collapsible-content')[index];
+    if (collapsibleContent.classList.contains('collapsible-content-active')) {
+      collapsibleContent.classList.remove('collapsible-content-active');
+    } else {
+      collapsibleContent.classList.add('collapsible-content-active');
+    }
   }
 
   openSeePage(): void {
