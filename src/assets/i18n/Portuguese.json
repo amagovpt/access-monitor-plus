@@ -23,7 +23,7 @@
     },
     "url_label": "Introduza o endereço de uma página",
     "url_hint": "http(s)",
-    "url_error": "Introduza um url válido. <strong>Ex.: http://www.google.pt</strong>",
+    "url_error": "Introduza um url válido. Ex.: http://www.google.pt",
     "html_label": "Insira o código HTML abaixo",
     "html_placeholder": "Inserir código HTML aqui",
     "file_label": "Escolher ficheiro",
