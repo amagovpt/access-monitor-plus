@@ -132,7 +132,7 @@
   },
   "MISC": {
     "skip_to_main": "Saltar para o conteúdo principal",
-    "loading": "A carregar",
+    "loading": "A carregar...",
     "required_field": "Este campo é <strong>obrigatório</strong>",
     "message_close": "Fechar",
     "unexpected_error": "Ocorreu um erro inesperado. Por favor tente aceder mais tarde.",
