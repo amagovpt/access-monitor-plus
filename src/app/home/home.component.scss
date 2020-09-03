@@ -44,14 +44,14 @@ section:nth-child(2) {
   padding-left: 60px;
   padding-top: 62px;
   padding-bottom: 62px;
-  background-color: var(--background-tertiary);
+  background-color: var(--home-content-background);
 }
 
 .intro_text {
   width: 100%;
   font-size: 1.25em;
   line-height: 1.75em;
-  color: var(--text-secondary);
+  color: var(--home-content-sentence);
   font-weight: 400;
   font-family: "Red Hat Display";
 }
@@ -65,7 +65,7 @@ section:nth-child(2) {
   width: 237px;
 
   path {
-    fill: var(--logo-primary);
+    fill: var(--home-content-logo);
   }
 }
 
@@ -74,20 +74,20 @@ section:nth-child(2) {
 .file_label {
   font-size: 1em;
   line-height: 3em;
-  color: var(--text-secondary);
+  color: var(--home-content-inputs_label);
   font-weight: 700;
   font-family: "Red Hat Display";
 }
 
 input:not(:last-child),
 textarea {
-  border: 2px solid var(--text-tertiary);
+  border: 2px solid var(--home-content-inputs-border);
   width: 96%;
   font-size: 1em;
   padding-left: 1em;
   line-height: 3em;
   margin-top: 0 !important;
-  color: var(--text-tertiary);
+  color: var(--home-content-inputs-text);
   font-weight: 400;
   font-family: "Red Hat Display";
 
@@ -97,11 +97,11 @@ textarea {
 }
 
 input:last-child {
-  color: var(--text-tertiary);
+  color: var(--home-content-inputs-text);
 }
 
 ::placeholder {
-  color: var(--text-tertiary);
+  color: var(--home-content-inputs-text);
   opacity: 1;
 }
 
@@ -114,13 +114,13 @@ input:last-child {
   width: 141px;
   height: 50px;
   border-radius: 25px;
-  background-color: var(--text-tertiary);
+  background-color: var(--home-content-button-background-hover);
   font-size: 1em;
-  color: var(--text-quaternary);
+  color: var(--home-content-button-text-hover);
   font-weight: 700;
   font-family: "Red Hat Display";
   text-align: center;
-  border: 2px solid var(--text-tertiary);
+  border: 2px solid var(--home-content-button-border-hover);
 
   &:hover:not(:disabled) {
     animation-name: submit-button;
@@ -135,17 +135,21 @@ input:last-child {
   }
 }
 
+.card_actions button:disabled {
+  cursor: default;
+}
+
 @keyframes submit-button {
   0% {
-    background-color: var(--text-tertiary);
-    color: var(--text-quaternary);
-    fill: var(--text-quaternary);
+    background-color: var(--home-content-button-background-hover);
+    color: var(--home-content-button-text-hover);
+    fill: var(--home-content-button-text-hover);
   }
 
   100% {
-    background-color: var(--text-quaternary);
-    color: var(--text-tertiary);
-    fill: var(--text-tertiary);
+    background-color: var(--home-content-button-text-hover);
+    color: var(--home-content-button-background-hover);
+    fill: var(--home-content-button-background-hover);
   }
 }
 
@@ -155,7 +159,7 @@ input:last-child {
 }
 
 .card_actions button svg path {
-  fill: var(--text-quaternary);
+  fill: var(--home-content-file-button-text);
 }
 
 .url_error,
@@ -188,12 +192,12 @@ button[type="submit"]:disabled {
 
 .file-button + div {
   height: 50px;
-  border: 2px solid var(--text-tertiary);
+  border: 2px solid var(--home-content-file-button-border);
   border-left: none;
   padding-left: 1em;
   width: 86%;
   font-size: 1em;
-  color: var(--text-tertiary);
+  color: var(--home-content-file-button-text);
   font-weight: 400;
   font-family: "Red Hat Display";
 
@@ -208,6 +212,8 @@ button[type="submit"]:disabled {
 
 .file-button {
   position: absolute;
+  border: 2px solid var(--home-content-file-button-border);
+  color: var(--home-content-file-button-text);
 }
 
 .tabs {
@@ -228,8 +234,8 @@ button[type="submit"]:disabled {
 [role="tab"] {
   font-size: 1em;
   line-height: 3em;
-  color: var(--text-tertiary);
-  background-color: var(--background-default);
+  color: var(--home-content-tabs-text);
+  background-color: var(--home-content-tabs-background);
   font-weight: 700;
   font-family: "Red Hat Display";
   opacity: 1 !important;
@@ -239,7 +245,7 @@ button[type="submit"]:disabled {
 }
 
 [role="tab"][aria-selected="true"] {
-  border-bottom: 5px solid var(--text-tertiary);
+  border-bottom: 5px solid var(--home-content-tabs-text);
 }
 
 [role="tabpanel"] {
@@ -266,14 +272,14 @@ button[type="submit"]:disabled {
 
 [role="tabpanel"] input,
 textarea {
-  border: 2px solid var(--text-tertiary);
+  border: 2px solid var(--home-content-inputs-border);
   width: 96%;
   font-size: 1em;
   padding-left: 1em;
   line-height: 3em;
   margin-top: 0 !important;
-  color: var(--text-tertiary);
-  background-color: var(--background-tertiary);
+  color: var(--home-content-inputs-text);
+  background-color: var(--home-content-inputs-background);
   font-weight: 400;
   font-family: "Red Hat Display";
   outline: none;
