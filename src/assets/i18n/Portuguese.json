@@ -10,7 +10,8 @@
     "line_text": "O validador de práticas de acessibilidade Web (WCAG 2.1)",
     "sidebar": {
       "evaluation": "Relatório da avaliação"
-    }
+    },
+    "evaluate_new_page": "Avaliar nova página"
   },
   "HOME_PAGE": {
     "header": "Obtenha um relatório de acessibilidade através de um dos seguintes métodos",

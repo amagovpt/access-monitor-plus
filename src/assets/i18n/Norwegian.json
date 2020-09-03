@@ -9,7 +9,8 @@
     },
     "sidebar": {
       "evaluation": "Evalueringsrapport"
-    }
+    },
+    "evaluate_new_page": "Evaluate new page"
   },
   "HOME_PAGE": {
     "header": "Få en tilgjengelighetsrapport ved hjelp av en av følgende metoder",

@@ -1,70 +1,81 @@
-export interface Theme {
+interface Theme {
   name: string;
   properties: any;
 }
 
-export const light: Theme = {
-  name: "light",
+const Colours = {
+  '_1': '#e4e4e4',
+  '_2': '#efefee',
+  '_3': '#ffffff',
+  '_4': '#339',
+  '_5': '#212529',
+  '_6': '#333',
+  '_7': '#20242c',
+  '_8': '#2c3241',
+  '_9': '#ebf2f6',
+  '_10': '#b6dcf6',
+  '_11': '#333',
+  '_12': '#f1f1f1',
+  '_13': '#272777',
+};
+
+const light: Theme = {
+  name: 'light',
   properties: {
-    /*"--foreground-default": "#08090A",
-    "--foreground-secondary": "#41474D",
-    "--foreground-tertiary": "#797C80",
-    "--foreground-quaternary": "#F4FAFF",
-    "--foreground-light": "#41474D",*/
+    // TOP HEADER
+    '--top-header-background': Colours._1,
 
-    "--background-default": "#e4e4e4",
-    "--background-secondary": "#efefee",
-    "--background-tertiary": "#ffffff",
-    //"--background-light": "#FFFFFF",
+    // FOOTER
+    '--footer-background': Colours._12,
 
-    "--text-primary": "#333399",
-    "--text-secondary": "#212529",
-    "--text-tertiary": "#333399",
-    "--text-quaternary": "#ffffff",
+    // HOME PAGE
+    '--home-header-background': Colours._2,
+    '--home-header-text': Colours._4,
+    '--home-header-text-2': Colours._5,
 
-    "--logo-primary": "#333333",
+    '--background-default': Colours._1,
+    '--background-tertiary': Colours._3,
 
-    /*"--primary-default": "#5DFDCB",
-    "--primary-dark": "#24B286",
-    "--primary-light": "#B2FFE7",
+    '--text-tertiary': Colours._4,
+    '--text-quaternary': Colours._3,
 
-    "--error-default": "#EF3E36",
-    "--error-dark": "#800600",
-    "--error-light": "#FFCECC",
+    '--logo-primary': Colours._6,
 
-    "--background-tertiary-shadow": "0 1px 3px 0 rgba(92, 125, 153, 0.5)"*/
+    '--header-results-button-background': Colours._4,
+    '--header-results-button-text': Colours._12
   }
 };
 
-export const dark: Theme = {
-  name: "dark",
+const dark: Theme = {
+  name: 'dark',
   properties: {
-    //"--foreground-default": "#ebf2f6",
-    //"--foreground-secondary": "#A3B9CC",
-    //"--foreground-tertiary": "#F4FAFF",
-    //"--foreground-quaternary": "#E5E5E5",
-    //"--foreground-light": "#FFFFFF",
+    // TOP HEADER
+    '--top-header-background': Colours._13,
 
-    "--background-default": "#20242c",
-    "--background-secondary": "#333399",
-    "--background-tertiary": "#2c3241",
-    //"--background-light": "#41474D",
+    // FOOTER
+    '--footer-background': Colours._13,
 
-    "--text-primary": "#ebf2f6",
-    "--text-secondary": "#ebf2f6",
-    "--text-tertiary": "#b6dcf6",
-    "--text-quaternary": "#2c3241",
+    // HOME PAGE
+    '--home-header-background': Colours._4,
+    '--home-header-text': Colours._9,
+    '--home-header-text-2': Colours._9,
 
-    "--logo-primary": "#ebf2f6",
+    '--background-default': Colours._7,
+    '--background-tertiary': Colours._8,
 
-    //"--primary-default": "#5DFDCB",
-    //"--primary-dark": "#24B286",
-    //"--primary-light": "#B2FFE7",
+    '--text-tertiary': Colours._10,
+    '--text-quaternary': Colours._8,
 
-    //"--error-default": "#EF3E36",
-    //"--error-dark": "#800600",
-    //"--error-light": "#FFCECC",
+    '--logo-primary': Colours._9,
 
-    //"--background-tertiary-shadow": "0 1px 3px 0 rgba(8, 9, 10, 0.5)"
+    '--header-results-button-background': Colours._10,
+    '--header-results-button-text': Colours._11
   }
+};
+
+export {
+  Theme,
+  Colours,
+  light,
+  dark
 };
