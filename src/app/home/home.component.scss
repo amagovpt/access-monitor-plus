@@ -76,7 +76,8 @@ section:nth-child(2) {
   line-height: 3em;
   color: var(--home-content-inputs_label);
   font-weight: 700;
-  font-family: "Red Hat Display";
+  font-family: "Lato";
+  margin-top: 1em;
 }
 
 input:not(:last-child),
@@ -183,6 +184,7 @@ button {
 
 .input_field {
   width: 100%;
+  margin-top: 16px;
 }
 
 button[type="submit"]:disabled {

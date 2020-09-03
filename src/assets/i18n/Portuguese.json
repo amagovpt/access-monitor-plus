@@ -24,7 +24,7 @@
     "url_label": "Introduza o endereço de uma página",
     "url_hint": "http(s)",
     "url_error": "Introduza um url válido. <strong>Ex.: http://www.google.pt</strong>",
-    "html_label": "Insera o código HTML abaixo",
+    "html_label": "Insira o código HTML abaixo",
     "html_placeholder": "Inserir código HTML aqui",
     "file_label": "Escolher ficheiro",
     "file_name_label": "Nome do ficheiro",
