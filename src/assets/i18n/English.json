@@ -9,7 +9,8 @@
     },
     "sidebar": {
       "evaluation": "Evaluation report"
-    }
+    },
+    "evaluate_new_page": "Evaluate new page"
   },
   "HOME_PAGE": {
     "header": "Get an accessibility report using one of the following methods",

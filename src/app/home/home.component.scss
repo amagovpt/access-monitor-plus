@@ -1,6 +1,6 @@
 .header_wrapper {
   width: 100%;
-  background-color: var(--background-secondary);
+  background-color: var(--home-header-background);
 }
 
 .amp_header {
@@ -11,11 +11,11 @@
   padding-right: 8px;
 
   svg path {
-    fill: var(--text-primary);
+    fill: var(--home-header-text);
   }
 
   svg circle {
-    fill: var(--text-primary);
+    fill: var(--home-header-text);
   }
 }
 
@@ -23,7 +23,7 @@
   text-align: right;
   font-size: 18px;
   line-height: 20px;
-  color: var(--text-secondary);
+  color: var(--home-header-text-2);
   font-weight: 400;
   font-family: "Red Hat Display";
 }
@@ -213,6 +213,10 @@ button[type="submit"]:disabled {
 .tabs {
   width: 20em;
   font-family: "lucida grande", sans-serif;
+
+  button {
+    cursor: pointer;
+  }
 }
 
 [role="tablist"] {

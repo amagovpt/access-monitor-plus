@@ -23,9 +23,9 @@
   /*width: 141px;*/
   height: 50px;
   border-radius: 25px;
-  background-color: #333399;
+  background-color: var(--header-results-button-background);
   font-size: 1em;
-  color: #f1f1f1;
+  color: var(--header-results-button-text);
   font-weight: 700;
   font-family: "Red Hat Display";
   text-align: center;
@@ -37,7 +37,7 @@
 }
 
 .card_actions button svg path {
-  fill: #f1f1f1;
+  fill: var(--header-results-button-text);
 }
 
 section {
@@ -133,10 +133,6 @@ section:nth-child(3) div:first-child {
 
 .show_dropdown {
   display: block !important;
-}
-
-mat-card {
-  width: 100%;
 }
 
 .header {

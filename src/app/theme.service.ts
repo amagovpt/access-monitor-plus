@@ -6,7 +6,7 @@ import { Theme, light, dark } from './theme';
 })
 export class ThemeService {
   private active: Theme = light;
-  private availableThemes: Theme[] = [light, dark];
+  private readonly availableThemes: Theme[] = [light, dark];
 
   getAvailableThemes(): Theme[] {
     return this.availableThemes;
