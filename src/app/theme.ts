@@ -17,7 +17,8 @@ const Colours = {
   '_11': '#f1f1f1',
   '_12': '#272777',
   '_13': '#b5dbf5',
-  '_14': '#eaeaea'
+  '_14': '#eaeaea',
+  '_15': '#d10000'
 };
 
 const light: Theme = {
@@ -42,10 +43,11 @@ const light: Theme = {
     '--home-content-logo': Colours._6,
     '--home-content-tabs-background': Colours._14,
     '--home-content-tabs-text': Colours._4,
-    '--home-content-inputs_label': Colours._4,
+    '--home-content-inputs_label': Colours._6,
     '--home-content-inputs-background': Colours._3,
     '--home-content-inputs-border': Colours._4,
-    '--home-content-inputs-text': Colours._4,
+    '--home-content-inputs-text': Colours._6,
+    '--home-content-inputs-error': Colours._15,
     '--home-content-file-button-background': Colours._4,
     '--home-content-file-button-text': Colours._3,
     '--home-content-file-button-border': Colours._4,

@@ -53,7 +53,7 @@ section:nth-child(2) {
   line-height: 1.75em;
   color: var(--home-content-sentence);
   font-weight: 400;
-  font-family: "Red Hat Display";
+  font-family: "Lato";
 }
 
 .tabs03 {
@@ -76,7 +76,8 @@ section:nth-child(2) {
   line-height: 3em;
   color: var(--home-content-inputs_label);
   font-weight: 700;
-  font-family: "Red Hat Display";
+  font-family: "Lato";
+  margin-top: 1em;
 }
 
 input:not(:last-child),
@@ -111,14 +112,14 @@ input:last-child {
 
 .card_actions button,
 .input_field button {
-  width: 141px;
-  height: 50px;
+  width: 142px;
+  height: 51px;
   border-radius: 25px;
   background-color: var(--home-content-button-background-hover);
   font-size: 1em;
   color: var(--home-content-button-text-hover);
   font-weight: 700;
-  font-family: "Red Hat Display";
+  font-family: "Lato";
   text-align: center;
   border: 2px solid var(--home-content-button-border-hover);
 
@@ -133,6 +134,12 @@ input:last-child {
       animation-fill-mode: forwards;
     }
   }
+}
+
+.card_actions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .card_actions button:disabled {
@@ -164,8 +171,12 @@ input:last-child {
 
 .url_error,
 .file_error {
-  color: red;
   width: 100%;
+  font-size: 1em;
+  line-height: 3em;
+  color: var(--home-content-inputs-error);
+  font-weight: 700;
+  font-family: "Lato";
 }
 
 form,
@@ -183,6 +194,7 @@ button {
 
 .input_field {
   width: 100%;
+  margin-top: 16px;
 }
 
 button[type="submit"]:disabled {
@@ -199,7 +211,7 @@ button[type="submit"]:disabled {
   font-size: 1em;
   color: var(--home-content-file-button-text);
   font-weight: 400;
-  font-family: "Red Hat Display";
+  font-family: "Lato";
 
   input {
     margin-top: 0 !important;
@@ -212,13 +224,17 @@ button[type="submit"]:disabled {
 
 .file-button {
   position: absolute;
+  height: 50px !important;
   border: 2px solid var(--home-content-file-button-border);
   color: var(--home-content-file-button-text);
+  font-size: 1em;
+  font-weight: 700;
+  font-family: "Lato";
 }
 
 .tabs {
   width: 20em;
-  font-family: "lucida grande", sans-serif;
+  font-family: "Lato", sans-serif;
 
   button {
     cursor: pointer;
@@ -237,7 +253,7 @@ button[type="submit"]:disabled {
   color: var(--home-content-tabs-text);
   background-color: var(--home-content-tabs-background);
   font-weight: 700;
-  font-family: "Red Hat Display";
+  font-family: "Lato";
   opacity: 1 !important;
   border: none;
   padding: 0;
@@ -276,7 +292,6 @@ textarea {
   width: 96%;
   font-size: 1em;
   padding-left: 1em;
-  line-height: 3em;
   margin-top: 0 !important;
   color: var(--home-content-inputs-text);
   background-color: var(--home-content-inputs-background);
@@ -287,6 +302,16 @@ textarea {
   &:invalid {
     border-color: red;
   }
+}
+
+[role="tabpanel"] input {
+  line-height: 3em;
+}
+
+[role="tabpanel"] textarea {
+  line-height: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
 
 #input_file_name {
