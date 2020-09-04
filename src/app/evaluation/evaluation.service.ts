@@ -225,9 +225,9 @@ export class EvaluationService {
 
       let csvContent = this.evaluation.data.rawUrl + '\r\n';
       csvContent += this.evaluation.data.date + '\r\n';
-      csvContent += labels.join(',') + '\r\n';
+      csvContent += labels.join(';') + '\r\n';
       for (const row of data || []) {
-        csvContent += row.join(',') + '\r\n';
+        csvContent += row.join(';') + '\r\n';
       }
 
       const blob = new Blob([csvContent], { type: 'text/csv' });
@@ -470,10 +470,10 @@ export class EvaluationService {
     const elements = this.getElementsList(ele, path);
 
     let result = 'G';
-
-    for (const test in tests) {
+    const results = this.evaluation.processed.results.map(r => r.msg);
+    for (const test in tests || {}) {
       const _test = tests[test];
-      if (_test.test === ele && _test.type !== 'fals') {
+      if (_test.test === ele && results.includes(test)) {
         result = tests_colors[test];
         break;
       }

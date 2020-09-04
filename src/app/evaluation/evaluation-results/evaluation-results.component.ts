@@ -7,7 +7,7 @@ import { EvaluationService } from '../evaluation.service';
 @Component({
   selector: 'app-evaluation-results',
   templateUrl: './evaluation-results.component.html',
-  styleUrls: ['./evaluation-results.component.css']
+  styleUrls: ['./evaluation-results.component.scss']
 })
 export class EvaluationResultsPageComponent implements OnInit, OnDestroy {
 
@@ -126,17 +126,17 @@ export class EvaluationResultsPageComponent implements OnInit, OnDestroy {
 
         const practicesProgress = <HTMLCollectionOf<HTMLElement>> document.getElementsByClassName('practices_progress');
 
-        practicesProgress[0].style.background = `-webkit-linear-gradient(left, #9c9, #9c9 ${totalOk / totalPractices * 100}%, lightgrey ${totalOk / totalPractices * 100}%, lightgrey ${100 - (totalOk / totalPractices * 100)}%)`;
-        practicesProgress[0].style.background = `-moz-linear-gradient(left, #9c9, #9c9 ${totalOk / totalPractices * 100}%, lightgrey ${totalOk / totalPractices * 100}%, lightgrey ${100 - (totalOk / totalPractices * 100)}%)`;
-        practicesProgress[0].style.background = `-ms-linear-gradient(left, #9c9, #9c9 ${totalOk / totalPractices * 100}%, lightgrey ${totalOk / totalPractices * 100}%, lightgrey ${100 - (totalOk / totalPractices * 100)}%)`;
-        practicesProgress[0].style.background = `linear-gradient(left, #9c9, #9c9 ${totalOk / totalPractices * 100}%, lightgrey ${totalOk / totalPractices * 100}%, lightgrey ${100 - (totalOk / totalPractices * 100)}%)`;
+        practicesProgress[0].style.background = `-webkit-linear-gradient(left, #bce1bc, #bce1bc ${totalOk / totalPractices * 100}%, var(--results-summary-table-background) ${totalOk / totalPractices * 100}%, var(--results-summary-table-background) ${100 - (totalOk / totalPractices * 100)}%)`;
+        practicesProgress[0].style.background = `-moz-linear-gradient(left, #bce1bc, #bce1bc ${totalOk / totalPractices * 100}%, lightgrey ${totalOk / totalPractices * 100}%, lightgrey ${100 - (totalOk / totalPractices * 100)}%)`;
+        practicesProgress[0].style.background = `-ms-linear-gradient(left, #bce1bc, #bce1bc ${totalOk / totalPractices * 100}%, lightgrey ${totalOk / totalPractices * 100}%, lightgrey ${100 - (totalOk / totalPractices * 100)}%)`;
+        practicesProgress[0].style.background = `linear-gradient(left, #bce1bc, #bce1bc ${totalOk / totalPractices * 100}%, lightgrey ${totalOk / totalPractices * 100}%, lightgrey ${100 - (totalOk / totalPractices * 100)}%)`;
         
-        practicesProgress[1].style.background = `-webkit-linear-gradient(left, #ff9, #ff9 ${totalWar / totalPractices * 100}%, lightgrey ${totalWar / totalPractices * 100}%, lightgrey ${100 - (totalWar / totalPractices * 100)}%)`;
+        practicesProgress[1].style.background = `-webkit-linear-gradient(left, #ff9, #ff9 ${totalWar / totalPractices * 100}%, var(--results-summary-table-background) ${totalWar / totalPractices * 100}%, var(--results-summary-table-background) ${100 - (totalWar / totalPractices * 100)}%)`;
         practicesProgress[1].style.background = `-moz-linear-gradient(left, #ff9, #ff9 ${totalWar / totalPractices * 100}%, lightgrey ${totalWar / totalPractices * 100}%, lightgrey ${100 - (totalWar / totalPractices * 100)}%)`;
         practicesProgress[1].style.background = `-ms-linear-gradient(left, #ff9, #ff9 ${totalWar / totalPractices * 100}%, lightgrey ${totalWar / totalPractices * 100}%, lightgrey ${100 - (totalWar / totalPractices * 100)}%)`;
         practicesProgress[1].style.background = `linear-gradient(left, #ff9, #ff9 ${totalWar / totalPractices * 100}%, lightgrey ${totalWar / totalPractices * 100}%, lightgrey ${100 - (totalWar / totalPractices * 100)}%)`;
 
-        practicesProgress[2].style.background = `-webkit-linear-gradient(left, #f99, #f99 ${totalErr / totalPractices * 100}%, lightgrey ${totalErr / totalPractices * 100}%, lightgrey ${100 - (totalErr / totalPractices * 100)}%)`;
+        practicesProgress[2].style.background = `-webkit-linear-gradient(left, #f99, #f99 ${totalErr / totalPractices * 100}%, var(--results-summary-table-background) ${totalErr / totalPractices * 100}%, var(--results-summary-table-background) ${100 - (totalErr / totalPractices * 100)}%)`;
         practicesProgress[2].style.background = `-moz-linear-gradient(left, #f99, #f99 ${totalErr / totalPractices * 100}%, lightgrey ${totalErr / totalPractices * 100}%, lightgrey ${100 - (totalErr / totalPractices * 100)}%)`;
         practicesProgress[2].style.background = `-ms-linear-gradient(left, #f99, #f99 ${totalErr / totalPractices * 100}%, lightgrey ${totalErr / totalPractices * 100}%, lightgrey ${100 - (totalErr / totalPractices * 100)}%)`;
         practicesProgress[2].style.background = `linear-gradient(left, #f99, #f99 ${totalErr / totalPractices * 100}%, lightgrey ${totalErr / totalPractices * 100}%, lightgrey ${100 - (totalErr / totalPractices * 100)}%)`;

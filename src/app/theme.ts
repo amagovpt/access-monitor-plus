@@ -18,7 +18,12 @@ const Colours = {
   '_12': '#272777',
   '_13': '#b5dbf5',
   '_14': '#eaeaea',
-  '_15': '#d10000'
+  '_15': '#d10000',
+  '_16': '#a7b1be',
+  '_17': '#bce1bc',
+  '_18': '#ffff99',
+  '_19': '#ff9999',
+  '_20': '#525865'
 };
 
 const light: Theme = {
@@ -56,8 +61,38 @@ const light: Theme = {
     '--home-content-button-border-hover': Colours._4,
 
     // RESULTS PAGE
-    '--header-results-button-background': Colours._4,
-    '--header-results-button-text': Colours._11
+    '--results-header-background': Colours._2,
+    '--results-header-text': Colours._4,
+    '--results-header-button-background': Colours._4,
+    '--results-header-button-border': Colours._4,
+    '--results-header-button-text': Colours._11,
+
+    '--results-breadcrumbs-text': Colours._4,
+
+    '--results-info-accessMonitor-background': Colours._4,
+    '--results-info-accessMonitor-text': Colours._3,
+    '--results-info-url': Colours._6,
+    '--results-info-title': Colours._6,
+    
+    '--results-action-button-background': Colours._3,
+    '--results-action-button-text': Colours._4,
+
+    '--results-summary-background': Colours._3,
+    '--results-summary-text': Colours._6,
+    '--results-summary-table-background': Colours._2,
+    '--results-summary-table-text': Colours._6,
+    '--results-summary-table-border': Colours._3,
+    '--results-summary-table-border2': Colours._6,
+
+    '--results-evaluation-background': Colours._3,
+    '--results-evaluation-title': Colours._6,
+    '--results-evaluation-table-border': Colours._6,
+    '--results-evaluation-table-head-background': Colours._6,
+    '--results-evaluation-table-head-text': Colours._3,
+    '--results-evaluation-table-body-background': Colours._3,
+    '--results-evaluation-table-body-collapsible-background': Colours._11,
+    '--results-evaluation-table-body-text': Colours._6,
+    '--results-evaluation-table-body-icon': Colours._4
   }
 };
 
@@ -95,8 +130,38 @@ const dark: Theme = {
     '--home-content-button-border-hover': Colours._10,
 
     // RESULTS PAGE
-    '--header-results-button-background': Colours._10,
-    '--header-results-button-text': Colours._6
+    '--results-header-background': Colours._4,
+    '--results-header-text': Colours._13,
+    '--results-header-button-background': Colours._10,
+    '--results-header-button-border': Colours._10,
+    '--results-header-button-text': Colours._6,
+
+    '--results-breadcrumbs-text': Colours._10,
+
+    '--results-info-accessMonitor-background': Colours._10,
+    '--results-info-accessMonitor-text': Colours._7,
+    '--results-info-url': Colours._9,
+    '--results-info-title': Colours._9,
+
+    '--results-action-button-background': Colours._8,
+    '--results-action-button-text': Colours._10,
+
+    '--results-summary-background': Colours._8,
+    '--results-summary-text': Colours._9,
+    '--results-summary-table-background': Colours._16,
+    '--results-summary-table-text': Colours._7,
+    '--results-summary-table-border': Colours._7,
+    '--results-summary-table-border2': Colours._20,
+
+    '--results-evaluation-background': Colours._8,
+    '--results-evaluation-title': Colours._9,
+    '--results-evaluation-table-border': Colours._20,
+    '--results-evaluation-table-head-background': Colours._7,
+    '--results-evaluation-table-head-text': Colours._9,
+    '--results-evaluation-table-body-background': Colours._8,
+    '--results-evaluation-table-body-collapsible-background': Colours._7,
+    '--results-evaluation-table-body-text': Colours._9,
+    '--results-evaluation-table-body-icon': Colours._10
   }
 };
 

@@ -54,7 +54,7 @@
         "validator": "We couldn't contact the W3C html markup validator"
       },
       "table": {
-        "title": "Nº practices found",
+        "title": "practices found",
         "labels": {
           "p": "P",
           "ok": "Acceptable",
@@ -79,7 +79,7 @@
       "sc": "Success criteria",
       "practice": "Practice found",
       "lvl": "Level",
-      "details": "Details",
+      "details": "See detail",
       "understanding": "Notions about the SC",
       "alt_rowerr": "Non acceptable:",
       "alt_rowwar": "To view manually:",
