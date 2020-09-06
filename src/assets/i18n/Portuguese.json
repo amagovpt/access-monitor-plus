@@ -97,7 +97,7 @@
     "subtitle": "Teste:",
     "elements_tab": "Elementos",
     "page_tab": "Página",
-    "total_elements": "Número de elementos:",
+    "total_elements": "elementos encontrados",
     "inline_css_tab": "Estilos em linha",
     "embedded_css_tab": "Estilos embutidos",
     "result": {
