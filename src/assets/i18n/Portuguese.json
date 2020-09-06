@@ -55,7 +55,7 @@
         "validator": "Não se conseguiu contactar o validador de html do W3C"
       },
       "table": {
-        "title": "Nº práticas encontradas",
+        "title": "práticas encontradas",
         "labels": {
           "p": "P",
           "ok": "Aceitáveis",
@@ -80,7 +80,7 @@
       "sc": "Critério de sucesso",
       "practice": "Prática encontrada",
       "lvl": "Nível",
-      "details": "Detalhes",
+      "details": "Ver detalhe",
       "understanding": "Noções sobre o CS",
       "alt_rowerr": "Não aceitável:",
       "alt_rowwar": "Para ver manualmente:",

@@ -52,7 +52,7 @@
         "validator": "We couldn't contact the W3C html markup validator"
       },
       "table": {
-        "title": "Antall praksis funnet",
+        "title": "practices found",
         "labels": {
           "p": "P",
           "ok": "Akseptabelt",
@@ -77,7 +77,7 @@
       "sc": "Suksesskriterier",
       "practice": "Praksis funnet",
       "lvl": "Nivå",
-      "details": "Detaljer",
+      "details": "See detail",
       "understanding": "Vurdering av SK",
       "alt_rowerr": "Ikke akseptabelt:",
       "alt_rowwar": "Må vurderes manuelt:",
