@@ -118,19 +118,20 @@ nav span, nav a {
 }
 
 .info h1 {
-  font-size: 42px;
-  line-height: 48px;
+  font-size: 2.6em;
   color: var(--results-info-url);
   font-weight: 900;
   font-family: "Lato";
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
 }
 
 .info h2 {
-  font-size: 24px;
-  line-height: 26px;
+  font-size: 1.5em;
   color: var(--results-info-title);
   font-weight: 700;
   font-family: "Lato";
+  margin-top: 0;
 }
 
 .action {
