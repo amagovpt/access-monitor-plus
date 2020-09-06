@@ -135,8 +135,8 @@ nav span, nav a {
 }
 
 .action {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1em;
+  line-height: 1.5em;
   color: var(--results-action-button-text);
   font-weight: 700;
   font-family: "Lato";
@@ -149,7 +149,8 @@ nav span, nav a {
   height: 40px;
   border: none;
   background-color: var(--results-action-button-background);
-  padding: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 .action svg {
