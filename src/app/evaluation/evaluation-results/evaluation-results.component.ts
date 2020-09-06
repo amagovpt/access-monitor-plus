@@ -148,11 +148,14 @@ export class EvaluationResultsPageComponent implements OnInit, OnDestroy {
   openCollapsible(index: number): void {
     const table = document.getElementsByClassName('evaluation-table')[0];
     const collapsible = table.getElementsByClassName('collapsible')[index];
+    const row = collapsible.parentElement.parentElement;
 
     if (collapsible.classList.contains('collapsible-active')) {
       collapsible.classList.remove('collapsible-active');
+      row.classList.remove('highlight');
     } else {
       collapsible.classList.add('collapsible-active');
+      row.classList.add('highlight');
     }
 
     const collapsibleContent = table.getElementsByClassName('collapsible-content')[index];

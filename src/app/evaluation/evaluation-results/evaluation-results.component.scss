@@ -533,16 +533,16 @@ td {
 
   .evaluation-section-wrapper {
     width: 90%;
+    padding-top: 1em;
 
-    h1 {
-      height: 23px;
+    h2 {
       width: 104px;
       color: var(--results-evaluation-title);
-      font-size: 24px;
-      line-height: 48px;
+      font-size: 2em;
+      line-height: 3em;
       font-weight: 700;
       font-family: "Lato";
-      margin-bottom: 50px;
+      margin-bottom: 0;
     }
     
     .evaluation-table {
@@ -581,12 +581,31 @@ td {
       }
     }
 
+    .highlight {
+      td:not(:first-child) {
+        background-color: var(--results-evaluation-table-body-collapsible-background);
+      }
+
+      button {
+        background-color: var(--results-evaluation-table-body-collapsible-background);
+      }
+    }
+
     .evaluation-table tbody tr td:not(:first-child) {
       color: var(--results-evaluation-table-body-text);
+
+      ::before {
+        padding-left: 0.5em;
+      }
 
       a {
         color: var(--results-evaluation-table-body-text);
       }
+    }
+
+    .evaluation-table tbody td td button {
+      display: flex;
+      align-items: center;
     }
     
     .evaluation-table tbody tr td:not(:first-child) svg path {
@@ -610,8 +629,8 @@ td {
     .collapsible {
       background-color: var(--results-evaluation-table-body-background);
       color: var(--results-evaluation-table-body-text);
-      line-height: 20px;
-      font-size: 16px;
+      line-height: 1.25em;
+      font-size: 1em;
       cursor: pointer;
       width: 100%;
       height: 70px;
@@ -623,27 +642,32 @@ td {
     }
     
     .collapsible:before {
-      content: '\02304';
-      color: var(--results-evaluation-table-body-text);;
-      font-size: 1.5em;
+      content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='30px'><title>icon_arrow_drop</title><path d='M13.6,7.32l-.35.35a1.66,1.66,0,0,1-2.34,0l-3-3-1-1a1.55,1.55,0,0,0-2,.08A1.59,1.59,0,0,0,5,6L8,9l3,3a1.66,1.66,0,0,0,2.34,0l3-3,3-3a1.59,1.59,0,0,0,.11-2.24,1.58,1.58,0,0,0-2.23.1L15.92,5' fill='#333399'/></svg>");   
     }
     
     .collapsible-active:before {
-      content: '\02303';
-      color: var(--results-evaluation-table-body-text);;
-      font-size: 1.5em;
+      content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='30px'><title>icon_arrow_drop</title><path d='M13.6,7.32l-.35.35a1.66,1.66,0,0,1-2.34,0l-3-3-1-1a1.55,1.55,0,0,0-2,.08A1.59,1.59,0,0,0,5,6L8,9l3,3a1.66,1.66,0,0,0,2.34,0l3-3,3-3a1.59,1.59,0,0,0,.11-2.24,1.58,1.58,0,0,0-2.23.1L15.92,5' fill='#333399' transform='rotate(180) translate(-25 -15)'/></svg>"); 
     }
     
     .collapsible-content {
       display: none;
       background-color: var(--results-evaluation-table-body-collapsible-background);
-      border-top: 1px solid var(--results-evaluation-table-border);
       padding-left: 2em;
       line-height: 1.5em;
+      padding-bottom: 32px;
     }
     
     .collapsible-content-active {
       display: block;
+    }
+
+    .collapsible-content ul {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      line-height: 1.5em;
+      list-style-type: none;
     }
   }
 }
