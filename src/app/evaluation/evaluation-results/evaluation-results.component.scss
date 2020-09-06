@@ -333,6 +333,7 @@ td {
 
 .summary-section {
   background-color: var(--results-summary-background);
+  padding-bottom: 60px;
   margin-bottom: 55px;
 
   .summary-section-wrapper {
@@ -349,7 +350,7 @@ td {
     }
 
     .summary-first-row {
-      margin-bottom: 100px;
+      margin-bottom: 60px;
     }
     
     .score {
@@ -375,67 +376,78 @@ td {
     }
     
     .elements_size {
-      margin-left: 80px;
+      width: 200px;
     }
     
     .elements_size span:first-child {
       color: var(--results-summary-text);
       font-family: Lato;
-      font-size: 36px;
+      font-size: 2.25em;
       font-weight: 900;
       letter-spacing: 0;
-      line-height: 20px;
-      margin-bottom: 12px;
     }
     
     .elements_size .elements {
-      margin-bottom: 64px;
     }
     
     .elements_size span:nth-child(2) {
       color: var(--results-summary-text);
       font-family: Lato;
-      font-size: 16px;
+      font-size: 1em;
       font-weight: bold;
       letter-spacing: 0;
-      line-height: 20px;
     }
     
     .elements_size .size {
-      margin-bottom: 119px;
     }
     
-    .summary_practices {
-      border-spacing: 0;
-      margin-left: 100px;
+    .table_wrapper {
+      padding-left: 71px;
     }
 
-    .summary_practices th {
+    .summary_practices {
+      border-spacing: 0;
+      width: 100%;
+    }
+
+    .summary_practices thead {
+      padding-top: 0;
+      margin-top: 0;
+    }
+
+    .summary_practices thead th {
       color: var(--results-summary-text);
+      padding-top: 0;
+      margin-top: 0;
+      vertical-align: top;
     }
 
     .summary_practices th:first-child {
+      text-align: left;
+      padding-left: 1em;
+      width: auto;
+
       span:first-child {
-        font-size: 36px;
-        line-height: 48px;
+        font-size: 2.25em;
         font-weight: 900;
         font-family: "Lato";
       }
 
-      span:nth-child(2) {
-        font-size: 20px;
-        line-height: 20px;
+      span:nth-child(3) {
+        font-size: 1.25em;
         font-weight: 700;
         font-family: "Lato";
       }
     }
 
     .summary_practices th:not(:first-child) {
-      font-size: 24px;
-      line-height: 20px;
+      font-size: 1.5em;
       font-weight: 900;
       font-family: "Lato";
       text-align: center;
+      width: 100px;
+      min-width: 100px;
+      max-width: 100px;
     }
     
     .summary_practices th, .summary_practices td {
@@ -443,18 +455,24 @@ td {
     }
     
     .summary_practices td {
-      width: 90px;
-      height: 70px;
       text-align: center;
     }
-    
+
     .summary_practices tbody td {
       background-color: var(--results-summary-table-background);
+      padding-top: 0.7em;
+      padding-bottom: 0.7em;
     }
     
     .summary_practices tbody td:first-child {
-      width: 500px;
+      width: auto;
       color: var(--results-summary-table-text);
+    }
+
+    .summary_practices tbody td:not(:first-child) {
+      width: 100px;
+      min-width: 100px;
+      max-width: 100px;
     }
 
     .summary_practices tbody tr:nth-child(2) td {
@@ -467,8 +485,7 @@ td {
     }
 
     .summary_practices tbody tr td:first-child svg + span {
-      font-size: 16px;
-      line-height: 21px;
+      font-size: 1em;
       font-weight: 700;
       font-family: "Lato";
       margin-left: 1em;
@@ -476,22 +493,24 @@ td {
 
     .summary_practices tbody tr td:first-child span + span {
       width: 3em;
-      font-size: 24px;
-      line-height: 21px;
+      font-size: 1.5em;
       font-weight: 700;
       font-family: "Lato";
+      display: flex;
+      align-items: center;
     }
     
     .summary_practices tfoot td {
-      height: 18px;
-      width: 27px;
       color: var(--results-summary-text);
       font-family: Lato;
-      font-size: 24px;
+      font-size: 1.5em;
       font-weight: 900;
       letter-spacing: 0;
-      line-height: 20px;
       text-align: center;
+      padding-bottom: 0;
+      margin-bottom: 0;
+      padding-top: 0.7em;
+      vertical-align: bottom;
     }
   }
 }
