@@ -65,16 +65,16 @@
   </section>
   <section class="summary-section" *ngIf="!loading && !error" fxLayout="row" fxLayoutAlign="center center">
     <div class="summary-section-wrapper">
-      <h1>{{ "RESULTS.summary.title" | translate }}</h1>
+      <h2>{{ "RESULTS.summary.title" | translate }}</h2>
       <div class="summary-first-row" fxLayout="row" fxLayoutAlign="start center">
         <ngx-gauge class="score" [type]="'arch'" [thick]="'10'" [cap]="'round'" [value]="eval.metadata.score" [label]="'RESULTS.summary.score' | translate"
             [min]="0" [max]="10" [duration]="2000" [thresholds]="thresholdConfig">
         </ngx-gauge>
         <div class="url_title" fxLayout="column" fxLayoutAlign="center start">
-          <span><strong>URI</strong></span>
+          <span class="strongH">URI</span>
           <span>{{ url }}</span>
           <br>
-          <span><strong>{{ "RESULTS.summary.metadata.title_label" | translate }}</strong></span>
+          <span class="strongH">{{ "RESULTS.summary.metadata.title_label" | translate }}</span>
           <span>{{ eval.metadata.title }}</span>
         </div>
       </div>

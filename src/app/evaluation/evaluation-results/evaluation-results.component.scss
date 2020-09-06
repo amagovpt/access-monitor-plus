@@ -337,13 +337,15 @@ td {
 
   .summary-section-wrapper {
     width: 90%;
+    padding-top: 1em;
 
-    h1 {
-      font-size: 24px;
-      line-height: 48px;
+    h2 {
+      font-size: 2em;
+      line-height: 3em;
       color: var(--results-summary-text);
       font-weight: 700;
       font-family: "Lato";
+      margin-top: 0em;
     }
 
     .summary-first-row {
@@ -351,23 +353,22 @@ td {
     }
     
     .score {
-      margin-left: 80px;
     }
     
     .url_title {
       margin-left: 91px;
       color: var(--results-summary-text);
 
-      span:nth-child(odd) {
-        font-size: 16px;
-        line-height: 20px;
+      span.strongH {
+        font-size: 1em;
+        line-height: 1.25em;
         font-weight: 700;
         font-family: "Lato";
       }
 
-      span:nth-child(even) {
-        font-size: 18px;
-        line-height: 20px;
+      span {
+        font-size: 1.125em;
+        line-height: 1.25;
         font-weight: 400;
         font-family: "Lato";
       }

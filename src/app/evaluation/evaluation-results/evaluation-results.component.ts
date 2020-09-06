@@ -31,7 +31,7 @@ export class EvaluationResultsPageComponent implements OnInit, OnDestroy {
       '0': {color: 'red'},
       '2.5': {color: 'orange'},
       '5': {color: 'yellow'},
-      '7.5': {color: 'green'}
+      '7.5': {color: '#16b455'}
     };
 
     this.loading = true;
