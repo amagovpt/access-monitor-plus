@@ -35,13 +35,13 @@
     <h1>{{ url }}</h1>
     <h2>{{ "RESULTS.title" | translate }}</h2>
     <div *ngIf="!loading && !error" fxLayout="row">
-      <button class="action" mat-flat-button type="button" (click)="evaluate(true)">
+      <button class="action" (click)="evaluate(true)">
         {{ 'RESULTS.actions.re_evaluate' | translate }}
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15" role="presentation"><title>monitor_icons_tools_reload</title><rect x="2.37" y="2.06" width="10.29" height="10.88" style="fill:none"/><path d="M14.57,7.15a.89.89,0,0,0-.92-.84.88.88,0,0,0-.84.92,5.28,5.28,0,0,1-.31,2l-.06.15a5.28,5.28,0,0,1-5.73,3.3H6.65a5.27,5.27,0,0,1-.93-.24l-.1,0a5.27,5.27,0,0,1-.84-.4l-.08-.06A5.38,5.38,0,0,1,4,11.39l-.14-.14a5.37,5.37,0,0,1-.53-.59c-.08-.11-.15-.22-.22-.33a5.28,5.28,0,0,1-.29-.49,5.33,5.33,0,0,1-.21-.5c-.05-.14-.11-.28-.15-.42a5.31,5.31,0,0,1-.13-.6c0-.13,0-.27-.06-.4a5.27,5.27,0,0,1,0-.69c0-.1,0-.21,0-.31a5.3,5.3,0,0,1,.16-.85l0-.15A5.3,5.3,0,0,1,2.81,5l0-.07a5.26,5.26,0,0,1,.55-.82l0,0a5.31,5.31,0,0,1,7-1.1,1.91,1.91,0,0,0-.79.25.88.88,0,0,0,.66,1.48l2.41,0a.88.88,0,0,0,.82-.63.87.87,0,0,0,0-.27l-.06-2.11c-.1-.64-.12-1-.29-1.15a.87.87,0,0,0-.63-.24h0c-.49,0-.84.56-.84,1.44v0A7.12,7.12,0,0,0,9.51.69,7,7,0,0,0,7,.43H7l-.13,0a7,7,0,0,0-1,.16L5.45.72A7.12,7.12,0,0,0,4.7,1c-.19.08-.37.17-.56.27l-.27.16A6.89,6.89,0,0,0,3,2q-.26.21-.49.44c-.08.08-.17.14-.24.22s-.12.17-.19.25a7,7,0,0,0-.5.67c-.1.15-.19.31-.28.47A7,7,0,0,0,1,4.82C.9,5,.84,5.16.78,5.33l-.05.15a7.13,7.13,0,0,0-.17.71c0,.14,0,.28-.06.42a7,7,0,0,0-.06,1s0,.07,0,.11,0,.12,0,.18A7,7,0,0,0,.63,9c0,.08,0,.17.07.25a7.11,7.11,0,0,0,.37,1.07l.09.18a7.11,7.11,0,0,0,.63,1.06l0,0A7.06,7.06,0,0,0,14.3,9.47l.07-.26A7,7,0,0,0,14.57,7.15Z"/></svg>
       </button>
       <span fxFlex></span>
       <div class="dropdown">
-        <button class="action see_page_button" mat-flat-button type="button" (click)="openSeePage()">
+        <button class="action see_page_button" (click)="openSeePage()">
           Ver página
           <svg xmlns="http://www.w3.org/2000/svg" width="22.49" height="13.95" viewBox="0 0 22.49 13.95"><title>monitor_icons_tools_code</title><path d="M2.47,6.94l1-1,.85-.85L5.84,3.6A1,1,0,1,0,4.52,2l-.14.14-2,2-2,2a1.12,1.12,0,0,0,0,1.59h0l2,2,2,2A1,1,0,1,0,6,10.53l-.14-.14L5.05,9.6,3.47,8"/><path d="M20,7.05,19,8l-.85.85-1.52,1.53A1,1,0,1,0,18,12l.14-.14,2-2,2-2a1.12,1.12,0,0,0,0-1.59h0l-2-2-2-2a1,1,0,1,0-1.6,1.31l.14.14.79.79L19,6"/><path d="M10,13.33,14.19,1.21A.91.91,0,1,0,12.47.61h0L8.3,12.74a.91.91,0,1,0,1.72.59Z"/></svg>
         </button>
@@ -65,21 +65,21 @@
   </section>
   <section class="summary-section" *ngIf="!loading && !error" fxLayout="row" fxLayoutAlign="center center">
     <div class="summary-section-wrapper">
-      <h1>{{ "RESULTS.summary.title" | translate }}</h1>
+      <h2>{{ "RESULTS.summary.title" | translate }}</h2>
       <div class="summary-first-row" fxLayout="row" fxLayoutAlign="start center">
         <ngx-gauge class="score" [type]="'arch'" [thick]="'10'" [cap]="'round'" [value]="eval.metadata.score" [label]="'RESULTS.summary.score' | translate"
             [min]="0" [max]="10" [duration]="2000" [thresholds]="thresholdConfig">
         </ngx-gauge>
         <div class="url_title" fxLayout="column" fxLayoutAlign="center start">
-          <span><strong>URI</strong></span>
+          <span class="strongH">URI</span>
           <span>{{ url }}</span>
           <br>
-          <span><strong>{{ "RESULTS.summary.metadata.title_label" | translate }}</strong></span>
+          <span class="strongH">{{ "RESULTS.summary.metadata.title_label" | translate }}</span>
           <span>{{ eval.metadata.title }}</span>
         </div>
       </div>
       <div fxLayout="row">
-        <div class="elements_size" fxLayout="column">
+        <div class="elements_size" fxLayout="column" fxLayoutAlign="space-evenly center" fxFlex="200px">
           <div class="elements" fxLayout="column" fxLayoutAlign="center center">
             <span>{{eval.metadata.n_elements}}</span>
             <span>{{ "RESULTS.summary.metadata.n_elements_label" | translate }}</span>
@@ -89,83 +89,86 @@
             <span>{{ "RESULTS.summary.metadata.page_size_label" | translate }}</span>
           </div>
         </div>
-        <table class="summary_practices">
-          <thead>
-            <tr>
-              <th>
-                <span>{{
-                  eval.infoak.A.ok + eval.infoak.AA.ok + eval.infoak.AAA.ok +
-                  eval.infoak.A.err + eval.infoak.AA.err + eval.infoak.AAA.err +
-                  eval.infoak.A.war + eval.infoak.AA.war + eval.infoak.AAA.war
-                }}</span>
-                <span>
-                  {{ "RESULTS.summary.table.title" | translate }}
-                </span>
-              </th>
-              <th scope="col">A</th>
-              <th scope="col">AA</th>
-              <th scope="col">AAA</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="practices_progress" scope="row">
-                <div fxLayout="row">
-                  <span fxFlex fxLayout="row" fxLayoutAlign="start center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><title>monitor_icons_praticas_status_correct</title><path d="M26,12.29a1.41,1.41,0,0,1,0,2l-9.43,9.43a1.41,1.41,0,0,1-2,0L10,19.22a1.41,1.41,0,0,1,2-2l3.5,3.5L24,12.29a1.41,1.41,0,0,1,2,0ZM36,18A18,18,0,1,1,18,0,18,18,0,0,1,36,18Zm-2.81,0A15.19,15.19,0,1,0,18,33.19,15.18,15.18,0,0,0,33.19,18Zm0,0"/></svg>
-                    <span>{{ "RESULTS.summary.table.labels.ok" | translate }}</span>
+        <div class="table_wrapper" fxFlex="grow">
+          <table class="summary_practices">
+            <thead>
+              <tr>
+                <th>
+                  <span>{{
+                    eval.infoak.A.ok + eval.infoak.AA.ok + eval.infoak.AAA.ok +
+                    eval.infoak.A.err + eval.infoak.AA.err + eval.infoak.AAA.err +
+                    eval.infoak.A.war + eval.infoak.AA.war + eval.infoak.AAA.war
+                  }}</span>
+                  <span>&nbsp;</span>
+                  <span>
+                    {{ "RESULTS.summary.table.title" | translate }}
                   </span>
-                  <span>{{ eval.infoak.A.ok + eval.infoak.AA.ok + eval.infoak.AAA.ok }}</span>
-                </div>
-              </td>
-              <td>{{ eval.infoak.A.ok }}</td>
-              <td>{{ eval.infoak.AA.ok }}</td>
-              <td>{{ eval.infoak.AAA.ok }}</td>
-            </tr>
-            <tr>
-              <td class="practices_progress" scope="row">
-                <div fxLayout="row">
-                  <span fxFlex fxLayout="row" fxLayoutAlign="start center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><title>monitor_icons_praticas_status_review</title><path d="M21.5,19.5h3.86a1.5,1.5,0,0,0,0-3H21.5m3,0H20.64a1.5,1.5,0,1,0,0,3H24.5"/><path d="M11.5,19.5h3.86a1.5,1.5,0,0,0,0-3H11.5m3,0H10.64a1.5,1.5,0,1,0,0,3H14.5"/><path d="M34.63,24.89l.07-.17a18,18,0,0,0,0-13.44l-.07-.17-.07-.17a18,18,0,0,0-9.5-9.5l-.17-.07-.17-.07a18,18,0,0,0-13.43,0l-.17.07-.17.07a18,18,0,0,0-9.5,9.5l-.07.17-.07.17A18,18,0,0,0,.71,23l0,.08a18,18,0,0,0,7.13,9.79l.09.07a18,18,0,0,0,13.41,2.74h.1A18,18,0,0,0,34.56,25.06Zm-23.8,6.3-.07,0A15,15,0,0,1,4.08,12.4l.06-.14.06-.14A15.09,15.09,0,0,1,12.12,4.2l.14-.06.14-.06a15.09,15.09,0,0,1,11.2,0l.14.06.14.06a15.09,15.09,0,0,1,7.92,7.92l.06.14.06.14a15.09,15.09,0,0,1,0,11.2l-.06.14-.06.14a15,15,0,0,1-21,7.3Z"/></svg>
-                    <span>{{ "RESULTS.summary.table.labels.warn" | translate }}</span>
-                  </span>
-                  <span>{{ eval.infoak.A.war + eval.infoak.AA.war + eval.infoak.AAA.war }}</span>
-                </div>
-              </td>
-              <td>{{ eval.infoak.A.war }}</td>
-              <td>{{ eval.infoak.AA.war }}</td>
-              <td>{{ eval.infoak.AAA.war }}</td>
-            </tr>
-            <tr>
-              <td class="practices_progress" scope="row">
-                <div fxLayout="row">
-                  <span fxFlex fxLayout="row" fxLayoutAlign="start center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><title>monitor_icons_praticas_status_incorrect</title><path d="M12.44,23.56a1.5,1.5,0,0,0,2.12,0L18,20.12l3.44,3.44a1.5,1.5,0,1,0,2.12-2.12L20.12,18l3.44-3.44a1.5,1.5,0,1,0-2.12-2.12L18,15.88l-3.44-3.44a1.5,1.5,0,0,0-2.12,2.12L15.88,18l-3.44,3.44a1.5,1.5,0,0,0,0,2.12Zm0,0"/><path d="M34.63,24.89l.07-.17a18,18,0,0,0,0-13.44l-.07-.17-.07-.17a18,18,0,0,0-9.5-9.5l-.17-.07-.17-.07a18,18,0,0,0-13.43,0l-.17.07-.17.07a18,18,0,0,0-9.5,9.5l-.07.17-.07.17A18,18,0,0,0,.71,23l0,.08a18,18,0,0,0,7.13,9.79l.09.07a18,18,0,0,0,13.41,2.74h.1A18,18,0,0,0,34.56,25.06Zm-23.8,6.3-.07,0A15,15,0,0,1,4.08,12.4l.06-.14.06-.14A15.09,15.09,0,0,1,12.12,4.2l.14-.06.14-.06a15.09,15.09,0,0,1,11.2,0l.14.06.14.06a15.09,15.09,0,0,1,7.92,7.92l.06.14.06.14a15.09,15.09,0,0,1,0,11.2l-.06.14-.06.14a15,15,0,0,1-21,7.3Z"/></svg>
-                    <span>{{ "RESULTS.summary.table.labels.err" | translate }}</span>
-                  </span>
-                  <span>{{ eval.infoak.A.err + eval.infoak.AA.err + eval.infoak.AAA.err }}</span>
-                </div>
-              </td>
-              <td>{{ eval.infoak.A.err }}</td>
-              <td>{{ eval.infoak.AA.err }}</td>
-              <td>{{ eval.infoak.AAA.err }}</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <td></td>
-              <td scope="col">{{ eval.infoak.A.ok + eval.infoak.A.err + eval.infoak.A.war }}</td>
-              <td scope="col">{{ eval.infoak.AA.ok + eval.infoak.AA.err + eval.infoak.AA.war }}</td>
-              <td scope="col">{{ eval.infoak.AAA.ok + eval.infoak.AAA.err + eval.infoak.AAA.war }}</td>
-            </tr>
-          </tfoot>
-        </table>
+                </th>
+                <th scope="col">A</th>
+                <th scope="col">AA</th>
+                <th scope="col">AAA</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="practices_progress" scope="row">
+                  <div fxLayout="row">
+                    <span fxFlex fxLayout="row" fxLayoutAlign="start center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><title>monitor_icons_praticas_status_correct</title><path d="M26,12.29a1.41,1.41,0,0,1,0,2l-9.43,9.43a1.41,1.41,0,0,1-2,0L10,19.22a1.41,1.41,0,0,1,2-2l3.5,3.5L24,12.29a1.41,1.41,0,0,1,2,0ZM36,18A18,18,0,1,1,18,0,18,18,0,0,1,36,18Zm-2.81,0A15.19,15.19,0,1,0,18,33.19,15.18,15.18,0,0,0,33.19,18Zm0,0"/></svg>
+                      <span>{{ "RESULTS.summary.table.labels.ok" | translate }}</span>
+                    </span>
+                    <span>{{ eval.infoak.A.ok + eval.infoak.AA.ok + eval.infoak.AAA.ok }}</span>
+                  </div>
+                </td>
+                <td>{{ eval.infoak.A.ok }}</td>
+                <td>{{ eval.infoak.AA.ok }}</td>
+                <td>{{ eval.infoak.AAA.ok }}</td>
+              </tr>
+              <tr>
+                <td class="practices_progress" scope="row">
+                  <div fxLayout="row">
+                    <span fxFlex fxLayout="row" fxLayoutAlign="start center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><title>monitor_icons_praticas_status_review</title><path d="M21.5,19.5h3.86a1.5,1.5,0,0,0,0-3H21.5m3,0H20.64a1.5,1.5,0,1,0,0,3H24.5"/><path d="M11.5,19.5h3.86a1.5,1.5,0,0,0,0-3H11.5m3,0H10.64a1.5,1.5,0,1,0,0,3H14.5"/><path d="M34.63,24.89l.07-.17a18,18,0,0,0,0-13.44l-.07-.17-.07-.17a18,18,0,0,0-9.5-9.5l-.17-.07-.17-.07a18,18,0,0,0-13.43,0l-.17.07-.17.07a18,18,0,0,0-9.5,9.5l-.07.17-.07.17A18,18,0,0,0,.71,23l0,.08a18,18,0,0,0,7.13,9.79l.09.07a18,18,0,0,0,13.41,2.74h.1A18,18,0,0,0,34.56,25.06Zm-23.8,6.3-.07,0A15,15,0,0,1,4.08,12.4l.06-.14.06-.14A15.09,15.09,0,0,1,12.12,4.2l.14-.06.14-.06a15.09,15.09,0,0,1,11.2,0l.14.06.14.06a15.09,15.09,0,0,1,7.92,7.92l.06.14.06.14a15.09,15.09,0,0,1,0,11.2l-.06.14-.06.14a15,15,0,0,1-21,7.3Z"/></svg>
+                      <span>{{ "RESULTS.summary.table.labels.warn" | translate }}</span>
+                    </span>
+                    <span>{{ eval.infoak.A.war + eval.infoak.AA.war + eval.infoak.AAA.war }}</span>
+                  </div>
+                </td>
+                <td>{{ eval.infoak.A.war }}</td>
+                <td>{{ eval.infoak.AA.war }}</td>
+                <td>{{ eval.infoak.AAA.war }}</td>
+              </tr>
+              <tr>
+                <td class="practices_progress" scope="row">
+                  <div fxLayout="row">
+                    <span fxFlex fxLayout="row" fxLayoutAlign="start center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><title>monitor_icons_praticas_status_incorrect</title><path d="M12.44,23.56a1.5,1.5,0,0,0,2.12,0L18,20.12l3.44,3.44a1.5,1.5,0,1,0,2.12-2.12L20.12,18l3.44-3.44a1.5,1.5,0,1,0-2.12-2.12L18,15.88l-3.44-3.44a1.5,1.5,0,0,0-2.12,2.12L15.88,18l-3.44,3.44a1.5,1.5,0,0,0,0,2.12Zm0,0"/><path d="M34.63,24.89l.07-.17a18,18,0,0,0,0-13.44l-.07-.17-.07-.17a18,18,0,0,0-9.5-9.5l-.17-.07-.17-.07a18,18,0,0,0-13.43,0l-.17.07-.17.07a18,18,0,0,0-9.5,9.5l-.07.17-.07.17A18,18,0,0,0,.71,23l0,.08a18,18,0,0,0,7.13,9.79l.09.07a18,18,0,0,0,13.41,2.74h.1A18,18,0,0,0,34.56,25.06Zm-23.8,6.3-.07,0A15,15,0,0,1,4.08,12.4l.06-.14.06-.14A15.09,15.09,0,0,1,12.12,4.2l.14-.06.14-.06a15.09,15.09,0,0,1,11.2,0l.14.06.14.06a15.09,15.09,0,0,1,7.92,7.92l.06.14.06.14a15.09,15.09,0,0,1,0,11.2l-.06.14-.06.14a15,15,0,0,1-21,7.3Z"/></svg>
+                      <span>{{ "RESULTS.summary.table.labels.err" | translate }}</span>
+                    </span>
+                    <span>{{ eval.infoak.A.err + eval.infoak.AA.err + eval.infoak.AAA.err }}</span>
+                  </div>
+                </td>
+                <td>{{ eval.infoak.A.err }}</td>
+                <td>{{ eval.infoak.AA.err }}</td>
+                <td>{{ eval.infoak.AAA.err }}</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+                <td scope="col">{{ eval.infoak.A.ok + eval.infoak.A.err + eval.infoak.A.war }}</td>
+                <td scope="col">{{ eval.infoak.AA.ok + eval.infoak.AA.err + eval.infoak.AA.war }}</td>
+                <td scope="col">{{ eval.infoak.AAA.ok + eval.infoak.AAA.err + eval.infoak.AAA.war }}</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
       </div>
     </div>
   </section>
   <section class="evaluation-section" fxLayout="row" fxLayoutAlign="center center">
     <div class="evaluation-section-wrapper">
-      <h1>{{ "RESULTS.results.title" | translate }}</h1>
+      <h2>{{ "RESULTS.results.title" | translate }}</h2>
       <table class="evaluation-table">
         <thead>
           <tr>

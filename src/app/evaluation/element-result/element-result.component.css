@@ -117,6 +117,23 @@ section:nth-child(3) div:first-child:not(.result) {
   text-align: center;
 }
 
+.info h1 {
+  font-size: 2.6em;
+  color: var(--results-info-url);
+  font-weight: 900;
+  font-family: "Lato";
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+
+.info h2 {
+  font-size: 1.5em;
+  color: var(--results-info-title);
+  font-weight: 700;
+  font-family: "Lato";
+  margin-top: 0;
+}
+
 .test {
   background-color: white;
   width: 100%;
@@ -124,12 +141,28 @@ section:nth-child(3) div:first-child:not(.result) {
 
 .test span:nth-child(2) {
   padding: 20px;
-  border-right: thin solid black;
+  border-right: thin solid var(--background);
+}
+
+.test span:nth-child(3) {
+  margin-left: 30px;
+  font-size: 2.5em;
+  line-height: 3em;
+  font-weight: 900;
+  font-family: "Lato";
 }
 
 .test span:last-child {
-  margin-left: 30px;
-  margin-right: 56px;
+  margin-left: 16px;
+  width: 10em;
+}
+
+.test .desc {
+  font-size: 1.125em;
+  line-height: 3em;
+  color: var(--results-evaluation-title);
+  font-weight: 700;
+  font-family: "Lato";
 }
 
 .result {
@@ -156,13 +189,26 @@ section:nth-child(3) div:first-child:not(.result) {
   background-color: white;
 }
 
+.elements_list ol {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
 ol table {
   border-bottom: thin solid black;
   border-spacing: 0;
+  width: 100%;
 }
 
 ol .table1 {
   border-top: thin solid black;
+}
+
+ol table tr:first-child td:first-child {
+  vertical-align: top;
+  text-align: center;
 }
 
 .counter {
@@ -198,6 +244,10 @@ ol .table1 {
   line-height: 40px;
   padding-left: 15px;
   text-align: left;
+}
+
+.value code {
+  color: #d91176;
 }
 
 iframe {

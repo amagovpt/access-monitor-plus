@@ -49,7 +49,7 @@
       "score": "Pontuação",
       "metadata": {
         "title_label": "Título",
-        "n_elements_label": "Nº de elementos (x)HTML",
+        "n_elements_label": "Elementos (x)HTML",
         "page_size_label": "Tamanho da página",
         "last_update_label": "Última actualização",
         "validator": "Não se conseguiu contactar o validador de html do W3C"
@@ -97,7 +97,7 @@
     "subtitle": "Teste:",
     "elements_tab": "Elementos",
     "page_tab": "Página",
-    "total_elements": "Número de elementos:",
+    "total_elements": "elementos encontrados",
     "inline_css_tab": "Estilos em linha",
     "embedded_css_tab": "Estilos embutidos",
     "result": {

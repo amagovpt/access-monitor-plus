@@ -31,7 +31,7 @@ export class EvaluationResultsPageComponent implements OnInit, OnDestroy {
       '0': {color: 'red'},
       '2.5': {color: 'orange'},
       '5': {color: 'yellow'},
-      '7.5': {color: 'green'}
+      '7.5': {color: '#16b455'}
     };
 
     this.loading = true;
@@ -148,11 +148,14 @@ export class EvaluationResultsPageComponent implements OnInit, OnDestroy {
   openCollapsible(index: number): void {
     const table = document.getElementsByClassName('evaluation-table')[0];
     const collapsible = table.getElementsByClassName('collapsible')[index];
+    const row = collapsible.parentElement.parentElement;
 
     if (collapsible.classList.contains('collapsible-active')) {
       collapsible.classList.remove('collapsible-active');
+      row.classList.remove('highlight');
     } else {
       collapsible.classList.add('collapsible-active');
+      row.classList.add('highlight');
     }
 
     const collapsibleContent = table.getElementsByClassName('collapsible-content')[index];
