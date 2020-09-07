@@ -36,7 +36,8 @@
     "actions": {
       "back": "Gå tilbake",
       "re_evaluate": "Evaluer siden på nytt",
-      "download": "Last ned evalueringsresultater",
+      "download": "Download data",
+      "see_page": "See page",
       "pagecode": "Se sidekode",
       "open_webpage": "Åpne nettsiden"
     },
@@ -91,7 +92,7 @@
     }
   },
   "ELEMENT_RESULTS": {
-    "subtitle": "Test:",
+    "subtitle": "Test results",
     "elements_tab": "Elementer",
     "page_tab": "Side",
     "total_elements": "Antall elementer:",

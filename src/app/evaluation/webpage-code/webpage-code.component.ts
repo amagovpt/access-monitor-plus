@@ -7,7 +7,7 @@ import { html } from 'js-beautify';
 @Component({
   selector: 'app-webpage-code',
   templateUrl: './webpage-code.component.html',
-  styleUrls: ['./webpage-code.component.css']
+  styleUrls: ['./webpage-code.component.scss']
 })
 export class WebpageCodePageComponent implements OnInit, OnDestroy {
 

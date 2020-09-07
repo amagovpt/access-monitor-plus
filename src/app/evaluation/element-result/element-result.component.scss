@@ -1,0 +1,337 @@
+.header_wrapper {
+  width: 100%;
+  background-color: var(--results-header-background);
+}
+
+.amp_header {
+  width: 100%;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.amp_header svg path {
+  fill: var(--results-header-text);
+}
+
+.amp_header svg circle {
+  fill: var(--results-header-text);
+}
+
+.header_button {
+  width: 230px;
+  height: 50px;
+  background-color: var(--results-header-button-background);
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--results-header-button-text);
+  font-weight: 700;
+  font-family: "Lato";
+  cursor: pointer;
+  border-radius: 25px;
+  border: 2px solid var(--results-header-button-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    animation-name: header-button;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+
+    svg path {
+      animation-name: header-button;
+      animation-duration: 0.3s;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+@keyframes header-button {
+  0% {
+    background-color: var(--results-header-button-background);
+    color: var(--results-header-button-text);
+    fill: var(--results-header-button-text);
+  }
+
+  100% {
+    background-color: var(---results-header-button-text);
+    color: var(--results-header-button-background);
+    fill: var(--results-header-button-background);
+  }
+}
+
+.header_button svg {
+  display: inline;
+  margin-left: 1em;
+}
+
+.header_button svg path {
+  fill: var(--results-header-button-text);
+}
+
+section {
+  width: 87%;
+}
+
+section:first-child {
+  width: 100%;
+}
+
+section:nth-child(2) nav {
+  padding-top: 5em;
+  padding-bottom: 3em;
+}
+
+section:nth-child(2) nav span {
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+}
+
+section:nth-child(3) {
+  font-family: "Red Hat Display";
+  margin-bottom: 70px;
+}
+
+nav span, nav a {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  font-family: "Lato";
+  color: var(--results-breadcrumbs-text);
+}
+
+.info .accessMonitor {
+  font-size: 19px;
+  line-height: 48px;
+  color: var(--results-info-accessMonitor-text);
+  background-color: var(--results-info-accessMonitor-background);
+  font-weight: 700;
+  font-family: "Lato";
+  height: 31px;
+  width: 157px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info h1 {
+  font-size: 2.6em;
+  color: var(--results-info-url);
+  font-weight: 900;
+  font-family: "Lato";
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+
+.info h2 {
+  font-size: 1.5em;
+  color: var(--results-info-title);
+  font-weight: 700;
+  font-family: "Lato";
+  margin-top: 0;
+}
+
+.test {
+  background-color: var(--elements-test-description-background);
+  width: 100%;
+}
+
+.test span:nth-child(2) {
+  margin-left: 1.5em;
+  border-right: thin solid var(--elements-test-description-border);
+}
+
+.test span:nth-child(3) {
+  margin-left: 30px;
+  font-size: 2.5em;
+  line-height: 2em;
+  font-weight: 900;
+  font-family: "Lato";
+  color: var(--elements-test-description-text);
+}
+
+.test span:last-child {
+  margin-left: 16px;
+  width: 10em;
+  color: var(--elements-test-description-text);
+}
+
+.test .desc {
+  font-size: 1.125em;
+  line-height: 3em;
+  color: var(--elements-test-description-text);
+  font-weight: 700;
+  font-family: "Lato";
+}
+
+.result {
+  margin: 10px;
+  width: 5em;
+  height: 5em;
+}
+
+.result svg {
+  padding: 22px;
+}
+
+.G {
+  background-color: #9c9;
+}
+
+.Y {
+  background-color: #ff9;
+}
+
+.R {
+  background-color: #f99;
+}
+
+::ng-deep .mat-tab-body {
+  background-color: white;
+}
+
+.elements_list {
+  margin-bottom: 100px;
+}
+
+::ng-deep .mat-tab-label-content {
+  font-size: 16px;
+  line-height: 48px;
+  color: var(--elements-tabs-text) !important;
+  font-weight: 700;
+  font-family: "Lato";
+}
+
+::ng-deep .mat-ink-bar {
+  height: 0.5em !important;
+  background-color: var(--elements-tabs-text);
+}
+
+::ng-deep .mat-tab-body-content {
+  background-color: var(--elements-list-background);
+}
+
+.elements_list ol {
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
+ol table {
+  border-bottom: thin solid var(--elements-list-border);
+  border-spacing: 0;
+  width: 100%;
+}
+
+ol .table1 {
+  border-top: thin solid var(--elements-list-border);
+}
+
+ol table tr:first-child td:first-child {
+  vertical-align: top;
+  text-align: center;
+}
+
+.counter {
+  color: var(--elements-list-text);
+  font-family: Lato;
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 48px;
+  width: 70px;
+  padding: 15px;
+}
+
+.label {
+  background-color: var(--elements-list-label-background);
+  color: var(--elements-list-text);
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 40px;
+  text-align: right;
+  width: 120px;
+  padding-right: 15px;
+  padding-left: 10px;
+}
+
+.value {
+  color: var(--elements-list-text);
+  font-family: Lato;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 40px;
+  padding-left: 15px;
+  text-align: left;
+}
+
+.value code {
+  color: var(--elements-list-code);
+}
+
+iframe {
+	width: 100%;
+	height: 800px;
+}
+
+.tabs {
+  width: 100%;
+  background-color: var(--elements-list-background);
+  font-family: "Lato", sans-serif;
+
+  button {
+    cursor: pointer;
+  }
+}
+
+[role="tablist"] {
+  width: 100%;
+  margin: 0 0 -0.1em;
+  overflow: visible;
+  background-color: var(--background);
+}
+
+[role="tab"] {
+  font-size: 1em;
+  line-height: 3em;
+  color: var(--home-content-tabs-text);
+  background-color: var(--background);
+  font-weight: 700;
+  font-family: "Lato";
+  opacity: 1 !important;
+  border: none;
+  padding: 0.5em;
+  padding-left: 2em;
+  padding-right: 2em;
+  margin: 0;
+}
+
+[role="tab"][aria-selected="true"] {
+  border-bottom: 5px solid var(--home-content-tabs-text);
+}
+
+[role="tabpanel"] {
+  border: none;
+}
+
+[role="tab"]:hover,
+[role="tab"]:focus,
+[role="tab"]:active {
+  outline: none;
+}
+
+[role="tabpanel"].is-hidden {
+  display: none;
+}
+
+[role="tabpanel"]:focus {
+  outline: none;
+}
+
+.page_highlight {
+  background-color: var(--background);
+}

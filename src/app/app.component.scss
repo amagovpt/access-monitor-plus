@@ -20,3 +20,24 @@
   display: block;
   height: 115px;
 }
+
+.go-to-top {
+  border-radius: 50%;
+  border: none;
+  background-color: var(--go-to-top-background);
+  z-index: 1;
+  position: absolute;
+  right: 64px;
+  margin-top: -1.8em;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+
+  svg path {
+    fill: var(--go-to-top-icon);
+  }
+
+  svg circle {
+    fill: var(--go-to-top-icon);
+  }
+}

@@ -39,7 +39,8 @@
     "actions": {
       "back": "Voltar",
       "re_evaluate": "Re-avaliar a página",
-      "download": "Descarregar resultados da avaliação",
+      "download": "Descarregar dados",
+      "see_page": "Ver página",
       "pagecode": "Ver código da página",
       "open_webpage": "Abrir página web"
     },
@@ -94,7 +95,7 @@
     }
   },
   "ELEMENT_RESULTS": {
-    "subtitle": "Teste:",
+    "subtitle": "Resultados do teste",
     "elements_tab": "Elementos",
     "page_tab": "Página",
     "total_elements": "elementos encontrados",

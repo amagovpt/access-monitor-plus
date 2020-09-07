@@ -58,4 +58,8 @@ export class AppComponent implements OnInit {
       this.el.nativeElement.parentElement.parentElement.attributes.setNamedItem(lang);
     });
   }
+
+  goToTop(): void {
+    document.getElementById('top').scrollIntoView();
+  }
 }

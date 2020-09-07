@@ -12,7 +12,6 @@ import * as DomUtils from 'domutils';
 import * as CSSSelect from 'css-select';
 
 import { ConfigService } from '../config.service';
-import { MessageService } from '../message.service';
 
 import tests from './lib/tests';
 import xpath from './lib/xpath';
@@ -30,7 +29,6 @@ export class EvaluationService {
   constructor(
     private readonly http: HttpClient,
     private readonly router: Router,
-    private readonly message: MessageService,
     private readonly config: ConfigService,
     private readonly translate: TranslateService
   ) {}
@@ -71,12 +69,6 @@ export class EvaluationService {
           }),
           catchError(err => {
             console.log(err);
-            if (err.code === -2) {
-              this.message.show('HOME_PAGE.messages.invalid_url');
-              this.router.navigateByUrl('/');
-            } else {
-              this.message.show('MISC.unexpected_error');
-            }
             return of(null);
           })
         );
@@ -109,7 +101,6 @@ export class EvaluationService {
       }),
       catchError(err => {
         console.log(err);
-        this.message.show('MISC.unexpected_error');
         return of(null);
       })
     );
@@ -813,7 +804,7 @@ export class EvaluationService {
 
     if (ele === 'w3cValidatorErrors') {
       item['html_validator'] = true;
-      item['ele'] = 'hhttps://validator.w3.org/nu/?doc=' + encodeURIComponent(this.url);
+      item['ele'] = 'https://validator.w3.org/nu/?doc=' + encodeURIComponent(this.url);
     } else if (tot || tot > 0) {
       item['ele'] = ele;
       

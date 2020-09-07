@@ -1,4 +1,4 @@
-<main id="main" fxLayout="column" fxLayoutAlign="start center">
+<main fxLayout="column" fxLayoutAlign="start center">
   <section fxLayout="column" fxLayoutAlign="center center">
     <div class="header_wrapper" fxLayout="row" fxLayoutAlign="center">
       <div fxLayout="column" fxLayoutAlign="center center" fxFlex.md="87" fxFlex.lg="87" fxFlex.gt-lg="87">
@@ -42,7 +42,7 @@
       <span fxFlex></span>
       <div class="dropdown">
         <button class="action see_page_button" (click)="openSeePage()">
-          Ver página
+          {{ 'RESULTS.actions.see_page' | translate }}
           <svg xmlns="http://www.w3.org/2000/svg" width="22.49" height="13.95" viewBox="0 0 22.49 13.95"><title>monitor_icons_tools_code</title><path d="M2.47,6.94l1-1,.85-.85L5.84,3.6A1,1,0,1,0,4.52,2l-.14.14-2,2-2,2a1.12,1.12,0,0,0,0,1.59h0l2,2,2,2A1,1,0,1,0,6,10.53l-.14-.14L5.05,9.6,3.47,8"/><path d="M20,7.05,19,8l-.85.85-1.52,1.53A1,1,0,1,0,18,12l.14-.14,2-2,2-2a1.12,1.12,0,0,0,0-1.59h0l-2-2-2-2a1,1,0,1,0-1.6,1.31l.14.14.79.79L19,6"/><path d="M10,13.33,14.19,1.21A.91.91,0,1,0,12.47.61h0L8.3,12.74a.91.91,0,1,0,1.72.59Z"/></svg>
         </button>
         <div class="dropdown-content">
@@ -53,7 +53,7 @@
       <span fxFlex="1"></span>
       <div class="dropdown">
         <button class="action download_data_button" mat-flat-button type="button" (click)="openDownloadData()">
-          Descarregar dados
+          {{ 'RESULTS.actions.download' | translate }}
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><title>monitor_icons_tools_download</title><path d="M1.59,16.07H14.41a.91.91,0,1,0,0-1.82H1.59a.91.91,0,1,0,0,1.82Z"/><path d="M7,8.74l-.85-.85L4.61,6.37A1,1,0,1,0,3,7.69l.14.14,2,2,2,2a1.12,1.12,0,0,0,1.59,0h0l2-2,2-2a1,1,0,0,0-1.31-1.6l-.14.14-.79.79L9,8.74V4.86a1,1,0,1,0-2,0h0V8.74Z"/><circle cx="7.97" cy="1.41" r="0.99"/></svg>
         </button>
         <div class="dropdown-content">
@@ -63,7 +63,7 @@
       </div>
     </div>
   </section>
-  <section class="summary-section" *ngIf="!loading && !error" fxLayout="row" fxLayoutAlign="center center">
+  <section id="main" class="summary-section" *ngIf="!loading && !error" fxLayout="row" fxLayoutAlign="center center">
     <div class="summary-section-wrapper">
       <h2>{{ "RESULTS.summary.title" | translate }}</h2>
       <div class="summary-first-row" fxLayout="row" fxLayoutAlign="start center">
@@ -166,7 +166,7 @@
       </div>
     </div>
   </section>
-  <section class="evaluation-section" fxLayout="row" fxLayoutAlign="center center">
+  <section class="evaluation-section" *ngIf="!loading && !error" fxLayout="row" fxLayoutAlign="center center">
     <div class="evaluation-section-wrapper">
       <h2>{{ "RESULTS.results.title" | translate }}</h2>
       <table class="evaluation-table">
