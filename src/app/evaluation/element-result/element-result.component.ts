@@ -84,11 +84,13 @@ export class ElementResultPageComponent implements OnInit, AfterViewInit, OnDest
         }
       }
     }
-
-    const doc = this.iframe.nativeElement.contentDocument || this.iframe.nativeElement.contentWindow;
-    doc.open();
-    doc.write(this.data.page);
-    doc.close();
+    
+    if (this.data.page) {
+      const doc = this.iframe.nativeElement.contentDocument || this.iframe.nativeElement.contentWindow;
+      doc.open();
+      doc.write(this.data.page);
+      doc.close();
+    }
   }
 
   ngOnDestroy(): void {

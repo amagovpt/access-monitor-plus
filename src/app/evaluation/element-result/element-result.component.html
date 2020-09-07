@@ -68,6 +68,8 @@
             aria-controls="page_tab"
             id="tab_page"
             tabindex="-1"
+
+            [hidden]="!data.page"
           >
             {{ "ELEMENT_RESULTS.page_tab" | translate }}
           </button>

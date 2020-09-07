@@ -314,7 +314,7 @@ td {
   color: var(--results-evaluation-table-body-text);
 }
 
-::ng-deep code {
+::ng-deep .test_description code {
   background-color: transparent;
   font-weight: bold;
   text-decoration: underline;

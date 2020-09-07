@@ -186,8 +186,8 @@
             </td>
             <td>
               <button type="button" class="collapsible" (click)="openCollapsible(i)">
-                <span *ngIf="r.value === 1" [innerHTML]="'TESTS_RESULTS.'+r.msg+'.s' | translate:{value: r.value} | html"></span>
-                <span *ngIf="r.value !== 1" [innerHTML]="'TESTS_RESULTS.'+r.msg+'.p' | translate:{value: r.value} | html"></span>
+                <span class="test_description" *ngIf="r.value === 1" [innerHTML]="'TESTS_RESULTS.'+r.msg+'.s' | translate:{value: r.value} | html"></span>
+                <span class="test_description" *ngIf="r.value !== 1" [innerHTML]="'TESTS_RESULTS.'+r.msg+'.p' | translate:{value: r.value} | html"></span>
               </button>
               <div class="collapsible-content">
                 <div [innerHTML]="'TXT_TECHNIQUES.' + r.ref | translate">
