@@ -1,95 +1,18 @@
-.header_wrapper {
-  width: 100%;
-  background-color: var(--results-header-background);
-}
-
-.amp_header {
-  width: 100%;
-  margin-top: 32px;
-  margin-bottom: 32px;
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
-.amp_header svg path {
-  fill: var(--results-header-text);
-}
-
-.amp_header svg circle {
-  fill: var(--results-header-text);
-}
-
-.header_button {
-  width: 230px;
-  height: 50px;
-  background-color: var(--results-header-button-background);
-  font-size: 16px;
-  line-height: 24px;
-  color: var(--results-header-button-text);
-  font-weight: 700;
-  font-family: "Lato";
-  cursor: pointer;
-  border-radius: 25px;
-  border: 2px solid var(--results-header-button-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  &:hover {
-    animation-name: header-button;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-
-    svg path {
-      animation-name: header-button;
-      animation-duration: 0.3s;
-      animation-fill-mode: forwards;
-    }
-  }
-}
-
-@keyframes header-button {
-  0% {
-    background-color: var(--results-header-button-background);
-    color: var(--results-header-button-text);
-    fill: var(--results-header-button-text);
-  }
-
-  100% {
-    background-color: var(---results-header-button-text);
-    color: var(--results-header-button-background);
-    fill: var(--results-header-button-background);
-  }
-}
-
-.header_button svg {
-  display: inline;
-  margin-left: 1em;
-}
-
-.header_button svg path {
-  fill: var(--results-header-button-text);
-}
-
 section {
   width: 87%;
 }
 
-section:first-child {
-  width: 100%;
-}
-
-section:nth-child(2) nav {
+section:nth-child(1) nav {
   padding-top: 5em;
   padding-bottom: 3em;
 }
 
-section:nth-child(2) nav span {
+section:nth-child(1) nav span {
   padding-left: 0.3em;
   padding-right: 0.3em;
 }
 
-section:nth-child(3) {
+section:nth-child(2) {
   font-family: "Red Hat Display";
   margin-bottom: 70px;
 }
