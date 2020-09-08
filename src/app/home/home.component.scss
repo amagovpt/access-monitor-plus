@@ -1,38 +1,4 @@
-.header_wrapper {
-  width: 100%;
-  background-color: var(--home-header-background);
-}
-
-.amp_header {
-  width: 100%;
-  margin-top: 32px;
-  margin-bottom: 32px;
-  padding-left: 8px;
-  padding-right: 8px;
-
-  svg path {
-    fill: var(--home-header-text);
-  }
-
-  svg circle {
-    fill: var(--home-header-text);
-  }
-}
-
-.header_text {
-  text-align: right;
-  font-size: 18px;
-  line-height: 20px;
-  color: var(--home-header-text-2);
-  font-weight: 400;
-  font-family: "Red Hat Display";
-}
-
 section:first-child {
-  width: 100%;
-}
-
-section:nth-child(2) {
   width: 87%;
 }
 

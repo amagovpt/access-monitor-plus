@@ -1,8 +1,9 @@
 section {
   width: 100%;
-  background-color: white;
+  background-color: var(--loading-background);
   padding-top: 20px;
   padding-bottom: 20px;
+  color: var(--loading-text);
 }
 
 span {
@@ -15,7 +16,7 @@ span {
   width: 15px;
   height: 15px;
   border-radius: 15px;
-  background-color: #339;
+  background-color: var(--loading-icons);
 }
 
 .line {

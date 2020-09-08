@@ -23,7 +23,9 @@ const Colours = {
   '_17': '#bce1bc',
   '_18': '#ffff99',
   '_19': '#ff9999',
-  '_20': '#525865'
+  '_20': '#525865',
+  '_21': '#e39d9f',
+  '_22': '#db2280'
 };
 
 const light: Theme = {
@@ -31,6 +33,8 @@ const light: Theme = {
   properties: {
     // GLOBAL
     '--background': Colours._1,
+    '--go-to-top-background': Colours._4,
+    '--go-to-top-icon': Colours._3,
 
     // TOP HEADER
     '--top-header-background': Colours._1,
@@ -92,7 +96,33 @@ const light: Theme = {
     '--results-evaluation-table-body-background': Colours._3,
     '--results-evaluation-table-body-collapsible-background': Colours._11,
     '--results-evaluation-table-body-text': Colours._6,
-    '--results-evaluation-table-body-icon': Colours._4
+    '--results-evaluation-table-body-icon': Colours._4,
+
+    // ELEMENTS RESULTS
+    '--elements-test-description-background': Colours._3,
+    '--elements-test-description-text': Colours._6,
+    '--elements-test-description-border': Colours._1,
+    '--elements-tabs-text': Colours._4,
+    '--elements-list-background': Colours._3,
+    '--elements-list-border': Colours._6,
+    '--elements-list-text': Colours._6,
+    '--elements-list-label-background': Colours._11,
+    '--elements-list-code': Colours._22,
+
+    // WEBPAGE CODE
+    '--webpage-code-background': Colours._3,
+    '--webpage-code-text': Colours._6,
+
+    // LOADING STATE
+    '--loading-background': Colours._3,
+    '--loading-text': Colours._6,
+    '--loading-icons': Colours._4,
+
+    // ERROR STATE
+    '--error-text': Colours._6,
+
+    // 404 NOT FOUND PAGE
+    '--404-page-text': Colours._6,
   }
 };
 
@@ -101,6 +131,8 @@ const dark: Theme = {
   properties: {
     // GLOBAL
     '--background': Colours._7,
+    '--go-to-top-background': Colours._10,
+    '--go-to-top-icon': Colours._7,
 
     // TOP HEADER
     '--top-header-background': Colours._12,
@@ -161,7 +193,33 @@ const dark: Theme = {
     '--results-evaluation-table-body-background': Colours._8,
     '--results-evaluation-table-body-collapsible-background': Colours._7,
     '--results-evaluation-table-body-text': Colours._9,
-    '--results-evaluation-table-body-icon': Colours._10
+    '--results-evaluation-table-body-icon': Colours._10,
+
+    // ELEMENTS RESULTS
+    '--elements-test-description-background': Colours._8,
+    '--elements-test-description-text': Colours._9,
+    '--elements-test-description-border': Colours._20,
+    '--elements-tabs-text': Colours._10,
+    '--elements-list-background': Colours._8,
+    '--elements-list-border': Colours._20,
+    '--elements-list-text': Colours._9,
+    '--elements-list-label-background': Colours._7,
+    '--elements-list-code': Colours._21,
+
+    // WEBPAGE CODE
+    '--webpage-code-background': Colours._8,
+    '--webpage-code-text': Colours._9,
+
+    // LOADING STATE
+    '--loading-background': Colours._8,
+    '--loading-text': Colours._9,
+    '--loading-icons': Colours._10,
+
+    // ERROR STATE
+    '--error-text': Colours._9,
+
+    // 404 NOT FOUND PAGE
+    '--404-page-text': Colours._9,
   }
 };
 

@@ -38,7 +38,8 @@
     "actions": {
       "back": "Go back",
       "re_evaluate": "Re-evaluate page",
-      "download": "Download evaluation results",
+      "download": "Download data",
+      "see_page": "See page",
       "pagecode": "See page code",
       "open_webpage": "Open webpage"
     },
@@ -93,7 +94,7 @@
     }
   },
   "ELEMENT_RESULTS": {
-    "subtitle": "Test:",
+    "subtitle": "Test results",
     "elements_tab": "Elements",
     "page_tab": "Page",
     "total_elements": "Number of elements:",

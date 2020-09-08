@@ -1,4 +1,6 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectorRef, OnInit, OnDestroy } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { ThemeService } from '../theme.service';
 
 @Component({
@@ -6,9 +8,31 @@ import { ThemeService } from '../theme.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy {
 
-  constructor(private readonly theme: ThemeService, private readonly cd: ChangeDetectorRef) {}
+  private sub: Subscription;
+
+  isHomePage: boolean;
+
+  constructor(
+    private readonly theme: ThemeService, 
+    private readonly cd: ChangeDetectorRef,
+    private readonly router: Router
+  ) {
+    this.isHomePage = !location.pathname.startsWith('/results');
+  }
+
+  ngOnInit(): void {
+    this.sub = this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.isHomePage = !location.pathname.startsWith('/results');
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
 
   toggleLightDarkTheme(): void {
     if (this.theme.isDarkTheme()) {

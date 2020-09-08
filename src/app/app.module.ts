@@ -16,7 +16,6 @@ import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 // AoT requires an exported function for factories
@@ -29,7 +28,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    BreadcrumbsComponent,
     PageNotFoundComponent
   ],
   imports: [

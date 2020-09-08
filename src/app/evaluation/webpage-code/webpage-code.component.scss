@@ -1,0 +1,108 @@
+section {
+  width: 87%;
+}
+
+section:nth-child(1) nav {
+  padding-top: 5em;
+  padding-bottom: 3em;
+}
+
+section:nth-child(1) nav span {
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+}
+
+section:nth-child(2) {
+  font-family: "Red Hat Display";
+  padding-bottom: 5em;
+}
+
+nav span, nav a {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  font-family: "Lato";
+  color: var(--results-breadcrumbs-text);
+}
+
+.info .accessMonitor {
+  font-size: 19px;
+  line-height: 48px;
+  color: var(--results-info-accessMonitor-text);
+  background-color: var(--results-info-accessMonitor-background);
+  font-weight: 700;
+  font-family: "Lato";
+  height: 31px;
+  width: 157px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info h1 {
+  font-size: 2.6em;
+  color: var(--results-info-url);
+  font-weight: 900;
+  font-family: "Lato";
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+
+.info h2 {
+  font-size: 1.5em;
+  color: var(--results-info-title);
+  font-weight: 700;
+  font-family: "Lato";
+  margin-top: 0;
+}
+
+.action {
+  font-size: 1em;
+  line-height: 1.5em;
+  color: var(--results-action-button-text);
+  font-weight: 700;
+  font-family: "Lato";
+  border-radius: 25px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 40px;
+  border: none;
+  background-color: var(--results-action-button-background);
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.action svg {
+  width: 2em;
+  height: 1.5em;
+  margin-left: 1em;
+}
+
+.action svg path, .action svg circle {
+  fill: var(--results-action-button-text);
+}
+
+.action:hover, .action:focus {
+  color: var(--results-action-button-background);
+  background-color: var(--results-action-button-text);
+}
+
+.action:hover svg path, .action:focus svg path {
+  fill: var(--results-action-button-background);
+}
+
+.action:hover svg circle, .action:focus svg circle {
+  fill: var(--results-action-button-background);
+}
+
+.html_code {
+  padding: 15px;
+  background-color: var(--webpage-code-background);
+  color: var(--webpage-code-text);
+  overflow: scroll;
+  margin-bottom: 100px;
+}
