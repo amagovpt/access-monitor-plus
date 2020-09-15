@@ -34,7 +34,7 @@
     "js-beautify": "^1.13.0",
     "lodash.clone": "^4.5.0",
     "ngx-gauge": "^1.1.0",
-    "rxjs": "~6.6.2",
+    "rxjs": "~6.6.3",
     "tslib": "^2.0.1",
     "web-animations-js": "^2.3.2",
     "zone.js": "~0.10.3"
