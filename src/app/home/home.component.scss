@@ -1,9 +1,5 @@
-.padded {
+section:first-child {
   width: 87%;
-}
-
-.unpadded {
-  width: 100%;
 }
 
 .content {
@@ -12,7 +8,7 @@
   box-shadow: none !important;
   margin-top: 100px;
   padding-left: 60px;
-  padding-right: 60px;
+  padding-right: 60px;;
   padding-top: 62px;
   padding-bottom: 62px;
   background-color: var(--home-content-background);
@@ -30,116 +26,6 @@
 .tabs03 {
   width: 94%;
   margin-top: 16px;
-}
-
-.listbox-area {
-  padding: 0;
-  border: none;
-}
-
-[role="listbox"] {
-  position: relative;
-  margin: 20px 0 0;
-  padding: 0;
-  min-height: 4em;
-  border: none;
-  background-color: var(--home-content-button-background-hover);
-  color: var(--home-content-button-text-hover);
-  font-family: "Lato";
-  font-weight: 400;
-}
-
-[role="listbox"] + *,
-.listbox-label + * {
-  margin-top: 1em;
-}
-
-[role="option"] {
-  position: relative;
-  display: block;
-  padding: 0 1em 0 1.5em;
-  line-height: 1.8em;
-}
-
-[role="option"].focused {
-  color: var(--home-content-button-background-hover);
-  background-color: var(--home-content-button-text-hover);
-}
-
-button[aria-haspopup="listbox"] {
-  position: relative;
-  padding: 15px 20px;
-  border: 0;
-  text-align: left;
-  background-color: var(--home-content-button-background-hover);
-  color: var(--home-content-button-text-hover);
-  font-family: "Lato";
-  font-weight: 400;
-}
-
-button[aria-haspopup="listbox"]::after {
-  position: absolute;
-  right: 10px;
-  top: 17px;
-  content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='30px'><title>icon_arrow_drop</title><path d='M13.6,7.32l-.35.35a1.66,1.66,0,0,1-2.34,0l-3-3-1-1a1.55,1.55,0,0,0-2,.08A1.59,1.59,0,0,0,5,6L8,9l3,3a1.66,1.66,0,0,0,2.34,0l3-3,3-3a1.59,1.59,0,0,0,.11-2.24,1.58,1.58,0,0,0-2.23.1L15.92,5' fill='#ffffff'/></svg>");
-}
-
-button[aria-haspopup="listbox"] + [role="listbox"] {
-  position: relative;
-  margin: 0;
-  width: 100%;
-  max-height: 10em;
-  border-top: 0;
-  overflow-y: auto;
-}
-
-[role="toolbar"] {
-  display: flex;
-}
-
-[role="toolbar"] > * {
-  border: 1px solid #aaa;
-  background: #ccc;
-}
-
-[role="toolbar"] > [aria-disabled="false"]:focus {
-  background-color: #eee;
-}
-
-button {
-  font-size: inherit;
-}
-
-button[aria-disabled="true"] {
-  opacity: 0.5;
-}
-
-.move-right-btn::after {
-  content: " â†’";
-}
-
-.move-left-btn::before {
-  content: "â† ";
-}
-
-.annotate {
-  color: #366ed4;
-  font-style: italic;
-}
-
-.hidden {
-  display: none;
-}
-
-.offscreen {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(1px 1px 1px 1px);
-  clip: rect(1px, 1px, 1px, 1px);
-  font-size: 14px;
-  white-space: nowrap;
 }
 
 .home_logo {
@@ -215,10 +101,6 @@ input:last-child {
       animation-fill-mode: forwards;
     }
   }
-}
-
-.fullWidth {
-  width: 100% !important;
 }
 
 .card_actions button {
@@ -318,6 +200,7 @@ button[type="submit"]:disabled {
 }
 
 .tabs {
+  width: 20em;
   font-family: "Lato", sans-serif;
 
   button {
