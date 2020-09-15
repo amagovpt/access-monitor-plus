@@ -138,6 +138,8 @@ nav span, nav a {
 }
 
 .elements_list ol {
+  padding-top: 32px;
+  padding-bottom: 32px;
   padding-left: 48px;
   padding-right: 48px;
 }
@@ -157,13 +159,24 @@ ol table tr:first-child td:first-child {
   text-align: center;
 }
 
+ol li table tr:first-child {
+  .counter {
+    padding-top: 27px;
+  }
+  .label {
+    padding-top: 32px;
+  }
+  .value {
+    padding-top: 32px;
+  }
+}
+
 .counter {
   color: var(--elements-list-text);
   font-family: Lato;
   font-size: 30px;
   font-weight: 900;
   letter-spacing: 0;
-  line-height: 48px;
   width: 70px;
   padding: 15px;
 }
@@ -175,8 +188,8 @@ ol table tr:first-child td:first-child {
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 0;
-  line-height: 40px;
   text-align: right;
+  vertical-align: top;
   width: 120px;
   padding-right: 15px;
   padding-left: 10px;
@@ -187,13 +200,21 @@ ol table tr:first-child td:first-child {
   font-family: Lato;
   font-size: 16px;
   letter-spacing: 0;
-  line-height: 40px;
   padding-left: 15px;
   text-align: left;
+  padding-bottom: 32px;
 }
 
 .value code {
   color: var(--elements-list-code);
+}
+
+td .element,
+td code {
+  word-break: break-all;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  width: 100%;
 }
 
 iframe {

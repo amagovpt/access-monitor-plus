@@ -81,10 +81,20 @@ section:first-child {
 }
 
 .header_text {
-  text-align: right;
   font-size: 18px;
   line-height: 20px;
   color: var(--home-header-text-2);
   font-weight: 400;
   font-family: "Red Hat Display";
+}
+
+.header_text_large {
+  text-align: right;
+}
+
+.header_text_tablet {
+  text-align: left;
+  position: relative;
+  left: 165px;
+  top: -21px;
 }
