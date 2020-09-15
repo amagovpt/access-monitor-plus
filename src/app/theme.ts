@@ -41,6 +41,7 @@ const light: Theme = {
 
     // FOOTER
     '--footer-background': Colours._11,
+    '--footer-link-text': Colours._4,
 
     // HOME PAGE
     '--home-header-background': Colours._2,
