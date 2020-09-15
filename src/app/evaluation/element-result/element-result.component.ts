@@ -27,8 +27,8 @@ export class ElementResultPageComponent implements OnInit, AfterViewInit, OnDest
   panels: HTMLElement[] = [];
   tablist: HTMLElement;
 
-  keys;
-  direction;
+  keys: any;
+  direction: any;
 
   constructor(
     private router: ActivatedRoute,
