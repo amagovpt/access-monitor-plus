@@ -11,13 +11,8 @@
 }
 
 .main {
-  min-height: 100vh;
-}
-
-.main:after {
-  content: "";
-  display: block;
-  height: 115px;
+  min-height: 70vh;
+  padding-bottom: 40px;
 }
 
 .go-to-top {
