@@ -11,7 +11,10 @@
     "sidebar": {
       "evaluation": "Relatório da avaliação"
     },
-    "evaluate_new_page": "Avaliar nova página"
+    "evaluate_new_page": "Avaliar nova página",
+    "dark_mode": "Ver em modo escuro",
+    "light_mode": "Ver em modo claro",
+    "language_en": "In english"
   },
   "HOME_PAGE": {
     "header": "Obtenha um relatório de acessibilidade através de um dos seguintes métodos",
@@ -123,7 +126,7 @@
   },
   "FOOTER": {
     "language": "Língua",
-    "link": "Agência para a Modernização Administrativa",
+    "link": "Agência para a Modernização Administrativa, I.P.",
     "rights": "Todos os Direitos Reservados."
   },
   "LANGUAGES": {

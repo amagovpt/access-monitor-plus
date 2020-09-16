@@ -2,8 +2,52 @@ footer {
   background-color: var(--footer-background);
 }
 
+#linksRow {
+  margin-top: 41px;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline;
+    text-align: center;
+    color: var(--footer-link-text);
+    font-family: "Lato";
+    font-size: 1em;
+    letter-spacing: 0;
+    line-height: 2.5em;
+    padding: 0 20px;
+  }
+}
+
+#logosRow {
+  margin-top: 45px;
+
+  img {
+    padding: 0 10px;
+    width: 100px;
+    height: auto;
+  }
+
+  a img {
+    padding-left: 55px;
+    width: 135px;
+    height: auto;
+  }
+}
+
+#cpyrgtRow {
+  margin-top: 40px;
+  margin-bottom: 78px;
+  color: var(--footer-text);
+}
+
 a {
   text-decoration: none;
+  color: var(--footer-text);
 }
 
 a:hover {

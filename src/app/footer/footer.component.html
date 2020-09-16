@@ -1,12 +1,57 @@
-
-<footer fxLayout.gt-sm="row" fxLayout.lt-md="column" fxLayoutAlign.gt-sm="space-around center" fxLayoutAlign.lt-md="start center">
-  <span><em lang="en">Copyright</em> © 2020 <a href="http://www.acessibilidade.gov.pt" target="_blank">{{ "FOOTER.link" | translate}}</a> {{ "FOOTER.rights" | translate}}</span>
-  <mat-form-field class="language-select" fxHide.lt-md>
-    <label for="language">{{ 'FOOTER.language' | translate }}</label>
-		<mat-select id="language" [(value)]="selectedLang" (selectionChange)="changeLanguage()">
-			<mat-option *ngFor="let lang of translate.getLangs()" [value]="lang">
-				{{ "LANGUAGES."+lang | translate }}
-			</mat-option>
-		</mat-select>
-  </mat-form-field>
+<footer fxLayout="column" fxLayoutAlign="start center">
+  <nav
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    id="linksRow"
+    aria-label="Menu de conformidade do acessibilidade.gov.pt"
+  >
+    <ul>
+      <li><a href="./acessibilidade">Acessibilidade</a></li>
+      <li>
+        <a
+          href="https://www.ama.gov.pt/web/agencia-para-a-modernizacao-administrativa/politica-de-privacidade"
+          >Política de privacidade</a
+        >
+      </li>
+      <li><a href="./#">Github</a></li>
+      <li><a href="./#">Opções de visualização</a></li>
+    </ul>
+  </nav>
+  <div fxLayout="row" fxLayoutAlign="center center" id="logosRow">
+    <img
+      src="../../assets/images/logo_footer_rp.svg"
+      alt="República Portuguesa"
+    />
+    <img
+      src="../../assets/images/logo_footer_AMA.svg"
+      alt="AMA – Agência para a Modernização Administrativa I.P."
+    />
+    <img
+      src="../../assets/images/logo_footer_compete.svg"
+      alt="COMPETE 2020 – Programa Operacional Competitividade e Internacionalização"
+    />
+    <img
+      src="../../assets/images/logo_footer_feei.svg"
+      alt="União Europeia – Fundo Europeu de Desenvolvimento Regional"
+    />
+    <img
+      src="../../assets/images/logo_footer_portugal2020.svg"
+      alt="Portugal 2020"
+    />
+    <div>
+      <a href="https://selo.acessibilidade.gov.pt/" target="_blank"
+        ><img
+          src="../../assets/selos/selo_prata_md.svg"
+          alt="Selo Ouro de Usabilidade e Acessibilidade"
+      /></a>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center center" id="cpyrgtRow">
+    © 2020 AMA -&nbsp;
+    <a href="http://www.acessibilidade.gov.pt" target="_blank">{{
+      "FOOTER.link" | translate
+    }}</a
+    >&nbsp;
+    {{ "FOOTER.rights" | translate }}
+  </div>
 </footer>
