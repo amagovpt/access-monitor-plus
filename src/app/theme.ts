@@ -38,6 +38,7 @@ const light: Theme = {
 
     // TOP HEADER
     '--top-header-background': Colours._1,
+    '--top-header-icon-color': Colours._4,
 
     // FOOTER
     '--footer-background': Colours._11,

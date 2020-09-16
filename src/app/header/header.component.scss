@@ -1,15 +1,56 @@
-section:first-child {
+.header_wrapper_1 {
+  width: 100%;
   background-color: var(--top-header-background);
-  height: 50px;
-
-  button {
-    font-size: 2em;
-  }
 }
 
 .header_wrapper {
   width: 100%;
   background-color: var(--results-header-background);
+}
+
+.top_row {
+  width: 100%;
+  margin: 10px 0px;
+
+  div {
+    height: 35px;
+    background-color: var(--top-header-background);
+    font-size: 1em;
+    color: var(--home-header-text-2);
+    font-weight: 400;
+    font-family: "Lato";
+
+    svg {
+      padding-right: 10px;
+
+      path {
+        fill: var(--top-header-icon-color);
+      }
+    }
+
+    a {
+      color: var(--top-header-icon-color);
+      text-decoration: none;
+    }
+
+    .switch {
+      border: none;
+      background-color: var(--top-header-background);
+      color: var(--top-header-icon-color);
+      font-size: 1em;
+      font-weight: 400;
+      font-family: "Lato";
+
+      svg {
+        padding-left: 16px;
+        padding-right: 0;
+
+        path {
+          fill: var(--top-header-icon-color);
+        }
+      }
+    }
+  }
 }
 
 .amp_header {
@@ -81,11 +122,11 @@ section:first-child {
 }
 
 .header_text {
-  font-size: 18px;
-  line-height: 20px;
+  font-size: 1.125em;
+  line-height: 1.25em;
   color: var(--home-header-text-2);
   font-weight: 400;
-  font-family: "Red Hat Display";
+  font-family: "Lato";
 }
 
 .header_text_large {
