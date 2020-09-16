@@ -209,6 +209,10 @@ td {
   color: var(--results-evaluation-table-body-text);
 }
 
+.test_description {
+  margin-left: 2em;
+}
+
 .summary-section {
   background-color: var(--results-summary-background);
   padding-bottom: 60px;
@@ -271,10 +275,7 @@ td {
   font-size: 1em;
   font-weight: bold;
   letter-spacing: 0;
-}
-
-.elements, .size {
-  width: 50%;
+  text-align: center;
 }
 
 .table_wrapper {
@@ -392,7 +393,7 @@ td {
 
 ::ng-deep .summary-section .reading-block {
   font-size: 4em !important;
-  font-weight: bold;
+  font-weight: 700;
   letter-spacing: 5px;
   overflow: unset;
   color: var(--results-summary-text);
@@ -480,7 +481,7 @@ td {
   }
 }
 
-.evaluation-table tbody td td button {
+.evaluation-table tbody td button {
   display: flex;
   align-items: center;
 }
@@ -549,4 +550,12 @@ td {
   padding-bottom: 0;
   line-height: 1.5em;
   list-style-type: none;
+}
+
+.evaluation-table tbody td:nth-child(3) {
+  width: 5em;
+}
+
+.evaluation-table tbody td:last-child {
+  width: 8em;
 }

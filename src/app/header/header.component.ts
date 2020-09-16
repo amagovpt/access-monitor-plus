@@ -21,15 +21,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private readonly router: Router,
     public readonly translate: TranslateService
   ) {
-    this.isHomePage = !location.pathname.startsWith("/results");
-
     this.selectedLang = this.translate.currentLang;
+    this.isHomePage = !location.pathname.includes('/results');
   }
 
   ngOnInit(): void {
     this.sub = this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.isHomePage = !location.pathname.startsWith("/results");
+        this.isHomePage = !location.pathname.includes('/results');
       }
     });
   }

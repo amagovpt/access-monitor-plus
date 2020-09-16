@@ -173,7 +173,7 @@
               <svg *ngIf="r.ico === 'assets/images/icowar.png'" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><title>monitor_icons_praticas_status_review</title><path d="M21.5,19.5h3.86a1.5,1.5,0,0,0,0-3H21.5m3,0H20.64a1.5,1.5,0,1,0,0,3H24.5"/><path d="M11.5,19.5h3.86a1.5,1.5,0,0,0,0-3H11.5m3,0H10.64a1.5,1.5,0,1,0,0,3H14.5"/><path d="M34.63,24.89l.07-.17a18,18,0,0,0,0-13.44l-.07-.17-.07-.17a18,18,0,0,0-9.5-9.5l-.17-.07-.17-.07a18,18,0,0,0-13.43,0l-.17.07-.17.07a18,18,0,0,0-9.5,9.5l-.07.17-.07.17A18,18,0,0,0,.71,23l0,.08a18,18,0,0,0,7.13,9.79l.09.07a18,18,0,0,0,13.41,2.74h.1A18,18,0,0,0,34.56,25.06Zm-23.8,6.3-.07,0A15,15,0,0,1,4.08,12.4l.06-.14.06-.14A15.09,15.09,0,0,1,12.12,4.2l.14-.06.14-.06a15.09,15.09,0,0,1,11.2,0l.14.06.14.06a15.09,15.09,0,0,1,7.92,7.92l.06.14.06.14a15.09,15.09,0,0,1,0,11.2l-.06.14-.06.14a15,15,0,0,1-21,7.3Z"/></svg>
             </td>
             <td>
-              <button type="button" class="collapsible" (click)="openCollapsible(i)" fxLayout="row">
+              <button type="button" class="collapsible" (click)="openCollapsible(i)" fxLayout="row" fxLayoutAlign="start center">
                 <span class="test_description" *ngIf="r.value === 1" [innerHTML]="'TESTS_RESULTS.'+r.msg+'.s' | translate:{value: r.value} | html"></span>
                 <span class="test_description" *ngIf="r.value !== 1" [innerHTML]="'TESTS_RESULTS.'+r.msg+'.p' | translate:{value: r.value} | html"></span>
               </button>
