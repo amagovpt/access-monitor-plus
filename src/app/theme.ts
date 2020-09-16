@@ -138,9 +138,11 @@ const dark: Theme = {
 
     // TOP HEADER
     '--top-header-background': Colours._12,
+    '--top-header-icon-color': Colours._13,
 
     // FOOTER
     '--footer-background': Colours._12,
+    '--footer-link-text': Colours._13,
 
     // HOME PAGE
     '--home-header-background': Colours._4,
@@ -156,6 +158,7 @@ const dark: Theme = {
     '--home-content-inputs-background': Colours._8,
     '--home-content-inputs-border': Colours._10,
     '--home-content-inputs-text': Colours._10,
+    '--home-content-inputs-error': Colours._15,
     '--home-content-file-button-background': Colours._10,
     '--home-content-file-button-text': Colours._7,
     '--home-content-file-button-border': Colours._10,
