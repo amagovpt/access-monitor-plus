@@ -10,7 +10,10 @@
     "sidebar": {
       "evaluation": "Evaluation report"
     },
-    "evaluate_new_page": "Evaluate new page"
+    "evaluate_new_page": "Evaluate new page",
+    "dark_mode": "Dark mode",
+    "light_mode": "Light mode",
+    "language_en": "Em português"
   },
   "HOME_PAGE": {
     "header": "Get an accessibility report using one of the following methods",

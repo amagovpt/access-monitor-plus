@@ -42,6 +42,7 @@ const light: Theme = {
 
     // FOOTER
     '--footer-background': Colours._11,
+    '--footer-text': Colours._6,
     '--footer-link-text': Colours._4,
 
     // HOME PAGE
@@ -142,6 +143,7 @@ const dark: Theme = {
 
     // FOOTER
     '--footer-background': Colours._12,
+    '--footer-text': Colours._13,
     '--footer-link-text': Colours._13,
 
     // HOME PAGE

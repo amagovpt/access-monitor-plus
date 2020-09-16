@@ -50,12 +50,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   toggleLightDarkTheme(): void {
+    const themeSwitchLabel = document.getElementById("mode_switch");
+
     if (this.theme.isDarkTheme()) {
       this.theme.setLightTheme();
       localStorage.setItem("theme", "light");
+      this.translate.get("HEADER.dark_mode").subscribe((res: string) => {
+        themeSwitchLabel.innerHTML = res;
+      });
     } else {
       this.theme.setDarkTheme();
       localStorage.setItem("theme", "dark");
+      this.translate.get("HEADER.light_mode").subscribe((res: string) => {
+        themeSwitchLabel.innerHTML = res;
+      });
     }
 
     this.cd.detectChanges();
