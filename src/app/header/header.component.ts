@@ -19,13 +19,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private readonly cd: ChangeDetectorRef,
     private readonly router: Router
   ) {
-    this.isHomePage = !location.pathname.startsWith('/results');
+    this.isHomePage = !location.pathname.includes('/results');
   }
 
   ngOnInit(): void {
     this.sub = this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.isHomePage = !location.pathname.startsWith('/results');
+        this.isHomePage = !location.pathname.includes('/results');
       }
     });
   }

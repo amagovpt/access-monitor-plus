@@ -1,4 +1,6 @@
-import { OnInit, Component, Injectable, ElementRef } from '@angular/core';
+import { OnInit, OnDestroy, Component, Injectable, ElementRef } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { ThemeService } from './theme.service';
 
@@ -8,7 +10,10 @@ import { ThemeService } from './theme.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy{
+
+  private sub: Subscription;
+  isHomePage: boolean;
 
   private readonly langs: any = {
     'pt': 'Portuguese',
@@ -24,6 +29,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     private readonly el: ElementRef<Element>,
+    private readonly router: Router,
     private readonly translate: TranslateService,
     private readonly theme: ThemeService
   ) {
@@ -49,6 +55,8 @@ export class AppComponent implements OnInit {
     } else {
       this.theme.setDarkTheme();
     }
+
+    this.isHomePage = !location.pathname.includes('/results');
   }
 
   ngOnInit(): void {
@@ -57,6 +65,15 @@ export class AppComponent implements OnInit {
       lang.value = this.langCodes[this.translate.currentLang];
       this.el.nativeElement.parentElement.parentElement.attributes.setNamedItem(lang);
     });
+    this.sub = this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.isHomePage = !location.pathname.includes('/results');
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
   goToTop(): void {

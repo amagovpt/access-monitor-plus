@@ -14,7 +14,7 @@
   },
   "HOME_PAGE": {
     "header": "Get an accessibility report using one of the following methods",
-    "intro_text": "Aceda aqui ao nosso validador de práticas de acessibilidade Web. Lorem ipsum dolor sit amet de práticas de acessibilidade WCAG 2.1. Obtenha um relatório de acessibilidade através de um dos seguintes métodos:", 
+    "intro_text": "Access our web accessibility practice (WCAG 2.1) assessor here. Obtain an accessibility report using one of the following methods:", 
     "tabs": {
       "url": "Insert URL",
       "input": "Insert HTML code",
@@ -49,7 +49,7 @@
       "score": "Score",
       "metadata": {
         "title_label": "Title",
-        "n_elements_label": "Nº of (x)HTML elements",
+        "n_elements_label": "(x)HTML elements",
         "page_size_label": "Page size",
         "last_update_label": "Last update",
         "validator": "We couldn't contact the W3C html markup validator"

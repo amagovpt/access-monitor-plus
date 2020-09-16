@@ -14,6 +14,7 @@
   },
   "HOME_PAGE": {
     "header": "Få en tilgjengelighetsrapport ved hjelp av en av følgende metoder",
+    "intro_text": "Access our web accessibility practice (WCAG 2.1) assessor here. Obtain an accessibility report using one of the following methods:",
     "tabs": {
       "url": "Sett inn URL",
       "input": "Sett inn HTML-kode",
@@ -47,7 +48,7 @@
       "score": "Score",
       "metadata": {
         "title_label": "Tittel",
-        "n_elements_label": "Antall (x) HTML-elementer",
+        "n_elements_label": "(x)HTML elements",
         "page_size_label": "Sidestørrelse",
         "last_update_label": "Sist oppdatert",
         "validator": "We couldn't contact the W3C html markup validator"
