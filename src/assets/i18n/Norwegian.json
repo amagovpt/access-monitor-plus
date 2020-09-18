@@ -7,10 +7,18 @@
       "results": "Resultater",
       "code": "Sidekode"
     },
+    "line_text": "The web accessibility practice evaluator (WCAG 2.1)",
     "sidebar": {
       "evaluation": "Evalueringsrapport"
     },
-    "evaluate_new_page": "Evaluate new page"
+    "evaluate_new_page": "Evaluate new page",
+    "dialog": {
+      "home": "Home",
+      "insert_url": "Insert URL",
+      "insert_html": "Insert HTML code",
+      "upload_html": "Upload HTML file",
+      "report": "Evaluation report"
+    }
   },
   "HOME_PAGE": {
     "header": "Få en tilgjengelighetsrapport ved hjelp av en av følgende metoder",

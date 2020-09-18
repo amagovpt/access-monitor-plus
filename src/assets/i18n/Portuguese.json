@@ -16,7 +16,14 @@
     "dark_mode": "Ver em modo escuro",
     "light_mode": "Ver em modo claro",
     "language_en": "See in english",
-    "lang": "en"
+    "lang": "en",
+    "dialog": {
+      "home": "Início",
+      "insert_url": "Inserir URL",
+      "insert_html": "Inserir código HTML",
+      "upload_html": "Carregar ficheiro HTML",
+      "report": "Relatório de avaliação"
+    }
   },
   "HOME_PAGE": {
     "header": "Obtenha um relatório de acessibilidade através de um dos seguintes métodos",

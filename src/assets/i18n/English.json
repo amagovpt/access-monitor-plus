@@ -8,6 +8,7 @@
       "results": "Results",
       "code": "Pagecode"
     },
+    "line_text": "The web accessibility practice evaluator (WCAG 2.1)",
     "sidebar": {
       "evaluation": "Evaluation report"
     },
@@ -15,7 +16,14 @@
     "dark_mode": "See dark mode",
     "light_mode": "See light mode",
     "language_en": "Ver em português",
-    "lang": "pt"
+    "lang": "pt",
+    "dialog": {
+      "home": "Home",
+      "insert_url": "Insert URL",
+      "insert_html": "Insert HTML code",
+      "upload_html": "Upload HTML file",
+      "report": "Evaluation report"
+    }
   },
   "HOME_PAGE": {
     "header": "Get an accessibility report using one of the following methods",

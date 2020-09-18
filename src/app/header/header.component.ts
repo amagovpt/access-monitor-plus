@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     'Norwegian': 'nk'
   };
 
-  url: string;
+  url: string
 
   constructor(
     private readonly theme: ThemeService,
@@ -38,15 +38,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.sub = this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.isHomePage = !location.pathname.includes('/results');
-        
-        if (!this.isHomePage) {
-          const segments = location.pathname.split('/');
-          for (const segment of segments || []) {
-            if (segment === 'results') {
-              this.url = decodeURIComponent(segments[segments.indexOf(segment) + 1]);
-            }
+
+        const segments = location.pathname.split('/');
+        for (const segment of segments) {
+          if (segment === 'results') {
+            this.url = segments[segments.indexOf(segment) + 1];
           }
         }
+
+        window.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            this.closeMenu();
+          }
+        });
       }
     });
   }
@@ -83,19 +87,23 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   toggleLightDarkTheme(): void {
-    const themeSwitchLabel = document.getElementById("mode_switch");
+    const themeSwitchLabels = document.getElementsByClassName("mode_switch");
 
     if (this.theme.isDarkTheme()) {
       this.theme.setLightTheme();
       localStorage.setItem("theme", "light");
       this.translate.get("HEADER.dark_mode").subscribe((res: string) => {
-        themeSwitchLabel.innerHTML = res;
+        for (let i = 0 ; i < themeSwitchLabels.length ; i++) {
+          themeSwitchLabels.item(i).innerHTML = res;
+        }
       });
     } else {
       this.theme.setDarkTheme();
       localStorage.setItem("theme", "dark");
       this.translate.get("HEADER.light_mode").subscribe((res: string) => {
-        themeSwitchLabel.innerHTML = res;
+        for (let i = 0 ; i < themeSwitchLabels.length ; i++) {
+          themeSwitchLabels.item(i).innerHTML = res;
+        }
       });
     }
 

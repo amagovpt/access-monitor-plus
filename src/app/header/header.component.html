@@ -28,7 +28,7 @@
               fxLayout="row"
               fxLayoutAlign="end center"
             >
-              <span id="mode_switch">{{ "HEADER.dark_mode" | translate }}</span>
+              <span class="mode_switch">{{ "HEADER.dark_mode" | translate }}</span>
               <svg
                 version="1.1"
                 xmlns="http://www.w3.org/2000/svg"
@@ -203,7 +203,7 @@
     </div>
   </section>
 </header>
-<div id="tablet-dialog" role="modal">
+<div id="tablet-dialog" role="dialog"  aria-modal="true" cdkTrapFocus>
   <header>
     <section fxLayout="column" fxLayoutAlign="center center">
       <div class="header_wrapper_1" fxLayout="row" fxLayoutAlign="center">
@@ -337,23 +337,23 @@
   </header>
   <section>
     <nav>
-      <ul>
-        <li>
-          <a routerLink="/">Início</a>
+      <ul class="list">
+        <li class="top-link">
+          <a routerLink="/" (click)="closeMenu()">{{ "HEADER.dialog.home" | translate }}</a>
         </li>
-        <ul>
+        <ul *ngIf="!isHomePage">
           <li>
-            <a routerLink="/insert-url" (click)="closeMenu()">Inserir URL</a>
+            <a routerLink="/insert-url" (click)="closeMenu()">{{ "HEADER.dialog.insert_url" | translate }}</a>
           </li>
           <li>
-            <a routerLink="/insert-html" (click)="closeMenu()">Inserir código HTML</a>
+            <a routerLink="/insert-html" (click)="closeMenu()">{{ "HEADER.dialog.insert_html" | translate }}</a>
           </li>
           <li>
-            <a routerLink="/upload-html" (click)="closeMenu()">Carregar ficheiro HTML</a>
+            <a routerLink="/upload-html" (click)="closeMenu()">{{ "HEADER.dialog.upload_html" | translate }}</a>
           </li>
         </ul>
-        <li *ngIf="url">
-          <a [routerLink]="['/', 'results', url]" (click)="closeMenu()">Relatório de avalição</a>
+        <li *ngIf="!isHomePage" class="top-link">
+          <a [routerLink]="['/', 'results', url]" (click)="closeMenu()">{{ "HEADER.dialog.report" | translate }}</a>
         </li>
       </ul>
     </nav>
@@ -367,7 +367,7 @@
         fxLayout="row"
         fxLayoutAlign="end center"
       >
-        <span id="mode_switch">{{ "HEADER.dark_mode" | translate }}</span>
+        <span class="mode_switch">{{ "HEADER.dark_mode" | translate }}</span>
         <svg
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"

@@ -144,7 +144,6 @@
 .hamburger {
   cursor: pointer;
   background: none;
-  outline: none;
   border: none;
 }
 
@@ -170,15 +169,20 @@
     border-bottom: 0.5px solid var(--dialog-border);
   }
 
+  .header_text {
+    color: var(--dialog-text);
+  }
+
   li {
     list-style: none;
+    padding: 1em;
 
     a {
       color: var(--dialog-text);
       text-decoration: none;
 
       font-family: Lato;
-      font-size: 32px;
+      font-size: 24px;
       letter-spacing: 0;
       line-height: 32px;
     }
@@ -186,6 +190,17 @@
     a:hover {
       text-decoration: underline;
     }
+  }
+
+  li.top-link {
+    a {
+      font-size: 32px;
+      font-weight: 700;
+    }
+  }
+
+  .list {
+    margin-bottom: 10em;
   }
 
   path, circle {
