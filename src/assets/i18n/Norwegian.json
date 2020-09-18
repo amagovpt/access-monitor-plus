@@ -120,6 +120,9 @@
     }
   },
   "FOOTER": {
+    "accessibility": "Accessibility",
+    "privacy": "Privacy policy",
+    "options": "Visualization options",
     "language": "Språk",
     "link": "Administrative Modernization Agency",
     "rights": "Alle rettigheter forbeholdt."

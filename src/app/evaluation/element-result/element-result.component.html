@@ -66,7 +66,7 @@
                   <td class="label" scope="row"><strong>{{ "ELEMENT_RESULTS.result.element" | translate }}</strong></td>
                   <td class="value"><span class="element">{{ e.ele }}</span></td>
                 </tr>
-                <tr>
+                <tr *ngIf="e.attr">
                   <td class="label" scope="row"><strong>{{ "ELEMENT_RESULTS.result.attributes" | translate }}</strong></td>
                   <td class="value"><span class="element">{{ e.attr }}</span></td>
                 </tr>
@@ -74,7 +74,7 @@
                   <td class="label" scope="row"><strong>{{ "ELEMENT_RESULTS.result.code" | translate }}</strong></td>
                   <td class="value"><code>{{ e.showCode }}</code></td>
                 </tr>
-                <tr>
+                <tr *ngIf="e.code">
                   <td class="label" scope="row"><strong>{{ "ELEMENT_RESULTS.result.content" | translate }}</strong></td>
                   <td class="value"><div class="img" [innerHTML]="e.code | html"></div></td>
                 </tr>

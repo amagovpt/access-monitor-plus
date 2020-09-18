@@ -25,7 +25,10 @@ const Colours = {
   '_19': '#ff9999',
   '_20': '#525865',
   '_21': '#e39d9f',
-  '_22': '#db2280'
+  '_22': '#db2280',
+  '_23': '#4f4f4f',
+  '_24': '#C4C6D4',
+  '_25': '#999999'
 };
 
 const light: Theme = {
@@ -36,14 +39,20 @@ const light: Theme = {
     '--go-to-top-background': Colours._4,
     '--go-to-top-icon': Colours._3,
 
+    // TABLET DIALOG
+    '--dialog-background': Colours._4,
+    '--dialog-text': Colours._3,
+    '--dialog-border': Colours._24,
+
     // TOP HEADER
     '--top-header-background': Colours._1,
     '--top-header-icon-color': Colours._4,
 
     // FOOTER
     '--footer-background': Colours._11,
-    '--footer-text': Colours._6,
+    '--footer-text': Colours._23,
     '--footer-link-text': Colours._4,
+    '--footer-img': Colours._25,
 
     // HOME PAGE
     '--home-header-background': Colours._2,
@@ -137,14 +146,20 @@ const dark: Theme = {
     '--go-to-top-background': Colours._10,
     '--go-to-top-icon': Colours._7,
 
+    // TABLET DIALOG
+    '--dialog-background': Colours._7,
+    '--dialog-text': Colours._10,
+    '--dialog-border': Colours._23,
+
     // TOP HEADER
     '--top-header-background': Colours._12,
     '--top-header-icon-color': Colours._13,
 
     // FOOTER
     '--footer-background': Colours._12,
-    '--footer-text': Colours._13,
-    '--footer-link-text': Colours._13,
+    '--footer-text': Colours._24,
+    '--footer-link-text': Colours._10,
+    '--footer-img': Colours._3,
 
     // HOME PAGE
     '--home-header-background': Colours._4,
