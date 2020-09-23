@@ -14,12 +14,15 @@ footer {
   li {
     display: inline;
     text-align: center;
-    color: var(--footer-link-text);
     font-family: "Lato";
     font-size: 1em;
     letter-spacing: 0;
     line-height: 2.5em;
     padding: 0 20px;
+  }
+
+  a {
+    color: var(--footer-link-text);
   }
 }
 
@@ -36,6 +39,10 @@ footer {
     padding-left: 55px;
     width: 135px;
     height: auto;
+  }
+
+  svg path, svg circle, svg ellipse {
+    fill: var(--footer-img);
   }
 }
 

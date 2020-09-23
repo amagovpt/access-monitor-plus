@@ -1,5 +1,6 @@
 {
   "HEADER": {
+    "tool": "Uma ferramenta do portal",
     "logo_alt": "AccessMonitor - o validador de práticas de acessibilidade Web",
     "NAV": {
       "location": "Você está em",
@@ -14,7 +15,15 @@
     "evaluate_new_page": "Avaliar nova página",
     "dark_mode": "Ver em modo escuro",
     "light_mode": "Ver em modo claro",
-    "language_en": "In english"
+    "language_en": "See in english",
+    "lang": "en",
+    "dialog": {
+      "home": "Início",
+      "insert_url": "Inserir URL",
+      "insert_html": "Inserir código HTML",
+      "upload_html": "Carregar ficheiro HTML",
+      "report": "Relatório de avaliação"
+    }
   },
   "HOME_PAGE": {
     "header": "Obtenha um relatório de acessibilidade através de um dos seguintes métodos",
@@ -125,7 +134,9 @@
     }
   },
   "FOOTER": {
-    "language": "Língua",
+    "accessibility": "Acessibilidade",
+    "privacy": "Política de privacidade",
+    "options": "Opções de visualização",
     "link": "Agência para a Modernização Administrativa, I.P.",
     "rights": "Todos os Direitos Reservados."
   },

@@ -1,5 +1,6 @@
 {
   "HEADER": {
+    "tool": "A tool from the portal",
     "logo_alt": "AccessMonitor - an web accessibility evaluator",
     "NAV": {
       "location": "You are in",
@@ -7,13 +8,22 @@
       "results": "Results",
       "code": "Pagecode"
     },
+    "line_text": "The web accessibility practice evaluator (WCAG 2.1)",
     "sidebar": {
       "evaluation": "Evaluation report"
     },
     "evaluate_new_page": "Evaluate new page",
-    "dark_mode": "Dark mode",
-    "light_mode": "Light mode",
-    "language_en": "Em português"
+    "dark_mode": "See dark mode",
+    "light_mode": "See light mode",
+    "language_en": "Ver em português",
+    "lang": "pt",
+    "dialog": {
+      "home": "Home",
+      "insert_url": "Insert URL",
+      "insert_html": "Insert HTML code",
+      "upload_html": "Upload HTML file",
+      "report": "Evaluation report"
+    }
   },
   "HOME_PAGE": {
     "header": "Get an accessibility report using one of the following methods",
@@ -100,7 +110,7 @@
     "subtitle": "Test results",
     "elements_tab": "Elements",
     "page_tab": "Page",
-    "total_elements": "Number of elements:",
+    "total_elements": "elements found",
     "inline_css_tab": "Inline CSS",
     "embedded_css_tab": "Embedded CSS",
     "result": {
@@ -124,7 +134,9 @@
     }
   },
   "FOOTER": {
-    "language": "Language",
+    "accessibility": "Accessibility",
+    "privacy": "Privacy policy",
+    "options": "Visualization options",
     "link": "Administrative Modernization Agency",
     "rights": "All rights reserved."
   },

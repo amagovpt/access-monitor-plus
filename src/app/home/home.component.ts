@@ -77,6 +77,14 @@ export class HomeComponent implements OnInit {
 
     this.generateArrays();
     this.bindListeners();
+
+    if (location.pathname.includes('/insert-url')) {
+      this.activateTab(this.tabs[0], true);
+    } else if (location.pathname.includes('/insert-html')) {
+      this.activateTab(this.tabs[1], true);
+    } else if (location.pathname.includes('/upload-html')) {
+      this.activateTab(this.tabs[2], true);
+    }
   }
 
   validateURL(): void {

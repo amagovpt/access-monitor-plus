@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { map, retry, catchError } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 import { saveAs } from 'file-saver';
 import clone from 'lodash.clone';
 import { Parser } from 'htmlparser2';
@@ -137,33 +137,66 @@ export class EvaluationService {
     };
 
     let results = {};
-    if (ele !== 'colorFgBgNo' && ele !== 'fontAbsVal' && ele !== 'justifiedCss' && ele !== 'lineHeightNo' && ele !== 'colorContrast' && testSee['css'].includes(ele)) {
-      results = this.getCSSList(ele, JSON.parse(allNodes[ele]));
+    if (ele !== 'colorFgBgNo' && ele !== 'justifiedCss' && ele !== 'lineHeightNo' && ele !== 'colorContrast' && testSee['css'].includes(ele)) {
+      results = this.getCSSList(ele, allNodes[ele]);
     } else {
-      results = this.getElements(allNodes, ele, ele !== 'titleOk' && ele !== 'lang' /*testSee['div'].includes(ele) || testSee['span'].includes(ele)*/);
+      results = this.getElements(allNodes, ele, ele !== 'titleOk' && ele !== 'lang');
     }
 
     return results;
   }
 
-  private getCSSList(ele: string, cssResults: any): any {
-    const results = new Array();
-    
-    for (const result of cssResults || []) {
-      results.push({
-        file: result.stylesheetFile,
-        property: ele === 'colorFgBgNo' ? result.resultCode === 'RC2' ? 'color' : 'background-color' : result.property.name,
-        value: result.property.value,
-        location: result.selector.value,
-        line: result.property.position?.start.line,
-        description: ele === 'colorFgBgNo' ? result.description : undefined
-      });
+  private getCSSList(ele: string, paths: any): any {
+    const handler = new DomHandler(() => {}, { withStartIndices: true, withEndIndices: true });
+    const parser = new Parser(handler);
+
+    parser.write(this.evaluation.pagecode.replace(/(\r\n|\n|\r|\t)/gm, ''));
+    parser.end();
+
+    const elements = new Array();
+    let result = 'G';
+    let i = 0;
+    const dom = handler.dom;
+    for (const path of paths.split(',') || []) {
+      const nodes = CSSSelect(path, dom);
+
+      let key = '';
+      const results = this.evaluation.processed.results.map(r => r.msg);
+      for (const test in tests || {}) {
+        const _test = tests[test];
+        if (_test.test === ele && results.includes(test)) {
+          result = tests_colors[test];
+          key = test;
+          break;
+        }
+      }
+
+      for (const node of nodes || []) {
+        let attrs = undefined;
+        if (node['tagName'].toLowerCase() !== 'style') {
+          for (const attr of Object.keys(node['attribs']) || []) {
+            const value = node['attribs'][attr];
+            
+            if (value && attr === 'style') {
+              attrs = attr + '="' + value + '" ';
+            }
+          }
+        }
+
+        elements.push({
+          ele: node['tagName'].toLowerCase(),
+          attr: attrs,
+          showCode: this.evaluation.data.tot.results[key][i],
+        });
+        i++;
+      }
     }
 
     return {
       type: 'css',
-      elements: results,
-      size: results.length,
+      elements,
+      result,
+      size: elements.length,
       page: undefined,
       finalUrl: clone(this.evaluation.processed.metadata.url)
     };

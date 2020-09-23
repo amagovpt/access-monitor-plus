@@ -1,19 +1,13 @@
 import { NgModule } from '@angular/core';
 
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
+import { A11yModule } from '@angular/cdk/a11y';
 
 @NgModule({
   imports: [
-    MatFormFieldModule,
-    MatSelectModule,
-    MatInputModule,
+    A11yModule
   ],
   exports: [
-    MatFormFieldModule,
-    MatSelectModule,
-    MatInputModule,
+    A11yModule
   ],
   declarations: []
 })
