@@ -81,7 +81,7 @@ button[aria-haspopup="listbox"]::after {
   position: absolute;
   right: 10px;
   top: 17px;
-  content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='30px'><title>icon_arrow_drop</title><path d='M13.6,7.32l-.35.35a1.66,1.66,0,0,1-2.34,0l-3-3-1-1a1.55,1.55,0,0,0-2,.08A1.59,1.59,0,0,0,5,6L8,9l3,3a1.66,1.66,0,0,0,2.34,0l3-3,3-3a1.59,1.59,0,0,0,.11-2.24,1.58,1.58,0,0,0-2.23.1L15.92,5' fill='#ffffff'/></svg>");
+  content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='30px'><title>icon_arrow_drop</title><path d='M13.6,7.32l-.35.35a1.66,1.66,0,0,1-2.34,0l-3-3-1-1a1.55,1.55,0,0,0-2,.08A1.59,1.59,0,0,0,5,6L8,9l3,3a1.66,1.66,0,0,0,2.34,0l3-3,3-3a1.59,1.59,0,0,0,.11-2.24,1.58,1.58,0,0,0-2.23.1L15.92,5' fill='%23ffffff'/></svg>");
 }
 
 button[aria-haspopup="listbox"] + [role="listbox"] {
@@ -189,6 +189,7 @@ input:last-child {
 
 .card_actions {
   width: 100%;
+  margin-top: 32px;
 }
 
 .card_actions button,
@@ -283,6 +284,10 @@ button[type="submit"]:disabled {
   border: 2px solid gray;
 }
 
+.wide-button {
+  width: 100% !important;
+}
+
 .file-button + div {
   height: 50px;
   border: 2px solid var(--home-content-file-button-border);
@@ -311,6 +316,7 @@ button[type="submit"]:disabled {
   font-size: 1em;
   font-weight: 700;
   font-family: "Lato";
+  align-content: center;
 }
 
 .tabs {

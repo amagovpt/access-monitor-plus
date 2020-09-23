@@ -114,11 +114,11 @@
                   *ngIf="url.hasError('url')"
                   [innerHTML]="'HOME_PAGE.url_error' | translate"
                 ></span>
-                <br />
                 <div class="card_actions">
                   <button
                     color="primary"
                     type="submit"
+                    ngClass.lt-md="wide-button"
                     [disabled]="url.invalid || url.value === ''"
                   >
                     {{ "HOME_PAGE.submit" | translate }}
@@ -167,11 +167,11 @@
                     placeholder="{{ 'HOME_PAGE.html_placeholder' | translate }}"
                   ></textarea>
                 </div>
-                <br />
                 <div class="card_actions">
                   <button
                     color="primary"
                     type="submit"
+                    ngClass.lt-md="wide-button"
                     [disabled]="htmlInput.invalid || htmlInput.value === ''"
                   >
                     {{ "HOME_PAGE.submit" | translate }}
@@ -235,7 +235,8 @@
                         fxFlexOffset="12"
                       >
                         <input
-                          fxFlexOffset="10"
+                          fxFlexOffset.gt-sm="10"
+                          fxFlexOffset.lt-md="15"
                           id="input_file_name"
                           [formControl]="fileInput"
                           type="text"
@@ -252,11 +253,11 @@
                   *ngIf="fileInput.hasError('invalidType')"
                   [innerHTML]="'HOME_PAGE.file_type_error' | translate"
                 ></span>
-                <br />
                 <div class="card_actions">
                   <button
                     color="primary"
                     type="submit"
+                    ngClass.lt-md="wide-button"
                     [disabled]="
                       fileInput.invalid || !validFile || fileInput.value === ''
                     "
