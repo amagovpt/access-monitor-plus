@@ -48,6 +48,7 @@
   },
   "RESULTS": {
     "title": "Web accessibility practices report (W3C WCAG 2.1)",
+    "navHeader": "You are here:",
     "actions": {
       "back": "Go back",
       "re_evaluate": "Re-evaluate page",

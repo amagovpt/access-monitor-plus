@@ -48,6 +48,7 @@
   },
   "RESULTS": {
     "title": "Relatório de práticas de acessibilidade Web (WCAG 2.1 do W3C)",
+    "navHeader": "Você está aqui:",
     "actions": {
       "back": "Voltar",
       "re_evaluate": "Re-avaliar a página",
