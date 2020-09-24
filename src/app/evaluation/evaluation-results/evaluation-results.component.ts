@@ -219,6 +219,75 @@ export class EvaluationResultsPageComponent implements OnInit, OnDestroy {
           100 - (totalErr / totalPractices) * 100
         }%)`;
 
+        practicesProgress[3].style.background = `-webkit-linear-gradient(left, #bce1bc, #bce1bc ${
+          (totalOk / totalPractices) * 100
+        }%, var(--results-summary-table-background) ${
+          (totalOk / totalPractices) * 100
+        }%, var(--results-summary-table-background) ${
+          100 - (totalOk / totalPractices) * 100
+        }%)`;
+        practicesProgress[3].style.background = `-moz-linear-gradient(left, #bce1bc, #bce1bc ${
+          (totalOk / totalPractices) * 100
+        }%, lightgrey ${(totalOk / totalPractices) * 100}%, lightgrey ${
+          100 - (totalOk / totalPractices) * 100
+        }%)`;
+        practicesProgress[3].style.background = `-ms-linear-gradient(left, #bce1bc, #bce1bc ${
+          (totalOk / totalPractices) * 100
+        }%, lightgrey ${(totalOk / totalPractices) * 100}%, lightgrey ${
+          100 - (totalOk / totalPractices) * 100
+        }%)`;
+        practicesProgress[3].style.background = `linear-gradient(left, #bce1bc, #bce1bc ${
+          (totalOk / totalPractices) * 100
+        }%, lightgrey ${(totalOk / totalPractices) * 100}%, lightgrey ${
+          100 - (totalOk / totalPractices) * 100
+        }%)`;
+
+        practicesProgress[4].style.background = `-webkit-linear-gradient(left, #ff9, #ff9 ${
+          (totalWar / totalPractices) * 100
+        }%, var(--results-summary-table-background) ${
+          (totalWar / totalPractices) * 100
+        }%, var(--results-summary-table-background) ${
+          100 - (totalWar / totalPractices) * 100
+        }%)`;
+        practicesProgress[4].style.background = `-moz-linear-gradient(left, #ff9, #ff9 ${
+          (totalWar / totalPractices) * 100
+        }%, lightgrey ${(totalWar / totalPractices) * 100}%, lightgrey ${
+          100 - (totalWar / totalPractices) * 100
+        }%)`;
+        practicesProgress[4].style.background = `-ms-linear-gradient(left, #ff9, #ff9 ${
+          (totalWar / totalPractices) * 100
+        }%, lightgrey ${(totalWar / totalPractices) * 100}%, lightgrey ${
+          100 - (totalWar / totalPractices) * 100
+        }%)`;
+        practicesProgress[4].style.background = `linear-gradient(left, #ff9, #ff9 ${
+          (totalWar / totalPractices) * 100
+        }%, lightgrey ${(totalWar / totalPractices) * 100}%, lightgrey ${
+          100 - (totalWar / totalPractices) * 100
+        }%)`;
+
+        practicesProgress[5].style.background = `-webkit-linear-gradient(left, #f99, #f99 ${
+          (totalErr / totalPractices) * 100
+        }%, var(--results-summary-table-background) ${
+          (totalErr / totalPractices) * 100
+        }%, var(--results-summary-table-background) ${
+          100 - (totalErr / totalPractices) * 100
+        }%)`;
+        practicesProgress[5].style.background = `-moz-linear-gradient(left, #f99, #f99 ${
+          (totalErr / totalPractices) * 100
+        }%, lightgrey ${(totalErr / totalPractices) * 100}%, lightgrey ${
+          100 - (totalErr / totalPractices) * 100
+        }%)`;
+        practicesProgress[5].style.background = `-ms-linear-gradient(left, #f99, #f99 ${
+          (totalErr / totalPractices) * 100
+        }%, lightgrey ${(totalErr / totalPractices) * 100}%, lightgrey ${
+          100 - (totalErr / totalPractices) * 100
+        }%)`;
+        practicesProgress[5].style.background = `linear-gradient(left, #f99, #f99 ${
+          (totalErr / totalPractices) * 100
+        }%, lightgrey ${(totalErr / totalPractices) * 100}%, lightgrey ${
+          100 - (totalErr / totalPractices) * 100
+        }%)`;
+
         this.cd.detectChanges();
       });
   }

@@ -208,6 +208,7 @@
       class="summary-section-wrapper"
       fxLayout.lt-md="column"
       fxLayoutAlign.lt-md="center center"
+      ngClass.gt-sm="ssw_padding"
     >
       <h2>{{ "RESULTS.summary.title" | translate }}</h2>
       <div
@@ -258,7 +259,13 @@
         }}</span>
         <span>{{ eval.metadata.title }}</span>
       </div>
-      <div fxHide.gt-md fxHide.lt-md fxLayout="row" fxLayoutAlign="space-evenly center" class="elements_size margin_bottom">
+      <div
+        fxHide.gt-md
+        fxHide.lt-md
+        fxLayout="row"
+        fxLayoutAlign="space-evenly center"
+        class="elements_size margin_bottom"
+      >
         <div class="elements" fxLayout="column" fxLayoutAlign="center center">
           <span>{{ eval.metadata.n_elements }}</span>
           <span>{{
@@ -272,21 +279,31 @@
           }}</span>
         </div>
       </div>
-      <div fxHide.gt-sm fxLayout="column" fxLayoutAlign="center center" class="elements_size margin_bottom">
+      <div
+        fxHide.gt-sm
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        class="elements_size margin_bottom"
+      >
         <div class="elements" fxLayout="column" fxLayoutAlign="center center">
           <span>{{ eval.metadata.n_elements }}</span>
           <span>{{
             "RESULTS.summary.metadata.n_elements_label" | translate
           }}</span>
         </div>
-        <div class="size" fxLayout="column" fxLayoutAlign="center center" ngClass.lt-md="marginT30">
+        <div
+          class="size"
+          fxLayout="column"
+          fxLayoutAlign="center center"
+          ngClass.lt-md="marginT30"
+        >
           <span [innerHTML]="eval.metadata.size | html"></span>
           <span>{{
             "RESULTS.summary.metadata.page_size_label" | translate
           }}</span>
         </div>
       </div>
-      <div fxLayout="row">
+      <div fxLayout="row" ngClass.lt-md="fullWidth">
         <div
           fxHide.lt-lg
           class="elements_size"
@@ -308,7 +325,7 @@
           </div>
         </div>
         <div ngClass.gt-md="table_wrapper" fxFlex="grow">
-          <table class="summary_practices">
+          <table class="summary_practices" fxHide.lt-md>
             <thead>
               <tr>
                 <th>
@@ -453,6 +470,271 @@
               </tr>
             </tfoot>
           </table>
+          <div
+            class="practices_report"
+            fxHide.gt-sm
+            fxLayout="column"
+            fxLayoutAlign="center center"
+          >
+            <div class="pr_summary">
+              <span>{{
+                eval.infoak.A.ok +
+                  eval.infoak.AA.ok +
+                  eval.infoak.AAA.ok +
+                  eval.infoak.A.err +
+                  eval.infoak.AA.err +
+                  eval.infoak.AAA.err +
+                  eval.infoak.A.war +
+                  eval.infoak.AA.war +
+                  eval.infoak.AAA.war
+              }}</span>
+              <span>&nbsp;</span>
+              <span>
+                {{ "RESULTS.summary.table.title" | translate }}
+              </span>
+            </div>
+            <div class="practices_progress">
+              <div
+                fxLayout="row"
+                fxLayoutAlign="space-between center"
+                class="pp_toprow"
+              >
+                <span fxLayout="row" fxLayoutAlign="start center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="36"
+                    height="36"
+                    viewBox="0 0 36 36"
+                  >
+                    <title>monitor_icons_praticas_status_correct</title>
+                    <path
+                      d="M26,12.29a1.41,1.41,0,0,1,0,2l-9.43,9.43a1.41,1.41,0,0,1-2,0L10,19.22a1.41,1.41,0,0,1,2-2l3.5,3.5L24,12.29a1.41,1.41,0,0,1,2,0ZM36,18A18,18,0,1,1,18,0,18,18,0,0,1,36,18Zm-2.81,0A15.19,15.19,0,1,0,18,33.19,15.18,15.18,0,0,0,33.19,18Zm0,0"
+                    />
+                  </svg>
+                  <span class="pp_label">{{
+                    "RESULTS.summary.table.labels.ok" | translate
+                  }}</span>
+                </span>
+                <span class="pp_sum">{{
+                  eval.infoak.A.ok + eval.infoak.AA.ok + eval.infoak.AAA.ok
+                }}</span>
+              </div>
+            </div>
+            <div class="practices_compl">
+              <div
+                class="pp_bottomrow"
+                fxLayout="row"
+                fxLayoutAlign="end center"
+              >
+                <div
+                  fxLayout="column"
+                  fxLayoutAlign="center center"
+                  class="pc_block"
+                >
+                  <div class="pc_label">A</div>
+                  <div class="pc_value">{{ eval.infoak.A.ok }}</div>
+                </div>
+                <div
+                  fxLayout="column"
+                  fxLayoutAlign="center center"
+                  class="pc_block pc_middle"
+                >
+                  <div class="pc_label">AA</div>
+                  <div class="pc_value">{{ eval.infoak.AA.ok }}</div>
+                </div>
+                <div
+                  fxLayout="column"
+                  fxLayoutAlign="center center"
+                  class="pc_block"
+                >
+                  <div class="pc_label">AAA</div>
+                  <div class="pc_value">{{ eval.infoak.AAA.ok }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="practices_progress">
+              <div
+                fxLayout="row"
+                fxLayoutAlign="space-between center"
+                class="pp_toprow"
+              >
+                <span fxLayout="row" fxLayoutAlign="start center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="36"
+                    height="36"
+                    viewBox="0 0 36 36"
+                  >
+                    <title>monitor_icons_praticas_status_correct</title>
+                    <path
+                      d="M26,12.29a1.41,1.41,0,0,1,0,2l-9.43,9.43a1.41,1.41,0,0,1-2,0L10,19.22a1.41,1.41,0,0,1,2-2l3.5,3.5L24,12.29a1.41,1.41,0,0,1,2,0ZM36,18A18,18,0,1,1,18,0,18,18,0,0,1,36,18Zm-2.81,0A15.19,15.19,0,1,0,18,33.19,15.18,15.18,0,0,0,33.19,18Zm0,0"
+                    />
+                  </svg>
+                  <span class="pp_label">{{
+                    "RESULTS.summary.table.labels.warn" | translate
+                  }}</span>
+                </span>
+                <span class="pp_sum">{{
+                  eval.infoak.A.war + eval.infoak.AA.war + eval.infoak.AAA.war
+                }}</span>
+              </div>
+            </div>
+            <div class="practices_compl">
+              <div
+                class="pp_bottomrow"
+                fxLayout="row"
+                fxLayoutAlign="end center"
+              >
+                <div
+                  fxLayout="column"
+                  fxLayoutAlign="center center"
+                  class="pc_block"
+                >
+                  <div class="pc_label">A</div>
+                  <div class="pc_value">{{ eval.infoak.A.war }}</div>
+                </div>
+                <div
+                  fxLayout="column"
+                  fxLayoutAlign="center center"
+                  class="pc_block pc_middle"
+                >
+                  <div class="pc_label">AA</div>
+                  <div class="pc_value">{{ eval.infoak.AA.war }}</div>
+                </div>
+                <div
+                  fxLayout="column"
+                  fxLayoutAlign="center center"
+                  class="pc_block"
+                >
+                  <div class="pc_label">AAA</div>
+                  <div class="pc_value">{{ eval.infoak.AAA.war }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="practices_progress">
+              <div
+                fxLayout="row"
+                fxLayoutAlign="space-between center"
+                class="pp_toprow"
+              >
+                <span fxLayout="row" fxLayoutAlign="start center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="36"
+                    height="36"
+                    viewBox="0 0 36 36"
+                  >
+                    <title>monitor_icons_praticas_status_correct</title>
+                    <path
+                      d="M26,12.29a1.41,1.41,0,0,1,0,2l-9.43,9.43a1.41,1.41,0,0,1-2,0L10,19.22a1.41,1.41,0,0,1,2-2l3.5,3.5L24,12.29a1.41,1.41,0,0,1,2,0ZM36,18A18,18,0,1,1,18,0,18,18,0,0,1,36,18Zm-2.81,0A15.19,15.19,0,1,0,18,33.19,15.18,15.18,0,0,0,33.19,18Zm0,0"
+                    />
+                  </svg>
+                  <span class="pp_label">{{
+                    "RESULTS.summary.table.labels.err" | translate
+                  }}</span>
+                </span>
+                <span class="pp_sum">{{
+                  eval.infoak.A.err + eval.infoak.AA.err + eval.infoak.AAA.err
+                }}</span>
+              </div>
+            </div>
+            <div class="practices_compl">
+              <div
+                class="pp_bottomrow"
+                fxLayout="row"
+                fxLayoutAlign="end center"
+              >
+                <div
+                  fxLayout="column"
+                  fxLayoutAlign="center center"
+                  class="pc_block"
+                >
+                  <div class="pc_label">A</div>
+                  <div class="pc_value">{{ eval.infoak.A.err }}</div>
+                </div>
+                <div
+                  fxLayout="column"
+                  fxLayoutAlign="center center"
+                  class="pc_block pc_middle"
+                >
+                  <div class="pc_label">AA</div>
+                  <div class="pc_value">{{ eval.infoak.AA.err }}</div>
+                </div>
+                <div
+                  fxLayout="column"
+                  fxLayoutAlign="center center"
+                  class="pc_block"
+                >
+                  <div class="pc_label">AAA</div>
+                  <div class="pc_value">{{ eval.infoak.AAA.err }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="practices_tot">
+              <div class="pt_row" fxLayout="row" fxLayoutAlign="end center">
+                <div
+                  fxLayout="column"
+                  fxLayoutAlign="center center"
+                  class="pc_block"
+                >
+                  <div class="pc_label">Total</div>
+                  <div class="pc_value">
+                    {{
+                      eval.infoak.A.ok +
+                        eval.infoak.A.war +
+                        eval.infoak.A.err +
+                        eval.infoak.AA.ok +
+                        eval.infoak.AA.war +
+                        eval.infoak.AA.err +
+                        eval.infoak.AAA.ok +
+                        eval.infoak.AAA.war +
+                        eval.infoak.AAA.err
+                    }}
+                  </div>
+                </div>
+                <div
+                  fxLayout="column"
+                  fxLayoutAlign="center center"
+                  class="pc_block pc_sep"
+                >
+                  <div class="pc_label">A</div>
+                  <div class="pc_value">
+                    {{
+                      eval.infoak.A.ok + eval.infoak.A.war + eval.infoak.A.err
+                    }}
+                  </div>
+                </div>
+                <div
+                  fxLayout="column"
+                  fxLayoutAlign="center center"
+                  class="pc_block pc_sep"
+                >
+                  <div class="pc_label">AA</div>
+                  <div class="pc_value">
+                    {{
+                      eval.infoak.AA.ok +
+                        eval.infoak.AA.war +
+                        eval.infoak.AA.err
+                    }}
+                  </div>
+                </div>
+                <div
+                  fxLayout="column"
+                  fxLayoutAlign="center center"
+                  class="pc_block pc_sep"
+                >
+                  <div class="pc_label">AAA</div>
+                  <div class="pc_value">
+                    {{
+                      eval.infoak.AAA.ok +
+                        eval.infoak.AAA.war +
+                        eval.infoak.AAA.err
+                    }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

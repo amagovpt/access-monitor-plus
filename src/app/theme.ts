@@ -105,6 +105,7 @@ const light: Theme = {
     '--results-summary-table-text': Colours._6,
     '--results-summary-table-border': Colours._3,
     '--results-summary-table-border2': Colours._6,
+    '--results-summary-table-border3': Colours._25,
 
     '--results-evaluation-background': Colours._3,
     '--results-evaluation-title': Colours._6,
