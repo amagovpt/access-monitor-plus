@@ -64,6 +64,9 @@ nav a {
   font-family: "Lato";
   margin-top: 0.25em;
   margin-bottom: 0.25em;
+  word-break: break-all;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .info h2 {
@@ -340,6 +343,7 @@ td {
     line-height: 1.25;
     font-weight: 400;
     font-family: "Lato";
+    text-align: center;
   }
 }
 
