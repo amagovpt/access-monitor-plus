@@ -378,6 +378,7 @@ td {
 
   .pr_summary {
     margin-bottom: 12px;
+    color: var(--results-summary-text);
 
     span:nth-of-type(1) {
       font-size: 2.25em;
@@ -463,6 +464,7 @@ td {
       padding-bottom: 16px;
       padding-right: 28px;
       margin-bottom: 0;
+      color: var(--results-summary-text);
     }
 
     .pc_block {
