@@ -198,7 +198,7 @@ const dark: Theme = {
     '--results-header-button-text': Colours._6,
 
     '--results-breadcrumbs-text': Colours._10,
-    '--results-breadcrumbs-header': Colours._26,
+    '--results-breadcrumbs-header': Colours._1,
     '--results-listbox-background': Colours._7,
     '--results-listbox-background-border': Colours._4,
 
@@ -209,6 +209,7 @@ const dark: Theme = {
 
     '--results-action-button-background': Colours._8,
     '--results-action-button-text': Colours._10,
+    '--results-action-menu-background': Colours._27,
 
     '--results-summary-background': Colours._8,
     '--results-summary-text': Colours._9,

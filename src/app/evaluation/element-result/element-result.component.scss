@@ -119,6 +119,7 @@ nav a {
     height: 80px;
     font-weight: 700;
     font-family: "Lato";
+    color: var(--elements-test-description-text);
   }
 
   .sm_info_label_bot {
@@ -127,6 +128,7 @@ nav a {
     height: 80px;
     font-weight: 700;
     font-family: "Lato";
+    color: var(--elements-test-description-text);
   }
 }
 
@@ -277,6 +279,10 @@ ol li table tr:first-child {
   color: var(--elements-list-code);
 }
 
+.value .img {
+  background-color: white;
+}
+
 td .element,
 td code {
   word-break: break-all;
@@ -368,6 +374,7 @@ iframe {
   font-weight: 700;
   font-family: "Lato";
   font-size: 2em;
+  color: var(--elements-list-text);
 }
 
 .elem_elem {
@@ -376,6 +383,7 @@ iframe {
   padding-top: 20px;
   padding-bottom: 10px;
   padding-right: 30px;
+  color: var(--elements-list-text);
 }
 
 .elem_atrib {
@@ -384,6 +392,7 @@ iframe {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-right: 30px;
+  color: var(--elements-list-text);
 
   .element {
     word-break: break-all;
@@ -414,16 +423,18 @@ iframe {
   padding-left: 30px;
   padding-top: 10px;
   padding-bottom: 40px;
+  padding-right: 30px;
   border-bottom: 1px solid var(--elements-list-border);
 
   .img {
-    background-color: var(--elements-list-background);
+    background-color: white;
   }
 }
 
 .elem_label {
   font-weight: 700;
   padding-bottom: 6px;
+  color: var(--elements-list-text);
 }
 
 .listbox-area {
