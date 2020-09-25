@@ -73,6 +73,9 @@ nav a {
   font-family: "Lato";
   margin-top: 0.25em;
   margin-bottom: 0.25em;
+  word-break: break-all;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .info h2 {
@@ -357,6 +360,15 @@ iframe {
 .img img {
   width: 20em;
   height: 4em;
+}
+
+.img2 {
+  overflow: scroll;
+}
+
+.img2 img {
+  max-width: 300px;
+  height: auto;
 }
 
 .elem_clearB {
