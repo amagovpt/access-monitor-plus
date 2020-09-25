@@ -54,6 +54,10 @@
   }
 }
 
+.break {
+  display: block;
+}
+
 .amp_header {
   width: 100%;
   margin-top: 32px;
@@ -62,12 +66,14 @@
   padding-right: 8px;
 }
 
-.amp_header svg path {
-  fill: var(--results-header-text);
-}
+.amp_header {
+  svg path {
+    fill: var(--results-header-text);
+  }
 
-.amp_header svg circle {
-  fill: var(--results-header-text);
+  svg circle {
+    fill: var(--results-header-text);
+  }
 }
 
 .header_button {
@@ -141,6 +147,12 @@
   top: -21px;
 }
 
+.header_text_mobile {
+  display: block;
+  padding-top: 16px;
+  text-align: left;
+}
+
 .hamburger {
   cursor: pointer;
   background: none;
@@ -203,7 +215,8 @@
     margin-bottom: 10em;
   }
 
-  path, circle {
+  path,
+  circle {
     fill: var(--dialog-text);
   }
 
@@ -234,5 +247,14 @@
         fill: var(--dialog-text);
       }
     }
+  }
+
+  .lastRow {
+    padding-left: 40px !important;
+    padding-top: 24px !important;
+  }
+
+  .bottomMargin {
+    margin-bottom: 12px;
   }
 }

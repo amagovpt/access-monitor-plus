@@ -28,7 +28,9 @@ const Colours = {
   '_22': '#db2280',
   '_23': '#4f4f4f',
   '_24': '#C4C6D4',
-  '_25': '#999999'
+  '_25': '#999999',
+  '_26': '#4D4D4D',
+  '_27': '#5c5cad'
 };
 
 const light: Theme = {
@@ -84,6 +86,9 @@ const light: Theme = {
     '--results-header-button-text': Colours._11,
 
     '--results-breadcrumbs-text': Colours._4,
+    '--results-breadcrumbs-header': Colours._26,
+    '--results-listbox-background': Colours._1,
+    '--results-listbox-background-border': Colours._2,
 
     '--results-info-accessMonitor-background': Colours._4,
     '--results-info-accessMonitor-text': Colours._3,
@@ -92,6 +97,7 @@ const light: Theme = {
     
     '--results-action-button-background': Colours._3,
     '--results-action-button-text': Colours._4,
+    '--results-action-menu-background': Colours._27,
 
     '--results-summary-background': Colours._3,
     '--results-summary-text': Colours._6,
@@ -99,6 +105,7 @@ const light: Theme = {
     '--results-summary-table-text': Colours._6,
     '--results-summary-table-border': Colours._3,
     '--results-summary-table-border2': Colours._6,
+    '--results-summary-table-border3': Colours._25,
 
     '--results-evaluation-background': Colours._3,
     '--results-evaluation-title': Colours._6,
@@ -191,6 +198,9 @@ const dark: Theme = {
     '--results-header-button-text': Colours._6,
 
     '--results-breadcrumbs-text': Colours._10,
+    '--results-breadcrumbs-header': Colours._1,
+    '--results-listbox-background': Colours._7,
+    '--results-listbox-background-border': Colours._4,
 
     '--results-info-accessMonitor-background': Colours._10,
     '--results-info-accessMonitor-text': Colours._7,
@@ -199,6 +209,7 @@ const dark: Theme = {
 
     '--results-action-button-background': Colours._8,
     '--results-action-button-text': Colours._10,
+    '--results-action-menu-background': Colours._27,
 
     '--results-summary-background': Colours._8,
     '--results-summary-text': Colours._9,
