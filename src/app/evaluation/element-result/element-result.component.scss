@@ -362,6 +362,15 @@ iframe {
   height: 4em;
 }
 
+.img2 {
+  overflow: scroll;
+}
+
+.img2 img {
+  max-width: 300px;
+  height: auto;
+}
+
 .elem_clearB {
   margin: 0 !important;
   padding: 0 !important;
