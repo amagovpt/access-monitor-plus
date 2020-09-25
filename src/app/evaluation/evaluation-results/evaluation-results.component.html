@@ -742,19 +742,33 @@
   <section
     class="evaluation-section"
     *ngIf="!loading && !error"
-    fxLayout="row"
-    fxLayoutAlign="center center"
+    fxLayout.gt-sm="row"
+    fxLayoutAlign.gt-sm="center center"
+    fxLayout.lt-md="column"
+    fxLayoutAlign.lt-md="center center"
+    ngClass.lt-md="fullWidth"
   >
-    <div class="evaluation-section-wrapper">
-      <h2>{{ "RESULTS.results.title" | translate }}</h2>
+    <div
+      class="evaluation-section-wrapper"
+      ngClass.lt-md="fullWidth"
+      fxLayout.lt-md="column"
+      fxLayoutAlign.lt-md="center center"
+    >
+      <h2 ngClass.lt-md="esw-h2">
+        {{ "RESULTS.results.title" | translate }}
+      </h2>
       <table class="evaluation-table">
         <thead>
           <tr>
             <th scope="col" colspan="2">
               {{ "RESULTS.results.practice" | translate }}
             </th>
-            <th scope="col">{{ "RESULTS.results.lvl" | translate }}</th>
-            <th scope="col">{{ "RESULTS.results.details" | translate }}</th>
+            <th scope="col" fxHide.lt-md>
+              {{ "RESULTS.results.lvl" | translate }}
+            </th>
+            <th scope="col" fxHide.lt-md>
+              {{ "RESULTS.results.details" | translate }}
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -810,6 +824,8 @@
               <button
                 type="button"
                 class="collapsible"
+                ngClass.gt-sm="colapsLeft"
+                ngClass.lt-md="colapsRight"
                 (click)="openCollapsible(i)"
                 fxLayout="row"
                 fxLayoutAlign="start center"
@@ -833,7 +849,7 @@
                   "
                 ></span>
               </button>
-              <div class="collapsible-content">
+              <div class="collapsible-content" ngClass.lt-md="sm_cc">
                 <div [innerHTML]="'TXT_TECHNIQUES.' + r.ref | translate"></div>
                 <div class="desc" fxLayout="column">
                   <span
@@ -859,11 +875,82 @@
                   </ul>
                 </div>
               </div>
+              <div
+                fxHide.gt-sm
+                fxLayout="row"
+                fxLayoutAlign="space-between center"
+                class="sm_row2"
+              >
+                <div class="sm_level_results">
+                  <span class="sm_level"
+                    >{{ "RESULTS.results.lvl" | translate }}: {{ r.lvl }}</span
+                  >
+                </div>
+                <div class="sm_details">
+                  <a
+                    *ngIf="r.tech_list.ele && !r.tech_list.html_validator"
+                    [routerLink]="[r.tech_list.ele]"
+                    attr.aria-label="{{
+                      'RESULTS.results.practice' | translate
+                    }}"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="33.46"
+                      height="22.59"
+                      viewBox="0 0 33.46 22.59"
+                    >
+                      <title>{{ "RESULTS.results.alt_see" | translate }}</title>
+                      <path
+                        d="M32.71,22.11l.13-.13.13-.13a1.69,1.69,0,0,0,0-2.39h0L31.48,18,28.81,15.3a8,8,0,0,0,.57-1.07,2.05,2.05,0,0,1,.14-.46,6.37,6.37,0,0,0,.35-1.12v-.09A4.84,4.84,0,0,1,30,12,8,8,0,1,0,23,19l.28,0,.55-.11a5.12,5.12,0,0,0,.7-.23,2.05,2.05,0,0,1,.41-.12,8,8,0,0,0,1.14-.59l4.22,4.22A1.69,1.69,0,0,0,32.71,22.11ZM22.06,16a5,5,0,1,1,5-5A5,5,0,0,1,22.06,16Z"
+                      />
+                      <path
+                        d="M1.37,14.73H9.59a1.36,1.36,0,1,0,0-2.73H1.37a1.36,1.36,0,1,0,0,2.73Z"
+                      />
+                      <path
+                        d="M1.37,2.73H12.59a1.36,1.36,0,1,0,0-2.73H1.37a1.36,1.36,0,1,0,0,2.73Z"
+                      />
+                      <path
+                        d="M1.37,8.73H9.59A1.36,1.36,0,1,0,9.59,6H1.37a1.36,1.36,0,1,0,0,2.73Z"
+                      />
+                    </svg>
+                  </a>
+                  <a
+                    *ngIf="r.tech_list.ele && r.tech_list.html_validator"
+                    target="_blank"
+                    href="{{ r.tech_list.ele }}"
+                    attr.aria-label="{{
+                      'RESULTS.results.practice' | translate
+                    }}"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="33.46"
+                      height="22.59"
+                      viewBox="0 0 33.46 22.59"
+                    >
+                      <title>{{ "RESULTS.results.alt_see" | translate }}</title>
+                      <path
+                        d="M32.71,22.11l.13-.13.13-.13a1.69,1.69,0,0,0,0-2.39h0L31.48,18,28.81,15.3a8,8,0,0,0,.57-1.07,2.05,2.05,0,0,1,.14-.46,6.37,6.37,0,0,0,.35-1.12v-.09A4.84,4.84,0,0,1,30,12,8,8,0,1,0,23,19l.28,0,.55-.11a5.12,5.12,0,0,0,.7-.23,2.05,2.05,0,0,1,.41-.12,8,8,0,0,0,1.14-.59l4.22,4.22A1.69,1.69,0,0,0,32.71,22.11ZM22.06,16a5,5,0,1,1,5-5A5,5,0,0,1,22.06,16Z"
+                      />
+                      <path
+                        d="M1.37,14.73H9.59a1.36,1.36,0,1,0,0-2.73H1.37a1.36,1.36,0,1,0,0,2.73Z"
+                      />
+                      <path
+                        d="M1.37,2.73H12.59a1.36,1.36,0,1,0,0-2.73H1.37a1.36,1.36,0,1,0,0,2.73Z"
+                      />
+                      <path
+                        d="M1.37,8.73H9.59A1.36,1.36,0,1,0,9.59,6H1.37a1.36,1.36,0,1,0,0,2.73Z"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
             </td>
-            <td class="text-center">
+            <td class="text-center" fxHide.lt-md>
               {{ r.lvl }}
             </td>
-            <td class="text-center">
+            <td class="text-center" fxHide.lt-md>
               <a
                 *ngIf="r.tech_list.ele && !r.tech_list.html_validator"
                 [routerLink]="[r.tech_list.ele]"

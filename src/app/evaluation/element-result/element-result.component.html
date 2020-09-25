@@ -1,6 +1,6 @@
 <main fxLayout="column" fxLayoutAlign="start center">
   <section fxFlex.lt-md="95" fxFlex.md="87" fxFlex.lg="87" fxFlex.gt-lg="87">
-    <nav fxLayout="row">
+    <nav fxLayout="row" fxHide.lt-md>
       <a href="https://www.acessibilidade.gov.pt/">Acessibilidade.gov.pt</a>
       <span>></span>
       <a routerLink="/">Access Monitor</a>
@@ -9,23 +9,169 @@
       <span>></span>
       <span [innerHTML]="'ELEMS.' + ele | translate"></span>
     </nav>
+    <div fxHide.gt-sm fxLayout="column">
+      <span class="breadcrumbHeader" id="exp_elem">{{
+        "RESULTS.navHeader" | translate
+      }}</span>
+      <div class="listbox-area" fxFlex="100%" fxLayout="row">
+        <div id="exp_wrapper">
+          <button
+            type="button"
+            aria-haspopup="listbox"
+            aria-labelledby="exp_elem exp_button2"
+            id="exp_button3"
+            fxFlexFill
+          >
+            <span [innerHTML]="'ELEMS.' + ele | translate"></span>
+          </button>
+          <ul
+            id="exp_elem_list3"
+            tabindex="-1"
+            role="listbox"
+            aria-labelledby="exp_elem"
+            class="hidden"
+          >
+            <li id="exp_elem_1" role="option">
+              <a href="https://www.acessibilidade.gov.pt/"
+                >Acessibilidade.gov.pt</a
+              >
+            </li>
+            <li id="exp_elem_2" role="option">
+              <a routerLink="/">Access Monitor</a>
+            </li>
+            <li id="exp_elem_3" role="option">
+              <a [routerLink]="['/', 'results', url]">{{ url }}</a>
+            </li>
+            <li id="exp_elem_4" role="option">
+              <span [innerHTML]="'ELEMS.' + ele | translate"></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </section>
-  <section class="info">
-    <div class="accessMonitor">AccessMonitor</div>
-    <h1>{{ url }}</h1>
-    <h2>{{ "ELEMENT_RESULTS.subtitle" | translate }}</h2>
-    <div class="test" fxLayout="row" fxLayoutAlign="start center">
+  <section class="info" ngClass.lt-md="fullWidth">
+    <div class="accessMonitor" ngClass.lt-md="sm_w87">AccessMonitor</div>
+    <h1 ngClass.lt-md="sm_w87">{{ url }}</h1>
+    <h2 ngClass.lt-md="sm_w87">{{ "ELEMENT_RESULTS.subtitle" | translate }}</h2>
+    <div class="test" fxLayout="row" fxLayoutAlign="start center" fxHide.lt-md>
       <div class="result {{ data.result }}">
-        <svg *ngIf="data.result === 'G'" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><title>monitor_icons_praticas_status_correct</title><path d="M26,12.29a1.41,1.41,0,0,1,0,2l-9.43,9.43a1.41,1.41,0,0,1-2,0L10,19.22a1.41,1.41,0,0,1,2-2l3.5,3.5L24,12.29a1.41,1.41,0,0,1,2,0ZM36,18A18,18,0,1,1,18,0,18,18,0,0,1,36,18Zm-2.81,0A15.19,15.19,0,1,0,18,33.19,15.18,15.18,0,0,0,33.19,18Zm0,0"/></svg>
-        <svg *ngIf="data.result === 'R'" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><title>monitor_icons_praticas_status_incorrect</title><path d="M12.44,23.56a1.5,1.5,0,0,0,2.12,0L18,20.12l3.44,3.44a1.5,1.5,0,1,0,2.12-2.12L20.12,18l3.44-3.44a1.5,1.5,0,1,0-2.12-2.12L18,15.88l-3.44-3.44a1.5,1.5,0,0,0-2.12,2.12L15.88,18l-3.44,3.44a1.5,1.5,0,0,0,0,2.12Zm0,0"/><path d="M34.63,24.89l.07-.17a18,18,0,0,0,0-13.44l-.07-.17-.07-.17a18,18,0,0,0-9.5-9.5l-.17-.07-.17-.07a18,18,0,0,0-13.43,0l-.17.07-.17.07a18,18,0,0,0-9.5,9.5l-.07.17-.07.17A18,18,0,0,0,.71,23l0,.08a18,18,0,0,0,7.13,9.79l.09.07a18,18,0,0,0,13.41,2.74h.1A18,18,0,0,0,34.56,25.06Zm-23.8,6.3-.07,0A15,15,0,0,1,4.08,12.4l.06-.14.06-.14A15.09,15.09,0,0,1,12.12,4.2l.14-.06.14-.06a15.09,15.09,0,0,1,11.2,0l.14.06.14.06a15.09,15.09,0,0,1,7.92,7.92l.06.14.06.14a15.09,15.09,0,0,1,0,11.2l-.06.14-.06.14a15,15,0,0,1-21,7.3Z"/></svg>
-        <svg *ngIf="data.result === 'Y'" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><title>monitor_icons_praticas_status_review</title><path d="M21.5,19.5h3.86a1.5,1.5,0,0,0,0-3H21.5m3,0H20.64a1.5,1.5,0,1,0,0,3H24.5"/><path d="M11.5,19.5h3.86a1.5,1.5,0,0,0,0-3H11.5m3,0H10.64a1.5,1.5,0,1,0,0,3H14.5"/><path d="M34.63,24.89l.07-.17a18,18,0,0,0,0-13.44l-.07-.17-.07-.17a18,18,0,0,0-9.5-9.5l-.17-.07-.17-.07a18,18,0,0,0-13.43,0l-.17.07-.17.07a18,18,0,0,0-9.5,9.5l-.07.17-.07.17A18,18,0,0,0,.71,23l0,.08a18,18,0,0,0,7.13,9.79l.09.07a18,18,0,0,0,13.41,2.74h.1A18,18,0,0,0,34.56,25.06Zm-23.8,6.3-.07,0A15,15,0,0,1,4.08,12.4l.06-.14.06-.14A15.09,15.09,0,0,1,12.12,4.2l.14-.06.14-.06a15.09,15.09,0,0,1,11.2,0l.14.06.14.06a15.09,15.09,0,0,1,7.92,7.92l.06.14.06.14a15.09,15.09,0,0,1,0,11.2l-.06.14-.06.14a15,15,0,0,1-21,7.3Z"/></svg>
+        <svg
+          *ngIf="data.result === 'G'"
+          xmlns="http://www.w3.org/2000/svg"
+          width="36"
+          height="36"
+          viewBox="0 0 36 36"
+        >
+          <title>monitor_icons_praticas_status_correct</title>
+          <path
+            d="M26,12.29a1.41,1.41,0,0,1,0,2l-9.43,9.43a1.41,1.41,0,0,1-2,0L10,19.22a1.41,1.41,0,0,1,2-2l3.5,3.5L24,12.29a1.41,1.41,0,0,1,2,0ZM36,18A18,18,0,1,1,18,0,18,18,0,0,1,36,18Zm-2.81,0A15.19,15.19,0,1,0,18,33.19,15.18,15.18,0,0,0,33.19,18Zm0,0"
+          />
+        </svg>
+        <svg
+          *ngIf="data.result === 'R'"
+          xmlns="http://www.w3.org/2000/svg"
+          width="36"
+          height="36"
+          viewBox="0 0 36 36"
+        >
+          <title>monitor_icons_praticas_status_incorrect</title>
+          <path
+            d="M12.44,23.56a1.5,1.5,0,0,0,2.12,0L18,20.12l3.44,3.44a1.5,1.5,0,1,0,2.12-2.12L20.12,18l3.44-3.44a1.5,1.5,0,1,0-2.12-2.12L18,15.88l-3.44-3.44a1.5,1.5,0,0,0-2.12,2.12L15.88,18l-3.44,3.44a1.5,1.5,0,0,0,0,2.12Zm0,0"
+          />
+          <path
+            d="M34.63,24.89l.07-.17a18,18,0,0,0,0-13.44l-.07-.17-.07-.17a18,18,0,0,0-9.5-9.5l-.17-.07-.17-.07a18,18,0,0,0-13.43,0l-.17.07-.17.07a18,18,0,0,0-9.5,9.5l-.07.17-.07.17A18,18,0,0,0,.71,23l0,.08a18,18,0,0,0,7.13,9.79l.09.07a18,18,0,0,0,13.41,2.74h.1A18,18,0,0,0,34.56,25.06Zm-23.8,6.3-.07,0A15,15,0,0,1,4.08,12.4l.06-.14.06-.14A15.09,15.09,0,0,1,12.12,4.2l.14-.06.14-.06a15.09,15.09,0,0,1,11.2,0l.14.06.14.06a15.09,15.09,0,0,1,7.92,7.92l.06.14.06.14a15.09,15.09,0,0,1,0,11.2l-.06.14-.06.14a15,15,0,0,1-21,7.3Z"
+          />
+        </svg>
+        <svg
+          *ngIf="data.result === 'Y'"
+          xmlns="http://www.w3.org/2000/svg"
+          width="36"
+          height="36"
+          viewBox="0 0 36 36"
+        >
+          <title>monitor_icons_praticas_status_review</title>
+          <path
+            d="M21.5,19.5h3.86a1.5,1.5,0,0,0,0-3H21.5m3,0H20.64a1.5,1.5,0,1,0,0,3H24.5"
+          />
+          <path
+            d="M11.5,19.5h3.86a1.5,1.5,0,0,0,0-3H11.5m3,0H10.64a1.5,1.5,0,1,0,0,3H14.5"
+          />
+          <path
+            d="M34.63,24.89l.07-.17a18,18,0,0,0,0-13.44l-.07-.17-.07-.17a18,18,0,0,0-9.5-9.5l-.17-.07-.17-.07a18,18,0,0,0-13.43,0l-.17.07-.17.07a18,18,0,0,0-9.5,9.5l-.07.17-.07.17A18,18,0,0,0,.71,23l0,.08a18,18,0,0,0,7.13,9.79l.09.07a18,18,0,0,0,13.41,2.74h.1A18,18,0,0,0,34.56,25.06Zm-23.8,6.3-.07,0A15,15,0,0,1,4.08,12.4l.06-.14.06-.14A15.09,15.09,0,0,1,12.12,4.2l.14-.06.14-.06a15.09,15.09,0,0,1,11.2,0l.14.06.14.06a15.09,15.09,0,0,1,7.92,7.92l.06.14.06.14a15.09,15.09,0,0,1,0,11.2l-.06.14-.06.14a15,15,0,0,1-21,7.3Z"
+          />
+        </svg>
       </div>
       <span class="desc" fxFlex [innerHTML]="'ELEMS.' + ele | translate"></span>
       <span>{{ data.size }}</span>
       <span>{{ "ELEMENT_RESULTS.total_elements" | translate }}</span>
     </div>
+    <div class="sm_test" fxHide.gt-sm fxLayout="row">
+      <div fxLayout="column" fxLayoutAlign="start center">
+        <div class="sm_info_result result {{ data.result }}">
+          <svg
+            *ngIf="data.result === 'G'"
+            xmlns="http://www.w3.org/2000/svg"
+            width="36"
+            height="36"
+            viewBox="0 0 36 36"
+          >
+            <title>monitor_icons_praticas_status_correct</title>
+            <path
+              d="M26,12.29a1.41,1.41,0,0,1,0,2l-9.43,9.43a1.41,1.41,0,0,1-2,0L10,19.22a1.41,1.41,0,0,1,2-2l3.5,3.5L24,12.29a1.41,1.41,0,0,1,2,0ZM36,18A18,18,0,1,1,18,0,18,18,0,0,1,36,18Zm-2.81,0A15.19,15.19,0,1,0,18,33.19,15.18,15.18,0,0,0,33.19,18Zm0,0"
+            />
+          </svg>
+          <svg
+            *ngIf="data.result === 'R'"
+            xmlns="http://www.w3.org/2000/svg"
+            width="36"
+            height="36"
+            viewBox="0 0 36 36"
+          >
+            <title>monitor_icons_praticas_status_incorrect</title>
+            <path
+              d="M12.44,23.56a1.5,1.5,0,0,0,2.12,0L18,20.12l3.44,3.44a1.5,1.5,0,1,0,2.12-2.12L20.12,18l3.44-3.44a1.5,1.5,0,1,0-2.12-2.12L18,15.88l-3.44-3.44a1.5,1.5,0,0,0-2.12,2.12L15.88,18l-3.44,3.44a1.5,1.5,0,0,0,0,2.12Zm0,0"
+            />
+            <path
+              d="M34.63,24.89l.07-.17a18,18,0,0,0,0-13.44l-.07-.17-.07-.17a18,18,0,0,0-9.5-9.5l-.17-.07-.17-.07a18,18,0,0,0-13.43,0l-.17.07-.17.07a18,18,0,0,0-9.5,9.5l-.07.17-.07.17A18,18,0,0,0,.71,23l0,.08a18,18,0,0,0,7.13,9.79l.09.07a18,18,0,0,0,13.41,2.74h.1A18,18,0,0,0,34.56,25.06Zm-23.8,6.3-.07,0A15,15,0,0,1,4.08,12.4l.06-.14.06-.14A15.09,15.09,0,0,1,12.12,4.2l.14-.06.14-.06a15.09,15.09,0,0,1,11.2,0l.14.06.14.06a15.09,15.09,0,0,1,7.92,7.92l.06.14.06.14a15.09,15.09,0,0,1,0,11.2l-.06.14-.06.14a15,15,0,0,1-21,7.3Z"
+            />
+          </svg>
+          <svg
+            *ngIf="data.result === 'Y'"
+            xmlns="http://www.w3.org/2000/svg"
+            width="36"
+            height="36"
+            viewBox="0 0 36 36"
+          >
+            <title>monitor_icons_praticas_status_review</title>
+            <path
+              d="M21.5,19.5h3.86a1.5,1.5,0,0,0,0-3H21.5m3,0H20.64a1.5,1.5,0,1,0,0,3H24.5"
+            />
+            <path
+              d="M11.5,19.5h3.86a1.5,1.5,0,0,0,0-3H11.5m3,0H10.64a1.5,1.5,0,1,0,0,3H14.5"
+            />
+            <path
+              d="M34.63,24.89l.07-.17a18,18,0,0,0,0-13.44l-.07-.17-.07-.17a18,18,0,0,0-9.5-9.5l-.17-.07-.17-.07a18,18,0,0,0-13.43,0l-.17.07-.17.07a18,18,0,0,0-9.5,9.5l-.07.17-.07.17A18,18,0,0,0,.71,23l0,.08a18,18,0,0,0,7.13,9.79l.09.07a18,18,0,0,0,13.41,2.74h.1A18,18,0,0,0,34.56,25.06Zm-23.8,6.3-.07,0A15,15,0,0,1,4.08,12.4l.06-.14.06-.14A15.09,15.09,0,0,1,12.12,4.2l.14-.06.14-.06a15.09,15.09,0,0,1,11.2,0l.14.06.14.06a15.09,15.09,0,0,1,7.92,7.92l.06.14.06.14a15.09,15.09,0,0,1,0,11.2l-.06.14-.06.14a15,15,0,0,1-21,7.3Z"
+            />
+          </svg>
+        </div>
+        <div class="sm_info_data" fxLayoutAlign="center center">
+          {{ data.size }}
+        </div>
+      </div>
+      <div class="sm_col2" fxLayout="column" fxLayoutAlign="center start">
+        <div
+          class="desc sm_info_label_top"
+          fxLayoutAlign="start center"
+          [innerHTML]="'ELEMS.' + ele | translate"
+        ></div>
+        <div class="sm_info_label_bot" fxLayoutAlign="start center">
+          {{ "ELEMENT_RESULTS.total_elements" | translate }}
+        </div>
+      </div>
+    </div>
   </section>
-  <section id="main" class="elements_list">
+  <section id="main" class="elements_list" ngClass.lt-md="fullWidth">
     <div class="tabs02">
       <div class="tabs">
         <div role="tablist">
@@ -35,10 +181,11 @@
             aria-selected="true"
             aria-controls="list_tab"
             id="tab_list"
+            fxHide.lt-md
           >
             {{ "ELEMENT_RESULTS.elements_tab" | translate }}
           </button>
-          <span fxFlex="1"></span>
+          <span fxFlex="1" fxHide.lt-md></span>
           <button
             type="button"
             role="tab"
@@ -46,11 +193,40 @@
             aria-controls="page_tab"
             id="tab_page"
             tabindex="-1"
-
             [hidden]="!data.page"
+            fxHide.lt-md
           >
             {{ "ELEMENT_RESULTS.page_tab" | translate }}
           </button>
+          <div class="listbox-area2" fxHide.gt-sm fxFlex="100%" fxLayout="row">
+            <div class="left-area">
+              <div id="exp_wrapper">
+                <button
+                  type="button"
+                  aria-haspopup="listbox"
+                  aria-labelledby="exp_elem exp_button"
+                  id="exp_button"
+                  fxFlexFill
+                >
+                  {{ "ELEMENT_RESULTS.elements_tab" | translate }}
+                </button>
+                <ul
+                  id="exp_elem_list"
+                  tabindex="-1"
+                  role="listbox"
+                  aria-labelledby="exp_elem"
+                  class="hidden"
+                >
+                  <li id="exp_elem1_1" role="option" class="option2">
+                    {{ "ELEMENT_RESULTS.elements_tab" | translate }}
+                  </li>
+                  <li id="exp_elem1_2" role="option" class="option2">
+                    {{ "ELEMENT_RESULTS.page_tab" | translate }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
         <div
           tabindex="0"
@@ -58,27 +234,76 @@
           id="list_tab"
           aria-labelledby="tab_list"
         >
-          <ol>
-            <li *ngFor="let e of data.elements; let i = index;" fxLayout="column">
-              <table class="table{{i+1}}">
+          <ol ngClass.lt-md="elem_clearB">
+            <li
+              *ngFor="let e of data.elements; let i = index"
+              fxLayout="column"
+            >
+              <table class="table{{ i + 1 }}" fxHide.lt-md>
                 <tr>
-                  <td class="counter" rowspan="4" scope="row"><span>{{ i + 1 }}</span></td>
-                  <td class="label" scope="row"><strong>{{ "ELEMENT_RESULTS.result.element" | translate }}</strong></td>
-                  <td class="value"><span class="element">{{ e.ele }}</span></td>
+                  <td class="counter" rowspan="4" scope="row">
+                    <span>{{ i + 1 }}</span>
+                  </td>
+                  <td class="label" scope="row">
+                    <strong>{{
+                      "ELEMENT_RESULTS.result.element" | translate
+                    }}</strong>
+                  </td>
+                  <td class="value">
+                    <span class="element">{{ e.ele }}</span>
+                  </td>
                 </tr>
                 <tr *ngIf="e.attr">
-                  <td class="label" scope="row"><strong>{{ "ELEMENT_RESULTS.result.attributes" | translate }}</strong></td>
-                  <td class="value"><span class="element">{{ e.attr }}</span></td>
+                  <td class="label" scope="row">
+                    <strong>{{
+                      "ELEMENT_RESULTS.result.attributes" | translate
+                    }}</strong>
+                  </td>
+                  <td class="value">
+                    <span class="element">{{ e.attr }}</span>
+                  </td>
                 </tr>
                 <tr>
-                  <td class="label" scope="row"><strong>{{ "ELEMENT_RESULTS.result.code" | translate }}</strong></td>
-                  <td class="value"><code>{{ e.showCode }}</code></td>
+                  <td class="label" scope="row">
+                    <strong>{{
+                      "ELEMENT_RESULTS.result.code" | translate
+                    }}</strong>
+                  </td>
+                  <td class="value">
+                    <code>{{ e.showCode }}</code>
+                  </td>
                 </tr>
                 <tr *ngIf="e.code">
-                  <td class="label" scope="row"><strong>{{ "ELEMENT_RESULTS.result.content" | translate }}</strong></td>
-                  <td class="value"><div class="img" [innerHTML]="e.code | html"></div></td>
+                  <td class="label" scope="row">
+                    <strong>{{
+                      "ELEMENT_RESULTS.result.content" | translate
+                    }}</strong>
+                  </td>
+                  <td class="value">
+                    <div class="img" [innerHTML]="e.code | html"></div>
+                  </td>
                 </tr>
               </table>
+              <div fxHide.gt-sm fxLayout="column" fxLayoutAlign="start start">
+                <div class="elem_num">{{ i + 1 }}</div>
+                <div class="elem_elem" fxLayout="column">
+                  <div class="elem_label">{{ "ELEMENT_RESULTS.result.element" | translate }}</div>
+                  <div><span class="element">{{ e.ele }}</span></div>
+                </div>
+                <div class="elem_atrib" fxLayout="column">
+                  <div class="elem_label">{{ "ELEMENT_RESULTS.result.attributes" | translate }}</div>
+                  <div><span class="element">{{ e.attr }}</span></div>
+                </div>
+                <div class="elem_code" fxLayout="column">
+                  <div class="elem_label">{{ "ELEMENT_RESULTS.result.code" | translate }}</div>
+                  <div><code>{{ e.showCode }}</code></div>
+                </div>
+                <div class="elem_cont" fxLayout="column">
+                  <div class="elem_label">{{ "ELEMENT_RESULTS.result.content" | translate }}</div>
+                  <div class="img" [innerHTML]="e.code | html"></div>
+                </div>
+
+              </div>
             </li>
           </ol>
         </div>
@@ -89,7 +314,7 @@
           aria-labelledby="tab_page"
           class="is-hidden page_highlight"
         >
-          <br>
+          <br />
           <iframe id="iframe" #iframe></iframe>
         </div>
       </div>
