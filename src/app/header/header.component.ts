@@ -69,17 +69,21 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.translate.use(this.selectedLang);
     localStorage.setItem("language", this.selectedLang);
 
-    const themeSwitchLabel = document.getElementById("mode_switch");
+    const themeSwitchLabels = document.getElementsByClassName("mode_switch");
 
     if (this.theme.isDarkTheme()) {
       localStorage.setItem("theme", "light");
       this.translate.get("HEADER.dark_mode").subscribe((res: string) => {
-        themeSwitchLabel.innerHTML = res;
+        for (let i = 0 ; i < themeSwitchLabels.length ; i++) {
+          themeSwitchLabels[i].innerHTML = res;
+        }
       });
     } else {
       localStorage.setItem("theme", "dark");
       this.translate.get("HEADER.light_mode").subscribe((res: string) => {
-        themeSwitchLabel.innerHTML = res;
+        for (let i = 0 ; i < themeSwitchLabels.length ; i++) {
+          themeSwitchLabels[i].innerHTML = res;
+        }
       });
     }
 

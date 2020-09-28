@@ -9,7 +9,7 @@ import clone from 'lodash.clone';
 import { Parser } from 'htmlparser2';
 import DomHandler from 'domhandler';
 import * as DomUtils from 'domutils';
-import * as CSSSelect from 'css-select';
+import * as CSSselect from 'css-select';
 
 import { ConfigService } from '../config.service';
 
@@ -54,9 +54,6 @@ export class EvaluationService {
             this.url = url;
             this.evaluation = response.result;
             this.evaluation.processed = this.processData();
-            this.fixImgSrc();
-            this.fixStyleSheet();
-            this.fixScripts();
             
             try {
               sessionStorage.setItem('url', url);
@@ -87,9 +84,6 @@ export class EvaluationService {
 
         this.evaluation = response.result;
         this.evaluation.processed = this.processData();
-        this.fixImgSrc();
-        this.fixStyleSheet();
-        this.fixScripts();
 
         try {
           sessionStorage.setItem('evaluation', JSON.stringify(this.evaluation));
@@ -136,18 +130,20 @@ export class EvaluationService {
       ]
     };
 
-    let results = {};
+    /*let results = {};
     if (ele !== 'colorFgBgNo' && ele !== 'justifiedCss' && ele !== 'lineHeightNo' && ele !== 'colorContrast' && testSee['css'].includes(ele)) {
       results = this.getCSSList(ele, allNodes[ele]);
     } else {
-      results = this.getElements(allNodes, ele, ele !== 'titleOk' && ele !== 'lang');
+      results = this.getElements(allNodes, ele);
     }
 
-    return results;
+    return results;*/
+
+    return this.getElements(allNodes, ele);
   }
 
   private getCSSList(ele: string, paths: any): any {
-    const handler = new DomHandler(() => {}, { withStartIndices: true, withEndIndices: true });
+    /*const handler = new DomHandler(() => {}, { withStartIndices: true, withEndIndices: true });
     const parser = new Parser(handler);
 
     parser.write(this.evaluation.pagecode.replace(/(\r\n|\n|\r|\t)/gm, ''));
@@ -158,7 +154,7 @@ export class EvaluationService {
     let i = 0;
     const dom = handler.dom;
     for (const path of paths.split(',') || []) {
-      const nodes = CSSSelect(path, dom);
+      const nodes = CSSselect.selectAll(path, dom);
 
       let key = '';
       const results = this.evaluation.processed.results.map(r => r.msg);
@@ -190,14 +186,14 @@ export class EvaluationService {
         });
         i++;
       }
-    }
+    }*/
+    const elements = new Array();
 
     return {
       type: 'css',
       elements,
-      result,
+      result: 'ola',
       size: elements.length,
-      page: undefined,
       finalUrl: clone(this.evaluation.processed.metadata.url)
     };
   }
@@ -207,7 +203,6 @@ export class EvaluationService {
 
     let error, level, sc, desc, num;
     const descs = ['CSV.errorType', 'CSV.level', 'CSV.criteria', 'CSV.desc', 'CSV.count'];
-    const numTable = [];
 
     const _eval = this.evaluation.processed;
     
@@ -287,9 +282,9 @@ export class EvaluationService {
       let pointers = new Array<any>(); 
       
       if (test === 'img_01a') {
-        pointers = this.evaluation.data.nodes['img'].split(',');
+        pointers = this.evaluation.data.nodes['img'].map(e => e.pointer);//.split(',');
       } else {
-        pointers = this.evaluation.data.nodes[tests[test].test]; //.split(',');
+        pointers = this.evaluation.data.nodes[tests[test].test].map(e => e.pointer); //.split(',');
       }
 
       for (const pointer of pointers || []) {
@@ -343,156 +338,14 @@ export class EvaluationService {
     saveAs(blob, 'eval.json');
   }
 
-  private getElements(allNodes: Array < string > , ele: string, inpage: boolean): any {
-    let path: string;
+  private getElements(allNodes: Array < string > , ele: string): any {
 
-    var sub_regexes = {
-      "tag": "([a-zA-Z][a-zA-Z0-9]{0,10}|\\*)",
-      "attribute": "[.a-zA-Z_:][-\\w:.]*(\\(\\))?)",
-      "value": "\\s*[\\w/:][-/\\w\\s,:;.]*"
-  };
-  
-  var validation_re =
-      "(?P<node>"+
-        "("+
-          "^id\\([\"\\']?(?P<idvalue>%(value)s)[\"\\']?\\)"+// special case! `id(idValue)`
-        "|"+
-          "(?P<nav>//?(?:following-sibling::)?)(?P<tag>%(tag)s)" + //  `//div`
-          "(\\[("+
-            "(?P<matched>(?P<mattr>@?%(attribute)s=[\"\\'](?P<mvalue>%(value)s))[\"\\']"+ // `[@id="well"]` supported and `[text()="yes"]` is not
-          "|"+
-            "(?P<contained>contains\\((?P<cattr>@?%(attribute)s,\\s*[\"\\'](?P<cvalue>%(value)s)[\"\\']\\))"+// `[contains(@id, "bleh")]` supported and `[contains(text(), "some")]` is not 
-          ")\\])?"+
-          "(\\[\\s*(?P<nth>\\d|last\\(\\s*\\))\\s*\\])?"+
-        ")"+
-      ")";
-  
-  for(var prop in sub_regexes) 
-      validation_re = validation_re.replace(new RegExp('%\\(' + prop + '\\)s', 'gi'), sub_regexes[prop]);
-  validation_re = validation_re.replace(/\?P<node>|\?P<idvalue>|\?P<nav>|\?P<tag>|\?P<matched>|\?P<mattr>|\?P<mvalue>|\?P<contained>|\?P<cattr>|\?P<cvalue>|\?P<nth>/gi, '');
-  
-  function XPathException(message) {
-      this.message = message;
-      this.name = "[XPathException]";
-  }
-  
-  function cssify(xpath) {
-      var prog, match, result, nav, tag, attr, nth, nodes, css, node_css = '', csses = [], xindex = 0, position = 0;
-  
-      // preparse xpath: 
-      // `contains(concat(" ", @class, " "), " classname ")` => `@class=classname` => `.classname`
-      xpath = xpath.replace(/contains\s*\(\s*concat\(["']\s+["']\s*,\s*@class\s*,\s*["']\s+["']\)\s*,\s*["']\s+([a-zA-Z0-9-_]+)\s+["']\)/gi, '@class="$1"');
-      
-      if (typeof xpath == 'undefined' || (
-              xpath.replace(/[\s-_=]/g,'') === '' || 
-              xpath.length !== xpath.replace(/[-_\w:.]+\(\)\s*=|=\s*[-_\w:.]+\(\)|\sor\s|\sand\s|\[(?:[^\/\]]+[\/\[]\/?.+)+\]|starts-with\(|\[.*last\(\)\s*[-\+<>=].+\]|number\(\)|not\(|count\(|text\(|first\(|normalize-space|[^\/]following-sibling|concat\(|descendant::|parent::|self::|child::|/gi,'').length)) {
-          //`number()=` etc or `=normalize-space()` etc, also `a or b` or `a and b` (to fix?) or other unsupported keywords
-          throw new XPathException('Invalid or unsupported XPath: ' + xpath);
-      }
-      
-      var xpatharr = xpath.split('|');
-      while(xpatharr[xindex]) {
-          prog = new RegExp(validation_re,'gi');
-          css = [];
-          
-          while(nodes = prog.exec(xpatharr[xindex])) {
-              if(!nodes && position === 0) {
-                  throw new XPathException('Invalid or unsupported XPath: ' + xpath);
-              }
-      
-              match = {
-                  node: nodes[5],
-                  idvalue: nodes[12] || nodes[3],
-                  nav: nodes[4],
-                  tag: nodes[5],
-                  matched: nodes[7],
-                  mattr: nodes[10] || nodes[14],
-                  mvalue: nodes[12] || nodes[16],
-                  contained: nodes[13],
-                  cattr: nodes[14],
-                  cvalue: nodes[16],
-                  nth: nodes[18]
-              };
-      
-              if(position != 0 && match['nav']) {
-                  if (~match['nav'].indexOf('following-sibling::')) nav = ' + ';
-                  else nav = (match['nav'] == '//') ? ' ' : ' > ';
-              } else {
-                  nav = '';
-              }
-              tag = (match['tag'] === '*') ? '' : (match['tag'] || '');
-      
-              if(match['contained']) {
-                  if(match['cattr'].indexOf('@') === 0) {
-                      attr = '[' + match['cattr'].replace(/^@/, '') + '*=' + match['cvalue'] + ']';
-                  } else { //if(match['cattr'] === 'text()')
-                      throw new XPathException('Invalid or unsupported XPath attribute: ' + match['cattr']);
-                  }
-              } else if(match['matched']) {
-                  switch (match['mattr']){
-                      case '@id':
-                          attr = '#' + match['mvalue'].replace(/^\s+|\s+$/,'').replace(/\s/g, '#');
-                          break;
-                      case '@class':
-                          attr = '.' + match['mvalue'].replace(/^\s+|\s+$/,'').replace(/\s/g, '.');
-                          break;
-                      case 'text()':
-                      case '.':
-                          throw new XPathException('Invalid or unsupported XPath attribute: ' + match['mattr']);
-                      default:
-                          if (match['mattr'].indexOf('@') !== 0) {
-                              throw new XPathException('Invalid or unsupported XPath attribute: ' + match['mattr']);
-                          }
-                          if(match['mvalue'].indexOf(' ') !== -1) {
-                              match['mvalue'] = '\"' + match['mvalue'].replace(/^\s+|\s+$/,'') + '\"';
-                          }
-                          attr = '[' + match['mattr'].replace('@', '') + '=' + match['mvalue'] + ']';
-                          break;
-                  }
-              } else if(match['idvalue'])
-                  attr = '#' + match['idvalue'].replace(/\s/, '#');
-              else
-                  attr = '';
-      
-              if(match['nth']) {
-                  if (match['nth'].indexOf('last') === -1){
-                      if (isNaN(parseInt(match['nth'], 10))) {
-                          throw new XPathException('Invalid or unsupported XPath attribute: ' + match['nth']);
-                      }
-                      nth = parseInt(match['nth'], 10) !== 1 ? ':nth-of-type(' + match['nth'] + ')' : ':first-of-type';
-                  } else {
-                      nth = ':last-of-type';
-                  }
-              } else {
-                  nth = '';
-              }
-              node_css = nav + tag + attr + nth;
-      
-              css.push(node_css);
-              position++;
-          } //while(nodes
-          
-          result = css.join('');
-    if (result === '') {
-        throw new XPathException('Invalid or unsupported XPath: ' + match['node']);
+    if (ele === 'form') {
+      ele = 'formSubmitNo';
     }
-          csses.push(result);
-          xindex++;
-  
-      } //while(xpatharr
-  
-      return csses.join(', ');
-  }
-  
+
+    const elements =  this.getElementsList(allNodes[ele]);
     
-    if (allNodes[ele]) {
-      path = allNodes[ele];
-    } else {
-      path = !xpath[ele].includes('|') ? cssify(xpath[ele]) : xpath[ele].split('|').map(selector => cssify(selector)).join('|');
-    }
-
-    const elements = this.getElementsList(ele, path);
-
     let result = 'G';
     const results = this.evaluation.processed.results.map(r => r.msg);
     for (const test in tests || {}) {
@@ -502,206 +355,85 @@ export class EvaluationService {
         break;
       }
     }
-
+    
     return {
       type: 'html',
       result,
       elements,
       size: elements.length,
-      page: inpage ? this.showElementsHighlightedInPage(path, inpage, ele) : undefined,
       finalUrl: clone(this.evaluation.processed.metadata.url)
     };
   }
 
-  private fixImgSrc(): void {
-    const protocol = this.evaluation.processed.metadata.url.startsWith('https://') ? 'https://' : 'http://';
-    const www = this.evaluation.processed.metadata.url.includes('www.') ? 'www.' : '';
-
-    let fixSrcUrl = clone(this.evaluation.processed.metadata.url.replace('http://', '').replace('https://', '').replace('www.', '').split('/')[0]);
-    if (fixSrcUrl[fixSrcUrl.length - 1] === '/') {
-      fixSrcUrl = fixSrcUrl.substring(0, fixSrcUrl.length - 2);
-    }
-
-    const handler = new DomHandler(() => {}, { withStartIndices: true, withEndIndices: true });
-    const parser = new Parser(handler);
-
-    parser.write(this.evaluation.pagecode.replace(/(\r\n|\n|\r|\t)/gm, ''));
-    parser.end();
-
-    const dom = handler.dom;
-    const nodes = CSSSelect('img', dom);
-
-    for (const node of nodes || []) {
-      if (node['attribs']['src'] && !node['attribs']['src'].startsWith('http') && !node['attribs']['src'].startsWith('https')) {
-        if (node['attribs']['src'].startsWith('/')) {
-          node['attribs']['src'] = `${protocol}${www}${fixSrcUrl}${node['attribs']['src']}`;
-        } else {
-          node['attribs']['src'] = `${protocol}${www}${fixSrcUrl}/${node['attribs']['src']}`;
-        }
-      }
-      if (node['attribs']['srcset']) {
-        const split = node['attribs']['srcset'].split(', ');
-        if (split.length > 0) {
-          let value = '';
-          for (const u of split) {
-            if (!u.startsWith('http') && !u.startsWith('https')) {
-              if (u.startsWith('/')) {
-                value += `${protocol}${www}${fixSrcUrl}${u}, `;
-              } else {
-                value += `${protocol}${www}${fixSrcUrl}/${u}, `;
-              }
-            }
-          }
-          node['attribs']['srcset'] = clone(value.substring(0, value.length - 2));
-        } else {
-          node['attribs']['srcset'] = `${protocol}${www}${fixSrcUrl}${node['attribs']['srcset']}`;
-        }
-      }
-    }
-
-    this.evaluation.pagecode = DomUtils.getOuterHTML(dom);
-  }
-
-  private fixStyleSheet(): void {
-    const protocol = this.evaluation.processed.metadata.url.startsWith('https://') ? 'https://' : 'http://';
-    const www = this.evaluation.processed.metadata.url.includes('www.') ? 'www.' : '';
-
-    let fixSrcUrl = clone(this.evaluation.processed.metadata.url.replace('http://', '').replace('https://', '').replace('www.', '').split('/')[0]);
-    if (fixSrcUrl[fixSrcUrl.length - 1] === '/') {
-      fixSrcUrl = fixSrcUrl.substring(0, fixSrcUrl.length - 2);
-    }
-
-    const handler = new DomHandler(() => {}, { withStartIndices: true, withEndIndices: true });
-    const parser = new Parser(handler);
-
-    parser.write(this.evaluation.pagecode.replace(/(\r\n|\n|\r|\t)/gm, ''));
-    parser.end();
-
-    const dom = handler.dom;
-    const nodes = CSSSelect('link', dom);
-
-    for (const node of nodes || []) {
-      if (node['attribs']['href'] && !node['attribs']['href'].startsWith('http') && !node['attribs']['href'].startsWith('https')) {
-        if (node['attribs']['href'].startsWith('//')) {
-          node['attribs']['href'] = 'http:' + node['attribs']['href'];
-        } else if (node['attribs']['href'].startsWith('/')) {
-          node['attribs']['href'] = `${protocol}${www}${fixSrcUrl}${node['attribs']['href']}`;
-        } else {
-          node['attribs']['href'] = `${protocol}${www}${fixSrcUrl}/${node['attribs']['href']}`;
-        }
-      }
-    }
-
-    this.evaluation.pagecode = DomUtils.getOuterHTML(dom);
-  }
-
-  private fixScripts(): void {
-    const protocol = this.evaluation.processed.metadata.url.startsWith('https://') ? 'https://' : 'http://';
-    const www = this.evaluation.processed.metadata.url.includes('www.') ? 'www.' : '';
-
-    let fixSrcUrl = clone(this.evaluation.processed.metadata.url.replace('http://', '').replace('https://', '').replace('www.', '').split('/')[0]);
-    if (fixSrcUrl[fixSrcUrl.length - 1] === '/') {
-      fixSrcUrl = fixSrcUrl.substring(0, fixSrcUrl.length - 2);
-    }
-
-    const handler = new DomHandler(() => {}, { withStartIndices: true, withEndIndices: true });
-    const parser = new Parser(handler);
-
-    parser.write(this.evaluation.pagecode.replace(/(\r\n|\n|\r|\t)/gm, ''));
-    parser.end();
-
-    const dom = handler.dom;
-    const nodes = CSSSelect('script', dom);
-
-    for (const node of nodes || []) {
-      if (node['attribs']['src'] && !node['attribs']['src'].startsWith('http') && !node['attribs']['src'].startsWith('https')) {
-        if (node['attribs']['src'].startsWith('//')) {
-          node['attribs']['src'] = 'http:' + node['attribs']['src'];
-        } else if (node['attribs']['src'].startsWith('/')) {
-          node['attribs']['src'] = `${protocol}${www}${fixSrcUrl}${node['attribs']['src']}`;
-        } else {
-          node['attribs']['src'] = `${protocol}${www}${fixSrcUrl}/${node['attribs']['src']}`;
-        }
-      }
-    }
-
-    this.evaluation.pagecode = DomUtils.getOuterHTML(dom);
-  }
-
-  private showElementsHighlightedInPage(paths: string, inpage: boolean, test: string): string {
-    const handler = new DomHandler(() => {}, { withStartIndices: true, withEndIndices: true });
-    const parser = new Parser(handler);
-
-    parser.write(this.evaluation.pagecode.replace(/(\r\n|\n|\r|\t)/gm, ''));
-    parser.end();
-
-    const dom = handler.dom;
-    const nodes = CSSSelect(paths, dom);
-
-    for (const node of nodes || []) {
-      if (inpage) {
-        node['attribs']['style'] = 'background:#ff0 !important;border:2px dotted #900 !important;padding:2px !important;visibility:visible !important;display:inherit !important;';
-      }
-
-      if (test === 'aSkipFirst') {
-        break;
-      }
-    }
-
-    return DomUtils.getOuterHTML(dom);
-  }
-
-  private getElementsList(test: string, paths: string): Array < any > {
-    const handler = new DomHandler(() => {}, { withStartIndices: true, withEndIndices: true });
-    const parser = new Parser(handler);
-
-    parser.write(this.evaluation.pagecode.replace(/(\r\n|\n|\r|\t)/gm, ''));
-    parser.end();
-
-    const dom = handler.dom;
-    const nodes = CSSSelect(paths, dom);
-
+  private getElementsList(nodes: any): Array < any > {
     const elements = new Array();
-
+    
     for (const node of nodes || []) {
-      let attrs = '';
-      for (const attr of Object.keys(node['attribs']) || []) {
-        const value = node['attribs'][attr];
-        
-        if (value) {
-          attrs += attr + '="' + value + '" ';
-        } else {
-          attrs += attr+ ' ';
+      if (node.elements) {
+        for (const element of node.elements || []) {
+          const ele = this.getTagName(element);;
+          elements.push({
+            ele,
+            code: ele === 'style' ? element.attributes : this.fixCode(element.htmlCode),
+            showCode: ele === 'style' ? undefined : this.fixCode(element.htmlCode),
+            pointer: element.pointer
+          });
         }
-      }
-
-      let eleOuterHtml = DomUtils.getOuterHTML(node);
-      let code = null;
-      if (node['tagName'].toLowerCase() === 'title') {
-        code = DomUtils.getText(node);
-      } else if (node['tagName'].toLowerCase() === 'html') {
-        code = node['attribs']['lang'];
-        const cloneNode = clone(node);
-        cloneNode['children'] = [];
-        eleOuterHtml = DomUtils.getOuterHTML(cloneNode);
       } else {
-        code = DomUtils.getOuterHTML(node);
+        const ele = this.getTagName(node);
+        elements.push({
+          ele,
+          code: ele === 'style' ? node.attributes : this.fixCode(node.htmlCode),
+          showCode: ele === 'style' ? undefined : this.fixCode(node.htmlCode),
+          pointer: node.pointer
+        });
       }
+    }
 
-      elements.push({
-        ele: node['tagName'].toLowerCase(),
-        attr: attrs,
-        code: code,
-        showCode: eleOuterHtml,
-        //pointer: paths.split(',')[elements.length]
-      });
+    return elements;
+  }
 
-      if (test === 'aSkipFirst') {
+  private getTagName(element: any): string {
+    let name = element.htmlCode.slice(1);
+
+    let k = 0;
+    for (let i = 0; i < name.length; i++, k++) {
+      if (name[i] === ' ' || name[i] === '>') {
         break;
       }
     }
-    
-    return elements;
+
+    name = name.substring(0, k);
+
+    return name;
+  }
+
+  private fixCode(code: string): string {
+    code = code.replace(/_cssrules="true"/g, '');
+    code = code.replace(/_documentselector="undefined"/g, '');
+
+    let index = code.indexOf('_selector="');
+    while (index !== -1) {
+      
+      let foundEnd = false;
+      let foundStart = false;
+      let k = index;
+      while(!foundEnd) {
+        k++;
+        if (code[k] === '"') {
+          if (!foundStart) {
+            foundStart = true;
+          } else {
+            foundEnd = true;
+          }
+        }
+      }
+      
+      code = code.replace(code.substring(index, k), '');
+      index = code.indexOf('_selector="');
+    }
+
+    return code;
   }
 
   private processData() {

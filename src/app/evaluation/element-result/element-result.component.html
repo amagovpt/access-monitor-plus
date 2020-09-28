@@ -185,19 +185,6 @@
           >
             {{ "ELEMENT_RESULTS.elements_tab" | translate }}
           </button>
-          <span fxFlex="1" fxHide.lt-md></span>
-          <button
-            type="button"
-            role="tab"
-            aria-selected="false"
-            aria-controls="page_tab"
-            id="tab_page"
-            tabindex="-1"
-            [hidden]="!data.page"
-            fxHide.lt-md
-          >
-            {{ "ELEMENT_RESULTS.page_tab" | translate }}
-          </button>
           <div class="listbox-area2" fxHide.gt-sm fxFlex="100%" fxLayout="row">
             <div class="left-area">
               <div id="exp_wrapper">
@@ -219,9 +206,6 @@
                 >
                   <li id="exp_elem1_1" role="option" class="option2">
                     {{ "ELEMENT_RESULTS.elements_tab" | translate }}
-                  </li>
-                  <li id="exp_elem1_2" role="option" class="option2">
-                    {{ "ELEMENT_RESULTS.page_tab" | translate }}
                   </li>
                 </ul>
               </div>
@@ -263,7 +247,7 @@
                     <span class="element">{{ e.attr }}</span>
                   </td>
                 </tr>
-                <tr>
+                <tr *ngIf="e.showCode">
                   <td class="label" scope="row">
                     <strong>{{
                       "ELEMENT_RESULTS.result.code" | translate
@@ -283,6 +267,16 @@
                     <div class="img" [innerHTML]="e.code | html"></div>
                   </td>
                 </tr>
+                <tr *ngIf="e.pointer">
+                  <td class="label" scope="row">
+                    <strong>{{
+                      "ELEMENT_RESULTS.result.location" | translate
+                    }}</strong>
+                  </td>
+                  <td class="value">
+                    <span class="element">{{ e.pointer }}</span>
+                  </td>
+                </tr>
               </table>
               <div fxHide.gt-sm fxLayout="column" fxLayoutAlign="start start">
                 <div class="elem_num">{{ i + 1 }}</div>
@@ -294,7 +288,7 @@
                   <div class="elem_label">{{ "ELEMENT_RESULTS.result.attributes" | translate }}</div>
                   <div><span class="element">{{ e.attr }}</span></div>
                 </div>
-                <div class="elem_code" fxLayout="column">
+                <div *ngIf="e.showCode" class="elem_code" fxLayout="column">
                   <div class="elem_label">{{ "ELEMENT_RESULTS.result.code" | translate }}</div>
                   <div><code>{{ e.showCode }}</code></div>
                 </div>
@@ -302,20 +296,13 @@
                   <div class="elem_label">{{ "ELEMENT_RESULTS.result.content" | translate }}</div>
                   <div class="img2" [innerHTML]="e.code | html"></div>
                 </div>
-
+                <div class="elem_cont" fxLayout="column">
+                  <div class="elem_label">{{ "ELEMENT_RESULTS.result.content" | translate }}</div>
+                  <div><span class="element">{{ e.pointer }}</span></div>
+                </div>
               </div>
             </li>
           </ol>
-        </div>
-        <div
-          tabindex="0"
-          role="tabpanel"
-          id="page_tab"
-          aria-labelledby="tab_page"
-          class="is-hidden page_highlight"
-        >
-          <br />
-          <iframe id="iframe" #iframe></iframe>
         </div>
       </div>
     </div>
