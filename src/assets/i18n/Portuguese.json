@@ -168,7 +168,7 @@
     "a": "Links",
     "aAdjacentSame": "Links adjacentes que nos conduzem a um mesmo destino",
     "aImgAltNo": "Links em que o único conteúdo é uma imagem com <code>alt</code> nulo ou sem legenda",
-    "aSameText": "Links com o mesmo texto que apontam destinos diferentes",
+    "aSameText": "Grupos de links com o mesmo texto que apontam destinos diferentes",
     "aSkip": "Links para contornar blocos de conteúdo",
     "aSkipFirst": "Link para saltar para o conteúdo principal",
     "aTitleMatch": "Links com o mesmo texto afixado no conteúdo e no atributo <code>title</code>",
@@ -316,8 +316,8 @@
       "p": "Encontrei <mark>{{value}}</mark> casos de links adjacentes a apontar para o mesmo destino."
     },
     "a_09": {
-      "s": "Encontrei <mark>{{value}}</mark> link com o mesmo texto mas cujo destino é diferente.",
-      "p": "Encontrei <mark>{{value}}</mark> links com o mesmo texto mas cujo destino é diferente."
+      "s": "Encontrei <mark>{{value}}</mark> grupo de links com o mesmo texto mas cujo destino é diferente.",
+      "p": "Encontrei <mark>{{value}}</mark> grupos de links com o mesmo texto mas cujo destino é diferente."
     },
     "abbr_01": {
       "s": "Encontrei <mark>{{value}}</mark> abreviatura em que se esqueceu de colocar a extensão.",

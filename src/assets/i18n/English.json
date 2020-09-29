@@ -168,7 +168,7 @@
     "a": "Links",
     "aAdjacentSame": "Adjacent links leading to the same destination",
     "aImgAltNo": "Links where the only content is an image with null <code>alt</code> or no caption",
-    "aSameText": "Links with the same text that point to different destinations",
+    "aSameText": "Groups of links with the same text that point to different destinations",
     "aSkip": "Links to bypass content blocks",
     "aSkipFirst": "Link to skip to main content",
     "aTitleMatch": "Links with the same text in content and <code>title</code> attribute",
@@ -316,8 +316,8 @@
       "p": "I found <mark>{{value}}</mark> cases of adjacent links pointing to the same destination."
     },
     "a_09": {
-      "s": "I found <mark>{{value}}</mark> links with the same text but whose destination is different.",
-      "p": "I found <mark>{{value}}</mark> links with the same text but whose destination is different."
+      "s": "I found <mark>{{value}}</mark> group of links with the same text but whose destination is different.",
+      "p": "I found <mark>{{value}}</mark> groups of links with the same text but whose destination is different."
     },
     "abbr_01": {
       "s": "I found <mark>{{value}}</mark> abbreviation in which the extension was forgotten.",

@@ -433,7 +433,57 @@ export class EvaluationService {
       index = code.indexOf('_selector="');
     }
 
+    return this.fixeSrcAttribute(code);
+  }
+
+  private fixeSrcAttribute(code: string): string {
+    if (code.startsWith('<img')) {
+      const protocol = this.evaluation.processed.metadata.url.startsWith('https://') ? 'https://' : 'http://';
+      const www = this.evaluation.processed.metadata.url.includes('www.') ? 'www.' : '';
+
+      let fixSrcUrl = clone(this.evaluation.processed.metadata.url.replace('http://', '').replace('https://', '').replace('www.', '').split('/')[0]);
+      if (fixSrcUrl[fixSrcUrl.length - 1] === '/') {
+        fixSrcUrl = fixSrcUrl.substring(0, fixSrcUrl.length - 2);
+      }
+
+      let srcAttribute = '';
+      const index = code.indexOf('src="');
+      if (index !== -1) {
+        
+        let foundEnd = false;
+        let foundStart = false;
+        let k = index;
+        let startIndex = -1;
+        while(!foundEnd) {
+          k++;
+          if (code[k] === '"') {
+            if (!foundStart) {
+              foundStart = true;
+              startIndex = k;
+            } else {
+              foundEnd = true;
+            }
+          }
+        }
+        srcAttribute = code.substring(startIndex+1, k);
+        
+        if (srcAttribute && !srcAttribute.startsWith('http') && !srcAttribute.startsWith('https')) {
+          if (srcAttribute.startsWith('/')) {
+            srcAttribute = `"${protocol}${www}${fixSrcUrl}${srcAttribute}`;
+          } else {
+            srcAttribute = `"${protocol}${www}${fixSrcUrl}/${srcAttribute}`;
+          }
+
+          code = this.splice(code, startIndex, 0, srcAttribute);
+        }
+      }
+    }
+
     return code;
+  }
+
+  private splice(code: string, idx: number, rem: number, str: string): string {
+    return code.slice(0, idx) + str + code.slice(idx + Math.abs(rem));
   }
 
   private processData() {
