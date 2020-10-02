@@ -282,21 +282,34 @@ export class EvaluationService {
       let pointers = new Array<any>(); 
       
       if (test === 'img_01a') {
-        pointers = this.evaluation.data.nodes['img'].map(e => e.pointer);//.split(',');
-      } else {
-        pointers = this.evaluation.data.nodes[tests[test].test].map(e => e.pointer); //.split(',');
-      }
-
-      for (const pointer of pointers || []) {
-
-        const source = {
-          result: {
-            pointer: pointer.trim(),
-            outcome: 'earl:' + (tests_colors[test] !== 'Y' ? tests_colors[test] === 'G' ? 'passed' : 'failed' : 'cantTell'),
+        pointers = this.evaluation.data.nodes['img'].map(e => {
+          if (e.elements !== undefined) {
+            return e.elements.map(e2 => e2.pointer);
+          } else {
+            return [e.pointer];
           }
-        };
-
-        sources.push(source);
+        }); //.split(',');
+      } else {
+        pointers = this.evaluation.data.nodes[tests[test].test].map(e => {
+          if (e.elements !== undefined) {
+            return e.elements.map(e2 => e2.pointer);
+          } else {
+            return [e.pointer];
+          }
+        }); //.split(',');
+      }
+      
+      for (const ele of pointers || []) {
+        for (const pointer of ele || []) {
+          const source = {
+            result: {
+              pointer: pointer.trim(),
+              outcome: 'earl:' + (tests_colors[test] !== 'Y' ? tests_colors[test] === 'G' ? 'passed' : 'failed' : 'cantTell'),
+            }
+          };
+  
+          sources.push(source);
+        }
       }
 
       const result = {
