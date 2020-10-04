@@ -296,18 +296,22 @@ export class EvaluationResultsPageComponent implements OnInit, OnDestroy {
     const collapsible = table.getElementsByClassName("collapsible")[index];
     const row = collapsible.parentElement.parentElement;
 
+    if (collapsible.classList.contains("collapsible-active")) {
+      collapsible.classList.remove("collapsible-active");
+      row.classList.remove("highlight");
+    } else {
+      collapsible.classList.add("collapsible-active");
+      row.classList.add("highlight");
+    }
+
     if (collapsible.classList.contains("colapsLeft-active")) {
       collapsible.classList.remove("colapsLeft-active");
-      row.classList.remove("highlight");
     } else if (collapsible.classList.contains("colapsRight-active")) {
       collapsible.classList.remove("colapsRight-active");
-      row.classList.remove("highlight");
     } else if (collapsible.classList.contains("colapsLeft")) {
       collapsible.classList.add("colapsLeft-active");
-      row.classList.add("highlight");
     } else if (collapsible.classList.contains("colapsRight")) {
       collapsible.classList.add("colapsRight-active");
-      row.classList.add("highlight");
     }
 
     const collapsibleContent = table.getElementsByClassName(

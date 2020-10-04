@@ -743,6 +743,11 @@ td {
   font-family: "Lato";
 }
 
+.collapsible-active, 
+.collapsible-mobile {
+  padding-top: 10px;
+}
+
 .colapsLeft:before {
   position: relative;
   top: 3px;
