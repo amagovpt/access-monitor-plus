@@ -1,14 +1,14 @@
 {
   "HEADER": {
-    "tool": "A tool from the Ecosystem from",
-    "logo_alt": "AccessMonitor - an web accessibility evaluator",
+    "tool": "A tool of the ecosystem from",
+    "logo_alt": "AccessMonitor - a web accessibility evaluator",
     "NAV": {
       "location": "You are in",
       "ecosystem": "Ecosystem",
       "results": "Results",
       "code": "Pagecode"
     },
-    "line_text": "The web accessibility practice evaluator (WCAG 2.1)",
+    "line_text": "The web accessibility practices evaluator (WCAG 2.1)",
     "sidebar": {
       "evaluation": "Evaluation report"
     },
@@ -27,15 +27,15 @@
   },
   "HOME_PAGE": {
     "header": "Get an accessibility report using one of the following methods",
-    "intro_text": "Access our web accessibility practice (WCAG 2.1) assessor here. Obtain an accessibility report using one of the following methods:", 
+    "intro_text": "Access our web accessibility practices (WCAG 2.1) assessor here. Obtain an accessibility report using one of the following methods:", 
     "tabs": {
       "url": "Insert URL",
       "input": "Insert HTML code",
       "file": "Upload HTML file"
     },
     "url_label": "Enter url here",
-    "url_hint": "<strong>Example:</strong> http://www.google.com",
-    "url_error": "Enter a valid url. <strong>E.g. http://www.google.com</strong>",
+    "url_hint": "Example: http://www.google.com",
+    "url_error": "Enter a valid url. E.g. http://www.google.com",
     "html_label": "Insert the HTML code down below",
     "html_placeholder": "Insert HTML code here",
     "file_label": "Select file",
@@ -43,7 +43,7 @@
     "file_type_error": "Invalid file type",
     "submit": "Evaluate",
     "messages": {
-      "invalid_url": "The given url is invalid or doesn't exist"
+      "invalid_url": "The given url is invalid or does not exist"
     }
   },
   "RESULTS": {
@@ -66,7 +66,7 @@
         "n_elements_label": "(x)HTML elements",
         "page_size_label": "Page size",
         "last_update_label": "Last update",
-        "validator": "We couldn't contact the W3C html markup validator"
+        "validator": "We could not contact the W3C html markup validator"
       },
       "table": {
         "title": "practices found",
@@ -83,7 +83,7 @@
       "subtitle": "practices detected, which can be classified by:",
       "grade": "Grade",
       "tabs": {
-        "A": "Excelent",
+        "A": "Excellent",
         "B": "Great",
         "C": "Good",
         "D": "Average",
@@ -152,11 +152,11 @@
     "required_field": "This field is <strong>required</strong>",
     "message_close": "Close",
     "unexpected_error": "An unexpected error has ocurred. Please try again later.",
-    "error_contact": "If the problem persists, please contact us...",
+    "error_contact": "If the problem persists, please contact us.",
     "go_to_top": "Go to top",
     "_404": {
       "title": "Error 404",
-      "description": "The page you tried to access doesn't exist.",
+      "description": "The page you tried to access does not exist.",
       "homepage": "Go back to homepage"
     },
     "messages": {
