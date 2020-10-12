@@ -1,3 +1,12 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+  <section>
+    <nav fxLayout="row" fxHide.lt-md>
+      <a href="https://www.acessibilidade.gov.pt/">Acessibilidade.gov.pt</a>
+      <span>></span>
+      <span>AccessMonitor</span>
+    </nav>
+  </section>
+</div>
 <main fxLayout="column" fxLayoutAlign="start center">
   <section
     id="main"
@@ -69,8 +78,9 @@
                       role="listbox"
                       aria-labelledby="exp_elem"
                       class="hidden"
+                      aria-activedescendant="exp_elem_1"
                     >
-                      <li id="exp_elem_1" role="option">
+                      <li id="exp_elem_1" role="option" aria-selected="true" class="focused">
                         {{ "HOME_PAGE.tabs.url" | translate }}
                       </li>
                       <li id="exp_elem_2" role="option">
@@ -164,6 +174,7 @@
                     [formControl]="htmlInput"
                     cdkTextareaAutosize
                     cdkAutosizeMinRows="5"
+                    rows="5"
                     placeholder="{{ 'HOME_PAGE.html_placeholder' | translate }}"
                   ></textarea>
                 </div>

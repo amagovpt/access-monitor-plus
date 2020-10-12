@@ -5,7 +5,7 @@
       <span>></span>
       <a routerLink="/">Access Monitor</a>
       <span>></span>
-      <a [routerLink]="['/', 'results', url]">{{ url }}</a>
+      <span>{{ url }}</span>
     </nav>
     <div fxHide.gt-sm fxLayout="column">
       <span class="breadcrumbHeader" id="exp_elem">{{
@@ -236,8 +236,8 @@
           fxLayoutAlign="center start"
           fxHide.lt-md
         >
-          <span class="strongH">URI</span>
-          <span>{{ url }}</span>
+          <span class="strongH" *ngIf="url !== 'html'">URI</span>
+          <span *ngIf="url !== 'html'">{{ url }}</span>
           <br />
           <span class="strongH">{{
             "RESULTS.summary.metadata.title_label" | translate
@@ -830,6 +830,10 @@
                 fxLayout="row"
                 fxLayoutAlign="start center"
               >
+                <span>
+                  <svg *ngIf="!isCollapsibleOpen(i)" xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='30px'><title>icon_arrow_drop</title><path d='M13.6,7.32l-.35.35a1.66,1.66,0,0,1-2.34,0l-3-3-1-1a1.55,1.55,0,0,0-2,.08A1.59,1.59,0,0,0,5,6L8,9l3,3a1.66,1.66,0,0,0,2.34,0l3-3,3-3a1.59,1.59,0,0,0,.11-2.24,1.58,1.58,0,0,0-2.23.1L15.92,5'/></svg>
+                  <svg *ngIf="isCollapsibleOpen(i)" xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='30px'><title>icon_arrow_drop</title><path d='M13.6,7.32l-.35.35a1.66,1.66,0,0,1-2.34,0l-3-3-1-1a1.55,1.55,0,0,0-2,.08A1.59,1.59,0,0,0,5,6L8,9l3,3a1.66,1.66,0,0,0,2.34,0l3-3,3-3a1.59,1.59,0,0,0,.11-2.24,1.58,1.58,0,0,0-2.23.1L15.92,5' transform='rotate(180) translate(-25 -15)'/></svg>
+                </span>
                 <span
                   class="test_description"
                   *ngIf="r.value === 1"

@@ -85,7 +85,8 @@ const light: Theme = {
     '--results-header-button-border': Colours._4,
     '--results-header-button-text': Colours._11,
 
-    '--results-breadcrumbs-text': Colours._4,
+    '--results-breadcrumbs-link': Colours._4,
+    '--results-breadcrumbs-text': Colours._7,
     '--results-breadcrumbs-header': Colours._26,
     '--results-listbox-background': Colours._1,
     '--results-listbox-background-border': Colours._2,
@@ -116,6 +117,7 @@ const light: Theme = {
     '--results-evaluation-table-body-collapsible-background': Colours._11,
     '--results-evaluation-table-body-text': Colours._6,
     '--results-evaluation-table-body-icon': Colours._4,
+    '--results-evaluation-table-arrow': Colours._4,
 
     // ELEMENTS RESULTS
     '--elements-test-description-background': Colours._3,
@@ -197,6 +199,7 @@ const dark: Theme = {
     '--results-header-button-border': Colours._10,
     '--results-header-button-text': Colours._6,
 
+    '--results-breadcrumbs-link': Colours._10,
     '--results-breadcrumbs-text': Colours._10,
     '--results-breadcrumbs-header': Colours._1,
     '--results-listbox-background': Colours._7,
@@ -227,6 +230,7 @@ const dark: Theme = {
     '--results-evaluation-table-body-collapsible-background': Colours._7,
     '--results-evaluation-table-body-text': Colours._9,
     '--results-evaluation-table-body-icon': Colours._10,
+    '--results-evaluation-table-arrow': Colours._10,
 
     // ELEMENTS RESULTS
     '--elements-test-description-background': Colours._8,

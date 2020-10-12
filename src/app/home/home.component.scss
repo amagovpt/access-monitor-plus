@@ -1,3 +1,30 @@
+
+section:nth-child(1) {
+  width: 87%;
+}
+
+section:nth-child(1) nav {
+  padding-top: 3em;
+  padding-bottom: 3em;
+
+  span {
+    margin-left: 4px;
+  }
+
+  span:last-child {
+    color: var(--results-breadcrumbs-text);
+  }
+}
+
+nav span,
+nav a {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  font-family: "Lato";
+  color: var(--results-breadcrumbs-link);
+}
+
 .padded {
   width: 87%;
 }
@@ -10,7 +37,6 @@
   width: 100%;
   border-radius: 0;
   box-shadow: none !important;
-  margin-top: 100px;
   padding-left: 60px;
   padding-right: 60px;
   padding-top: 62px;
@@ -170,7 +196,7 @@ button[aria-disabled="true"] {
 input:not(:last-child),
 textarea {
   border: 2px solid var(--home-content-inputs-border);
-  width: 96%;
+  width: 100%;
   font-size: 1em;
   padding-left: 1em;
   line-height: 3em;
@@ -355,6 +381,11 @@ button[type="submit"]:disabled {
 
 [role="tab"][aria-selected="true"] {
   border-bottom: 5px solid var(--home-content-tabs-text);
+}
+
+[role="option"][aria-selected="true"] {
+  background-color: var(--home-content-button-text-hover);
+  color: var(--home-content-tabs-text);
 }
 
 [role="tabpanel"] {

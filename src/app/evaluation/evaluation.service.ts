@@ -109,7 +109,7 @@ export class EvaluationService {
     const data = this.evaluation.data;
     const allNodes = data.nodes;
     const ele = test;
-
+    
     const testSee = {
       'css': ['colorContrast', 'colorFgBgNo', 'cssBlink', 'fontAbsVal', 'fontValues',
         'justifiedCss', 'layoutFixed', 'lineHeightNo', 'valueAbsCss', 'valueRelCss'
@@ -213,9 +213,10 @@ export class EvaluationService {
         level = _eval['results'][row]['lvl'];
         num = _eval['results'][row]['value'];
         desc = 'TESTS_RESULTS.' + _eval['results'][row]['msg'] + ((num === 1) ? '.s' : '.p');
+        sc = tests[_eval['results'][row]['msg']]['scs'];
 
         descs.push(desc, error);
-        rowData.push(_eval['results'][row]['msg'], error, level, desc, num);
+        rowData.push(_eval['results'][row]['msg'], error, level, sc, desc, num);
         data.push(rowData);
       }
     }
@@ -225,20 +226,20 @@ export class EvaluationService {
 
       for (const row in data) {
         if (data[row]) {
-          data[row][3] = res[data[row][3]].replace('{{value}}', data[row][4]);
-          data[row][3] = data[row][3].replace(new RegExp('<mark>', 'g'), '');
-          data[row][3] = data[row][3].replace(new RegExp('</mark>', 'g'), '');
-          data[row][3] = data[row][3].replace(new RegExp('<code>', 'g'), '');
-          data[row][3] = data[row][3].replace(new RegExp('</code>', 'g'), '');
-          data[row][3] = data[row][3].replace(new RegExp('&lt;', 'g'), '');
-          data[row][3] = data[row][3].replace(new RegExp('&gt;', 'g'), '');
+          data[row][4] = res[data[row][4]].replace('{{value}}', data[row][5]);
+          data[row][4] = data[row][4].replace(new RegExp('<mark>', 'g'), '');
+          data[row][4] = data[row][4].replace(new RegExp('</mark>', 'g'), '');
+          data[row][4] = data[row][4].replace(new RegExp('<code>', 'g'), '');
+          data[row][4] = data[row][4].replace(new RegExp('</code>', 'g'), '');
+          data[row][4] = data[row][4].replace(new RegExp('&lt;', 'g'), '');
+          data[row][4] = data[row][4].replace(new RegExp('&gt;', 'g'), '');
           data[row][1] = res[data[row][1]];
         }
       }
       labels.push('ID');
       labels.push(res['CSV.errorType']);
       labels.push(res['CSV.level']);
-      //labels.push(res['CSV.criteria']);
+      labels.push(res['CSV.criteria']);
       labels.push(res['CSV.desc']);
       labels.push(res['CSV.count']);
 
@@ -288,22 +289,30 @@ export class EvaluationService {
           } else {
             return [e.pointer];
           }
-        }); //.split(',');
-      } else {
+        });
+      } else if (test === 'input_02b') {
+        pointers = this.evaluation.data.nodes['inputLabel'].map(e => {
+          if (e.elements !== undefined) {
+            return e.elements.map(e2 => e2.pointer);
+          } else {
+            return [e.pointer];
+          }
+        });
+      } else if (this.evaluation.data.nodes[tests[test].test]) {
         pointers = this.evaluation.data.nodes[tests[test].test].map(e => {
           if (e.elements !== undefined) {
             return e.elements.map(e2 => e2.pointer);
           } else {
             return [e.pointer];
           }
-        }); //.split(',');
+        });
       }
       
       for (const ele of pointers || []) {
         for (const pointer of ele || []) {
           const source = {
             result: {
-              pointer: pointer.trim(),
+              pointer: pointer?.trim(),
               outcome: 'earl:' + (tests_colors[test] !== 'Y' ? tests_colors[test] === 'G' ? 'passed' : 'failed' : 'cantTell'),
             }
           };
@@ -554,7 +563,7 @@ export class EvaluationService {
           const level = lev.toUpperCase();
 
           infoak[level][color]++;
-
+          
           let tnum;
           if (tot.elems[tes] !== undefined) {
             if (tes === 'titleOk') {

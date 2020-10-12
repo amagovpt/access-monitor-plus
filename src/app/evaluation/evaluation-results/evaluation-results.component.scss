@@ -5,6 +5,10 @@ section {
 section:nth-child(1) nav {
   padding-top: 5em;
   padding-bottom: 3em;
+
+  span:last-child {
+    color: var(--results-breadcrumbs-text);
+  }
 }
 
 section:nth-child(1) div {
@@ -39,7 +43,7 @@ nav a {
   line-height: 24px;
   font-weight: 400;
   font-family: "Lato";
-  color: var(--results-breadcrumbs-text);
+  color: var(--results-breadcrumbs-link);
 }
 
 .info .accessMonitor {
@@ -745,33 +749,29 @@ td {
 
 .collapsible-active, 
 .collapsible-mobile {
-  padding-top: 10px;
+  padding-top: 1.6em;
 }
 
 .colapsLeft:before {
   position: relative;
   top: 3px;
-  content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='30px'><title>icon_arrow_drop</title><path d='M13.6,7.32l-.35.35a1.66,1.66,0,0,1-2.34,0l-3-3-1-1a1.55,1.55,0,0,0-2,.08A1.59,1.59,0,0,0,5,6L8,9l3,3a1.66,1.66,0,0,0,2.34,0l3-3,3-3a1.59,1.59,0,0,0,.11-2.24,1.58,1.58,0,0,0-2.23.1L15.92,5' fill='%23333399'/></svg>");
 }
 
 .colapsRight:after {
   position: relative;
   top: 3px;
   margin-right: 16px;
-  content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='30px'><title>icon_arrow_drop</title><path d='M13.6,7.32l-.35.35a1.66,1.66,0,0,1-2.34,0l-3-3-1-1a1.55,1.55,0,0,0-2,.08A1.59,1.59,0,0,0,5,6L8,9l3,3a1.66,1.66,0,0,0,2.34,0l3-3,3-3a1.59,1.59,0,0,0,.11-2.24,1.58,1.58,0,0,0-2.23.1L15.92,5' fill='%23333399'/></svg>");
 }
 
 .colapsLeft-active:before {
   position: relative;
   top: 3px;
-  content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='30px'><title>icon_arrow_drop</title><path d='M13.6,7.32l-.35.35a1.66,1.66,0,0,1-2.34,0l-3-3-1-1a1.55,1.55,0,0,0-2,.08A1.59,1.59,0,0,0,5,6L8,9l3,3a1.66,1.66,0,0,0,2.34,0l3-3,3-3a1.59,1.59,0,0,0,.11-2.24,1.58,1.58,0,0,0-2.23.1L15.92,5' fill='%23333399' transform='rotate(180) translate(-25 -15)'/></svg>");
 }
 
 .colapsRight-active:after {
   position: relative;
   top: 3px;
   margin-right: 16px;
-  content: url("data:image/svg+xml;charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='30px'><title>icon_arrow_drop</title><path d='M13.6,7.32l-.35.35a1.66,1.66,0,0,1-2.34,0l-3-3-1-1a1.55,1.55,0,0,0-2,.08A1.59,1.59,0,0,0,5,6L8,9l3,3a1.66,1.66,0,0,0,2.34,0l3-3,3-3a1.59,1.59,0,0,0,.11-2.24,1.58,1.58,0,0,0-2.23.1L15.92,5' fill='%23333399' transform='rotate(180) translate(-25 -15)'/></svg>");
 }
 
 .collapsible-content {
@@ -781,6 +781,10 @@ td {
   line-height: 1.5em;
   padding-bottom: 32px;
   padding-right: 8px;
+
+  path {
+    fill: var(--results-evaluation-table-arrow);
+  }
 }
 
 .sm_cc {

@@ -51,6 +51,22 @@ export class HeaderComponent implements OnInit, OnDestroy {
             this.closeMenu();
           }
         });
+
+        /*document.getElementById('experience_menu_button')
+          .addEventListener('click', function() {
+            const menu = document.getElementById('experience_menu');
+            const style = window.getComputedStyle(menu);
+            if (style.display === 'none') {
+              menu.style.display = 'block';
+              document.getElementById('experience_menu_arrow')
+                .style.transform = 'rotate(180deg)';
+            } else {
+              menu.style.display = 'none';
+              document.getElementById('experience_menu_arrow')
+                .style.transform = 'rotate(360deg)';
+            }
+
+          });*/
       }
     });
   }

@@ -14,6 +14,10 @@ section {
 section:nth-child(1) nav {
   padding-top: 5em;
   padding-bottom: 3em;
+
+  span:last-child {
+    color: var(--results-breadcrumbs-text);
+  }
 }
 
 section:nth-child(1) div {
@@ -48,7 +52,7 @@ nav a {
   line-height: 24px;
   font-weight: 400;
   font-family: "Lato";
-  color: var(--results-breadcrumbs-text);
+  color: var(--results-breadcrumbs-link);
 }
 
 .info .accessMonitor {
