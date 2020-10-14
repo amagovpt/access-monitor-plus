@@ -49,6 +49,8 @@ const light: Theme = {
     // TOP HEADER
     '--top-header-background': Colours._1,
     '--top-header-icon-color': Colours._4,
+    '--top-header-text': Colours._6,
+    '--top-header-links': Colours._4,
 
     // FOOTER
     '--footer-background': Colours._11,
@@ -163,6 +165,8 @@ const dark: Theme = {
     // TOP HEADER
     '--top-header-background': Colours._12,
     '--top-header-icon-color': Colours._13,
+    '--top-header-text': Colours._10,
+    '--top-header-links': Colours._10,
 
     // FOOTER
     '--footer-background': Colours._12,

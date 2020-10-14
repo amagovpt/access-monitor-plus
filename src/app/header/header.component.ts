@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef, OnInit, OnDestroy } from "@angular/core";
+import { Component, ChangeDetectorRef, OnInit, OnDestroy, AfterViewInit } from "@angular/core";
 import { Router, NavigationEnd } from "@angular/router";
 import { Subscription } from "rxjs";
 import { ThemeService } from "../theme.service";
@@ -9,7 +9,7 @@ import { TranslateService } from "@ngx-translate/core";
   templateUrl: "./header.component.html",
   styleUrls: ["./header.component.scss"],
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
   private sub: Subscription;
 
   isHomePage: boolean;
@@ -45,30 +45,48 @@ export class HeaderComponent implements OnInit, OnDestroy {
             this.url = segments[segments.indexOf(segment) + 1];
           }
         }
-
-        window.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape') {
-            this.closeMenu();
-          }
-        });
-
-        /*document.getElementById('experience_menu_button')
-          .addEventListener('click', function() {
-            const menu = document.getElementById('experience_menu');
-            const style = window.getComputedStyle(menu);
-            if (style.display === 'none') {
-              menu.style.display = 'block';
-              document.getElementById('experience_menu_arrow')
-                .style.transform = 'rotate(180deg)';
-            } else {
-              menu.style.display = 'none';
-              document.getElementById('experience_menu_arrow')
-                .style.transform = 'rotate(360deg)';
-            }
-
-          });*/
       }
     });
+  }
+
+  ngAfterViewInit(): void {
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        this.closeMenu();
+
+        const menu = document.getElementById('experience_menu');
+        const style = window.getComputedStyle(menu);
+        menu.style.display = 'none';
+        document.getElementById('experience_menu_arrow')
+          .style.transform = 'rotate(360deg)';
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    document.getElementById('experience_menu_button')
+      .addEventListener('click', function() {
+        const menu = document.getElementById('experience_menu');
+        const style = window.getComputedStyle(menu);
+        if (style.display === 'none') {
+          menu.style.display = 'flex';
+          document.getElementById('experience_menu_arrow')
+            .style.transform = 'rotate(180deg)';
+          document.body.style.overflow = 'hidden';
+        } else {
+          menu.style.display = 'none';
+          document.getElementById('experience_menu_arrow')
+            .style.transform = 'rotate(360deg)';
+          document.body.style.overflow = 'auto';
+        }
+
+      });
+
+    const menu = document.getElementById('experience_menu');
+    const style = window.getComputedStyle(menu);
+    menu.style.display = 'none';
+    document.getElementById('experience_menu_arrow')
+      .style.transform = 'rotate(360deg)';
+    document.body.style.overflow = 'auto';
   }
 
   ngOnDestroy(): void {

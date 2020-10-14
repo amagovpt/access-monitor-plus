@@ -23,6 +23,31 @@
       "insert_html": "Inserir código HTML",
       "upload_html": "Carregar ficheiro HTML",
       "report": "Relatório de avaliação"
+    },
+    "DROPDOWN": {
+      "ecosystem": "Ecosistema",
+      "text": "Os sítios e as ferramentas de apoio à acessibilidade e à usabilidade, para garantir a promoção das boas práticas e melhorar a experiência de utilização dos serviços digitais.",
+      "external_link": "hiperligação externa",
+      "accessibility": {
+        "text": "Divulgação, partilha e promoção das melhores práticas de acessibilidade para conteúdos Web e aplicações móveis.",
+        "link1": "DL n.º 83/2018 – acessibilidade da Web e das aplicações móveis",
+        "link2": "Gerar a Declaração de acessibilidade",
+        "link3": "Validador AccessMonitor"
+      },
+      "usability": {
+        "text": "Recursos, ferramentas e boas práticas para melhorar a usabilidade e a experiência de utilização dos serviços digitais.",
+        "link1": "Guia de usabilidade",
+        "link2": "Lista de verificação",
+        "link3": "Componentes",
+        "link4": "Templates"
+      },
+      "badge": {
+        "text": "Selo de excelência que premeia as boas práticas de acessibilidade e usabilidade nos sítios Web dos serviços públicos.",
+        "link1": "Como obter o selo",
+        "link2": "Kit de apoio",
+        "link3": "Candidatura",
+        "link4": "Declaração de acessibilidade e usabilidade"
+      }
     }
   },
   "HOME_PAGE": {

@@ -139,6 +139,7 @@ button[aria-haspopup="listbox"] + [role="listbox"] {
 
 button {
   font-size: inherit;
+  box-sizing: border-box;
 }
 
 button[aria-disabled="true"] {

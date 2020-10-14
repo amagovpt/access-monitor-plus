@@ -23,6 +23,31 @@
       "insert_html": "Insert HTML code",
       "upload_html": "Upload HTML file",
       "report": "Evaluation report"
+    },
+    "DROPDOWN": {
+      "ecosystem": "Ecosystem",
+      "text": "Sites and tools to support accessibility and usability, to ensure promotion good practices and improve the experience of using digital services.",
+      "external_link": "external link",
+      "accessibility": {
+        "text": "Dissemination, sharing and promotion of best accessibility practices for web content and mobile applications.",
+        "link1": "DL n.º 83/2018 - accessibility of the web and mobile applications",
+        "link2": "Generate the Accessibility Statement",
+        "link3": "AccessMonitor Validator"
+      },
+      "usability": {
+        "text": "Resources, tools and good practices to improve the usability and experience of using digital services.",
+        "link1": "Usability Guide",
+        "link2": "Verification list",
+        "link3": "Components",
+        "link4": "Templates"
+      },
+      "badge": {
+        "text": "Seal of excellence that rewards good accessibility and usability practices on public service websites.",
+        "link1": "How to get the badge",
+        "link2": "Support kit",
+        "link3": "Candidacy",
+        "link4": "Declaration of accessibility and usability"
+      }
     }
   },
   "HOME_PAGE": {
