@@ -161,8 +161,10 @@
   },
   "FOOTER": {
     "accessibility": "Accessibility",
+    "terms": "Terms and Conditions",
     "privacy": "Privacy policy",
     "options": "Visualization options",
+    "glossary": "Glossary",
     "link": "Administrative Modernization Agency",
     "rights": "All rights reserved."
   },
@@ -305,7 +307,8 @@
     "level": "Level",
     "criteria": "Criteria",
     "desc": "Description",
-    "count": "Number of occurrences"
+    "count": "Number of occurrences",
+    "date": "Date"
   },
   "TESTS_RESULTS": {
     "a_01a": {

@@ -3,7 +3,7 @@ section {
 }
 
 section:nth-child(1) nav {
-  padding-top: 5em;
+  padding-top: 3em;
   padding-bottom: 3em;
 
   span:last-child {
@@ -30,7 +30,7 @@ section:nth-child(1) nav span {
 }
 
 .bottomL {
-  margin-bottom: 70px;
+  margin-bottom: 2em;
 }
 
 .bottomS {
@@ -44,6 +44,10 @@ nav a {
   font-weight: 400;
   font-family: "Lato";
   color: var(--results-breadcrumbs-link);
+}
+
+nav a {
+  text-decoration: underline;
 }
 
 .info .accessMonitor {
@@ -79,6 +83,7 @@ nav a {
   font-weight: 700;
   font-family: "Lato";
   margin-top: 0;
+  margin-bottom: 1em;
 }
 
 .action {
@@ -278,7 +283,7 @@ td {
 .summary-section {
   background-color: var(--results-summary-background);
   padding-bottom: 60px;
-  margin-bottom: 55px;
+  margin-bottom: 2em;
 }
 
 .summary-section-wrapper {
@@ -620,7 +625,6 @@ td {
 
 .evaluation-section {
   background-color: var(--results-evaluation-background);
-  margin-bottom: 100px;
 }
 
 .evaluation-section-wrapper {

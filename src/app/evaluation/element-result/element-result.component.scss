@@ -12,7 +12,7 @@ section {
 }
 
 section:nth-child(1) nav {
-  padding-top: 5em;
+  padding-top: 3em;
   padding-bottom: 3em;
 
   span:last-child {
@@ -53,6 +53,10 @@ nav a {
   font-weight: 400;
   font-family: "Lato";
   color: var(--results-breadcrumbs-link);
+}
+
+nav a {
+  text-decoration: underline;
 }
 
 .info .accessMonitor {

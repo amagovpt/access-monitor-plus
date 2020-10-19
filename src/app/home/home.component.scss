@@ -25,6 +25,10 @@ nav a {
   color: var(--results-breadcrumbs-link);
 }
 
+nav a {
+  text-decoration: underline;
+}
+
 .padded {
   width: 87%;
 }

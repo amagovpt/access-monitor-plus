@@ -161,8 +161,10 @@
   },
   "FOOTER": {
     "accessibility": "Acessibilidade",
+    "terms": "Termos e Condições",
     "privacy": "Política de privacidade",
     "options": "Opções de visualização",
+    "glossary": "Glossário",
     "link": "Agência para a Modernização Administrativa, I.P.",
     "rights": "Todos os Direitos Reservados."
   },
@@ -305,7 +307,8 @@
     "level": "Nivel de Conformidade",
     "criteria": "Critério",
     "desc": "Descrição",
-    "count": "Número de ocorrências"
+    "count": "Número de ocorrências",
+    "date": "Data"
   },
   "TESTS_RESULTS": {
     "a_01a": {

@@ -202,7 +202,7 @@ export class EvaluationService {
     const data = [];
 
     let error, level, sc, desc, num;
-    const descs = ['CSV.errorType', 'CSV.level', 'CSV.criteria', 'CSV.desc', 'CSV.count'];
+    const descs = ['CSV.date', 'CSV.errorType', 'CSV.level', 'CSV.criteria', 'CSV.desc', 'CSV.count'];
 
     const _eval = this.evaluation.processed;
     
@@ -216,7 +216,7 @@ export class EvaluationService {
         sc = tests[_eval['results'][row]['msg']]['scs'];
 
         descs.push(desc, error);
-        rowData.push(_eval['results'][row]['msg'], error, level, sc, desc, num);
+        rowData.push(this.evaluation.data.rawUrl, this.evaluation.data.date, _eval['results'][row]['msg'], error, level, sc, desc, num);
         data.push(rowData);
       }
     }
@@ -226,16 +226,18 @@ export class EvaluationService {
 
       for (const row in data) {
         if (data[row]) {
-          data[row][4] = res[data[row][4]].replace('{{value}}', data[row][5]);
-          data[row][4] = data[row][4].replace(new RegExp('<mark>', 'g'), '');
-          data[row][4] = data[row][4].replace(new RegExp('</mark>', 'g'), '');
-          data[row][4] = data[row][4].replace(new RegExp('<code>', 'g'), '');
-          data[row][4] = data[row][4].replace(new RegExp('</code>', 'g'), '');
-          data[row][4] = data[row][4].replace(new RegExp('&lt;', 'g'), '');
-          data[row][4] = data[row][4].replace(new RegExp('&gt;', 'g'), '');
-          data[row][1] = res[data[row][1]];
+          data[row][6] = res[data[row][6]].replace('{{value}}', data[row][7]);
+          data[row][6] = data[row][6].replace(new RegExp('<mark>', 'g'), '');
+          data[row][6] = data[row][6].replace(new RegExp('</mark>', 'g'), '');
+          data[row][6] = data[row][6].replace(new RegExp('<code>', 'g'), '');
+          data[row][6] = data[row][6].replace(new RegExp('</code>', 'g'), '');
+          data[row][6] = data[row][6].replace(new RegExp('&lt;', 'g'), '');
+          data[row][6] = data[row][6].replace(new RegExp('&gt;', 'g'), '');
+          data[row][3] = res[data[row][3]];
         }
       }
+      labels.push('URI');
+      labels.push(res['CSV.date']);
       labels.push('ID');
       labels.push(res['CSV.errorType']);
       labels.push(res['CSV.level']);
@@ -243,9 +245,9 @@ export class EvaluationService {
       labels.push(res['CSV.desc']);
       labels.push(res['CSV.count']);
 
-      let csvContent = this.evaluation.data.rawUrl + '\r\n';
-      csvContent += this.evaluation.data.date + '\r\n';
-      csvContent += labels.join(';') + '\r\n';
+      /*let csvContent = this.evaluation.data.rawUrl + '\r\n';
+      csvContent += this.evaluation.data.date + '\r\n';*/
+      let csvContent = labels.join(';') + '\r\n';
       for (const row of data || []) {
         csvContent += row.join(';') + '\r\n';
       }

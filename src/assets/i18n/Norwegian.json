@@ -154,8 +154,10 @@
   },
   "FOOTER": {
     "accessibility": "Accessibility",
+    "terms": "Terms and Conditions",
     "privacy": "Privacy policy",
     "options": "Visualization options",
+    "glossary": "Glossary",
     "language": "Språk",
     "link": "Administrative Modernization Agency",
     "rights": "Alle rettigheter forbeholdt."
@@ -299,7 +301,8 @@
     "level": "Nivå",
     "criteria": "Kriterium",
     "desc": "Beskrivelse",
-    "count": "Antall forekomster"
+    "count": "Antall forekomster",
+    "date": "Date"
   },
   "TESTS_RESULTS": {
     "a_01a": {
