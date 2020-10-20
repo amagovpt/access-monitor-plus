@@ -47,6 +47,27 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
         }
       }
     });
+
+    const theme = localStorage.getItem('theme');
+    const themeSwitchLabels = document.getElementsByClassName('mode_switch');
+
+    if (theme === 'dark') {
+      this.theme.setDarkTheme();
+      localStorage.setItem("theme", "dark");
+      this.translate.get("HEADER.light_mode").subscribe((res: string) => {
+        for (let i = 0 ; i < themeSwitchLabels.length ; i++) {
+          themeSwitchLabels[i].innerHTML = res;
+        }
+      });
+    } else {
+      this.theme.setLightTheme();
+      localStorage.setItem("theme", "light");
+      this.translate.get("HEADER.dark_mode").subscribe((res: string) => {
+        for (let i = 0 ; i < themeSwitchLabels.length ; i++) {
+          themeSwitchLabels[i].innerHTML = res;
+        }
+      });
+    }
   }
 
   ngAfterViewInit(): void {
@@ -82,7 +103,6 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
       });
 
     const menu = document.getElementById('experience_menu');
-    const style = window.getComputedStyle(menu);
     menu.style.display = 'none';
     document.getElementById('experience_menu_arrow')
       .style.transform = 'rotate(360deg)';
@@ -103,7 +123,7 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
     this.translate.use(this.selectedLang);
     localStorage.setItem("language", this.selectedLang);
 
-    const themeSwitchLabels = document.getElementsByClassName("mode_switch");
+    const themeSwitchLabels = document.getElementsByClassName('mode_switch');
 
     if (this.theme.isDarkTheme()) {
       localStorage.setItem("theme", "light");
