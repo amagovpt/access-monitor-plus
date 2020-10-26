@@ -4,7 +4,7 @@
     "logo_alt": "AccessMonitor - o validador de práticas de acessibilidade Web",
     "NAV": {
       "location": "Você está em",
-      "ecosystem": "Ecosistema",
+      "ecosystem": "ecossistema",
       "results": "Resultados",
       "code": "Código"
     },
@@ -25,7 +25,7 @@
       "report": "Relatório de avaliação"
     },
     "DROPDOWN": {
-      "ecosystem": "Ecosistema",
+      "ecosystem": "ecossistema",
       "text": "Os sítios e as ferramentas de apoio à acessibilidade e à usabilidade, para garantir a promoção das boas práticas e melhorar a experiência de utilização dos serviços digitais.",
       "external_link": "hiperligação externa",
       "accessibility": {
