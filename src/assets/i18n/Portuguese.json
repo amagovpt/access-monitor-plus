@@ -52,7 +52,7 @@
   },
   "HOME_PAGE": {
     "header": "Obtenha um relatório de acessibilidade através de um dos seguintes métodos",
-    "intro_text": "Aceda aqui ao nosso validador de práticas de acessibilidade Web (WCAG 2.1). Obtenha um relatório de acessibilidade através de um dos seguintes métodos:", 
+    "intro_text": "Aceda aqui ao nosso validador de práticas de acessibilidade Web (WCAG 2.1). Obtenha um relatório de acessibilidade através de um dos seguintes métodos:",
     "tabs": {
       "url": "Inserir URL",
       "input": "Inserir código HTML",
@@ -308,6 +308,7 @@
     "criteria": "Critério",
     "desc": "Descrição",
     "count": "Número de ocorrências",
+    "value": "Valor",
     "date": "Data"
   },
   "TESTS_RESULTS": {
@@ -588,8 +589,8 @@
       "p": "Localizei nos metadados da página <mark>{{value}}</mark> elementos <code>&lt;link&gt;</code> que poderão servir para construir um sistema de navegação.."
     },
     "list_01": {
-      "s": "Localizei <mark>{{value}}</mark> item de lista <code>&lt;li&gt;</code> marcado fora da lista.",
-      "p": "Localizei <mark>{{value}}</mark> itens de lista <code>&lt;li&gt;</code> marcados fora da lista."
+      "s": "Localizei <mark>{{value}}</mark> ocorrência de lista vazia ou com <code>&lt;li&gt;</code> fora da lista.",
+      "p": "Localizei <mark>{{value}}</mark> ocorrências de listas vazias ou com <code>&lt;li&gt;</code> fora das listas."
     },
     "long_01": {
       "s": "Localizei <mark>{{value}}</mark> atributo <code>longdesc</code> nas imagens com conteúdo incorreto.",

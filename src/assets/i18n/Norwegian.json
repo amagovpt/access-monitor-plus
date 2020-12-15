@@ -302,6 +302,7 @@
     "criteria": "Kriterium",
     "desc": "Beskrivelse",
     "count": "Antall forekomster",
+    "value": "Value",
     "date": "Date"
   },
   "TESTS_RESULTS": {
@@ -582,8 +583,8 @@
       "p": "I located  <mark>{{value}}</mark> <code>&lt;link&gt;</code> element that could serve to build a navigation system."
     },
     "list_01": {
-      "s": "Jeg fant <mark>{{value}}</mark> list item marked out of the list.",
-      "p": "Jeg fant <mark>{{value}}</mark> list items marked out of the list."
+      "s": "I found <mark>{{value}}</mark> occurrence of an empty list or an <code>&lt;li&gt;</code> outside of the list.",
+      "p": "I found <mark>{{value}}</mark> occurrences of an empty lists or an <code>&lt;li&gt;</code> outside of the lists."
     },
     "long_01": {
       "s": "I located <mark>{value} <code>longdesc</code></mark> attribute in the images with incorrect content.",

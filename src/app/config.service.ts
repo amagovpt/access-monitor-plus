@@ -1,19 +1,18 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class ConfigService {
-
   private server: string;
 
   constructor() {
     const host = location.hostname;
 
-    if (host === 'localhost') {
-      this.server = 'http://localhost:3000';
+    if (host === "localhost") {
+      this.server = "http://localhost:3000";
     } else {
-      this.server = '/api';
+      this.server = "/api";
     }
   }
 

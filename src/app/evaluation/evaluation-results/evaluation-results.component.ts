@@ -60,12 +60,12 @@ export class EvaluationResultsPageComponent implements OnInit, OnDestroy {
             window.onclick = function (event) {
               if (!event.target.matches("#see_page_dropdown")) {
                 var dropdown = document.getElementById("see_page");
-                if (dropdown.classList.contains("show_see_page")) {
+                if (dropdown?.classList?.contains("show_see_page")) {
                   dropdown.classList.remove("show_see_page");
                 }
               }
             };
-            this.url = 'html';
+            this.url = "html";
             this.loading = false;
             this.cd.detectChanges();
             this.fillTable();
@@ -138,9 +138,7 @@ export class EvaluationResultsPageComponent implements OnInit, OnDestroy {
       this.eval.infoak.AAA.war;
 
     const totalOk =
-      this.eval.infoak.A.ok +
-      this.eval.infoak.AA.ok +
-      this.eval.infoak.AAA.ok;
+      this.eval.infoak.A.ok + this.eval.infoak.AA.ok + this.eval.infoak.AAA.ok;
     const totalWar =
       this.eval.infoak.A.war +
       this.eval.infoak.AA.war +
