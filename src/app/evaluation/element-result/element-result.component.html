@@ -14,7 +14,7 @@
         "RESULTS.navHeader" | translate
       }}</span>
       <div class="listbox-area" fxFlex="100%" fxLayout="row">
-        <div id="exp_wrapper">
+        <div id="exp_wrapper2">
           <button
             type="button"
             aria-haspopup="listbox"
@@ -224,55 +224,56 @@
               fxLayout="column"
             >
               <table class="table{{ i + 1 }}" fxHide.lt-md>
+                <caption>{{ "ELEMENT_RESULTS.caption" | translate: { value: i + 1} }}</caption>
                 <tr>
                   <td class="counter" rowspan="4" scope="row">
                     <span>{{ i + 1 }}</span>
                   </td>
-                  <td class="label" scope="row">
+                  <th class="label" scope="row">
                     <strong>{{
                       "ELEMENT_RESULTS.result.element" | translate
                     }}</strong>
-                  </td>
+                  </th>
                   <td class="value">
                     <span class="element">{{ e.ele }}</span>
                   </td>
                 </tr>
                 <tr *ngIf="e.attr">
-                  <td class="label" scope="row">
+                  <th class="label" scope="row">
                     <strong>{{
                       "ELEMENT_RESULTS.result.attributes" | translate
                     }}</strong>
-                  </td>
+                  </th>
                   <td class="value">
                     <span class="element">{{ e.attr }}</span>
                   </td>
                 </tr>
                 <tr *ngIf="e.showCode">
-                  <td class="label" scope="row">
+                  <th class="label" scope="row">
                     <strong>{{
                       "ELEMENT_RESULTS.result.code" | translate
                     }}</strong>
-                  </td>
+                  </th>
                   <td class="value">
                     <code>{{ e.showCode }}</code>
                   </td>
                 </tr>
                 <tr *ngIf="e.code">
-                  <td class="label" scope="row">
+                  <th class="label" scope="row">
                     <strong>{{
                       "ELEMENT_RESULTS.result.content" | translate
                     }}</strong>
-                  </td>
+                  </th>
                   <td class="value">
                     <div class="img" [innerHTML]="e.code | html"></div>
                   </td>
                 </tr>
                 <tr *ngIf="e.pointer">
-                  <td class="label" scope="row">
+                  <th class="label" scope="row">
                     <strong>{{
                       "ELEMENT_RESULTS.result.location" | translate
                     }}</strong>
-                  </td>
+                  </th>
                   <td class="value">
                     <span class="element">{{ e.pointer }}</span>
                   </td>

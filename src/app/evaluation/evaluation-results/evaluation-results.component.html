@@ -228,6 +228,7 @@
           [max]="10"
           [duration]="2000"
           [thresholds]="thresholdConfig"
+          aria-label="{{ 'RESULTS.summary.score' | translate }}"
         >
         </ngx-gauge>
         <div
@@ -326,9 +327,10 @@
         </div>
         <div ngClass.gt-md="table_wrapper" fxFlex="grow">
           <table class="summary_practices" fxHide.lt-md>
+            <caption>{{ "RESULTS.summary.metadata.caption" | translate }}</caption>
             <thead>
               <tr>
-                <th>
+                <td>
                   <span>{{
                     eval.infoak.A.ok +
                       eval.infoak.AA.ok +
@@ -344,7 +346,7 @@
                   <span>
                     {{ "RESULTS.summary.table.title" | translate }}
                   </span>
-                </th>
+                </td>
                 <th scope="col">A</th>
                 <th scope="col">AA</th>
                 <th scope="col">AAA</th>
@@ -758,6 +760,7 @@
         {{ "RESULTS.results.title" | translate }}
       </h2>
       <table class="evaluation-table">
+        <caption>{{ "Results.results.caption" | translate }}</caption>
         <thead>
           <tr>
             <th scope="col" colspan="2">

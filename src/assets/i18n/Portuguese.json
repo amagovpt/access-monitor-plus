@@ -91,7 +91,8 @@
         "n_elements_label": "Elementos (x)HTML",
         "page_size_label": "Tamanho da página",
         "last_update_label": "Última actualização",
-        "validator": "Não se conseguiu contactar o validador de html do W3C"
+        "validator": "Não se conseguiu contactar o validador de html do W3C",
+        "caption": "Sumário das práticas avaliadas"
       },
       "table": {
         "title": "práticas encontradas",
@@ -116,6 +117,7 @@
         "F": "Muito Má",
         "score_table": "Quadro de pontuações"
       },
+      "caption": "Práticas avaliadas",
       "sc": "Critério de sucesso",
       "practice": "Prática encontrada",
       "lvl": "Nível",
@@ -139,6 +141,7 @@
     "total_elements": "elementos encontrados",
     "inline_css_tab": "Estilos em linha",
     "embedded_css_tab": "Estilos embutidos",
+    "caption": "Resultado {{ value }} da prática",
     "result": {
       "element": "Elemento:",
       "attributes": "Atributos:",

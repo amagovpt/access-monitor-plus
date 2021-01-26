@@ -84,7 +84,8 @@
         "n_elements_label": "(x)HTML elements",
         "page_size_label": "Sidestørrelse",
         "last_update_label": "Sist oppdatert",
-        "validator": "We couldn't contact the W3C html markup validator"
+        "validator": "We couldn't contact the W3C html markup validator",
+        "caption": "Evaluated practices summary"
       },
       "table": {
         "title": "practices found",
@@ -109,6 +110,7 @@
         "F": "Veldig dårlig",
         "score_table": "Poengtavle"
       },
+      "caption": "Evaluated practices",
       "sc": "Suksesskriterier",
       "practice": "Praksis funnet",
       "lvl": "Nivå",
@@ -132,6 +134,7 @@
     "total_elements": "Antall elementer:",
     "inline_css_tab": "Inline CSS",
     "embedded_css_tab": "Innebygd CSS",
+    "caption": "Result {{ value }} of the practice",
     "result": {
       "element": "Element:",
       "attributes": "Attributter:",

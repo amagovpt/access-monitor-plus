@@ -20,6 +20,11 @@ section:nth-child(1) nav {
   }
 }
 
+caption {
+  visibility: hidden;
+  position: absolute;
+}
+
 section:nth-child(1) div {
   padding-top: 2em;
   padding-bottom: 3em;

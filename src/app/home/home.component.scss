@@ -397,18 +397,8 @@ button[type="submit"]:disabled {
   border: none;
 }
 
-[role="tab"]:hover,
-[role="tab"]:focus,
-[role="tab"]:active {
-  outline: none;
-}
-
 [role="tabpanel"].is-hidden {
   display: none;
-}
-
-[role="tabpanel"]:focus {
-  outline: none;
 }
 
 [role="tabpanel"] form {

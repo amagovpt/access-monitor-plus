@@ -24,6 +24,10 @@ section:nth-child(1) div {
   }
 }
 
+caption {
+  visibility: hidden;
+}
+
 section:nth-child(1) nav span {
   padding-left: 0.3em;
   padding-right: 0.3em;
@@ -419,7 +423,7 @@ td {
     }
 
     .pp_label {
-      font-size: 16px !important;
+      font-size: 1em !important;
       font-weight: 700;
       font-family: "Lato";
       margin-left: 1em;
@@ -519,7 +523,7 @@ td {
   vertical-align: top;
 }
 
-.summary_practices th:first-child {
+.summary_practices thead td {
   text-align: left;
   padding-left: 1em;
   width: auto;
@@ -746,7 +750,6 @@ td {
   width: 100%;
   border: none;
   text-align: left;
-  outline: none;
   font-weight: 400;
   font-family: "Lato";
 }

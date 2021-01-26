@@ -91,7 +91,8 @@
         "n_elements_label": "(x)HTML elements",
         "page_size_label": "Page size",
         "last_update_label": "Last update",
-        "validator": "We could not contact the W3C html markup validator"
+        "validator": "We could not contact the W3C html markup validator",
+        "caption": "Evaluated practices summary"
       },
       "table": {
         "title": "practices found",
@@ -116,6 +117,7 @@
         "F": "Horrible",
         "score_table": "Score board"
       },
+      "caption": "Evaluated practices",
       "sc": "Success criteria",
       "practice": "Practice found",
       "lvl": "Level",
@@ -139,6 +141,7 @@
     "total_elements": "elements found",
     "inline_css_tab": "Inline CSS",
     "embedded_css_tab": "Embedded CSS",
+    "caption": "Result {{ value }} of the practice",
     "result": {
       "element": "Element:",
       "attributes": "Attributes:",

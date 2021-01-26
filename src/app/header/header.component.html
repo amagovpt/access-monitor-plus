@@ -12,7 +12,7 @@
               </svg>
 
               <span class="ecosystem-text">{{ "HEADER.tool" | translate }}
-                  <span class="link-acessibilidade">acessibilidade.gov.pt</span>
+                <span class="link-acessibilidade">acessibilidade.gov.pt</span>
               </span>
               <span id="experience_menu_arrow" aria-hidden="true" class="icon-arrow-drop icon" fxLayout="row"
                 fxLayoutAlign="center center"></span>
@@ -163,9 +163,10 @@
       </div>
     </div>
   </section>
-  <section id="experience_menu" fxLayout="column" fxLayoutAlign="start center" cdkTrapFocus>
+  <section id="experience_menu" fxLayout="column" fxLayoutAlign="start center">
     <div class="container">
-      <div id="experience_top" fxLayout.gt-md="row" fxLayoutAlign.gt-md="start center" fxLayout.lt-md="column" fxLayoutAlign.lt-md="start start">
+      <div id="experience_top" fxLayout.gt-md="row" fxLayoutAlign.gt-md="start center" fxLayout.lt-md="column"
+        fxLayoutAlign.lt-md="start start">
         <div id="experience_menu_title" fxFlex="50">
           <h1>{{ "HEADER.DROPDOWN.ecosystem" | translate }}<br><span>acessibilidade</span>.gov.pt</h1>
         </div>
@@ -173,7 +174,7 @@
           <p fxFlex="65">{{ "HEADER.DROPDOWN.text" | translate }}</p>
         </div>
       </div>
-      <div id="experience_links" class="row no-gutters">
+      <div id="experience_links" class="row no-gutters" cdkTrapFocus>
         <div id="accessibility_links" class="col-12 col-lg-4">
           <div class="d-inline-flex align-items-start collapsed" role="region" data-target="#accessibility-links"
             data-toggle="collapse" aria-expanded="false">
@@ -191,18 +192,22 @@
               <li class="d-flex list-group-item border-0">
                 <div class="icon-arrow-bullets list_arrow_link" aria-hidden="true"></div>
                 <div class="list_link"><a class="d-block"
-                    href="/blogue/categoria-acessibilidade/dl-n-o-83-2018-acessibilidade-dos-sitios-web-e-das-aplicacoes-moveis/">{{ "HEADER.DROPDOWN.accessibility.link1" | translate }}</a></div>
+                    href="/blogue/categoria-acessibilidade/dl-n-o-83-2018-acessibilidade-dos-sitios-web-e-das-aplicacoes-moveis/">{{ "HEADER.DROPDOWN.accessibility.link1" | translate }}</a>
+                </div>
               </li>
               <li class="d-flex list-group-item border-0">
                 <div class="icon-arrow-bullets list_arrow_link" aria-hidden="true"></div>
                 <div class="list_link"><a class="d-block" href="https://www.acessibilidade.gov.pt/gerador/"
-                    target="_blank" rel="noopener noreferrer">{{ "HEADER.DROPDOWN.accessibility.link2" | translate }}<span
+                    target="_blank"
+                    rel="noopener noreferrer">{{ "HEADER.DROPDOWN.accessibility.link2" | translate }}<span
                       class="sr-only">{{ "HEADER.DROPDOWN.external_link" | translate }}</span></a></div>
               </li>
               <li class="d-flex list-group-item border-0">
                 <div class="icon-arrow-bullets list_arrow_link" aria-hidden="true"></div>
                 <div class="list_link"><a class="d-block" href="https://accessmonitor.acessibilidade.gov.pt"
-                    target="_blank" rel="noopener noreferrer">{{ "HEADER.DROPDOWN.accessibility.link3" | translate }}<span class="sr-only">{{ "HEADER.DROPDOWN.external_link" | translate }}</span></a></div>
+                    target="_blank"
+                    rel="noopener noreferrer">{{ "HEADER.DROPDOWN.accessibility.link3" | translate }}<span
+                      class="sr-only">{{ "HEADER.DROPDOWN.external_link" | translate }}</span></a></div>
               </li>
               <li class="d-flex list-group-item border-0">
                 <div class="icon-arrow-bullets list_arrow_link" aria-hidden="true"></div>
@@ -232,33 +237,38 @@
               <li class="d-flex list-group-item border-0">
                 <div class="icon-arrow-bullets list_arrow_link" aria-hidden="true"></div>
                 <div class="list_link"><a class="d-block" href="https://usabilidade.gov.pt/guia-web" target="_blank"
-                    rel="noopener noreferrer">{{ "HEADER.DROPDOWN.usability.link1" | translate }}<span class="sr-only">{{ "HEADER.DROPDOWN.external_link" | translate }}</span></a>
+                    rel="noopener noreferrer">{{ "HEADER.DROPDOWN.usability.link1" | translate }}<span
+                      class="sr-only">{{ "HEADER.DROPDOWN.external_link" | translate }}</span></a>
                 </div>
               </li>
               <li class="d-flex list-group-item border-0">
                 <div class="icon-arrow-bullets list_arrow_link" aria-hidden="true"></div>
                 <div class="list_link"><a class="d-block" href="https://selo.usabilidade.gov.pt/requisitos.html"
-                    target="_blank" rel="noopener noreferrer">{{ "HEADER.DROPDOWN.usability.link2" | translate }}<span class="sr-only">{{ "HEADER.DROPDOWN.external_link" | translate }}</span></a></div>
+                    target="_blank" rel="noopener noreferrer">{{ "HEADER.DROPDOWN.usability.link2" | translate }}<span
+                      class="sr-only">{{ "HEADER.DROPDOWN.external_link" | translate }}</span></a></div>
               </li>
               <li class="d-flex list-group-item border-0">
                 <div class="icon-arrow-bullets list_arrow_link" aria-hidden="true"></div>
                 <div class="list_link"><a class="d-block" href="https://usabilidade.gov.pt/componentes" target="_blank"
-                    rel="noopener noreferrer">{{ "HEADER.DROPDOWN.usability.link3" | translate }}<span class="sr-only">{{ "HEADER.DROPDOWN.external_link" | translate }}</span></a></div>
+                    rel="noopener noreferrer">{{ "HEADER.DROPDOWN.usability.link3" | translate }}<span
+                      class="sr-only">{{ "HEADER.DROPDOWN.external_link" | translate }}</span></a></div>
               </li>
               <li class="d-flex list-group-item border-0">
                 <div class="icon-arrow-bullets list_arrow_link" aria-hidden="true"></div>
                 <div class="list_link"><a class="d-block" href="https://usabilidade.gov.pt/paginas-de-template"
-                    target="_blank" rel="noopener noreferrer">{{ "HEADER.DROPDOWN.usability.link4" | translate }}<span class="sr-only">{{ "HEADER.DROPDOWN.external_link" | translate }}</span></a></div>
+                    target="_blank" rel="noopener noreferrer">{{ "HEADER.DROPDOWN.usability.link4" | translate }}<span
+                      class="sr-only">{{ "HEADER.DROPDOWN.external_link" | translate }}</span></a></div>
               </li>
             </ul>
           </div>
         </div>
         <div id="badge_links" class="col-12 col-lg-4">
-          <div class="d-inline-flex align-items-start collapsed" role="region" data-target="#badge-links" data-toggle="collapse"
-            aria-expanded="false">
+          <div class="d-inline-flex align-items-start collapsed" role="region" data-target="#badge-links"
+            data-toggle="collapse" aria-expanded="false">
             <h2 class="d-lg-block d-none"><a class="accessibility_links_title" href="https://selo.usabilidade.gov.pt/"
                 target="_blank" rel="noopener noreferrer"><span class="bold">selo.usabilidade</span><br
-                  class="d-block d-sm-none break-title">.gov.pt <span class="sr-only">{{ "HEADER.DROPDOWN.external_link" | translate }}</span></a>
+                  class="d-block d-sm-none break-title">.gov.pt <span
+                  class="sr-only">{{ "HEADER.DROPDOWN.external_link" | translate }}</span></a>
             </h2>
             <h2 class="d-lg-none d-block accessibility_links_title"><span class="bold">selo</span><br
                 class="d-block d-sm-none break-title">.gov.pt</h2>
@@ -272,17 +282,20 @@
               <li class="d-flex list-group-item border-0">
                 <div class="icon-arrow-bullets list_arrow_link" aria-hidden="true"></div>
                 <div class="list_link"><a class="d-block" href="https://selo.usabilidade.gov.pt/selo.html"
-                    target="_blank" rel="noopener noreferrer">{{ "HEADER.DROPDOWN.badge.link1" | translate }}<span class="sr-only">{{ "HEADER.DROPDOWN.external_link" | translate }}</span></a></div>
+                    target="_blank" rel="noopener noreferrer">{{ "HEADER.DROPDOWN.badge.link1" | translate }}<span
+                      class="sr-only">{{ "HEADER.DROPDOWN.external_link" | translate }}</span></a></div>
               </li>
               <li class="d-flex list-group-item border-0">
                 <div class="icon-arrow-bullets list_arrow_link" aria-hidden="true"></div>
                 <div class="list_link"><a class="d-block" href="https://amagovpt.github.io/kit-selo/" target="_blank"
-                    rel="noopener noreferrer">{{ "HEADER.DROPDOWN.badge.link2" | translate }}<span class="sr-only">{{ "HEADER.DROPDOWN.external_link" | translate }}</span></a></div>
+                    rel="noopener noreferrer">{{ "HEADER.DROPDOWN.badge.link2" | translate }}<span
+                      class="sr-only">{{ "HEADER.DROPDOWN.external_link" | translate }}</span></a></div>
               </li>
               <li class="d-flex list-group-item border-0">
                 <div class="icon-arrow-bullets list_arrow_link" aria-hidden="true"></div>
                 <div class="list_link"><a class="d-block" href="https://selo.usabilidade.gov.pt/candidatura.html"
-                    target="_blank" rel="noopener noreferrer">{{ "HEADER.DROPDOWN.badge.link3" | translate }}<span class="sr-only">{{ "HEADER.DROPDOWN.external_link" | translate }}</span></a></div>
+                    target="_blank" rel="noopener noreferrer">{{ "HEADER.DROPDOWN.badge.link3" | translate }}<span
+                      class="sr-only">{{ "HEADER.DROPDOWN.external_link" | translate }}</span></a></div>
               </li>
               <li class="d-flex list-group-item border-0">
                 <div class="icon-arrow-bullets list_arrow_link" aria-hidden="true"></div>
@@ -298,8 +311,8 @@
     </div>
   </section>
 </header>
-<div id="tablet-dialog" role="dialog" aria-modal="true" cdkTrapFocus>
-  <header>
+<div id="tablet-dialog" role="dialog" aria-modal="true"> <!-- cdkTrapFocus -->
+  <header cdkTrapFocus>
     <section fxLayout="column" fxLayoutAlign="center center">
       <div class="header_wrapper_1" fxLayout="row" fxLayoutAlign="center"></div>
       <div class="header_wrapper" fxLayout="row" fxLayoutAlign="center">
