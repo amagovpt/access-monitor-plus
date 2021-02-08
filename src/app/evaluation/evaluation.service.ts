@@ -334,7 +334,7 @@ export class EvaluationService {
           desc,
           num === undefined ? 0 : isNaN(parseInt(num)) ? 1 : num,
           !isNaN(parseInt(num)) ? "" : num,
-          _eval.metadata.score
+          _eval.metadata.score.replace(".", ",")
         );
         data.push(rowData);
       }
