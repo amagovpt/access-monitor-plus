@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "build:dev": "ng build --prod --build-optimizer --base-href=\"/amp/\"",
     "build:prod": "ng build --prod --build-optimizer",
     "build:stats": "ng build --prod --build-optimizer --stats-json",
     "test": "ng test",
