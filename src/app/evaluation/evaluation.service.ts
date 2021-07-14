@@ -543,6 +543,8 @@ export class EvaluationService {
             code:
               ele === "style"
                 ? element.attributes
+                : ele === "title"
+                ? this.evaluation.processed.metadata.title
                 : this.fixCode(element.htmlCode),
             showCode:
               ele === "style" ? undefined : this.fixCode(element.htmlCode),
@@ -790,11 +792,13 @@ export class EvaluationService {
             }
           }
 
-          if (color === "ok" && ele !== "all") {
+          /*if (color === "ok" && ele !== "all") {
             result["tech_list"] = this.testView(ele, ele, tes, color, tnum);
           } else {
             result["tech_list"] = this.testView(tes, tes, tes, color, tnum);
-          }
+          }*/
+
+          result["tech_list"] = this.testView(tes, tes, tes, color, tnum);
 
           data["results"].push(result);
         }
