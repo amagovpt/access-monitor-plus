@@ -236,7 +236,7 @@
     "frameset": "Document <code>frameset</code>",
     "h1": "Page Header (<code>h1</code>)",
     "hx": "Headers (<code>h1</code> - <code>h6</code>)",
-    "hxHasAName": "Headings have accesible name",
+    "hxHasAName": "Headings have accessible name",
     "hxNo": "Headers (<code>h1</code> ~ <code>h6</code>) without descriptive content",
     "hxSkip": "Headers with incorrect hierarchical-level jumpers",
     "hxWithoutAName": "Headings without accessible name",
