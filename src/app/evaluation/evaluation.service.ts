@@ -709,7 +709,7 @@ export class EvaluationService {
     for (const test in tests) {
       if (test) {
         if (tot.results[test]) {
-          const tes = tests[test]["test"];
+          let tes = tests[test]["test"];
           const lev = tests[test]["level"];
           const ref = tests[test]["ref"];
           const ele = tests[test]["elem"];
@@ -729,6 +729,7 @@ export class EvaluationService {
           infoak[level][color]++;
 
           let tnum;
+
           if (tot.elems[tes] !== undefined) {
             if (tes === "titleOk") {
               tnum = tot.info.title;
@@ -743,6 +744,7 @@ export class EvaluationService {
             }
           } else if (tes === "imgAltNo") {
             tnum = tot.elems["img"];
+            tes = "img";
           } else if (tes === "inputLabelNo") {
             tnum = tot.elems["label"];
           } else {

@@ -19,7 +19,8 @@ import { EvaluationService } from "../evaluation.service";
   styleUrls: ["./element-result.component.scss"],
 })
 export class ElementResultPageComponent
-  implements OnInit, AfterViewInit, OnDestroy {
+  implements OnInit, AfterViewInit, OnDestroy
+{
   @ViewChild("iframe") iframe: ElementRef;
 
   sub: Subscription;
@@ -76,9 +77,8 @@ export class ElementResultPageComponent
         39: 1,
         40: 1,
       };
-      this.tablist = document.querySelectorAll<HTMLElement>(
-        '[role="tablist"]'
-      )[0];
+      this.tablist =
+        document.querySelectorAll<HTMLElement>('[role="tablist"]')[0];
 
       this.generateArrays();
       this.bindListeners();
@@ -678,7 +678,7 @@ class Listbox2 {
   }
 
   focusFirstItem() {
-    const firstItem = this.listboxNode.querySelector('.option2');
+    const firstItem = this.listboxNode.querySelector(".option2");
 
     if (firstItem) {
       this.focusItem(firstItem);
@@ -686,7 +686,7 @@ class Listbox2 {
   }
 
   focusLastItem() {
-    const itemList = this.listboxNode.querySelectorAll('.option2');
+    const itemList = this.listboxNode.querySelectorAll(".option2");
 
     if (itemList.length) {
       this.focusItem(itemList[itemList.length - 1]);
@@ -696,7 +696,7 @@ class Listbox2 {
   checkKeyPress(evt) {
     const key = evt.which || evt.keyCode;
     const lastActiveId = this.activeDescendant;
-    const firstItem = this.listboxNode.querySelector('.option2');
+    const firstItem = this.listboxNode.querySelector(".option2");
     let nextItem = document.getElementById(this.activeDescendant) || firstItem;
 
     if (!nextItem) {
@@ -743,7 +743,7 @@ class Listbox2 {
 
   findNextOption(currentOption) {
     const allOptions = Array.prototype.slice.call(
-      this.listboxNode.querySelectorAll('.option2')
+      this.listboxNode.querySelectorAll(".option2")
     ); // get options array
     const currentOptionIndex = allOptions.indexOf(currentOption);
     let nextOption = null;
@@ -757,7 +757,7 @@ class Listbox2 {
 
   findPreviousOption(currentOption) {
     const allOptions = Array.prototype.slice.call(
-      this.listboxNode.querySelectorAll('.option2')
+      this.listboxNode.querySelectorAll(".option2")
     ); // get options array
     const currentOptionIndex = allOptions.indexOf(currentOption);
     let previousOption = null;
