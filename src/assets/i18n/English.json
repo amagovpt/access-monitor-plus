@@ -254,7 +254,7 @@
     "inputAltNo": "<code>input</code> elements with <code>alt</code>",
     "inputIdTitleNo": "Form controls without label [label] associated and without the attribute <code>title</code>",
     "inputLabel": "Form controls that have explicitly associated a label (<code>label</code>)",
-    "inputLabelNo": "Form controls without associated labels",
+    "inputLabelNo": "Form controls without an accessible name",
     "justifiedCss": "Justified text with CSS",
     "justifiedTxt": "Justified text with (X)HTML attributes",
     "label": "Elements <code>label</code>",
@@ -526,12 +526,12 @@
       "p": "I identified <mark>{{value}}</mark> form control without the association of <code>&lt;label&gt;</code> elements and without the <code>title</code> attribute ."
     },
     "input_02": {
-      "s": "I found <mark>{{value}}</mark> form control without any associated <code>&lt;label&gt;</code>.",
-      "p": "I found <mark>{{value}}</mark> form controls without any associated <code>&lt;label&gt;</code>."
+      "s": "I found <mark>{{value}}</mark> form control without an accessible name.",
+      "p": "I found <mark>{{value}}</mark> form controls without an accessible name."
     },
     "input_02b": {
-      "s": "I found that <mark>all</mark> form controls have an associated <code>&lt;label&gt;</code>.",
-      "p": "I found that <mark>all</mark> form controls have an associated <code>&lt;label&gt;</code>."
+      "s": "I found that <mark>all</mark> form controls have an accessible name.",
+      "p": "I found that <mark>all</mark> form controls have an accessible name."
     },
     "input_03": {
       "s": "I found <mark>{{value}}</mark> <code>&lt;input&gt;</code> element with the <code>alt</code> attribute that is not a graphical button.",

@@ -254,7 +254,7 @@
     "inputAltNo": "Elementos <code>input</code> com atributo <code>alt</code>",
     "inputIdTitleNo": "Controlos de formulário sem etiquetas [label] associadas e sem atributo <code>title</code>",
     "inputLabel": "Controlos de formulário que têm explicitamente associados uma etiqueta (<code>label</code>)",
-    "inputLabelNo": "Controlos de formulário sem etiquetas associadas",
+    "inputLabelNo": "Controlos de formulário sem um nome acessível",
     "justifiedCss": "Texto justificado com CSS",
     "justifiedTxt": "Texto justificado com atributos (X)HTML",
     "label": "Elementos <code>label</code>",
@@ -526,12 +526,12 @@
       "p": "Identifiquei <mark>{{value}}</mark> controlos de formulário sem o elemento <code>&lt;label&gt;</code> associado e sem o atributo <code>title</code>."
     },
     "input_02": {
-      "s": "Encontrei <mark>{{value}}</mark> controlo de formulário sem <code>&lt;label&gt;</code> associada.",
-      "p": "Encontrei <mark>{{value}}</mark> controlos de formulário sem <code>&lt;label&gt;</code> associada."
+      "s": "Encontrei <mark>{{value}}</mark> controlo de formulário sem nome acessível.",
+      "p": "Encontrei <mark>{{value}}</mark> controlos de formulário sem nome acessivel."
     },
     "input_02b": {
-      "s": "Constatei que <mark>todos</mark> os controlos de formulário têm uma <code>&lt;label&gt;</code> associada.",
-      "p": "Constatei que <mark>todos</mark> os controlos de formulário têm uma <code>&lt;label&gt;</code> associada."
+      "s": "Constatei que <mark>todos</mark> os controlos de formulário têm um nome acessivel.",
+      "p": "Constatei que <mark>todos</mark> os controlos de formulário têm um nome acessivel."
     },
     "input_03": {
       "s": "Encontrei <mark>{{value}}</mark> elemento <code>&lt;input&gt;</code> com o atributo <code>alt</code> que não é botão gráfico.",
