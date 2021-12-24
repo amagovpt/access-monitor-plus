@@ -259,7 +259,7 @@
     "justifiedTxt": "Justified text with (X)HTML attributes",
     "label": "Elements <code>label</code>",
     "labelForNo": "Elements <code>label</code> without explicit association",
-    "labelPosNo": "Incorrectly positioned <code>label</code> elements",
+    "labelPosNo": "<code>label</code> elements that are not visible or are incorrectly positioned.",
     "labelTextNo": "Elements <code>label</code> without text content",
     "lang": "Main page language",
     "langCodeNo": "Wrong language code",
@@ -550,8 +550,8 @@
       "p": "I identified <mark>{{value}}</mark> <code>&lt;label&gt;</code> elements without the <code>for</code> attribute."
     },
     "label_02": {
-      "s": "I identified <mark>{{value}}</mark> <code>&lt;label&gt;</code> elements incorrectly positioned.",
-      "p": "I identified <mark>{{value}}</mark> <code>&lt;label&gt;</code> elements incorrectly positioned."
+      "s": "I identified <mark>{{value}}</mark> <code>&lt;label&gt;</code> elements that is not visible or is incorrectly positioned.",
+      "p": "I identified <mark>{{value}}</mark> <code>&lt;label&gt;</code> elements that are not visible or are incorrectly positioned."
     },
     "label_03": {
       "s": "I found <mark>{{value}}</mark> <code>&lt;label&gt;</code> element without content.",

@@ -259,7 +259,7 @@
     "justifiedTxt": "Texto justificado com atributos (X)HTML",
     "label": "Elementos <code>label</code>",
     "labelForNo": "Elementos <code>label</code> sem associação explícita",
-    "labelPosNo": "Elementos <code>label</code> posicionadas incorrectamente",
+    "labelPosNo": "Elementos <code>label</code> que não estão visíveis ou estão posicionados incorretamente",
     "labelTextNo": "Elementos <code>label</code> sem conteúdo texto",
     "lang": "Idioma principal da página",
     "langCodeNo": "Código de idioma incorrecto",
@@ -550,12 +550,12 @@
       "p": "Identifiquei <mark>{{value}}</mark> elementos <code>&lt;label&gt;</code> sem atributo <code>for</code>."
     },
     "label_02": {
-      "s": "Localizei <mark>{{value}}</mark> elemento <code>&lt;label&gt;</code> incorrectamente posicionado.",
-      "p": "Localizei <mark>{{value}}</mark> elementos <code>&lt;label&gt;</code>s incorrectamente posicionados."
+      "s": "Localizei <mark>{{value}}</mark> elemento <code>&lt;label&gt;</code> que não está visível ou está incorretamente posicionado.",
+      "p": "Localizei <mark>{{value}}</mark> elementos <code>&lt;label&gt;</code> que não estão visíveis ou estão incorretamente posicionados."
     },
     "label_03": {
       "s": "Encontrei <mark>{{value}}</mark> elemento <code>&lt;label&gt;</code> sem conteúdo.",
-      "p": "Encontrei <mark>{{value}}</mark> elementos <code>&lt;label&gt;</code>s sem conteúdo."
+      "p": "Encontrei <mark>{{value}}</mark> elementos <code>&lt;label&gt;</code> sem conteúdo."
     },
     "lang_01": {
       "s": "Verifiquei que o idioma principal da página <mark>está marcado</mark> como <mark>\"{{value}}\"</mark>.",
