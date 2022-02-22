@@ -478,8 +478,8 @@
       "p": "<mark>Não encontrei</mark> nesta página um cabeçalho principal <code>&lt;H1&gt;</code> marcado."
     },
     "hx_02": {
-      "s": "Encontrei <mark>{{value}}</mark> cabeçalho cujo conteúdo é apenas composto por uma imagem sem atributo <code>alt</code>, ou seja sem qualquer equivalente textual alternativo.",
-      "p": "Encontrei <mark>{{value}}</mark> cabeçalhos cujo conteúdo é apenas composto por uma imagem sem atributo <code>alt</code>, ou seja sem qualquer equivalente textual alternativo."
+      "s": "Encontrei <mark>{{value}}</mark> cabeçalho cujo conteúdo é apenas composto por um elemento svg sem qualquer equivalente textual alternativo.",
+      "p": "Encontrei <mark>{{value}}</mark> cabeçalhos cujo conteúdo é apenas composto por um elemento svg sem qualquer equivalente textual alternativo."
     },
     "hx_03": {
       "s": "Encontrei <mark>{{value}}</mark> caso em que se viola a sequência hierárquica dos níveis de cabeçalho.",

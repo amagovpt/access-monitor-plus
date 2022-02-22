@@ -478,8 +478,8 @@
       "p": "<mark>I didn't find</mark> on this page a main header <code>&lt;H1&gt;</code> marked."
     },
     "hx_02": {
-      "s": "I found <mark>{{value}}</mark> header whose content is only composed by an image without <code>alt</code> attribute, i.e. without any textual equivalent alternative.",
-      "p": "I found <mark>{{value}}</mark> headers whose content is only composed by an image without <code>alt</code> attribute, i.e. without any textual equivalent alternative."
+      "s": "I found <mark>{{value}}</mark> header whose content is only composed by an svg element without any equivalent textual alternative.",
+      "p": "I found <mark>{{value}}</mark> headers whose content is only composed by an svg element without any equivalent textual alternative."
     },
     "hx_03": {
       "s": "I found <mark>{{value}}</mark> case in which the hierarchical sequence of header levels is violated.",
