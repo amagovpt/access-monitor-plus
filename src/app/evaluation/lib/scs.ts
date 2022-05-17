@@ -7,6 +7,14 @@ const scs: any = {
     '0': 'media-equiv-av-only-alt',
     '1': 'A'
   },
+  '1.2.3': {
+    '0': 'media-equiv-av-only-alt',
+    '1': 'A'
+  },
+  '1.2.2': {
+    '0': 'media-equiv-av-only-alt',
+    '1': 'A'
+  },
   '1.2.8': {
     '0': 'media-equiv-text-doc',
     '1': 'AAA'
@@ -16,6 +24,10 @@ const scs: any = {
     '1': 'A'
   },
   '1.3.2': {
+    '0': 'content-structure-separation-sequence',
+    '1': 'A'
+  },
+  '1.3.4': {
     '0': 'content-structure-separation-sequence',
     '1': 'A'
   },
@@ -40,6 +52,10 @@ const scs: any = {
     '1': 'AAA'
   },
   '1.4.9': {
+    '0': 'visual-audio-contrast-text-images',
+    '1': 'AAA'
+  },
+  '1.4.12': {
     '0': 'visual-audio-contrast-text-images',
     '1': 'AAA'
   },
@@ -96,6 +112,10 @@ const scs: any = {
     '1': 'AAA'
   },
   '2.4.9': {
+    '0': 'navigation-mechanisms-link',
+    '1': 'AAA'
+  },
+  '2.5.3': {
     '0': 'navigation-mechanisms-link',
     '1': 'AAA'
   },
