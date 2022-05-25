@@ -771,7 +771,7 @@ export class EvaluationService {
           result["ref_website"] =
             "https://www.w3.org/WAI/WCAG21/Techniques/" + path + ref + ".html";
           result["relation"] =
-            tests[test]["ref"] === "F" ? "relationF" : "relationT";
+            tests[test]["ref"].length > 3 ? "relationACT" : "relationT";
           result["ref_related_sc"] = new Array();
           result["value"] = tnum;
           result["prio"] = color === "ok" ? 3 : color === "err" ? 1 : 2;

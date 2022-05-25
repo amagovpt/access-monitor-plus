@@ -1108,6 +1108,8 @@
   },
   "TECHFAIL": {
     "relationF": "Esta falha WCAG 2.1 está relacionada com:",
-    "relationT": "Esta técnica WCAG 2.1 está relacionada com:"
+    "relationT": "Esta técnica WCAG 2.1 está relacionada com:",
+    "relationACT": "Esta regra ACT está relacionada com:"
+
   }
 }

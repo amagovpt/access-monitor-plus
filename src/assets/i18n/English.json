@@ -1108,6 +1108,7 @@
   },
   "TECHFAIL": {
     "relationF": "This WCAG 2.1 failure is related to:",
-    "relationT": "This WCAG 2.1 technique is related to:"
+    "relationT": "This WCAG 2.1 technique is related to:",
+    "relationACT": "This Accessibility Conformance Testing rule is related to:"
   }
 }

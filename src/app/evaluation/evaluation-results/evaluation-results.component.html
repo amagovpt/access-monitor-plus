@@ -866,7 +866,7 @@
                       ></strong
                     ></span
                   >
-                  <span>{{ "TECHFAIL." + r.relation | translate }}</span>
+                  <span *ngIf= "r.ref_related_sc?.length > 0">{{ "TECHFAIL." + r.relation | translate }}</span>
                   <ul>
                     <li *ngFor="let li of r.ref_related_sc">
                       {{ "RESULTS.results.sc" | translate }}
