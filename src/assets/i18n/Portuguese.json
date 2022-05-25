@@ -301,7 +301,7 @@
     "letterSpacing": "Propriedade de CSS <code>letter-spacing</code>",
     "letterSpacingNot": "Propriedade de CSS <code>letter-spacing</code>",
     "linkAName": "Ligação com nome acessível não vazio",
-    "c": "Ligação com nome acessível não vazio",
+    "linkNotAName": "Ligação com nome acessível não vazio",
     "linkIdentAName": "Links com o mesmo nome acessível e contexto",
     "linkIdentANameNot": "Links com o mesmo nome acessível e contexto",
     "menuItemAName": "Elementos com o papel semântico <code>menuitem</code>",

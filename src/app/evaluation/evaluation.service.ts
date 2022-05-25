@@ -785,7 +785,7 @@ export class EvaluationService {
                 li["sc"] = s;
                 li["lvl"] = scs[s]["1"];
                 li["link"] =
-                  "https://www.w3.org/TR/UNDERSTANDING-WCAG20/" +
+                  "https://www.w3.org/WAI/WCAG21/Understanding/" +
                   scs[s]["0"] +
                   ".html";
 

@@ -301,7 +301,7 @@
     "letterSpacing": "CSS property <code>letter-spacing</code>",
     "letterSpacingNot": "CSS property <code>letter-spacing</code>",
     "linkAName": "Link has non-empty accessible name",
-    "c": "Link has non-empty accessible name",
+    "linkNotAName": "Link has non-empty accessible name",
     "linkIdentAName": "Links with the same accessible name and context",
     "linkIdentANameNot": "Links with the same accessible name and context",
     "menuItemAName": "<code>menuitem</code> has non-empty accessible name",

@@ -1437,7 +1437,7 @@ export default {
   },
   a_10: {
     type: "true",
-    elem: "all",
+    elem: "a",
     test: "linkAName",
     score: 10,
     level: "A",
@@ -1449,8 +1449,8 @@ export default {
   },
   a_11: {
     type: "prop",
-    elem: "all",
-    test: "c",
+    elem: "a",
+    test: "linkNotAName",
     score: 10,
     level: "A",
     trust: "1",

@@ -1,154 +1,154 @@
 const scs: any = {
   '1.1.1': {
-    '0': 'text-equiv-all',
+    '0': 'non-text-content',
     '1': 'A'
   },
   '1.2.1': {
-    '0': 'media-equiv-av-only-alt',
-    '1': 'A'
-  },
-  '1.2.3': {
-    '0': 'media-equiv-av-only-alt',
+    '0': 'audio-only-and-video-only-prerecorded',
     '1': 'A'
   },
   '1.2.2': {
-    '0': 'media-equiv-av-only-alt',
+    '0': 'captions-prerecorded',
+    '1': 'A'
+  },
+  '1.2.3': {
+    '0': 'audio-description-or-media-alternative-prerecorded',
     '1': 'A'
   },
   '1.2.8': {
-    '0': 'media-equiv-text-doc',
+    '0': 'media-alternative-prerecorded',
     '1': 'AAA'
   },
   '1.3.1': {
-    '0': 'content-structure-separation-programmatic',
+    '0': 'info-and-relationships',
     '1': 'A'
   },
   '1.3.2': {
-    '0': 'content-structure-separation-sequence',
+    '0': 'meaningful-sequence',
     '1': 'A'
   },
   '1.3.4': {
-    '0': 'content-structure-separation-sequence',
-    '1': 'A'
+    '0': 'orientation',
+    '1': 'AA'
   },
   '1.4.3': {
-    '0': 'visual-audio-contrast-contrast',
+    '0': 'contrast-minimum',
     '1': 'AA'
   },
   '1.4.4': {
-    '0': 'visual-audio-contrast-scale',
+    '0': 'resize-text',
     '1': 'AA'
   },
   '1.4.5': {
-    '0': 'visual-audio-contrast-text-presentation',
+    '0': 'images-of-text',
     '1': 'AA'
   },
   '1.4.6': {
-    '0': 'visual-audio-contrast7',
+    '0': 'contrast-enhanced',
     '1': 'AAA'
   },
   '1.4.8': {
-    '0': 'visual-audio-contrast-visual-presentation',
+    '0': 'visual-presentation',
     '1': 'AAA'
   },
   '1.4.9': {
-    '0': 'visual-audio-contrast-text-images',
+    '0': 'images-of-text-no-exception',
     '1': 'AAA'
   },
   '1.4.12': {
-    '0': 'visual-audio-contrast-text-images',
-    '1': 'AAA'
+    '0': 'text-spacing',
+    '1': 'AA'
   },
   '2.1.1': {
-    '0': 'keyboard-operation-keyboard-operable',
+    '0': 'keyboard',
     '1': 'A'
   },
   '2.1.3': {
-    '0': 'keyboard-operation-all-funcs',
+    '0': 'keyboard-no-exception',
     '1': 'AAA'
   },
   '2.2.1': {
-    '0': 'time-limits-required-behaviors',
+    '0': 'timing-adjustable',
     '1': 'A'
   },
   '2.2.2': {
-    '0': 'time-limits-pause',
+    '0': 'pause-stop-hide',
     '1': 'A'
   },
   '2.2.4': {
-    '0': 'time-limits-postponed',
+    '0': 'interruptions',
     '1': 'AAA'
   },
   '2.4.1': {
-    '0': 'navigation-mechanisms-skip',
+    '0': 'bypass-blocks',
     '1': 'A'
-  },
-  '2.4.10': {
-    '0': 'navigation-mechanisms-headings',
-    '1': 'AAA'
   },
   '2.4.2': {
     '0': 'navigation-mechanisms-title',
     '1': 'A'
   },
   '2.4.4': {
-    '0': 'navigation-mechanisms-refs',
+    '0': 'link-purpose-in-context',
     '1': 'A'
   },
   '2.4.5': {
-    '0': 'navigation-mechanisms-mult-loc',
+    '0': 'multiple-ways',
     '1': 'AA'
   },
   '2.4.6': {
-    '0': 'navigation-mechanisms-descriptive',
+    '0': 'headings-and-labels',
     '1': 'AA'
   },
   '2.4.7': {
-    '0': 'navigation-mechanisms-focus-visible',
+    '0': 'focus-visible',
     '1': 'AA'
   },
   '2.4.8': {
-    '0': 'navigation-mechanisms-location',
+    '0': 'location',
     '1': 'AAA'
   },
   '2.4.9': {
-    '0': 'navigation-mechanisms-link',
+    '0': 'link-purpose-link-only',
+    '1': 'AAA'
+  },
+  '2.4.10': {
+    '0': 'section-headings',
     '1': 'AAA'
   },
   '2.5.3': {
-    '0': 'navigation-mechanisms-link',
+    '0': 'label-in-name',
     '1': 'AAA'
   },
   '3.1.1': {
-    '0': 'meaning-doc-lang-id',
+    '0': 'language-of-page',
     '1': 'A'
   },
   '3.1.4': {
-    '0': 'meaning-located',
+    '0': 'abbreviations',
     '1': 'AAA'
   },
   '3.2.1': {
-    '0': 'consistent-behavior-receive-focus',
+    '0': 'on-focus',
     '1': 'A'
   },
   '3.2.2': {
-    '0': 'consistent-behavior-unpredictable-change',
+    '0': 'on-input',
     '1': 'A'
   },
   '3.2.5': {
-    '0': 'consistent-behavior-no-extreme-changes-context',
+    '0': 'change-on-request',
     '1': 'AAA'
   },
   '3.3.2': {
-    '0': 'minimize-error-cues',
+    '0': 'labels-or-instructions',
     '1': 'A'
   },
   '4.1.1': {
-    '0': 'ensure-compat-parses',
+    '0': 'parsing',
     '1': 'A'
   },
   '4.1.2': {
-    '0': 'ensure-compat-rsv',
+    '0': 'name-role-value',
     '1': 'A'
   }
 };
