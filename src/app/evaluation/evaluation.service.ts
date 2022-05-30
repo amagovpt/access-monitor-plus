@@ -857,17 +857,19 @@ export class EvaluationService {
   }
 
   private refWebsiteTecnique(ref: string) {
-    const path = ref.startsWith("C")
-      ? "css/"
-      : ref.startsWith("H")
-        ? "html/"
-        : ref.startsWith("A")
-          ? "aria/"
-          : ref.startsWith("S")
-            ? "client-side-script/"
-            : ref.startsWith("G")
-              ? "general/"
-              : "failures/";
+    let path;
+    if(ref.startsWith("C"))
+      path = "css/";
+    else if(ref.startsWith("H"))
+      path = "html/";
+    else if(ref.startsWith("A"))
+          path = "aria/";
+    else if (ref.startsWith("S"))
+        path = "client-side-script/";
+    else if (ref.startsWith("G"))
+      path = "general/";
+    else
+      path = "failures/";
     return "https://www.w3.org/WAI/WCAG21/Techniques/" + path + ref + ".html";
   }
 
