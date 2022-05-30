@@ -123,6 +123,10 @@ const scs: any = {
     '0': 'language-of-page',
     '1': 'A'
   },
+  '3.1.3': {
+    '0': 'unusual-words',
+    '1': 'AAA'
+  },
   '3.1.4': {
     '0': 'abbreviations',
     '1': 'AAA'

@@ -30,7 +30,7 @@ export class EvaluationService {
     private readonly router: Router,
     private readonly config: ConfigService,
     private readonly translate: TranslateService
-  ) {}
+  ) { }
 
   evaluateUrl(url: string, force: boolean = false): Observable<any> {
     if (this.url && this.url === url && this.evaluation && !force) {
@@ -312,8 +312,8 @@ export class EvaluationService {
           (_eval["results"][row]["prio"] === 3
             ? "scoreok"
             : _eval["results"][row]["prio"] === 2
-            ? "scorewar"
-            : "scorerror");
+              ? "scorewar"
+              : "scorerror");
         level = _eval["results"][row]["lvl"];
         num = _eval["results"][row]["value"];
         desc =
@@ -544,8 +544,8 @@ export class EvaluationService {
               ele === "style"
                 ? element.attributes
                 : ele === "title"
-                ? this.evaluation.processed.metadata.title
-                : this.fixCode(element.htmlCode),
+                  ? this.evaluation.processed.metadata.title
+                  : this.fixCode(element.htmlCode),
             showCode:
               ele === "style" ? undefined : this.fixCode(element.htmlCode),
             pointer: element.pointer,
@@ -757,19 +757,8 @@ export class EvaluationService {
           result["lvl"] = level;
           result["msg"] = test;
           result["ref"] = ref;
-          const path = ref.startsWith("C")
-            ? "css/"
-            : ref.startsWith("H")
-            ? "html/"
-            : ref.startsWith("A")
-            ? "aria/"
-            : ref.startsWith("S")
-            ? "client-side-script/"
-            : ref.startsWith("G")
-            ? "general/"
-            : "failures/";
-          result["ref_website"] =
-            "https://www.w3.org/WAI/WCAG21/Techniques/" + path + ref + ".html";
+
+          result["ref_website"] = this.refWebsite(ref)
           result["relation"] =
             tests[test]["ref"].length > 3 ? "relationACT" : "relationT";
           result["ref_related_sc"] = new Array();
@@ -853,6 +842,33 @@ export class EvaluationService {
     }
 
     return item;
+  }
+  private refWebsite(ref: string):string {
+    let result;
+    if(ref.length>3){
+      result = this.refWebsiteACT(ref);
+    }else{
+      result = this.refWebsiteTecnique(ref);
+    }
+    return result;
+  }
+  private refWebsiteACT(ref: string) {
+    return "https://www.w3.org/WAI/standards-guidelines/act/rules/" + ref+ '/'
+  }
+
+  private refWebsiteTecnique(ref: string) {
+    const path = ref.startsWith("C")
+      ? "css/"
+      : ref.startsWith("H")
+        ? "html/"
+        : ref.startsWith("A")
+          ? "aria/"
+          : ref.startsWith("S")
+            ? "client-side-script/"
+            : ref.startsWith("G")
+              ? "general/"
+              : "failures/";
+    return "https://www.w3.org/WAI/WCAG21/Techniques/" + path + ref + ".html";
   }
 
   private convertBytes(length: number): string {
