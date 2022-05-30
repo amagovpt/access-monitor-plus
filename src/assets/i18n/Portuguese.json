@@ -328,7 +328,29 @@
     "labelANameNot": "Elementos interativos com conteúdo textual",
     "wordSpacing": "Propriedade de CSS <code>word-spacing</code>",
     "wordSpacingNot": "Propriedade de CSS <code>word-spacing</code>",
-    "overflow": "Propriedade de CSS <code>overflow</code>"
+    "overflow": "Propriedade de CSS <code>overflow</code>",
+    "bannerTopLevel": "Elemento com semântica <code>banner</code>",
+    "bannerNotTopLevel": "Elemento com semântica <code>banner</code>",
+    "complementaryTopLevel": "Elemento com semântica <code>complementary</code>",
+    "complementaryNotTopLevel": "Elemento com semântica <code>complementary</code>",
+    "contentinfoTopLevel": "Elemento com semântica <code>contentinfo</code>",
+    "contentinfoNotTopLevel": "Elemento com semântica <code>contentinfo</code>",
+    "mainTopLevel": "Elemento com semântica <code>main</code>",
+    "mainNotTopLevel": "Elemento com semântica <code>main</code>",
+    "noDuplicateBanner": "Elemento com semântica <code>banner</code>",
+    "duplicateBanner": "Elemento com semântica <code>banner</code>",
+    "noDuplicateContentinfo": "Elemento com semântica <code>contentinfo</code>",
+    "duplicateContentinfo": "Elemento com semântica <code>contentinfo</code>",
+    "noDuplicateMain": "Elemento com semântica <code>main</code>",
+    "duplicateMain": "Elemento com semântica <code>main</code>",
+    "liSemantically": "Itens de lista utilizados dentro de listas",
+    "liNotSemantically": "Itens de lista utilizados fora de listas",
+    "listCorrectly": "Listas só com itens de lista",
+    "listNotCorrectly": "Listas com elementos que não são itens de lista",
+    "descListElement": "Itens de lista utilizados dentro de listas de descrição",
+    "notDescListElement": "Itens de lista utilizados fora de listas de descrição",
+    "descList": "Listas de descrição só com itens de lista ordenados corretamente",
+    "notDescList": "Listas de descrição com elementos que não são itens de lista ou não estão ordenados corretamente"
   },
   "CSV": {
     "scorerror": "Erro",
@@ -922,6 +944,94 @@
     "css_02": {
       "s": "Verifiquei que existe <mark>{{value}}</mark> nó de texto com propriedade CSS <code>overflow</code> que pode impedir um utilizador de ver o texto quando faz zoom",
       "p": "Verifiquei que existem <mark>{{value}}</mark> nós de texto com propriedade CSS <code>overflow</code> que podem impedir um utilizador de ver o texto quando faz zoom"
+    },
+    "landmark_01": {
+      "s": "I noticed that the <code>banner</code> landmark <mark>is not</mark> contained within other landmark",
+      "p": "I noticed that the <code>banner</code> landmarks <mark>are not</mark> contained within other landmarks"
+    },
+    "landmark_02": {
+      "s": "I noticed that the <code>banner</code> landmark <mark>is</mark> contained within other landmark",
+      "p": "I noticed that the <code>banner</code> landmarks <mark>are</mark> contained within other landmarks"
+    },
+    "landmark_03": {
+      "s": "I noticed that the <code>complementary</code> landmark <mark>is not</mark> contained within other landmark",
+      "p": "I noticed that the <code>complementary</code> landmarks <mark>are not</mark> contained within other landmarks"
+    },
+    "landmark_04": {
+      "s": "I noticed that the <code>complementary</code> landmark <mark>is</mark> contained within other landmark",
+      "p": "I noticed that the <code>complementary</code> landmarks <mark>are</mark> contained within other landmarks"
+    },
+    "landmark_05": {
+      "s": "I noticed that the <code>contentinfo</code> landmark <mark>is not</mark> contained within other landmark",
+      "p": "I noticed that the <code>contentinfo</code> landmarks <mark>are not</mark> contained within other landmarks"
+    },
+    "landmark_06": {
+      "s": "I noticed that the <code>contentinfo</code> landmark <mark>is</mark> contained within other landmark",
+      "p": "I noticed that the <code>contentinfo</code> landmarks <mark>are</mark> contained within other landmarks"
+    },
+    "landmark_07": {
+      "s": "I noticed that the <code>main</code> landmark <mark>is not</mark> contained within other landmark",
+      "p": "I noticed that the <code>main</code> landmarks <mark>are not</mark> contained within other landmarks"
+    },
+    "landmark_08": {
+      "s": "I noticed that the <code>main</code> landmark <mark>is</mark> contained within other landmark",
+      "p": "I noticed that the <code>main</code> landmarks <mark>are</mark> contained within other landmarks"
+    },
+    "landmark_09": {
+      "s": "I found <mark>one</mark> banner landmark.",
+      "p": "I found <mark>one</mark> banner landmark."
+    },
+    "landmark_10": {
+      "s": "I found <mark>{{value}}</mark> banner landmarks.",
+      "p": "I found <mark>{{value}}</mark> banner landmarks."
+    },
+    "landmark_11": {
+      "s": "I found <mark>one</mark> contentinfo landmark.",
+      "p": "I found <mark>one</mark> contentinfo landmark."
+    },
+    "landmark_12": {
+      "s": "I found <mark>{{value}}</mark> contentinfo landmarks.",
+      "p": "I found <mark>{{value}}</mark> contentinfo landmarks."
+    },
+    "landmark_13": {
+      "s": "I found <mark>one</mark> main landmark.",
+      "p": "I found <mark>one</mark> main landmark."
+    },
+    "landmark_14": {
+      "s": "I found <mark>{{value}}</mark> main landmarks.",
+      "p": "I found <mark>{{value}}</mark> main landmarks."
+    },
+    "listitem_01": {
+      "s": "I noticed that <mark>all</mark> <code>&lt;li&gt;</code> elements are contained within a list.",
+      "p": "I noticed that <mark>all</mark> <code>&lt;li&gt;</code> elements are contained within a list."
+    },
+    "listitem_02": {
+      "s": "I located <mark>{{value}}</mark> <code>&lt;li&gt;</code> element that is not contained within a list.",
+      "p": "I located <mark>{{value}}</mark> <code>&lt;li&gt;</code> elements that are not contained within a list."
+    },
+    "list_02": {
+      "s": "I noticed that <mark>all</mark> lists only contain list items.",
+      "p": "I noticed that <mark>all</mark> lists only contain list items."
+    },
+    "list_03": {
+      "s": "I located <mark>{{value}}</mark> list that contains elements that are not list items.",
+      "p": "I located <mark>{{value}}</mark> lists that contain elements that are not list items."
+    },
+    "list_04": {
+      "s": "I noticed that <mark>all</mark> <code>&lt;dd&gt;</code> and <code>&lt;dt&gt;</code> elements are contained within a list.",
+      "p": "I noticed that <mark>all</mark> <code>&lt;dd&gt;</code> and <code>&lt;dt&gt;</code> elements are contained within a list."
+    },
+    "list_05": {
+      "s": "I located <mark>{{value}}</mark> <code>&lt;dd&gt;</code> or <code>&lt;dt&gt;</code> element that is not contained within a list.",
+      "p": "I located <mark>{{value}}</mark> <code>&lt;dd&gt;</code> or <code>&lt;dt&gt;</code> elements that are not contained within a list."
+    },
+    "list_06": {
+      "s": "I noticed that <mark>all</mark> description lists only contain correctly ordered list items.",
+      "p": "I noticed that <mark>all</mark> description lists only contain correctly ordered list items."
+    },
+    "list_07": {
+      "s": "I located <mark>{{value}}</mark> description list that contains elements that are not list items or that are not correctly ordered.",
+      "p": "I located <mark>{{value}}</mark> description lists that contains elements that are not list items or that are not correctly ordered."
     }
   },
   "TECHS": {
@@ -1013,7 +1123,9 @@
     "G8": "Conteúdo visual de um elemento vídeo tem alternativa acessível",
     "G208": "Incluir o texto da etiqueta visível no nome acessível",
     "9e45ec": "Espaçamento de palavras nos atributos de estilo não é !important",
-    "59br37": "Nó de texto ampliado não é cortado por CSS <code>overflow</code>"
+    "59br37": "Nó de texto ampliado não é cortado por CSS <code>overflow</code>",
+    "ARIA11": "Usar landmarks ARIA para identificar regiões da página",
+    "H40": "Usar listas de descrição"
   },
   "TXT_TECHNIQUES": {
     "H37": "<p>Verifique se o equivalente alternativo em texto existente nas imagens serve informação ou função igual à desempenhada pela imagem na página.</p>",
@@ -1104,7 +1216,9 @@
     "G8": "<p>O conteúdo visual de um vídeo deve ser apresentado na página sob a forma de uma alternativa acessível. Esta alternativa pode ser uma áudio descrição ou uma transcrição do vídeo.</p>",
     "G208": "<p>Os utilizadores de sistemas de reconhecimento de fala, tipicamente dizem o nome de um comando seguido de uma referência ao texto de um elemento (p.ex. selecionar pesquisa, para ativar o botão com o texto “pesquisa”). Os sistemas de reconhecimento de fala usam o nome acessível do elemento para o associar ao comando do utilizador. Assim, se o nome acessível não incluir o texto visível, estes sistemas não conseguirão fazer a associação necessária ao seu funcionamento.</p>",
     "9e45ec": "<p>Um espaçamento entre palavras igual ou superior a 0,16 vezes o tamanho da fonte é importante para garantir que todos os utilizadores conseguem ler o texto. Os estilos CSS não devem impedir que os utilizadores aumentem o espaçamento entre palavras se assim o entenderem.</p>",
-    "59br37": "<p>Ao ampliar a página a dimensão relativa do texto e dos seus contentores pode mudar o que faz com que estes possam necessitar de mais espaço para apresentar o mesmo texto. A propriedade CSS <code>overflow</code> determina como os contentores se ajustam. Alguns dos seus valores podem resultar no texto ser cortado.</p>"
+    "59br37": "<p>Ao ampliar a página a dimensão relativa do texto e dos seus contentores pode mudar o que faz com que estes possam necessitar de mais espaço para apresentar o mesmo texto. A propriedade CSS <code>overflow</code> determina como os contentores se ajustam. Alguns dos seus valores podem resultar no texto ser cortado.</p>",
+    "ARIA11": "<p>Garanta que só há um elemento com a semântica de main na página. Elementos com esta semântica designam a parte principal da página e permitem que utilizadores de leitor de ecrã naveguem rapidamente para essa parte da página. Cada página só deve ter um conteúdo principal, independentemente de ser especificado usando HTML5 ou ARIA.</p>",
+    "H40": "<p>Se uma lista de descrições conter elementos que não são itens da lista, ou se a ordem dos elementos não estiver correta, isto é, os elementos <dt> precederem os elementos <dd>, a lista estará mal formatada, e tecnologias de apoio não serão capazes de a apresentar corretamente.</p>"
   },
   "TECHFAIL": {
     "relationF": "Esta falha WCAG 2.1 está relacionada com:",

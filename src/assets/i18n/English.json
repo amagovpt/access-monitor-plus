@@ -328,7 +328,29 @@
     "labelANameNot": "Interactive elements with visible labels",
     "wordSpacing": "CSS property <code>word-spacing</code>",
     "wordSpacingNot": "CSS property <code>word-spacing</code>",
-    "overflow": "CSS property <code>overflow</code>"
+    "overflow": "CSS property <code>overflow</code>",
+    "bannerTopLevel": "<code>banner</code> landmark",
+    "bannerNotTopLevel": "<code>banner</code> landmark",
+    "complementaryTopLevel": "<code>complementary</code> landmark",
+    "complementaryNotTopLevel": "<code>complementary</code> landmark",
+    "contentinfoTopLevel": "<code>contentinfo</code> landmark",
+    "contentinfoNotTopLevel": "<code>contentinfo</code> landmark",
+    "mainTopLevel": "<code>main</code> landmark",
+    "mainNotTopLevel": "<code>main</code> landmark",
+    "noDuplicateBanner": "<code>banner</code> landmark",
+    "duplicateBanner": "<code>banner</code> landmark",
+    "noDuplicateContentinfo": "<code>contentinfo</code> landmark",
+    "duplicateContentinfo": "<code>contentinfo</code> landmark",
+    "noDuplicateMain": "<code>main</code> landmark",
+    "duplicateMain": "<code>main</code> landmark",
+    "liSemantically": "List items used within lists",
+    "liNotSemantically": "List items used outside lists",
+    "listCorrectly": "Lists with list items only",
+    "listNotCorrectly": "Lists with elements that are not list items",
+    "descListElement": "List items used within description lists",
+    "notDescListElement": "List items used outside description lists",
+    "descList": "Description lists with only correctly ordered list items",
+    "notDescList": "Description lists with elements that are not list items or that are not correctly ordered"
   },
   "CSV": {
     "scorerror": "Error",
@@ -922,6 +944,94 @@
     "css_02": {
       "s": "I found <mark>{{value}}</mark> text node with a CSS <code>overflow</code> property that might prevent a user from seeing the text when the page is zoomed",
       "p": "I found <mark>{{value}}</mark> text nodes with a CSS <code>overflow</code> property that might prevent a user from seeing the text when the page is zoomed"
+    },
+    "landmark_01": {
+      "s": "I noticed that the <code>banner</code> landmark <mark>is not</mark> contained within other landmark",
+      "p": "I noticed that the <code>banner</code> landmarks <mark>are not</mark> contained within other landmarks"
+    },
+    "landmark_02": {
+      "s": "I noticed that the <code>banner</code> landmark <mark>is</mark> contained within other landmark",
+      "p": "I noticed that the <code>banner</code> landmarks <mark>are</mark> contained within other landmarks"
+    },
+    "landmark_03": {
+      "s": "I noticed that the <code>complementary</code> landmark <mark>is not</mark> contained within other landmark",
+      "p": "I noticed that the <code>complementary</code> landmarks <mark>are not</mark> contained within other landmarks"
+    },
+    "landmark_04": {
+      "s": "I noticed that the <code>complementary</code> landmark <mark>is</mark> contained within other landmark",
+      "p": "I noticed that the <code>complementary</code> landmarks <mark>are</mark> contained within other landmarks"
+    },
+    "landmark_05": {
+      "s": "I noticed that the <code>contentinfo</code> landmark <mark>is not</mark> contained within other landmark",
+      "p": "I noticed that the <code>contentinfo</code> landmarks <mark>are not</mark> contained within other landmarks"
+    },
+    "landmark_06": {
+      "s": "I noticed that the <code>contentinfo</code> landmark <mark>is</mark> contained within other landmark",
+      "p": "I noticed that the <code>contentinfo</code> landmarks <mark>are</mark> contained within other landmarks"
+    },
+    "landmark_07": {
+      "s": "I noticed that the <code>main</code> landmark <mark>is not</mark> contained within other landmark",
+      "p": "I noticed that the <code>main</code> landmarks <mark>are not</mark> contained within other landmarks"
+    },
+    "landmark_08": {
+      "s": "I noticed that the <code>main</code> landmark <mark>is</mark> contained within other landmark",
+      "p": "I noticed that the <code>main</code> landmarks <mark>are</mark> contained within other landmarks"
+    },
+    "landmark_09": {
+      "s": "I found <mark>one</mark> banner landmark.",
+      "p": "I found <mark>one</mark> banner landmark."
+    },
+    "landmark_10": {
+      "s": "I found <mark>{{value}}</mark> banner landmarks.",
+      "p": "I found <mark>{{value}}</mark> banner landmarks."
+    },
+    "landmark_11": {
+      "s": "I found <mark>one</mark> contentinfo landmark.",
+      "p": "I found <mark>one</mark> contentinfo landmark."
+    },
+    "landmark_12": {
+      "s": "I found <mark>{{value}}</mark> contentinfo landmarks.",
+      "p": "I found <mark>{{value}}</mark> contentinfo landmarks."
+    },
+    "landmark_13": {
+      "s": "I found <mark>one</mark> main landmark.",
+      "p": "I found <mark>one</mark> main landmark."
+    },
+    "landmark_14": {
+      "s": "I found <mark>{{value}}</mark> main landmarks.",
+      "p": "I found <mark>{{value}}</mark> main landmarks."
+    },
+    "listitem_01": {
+      "s": "I noticed that <mark>all</mark> <code>&lt;li&gt;</code> elements are contained within a list.",
+      "p": "I noticed that <mark>all</mark> <code>&lt;li&gt;</code> elements are contained within a list."
+    },
+    "listitem_02": {
+      "s": "I located <mark>{{value}}</mark> <code>&lt;li&gt;</code> element that is not contained within a list.",
+      "p": "I located <mark>{{value}}</mark> <code>&lt;li&gt;</code> elements that are not contained within a list."
+    },
+    "list_02": {
+      "s": "I noticed that <mark>all</mark> lists only contain list items.",
+      "p": "I noticed that <mark>all</mark> lists only contain list items."
+    },
+    "list_03": {
+      "s": "I located <mark>{{value}}</mark> list that contains elements that are not list items.",
+      "p": "I located <mark>{{value}}</mark> lists that contain elements that are not list items."
+    },
+    "list_04": {
+      "s": "I noticed that <mark>all</mark> <code>&lt;dd&gt;</code> and <code>&lt;dt&gt;</code> elements are contained within a list.",
+      "p": "I noticed that <mark>all</mark> <code>&lt;dd&gt;</code> and <code>&lt;dt&gt;</code> elements are contained within a list."
+    },
+    "list_05": {
+      "s": "I located <mark>{{value}}</mark> <code>&lt;dd&gt;</code> or <code>&lt;dt&gt;</code> element that is not contained within a list.",
+      "p": "I located <mark>{{value}}</mark> <code>&lt;dd&gt;</code> or <code>&lt;dt&gt;</code> elements that are not contained within a list."
+    },
+    "list_06": {
+      "s": "I noticed that <mark>all</mark> description lists only contain correctly ordered list items.",
+      "p": "I noticed that <mark>all</mark> description lists only contain correctly ordered list items."
+    },
+    "list_07": {
+      "s": "I located <mark>{{value}}</mark> description list that contains elements that are not list items or that are not correctly ordered.",
+      "p": "I located <mark>{{value}}</mark> description lists that contains elements that are not list items or that are not correctly ordered."
     }
   },
   "TECHS": {
@@ -1013,7 +1123,9 @@
     "G8": "video element visual content has accessible alternative",
     "G208": "Including the text of the visible label as part of the accessible name",
     "9e45ec": "Word spacing in style attributes is not !important",
-    "59br37": "Zoomed text node is not clipped with CSS <code>overflow</code>"
+    "59br37": "Zoomed text node is not clipped with CSS <code>overflow</code>",
+    "ARIA11": "Using ARIA landmarks to identify regions of a page",
+    "H40": "Using description lists"
   },
   "TXT_TECHNIQUES": {
     "H37": "<p>Check if the alternative text equivalent found in the images provides equal information or function as the one performed by the image on the page.</p>",
@@ -1104,7 +1216,9 @@
     "G8": "<p>An accessible alternative to the visual content of a video should be available on the page. The alternative can be the audio description or a transcript of the video.</p>",
     "G208": "<p>Speech input users typically say the name of a command followed by a reference to the text of an element (e.g., click search to active the button labelled “search”). Speech input systems use the element’s accessible name to match the element to the command. Therefore, if the element’s accessible name does not incude visible text label, it will not be possible to associate the element with the command.</p>",
     "9e45ec": "<p>A word spacing equal to or larger than 0.16 times the font size is important to ensure that all users are able to read the text. CSS styles should not prevent users from increasing the word spacing if they so desire.</p>",
-    "59br37": "<p>When zooming on a page, the relative size of text and respective container might change, resulting in extra space being needed to present the same text. The CSS property <code>overflow</code> determines how the containers adjust when zooming. Some of its values might result in text clipping.</p>"
+    "59br37": "<p>When zooming on a page, the relative size of text and respective container might change, resulting in extra space being needed to present the same text. The CSS property <code>overflow</code> determines how the containers adjust when zooming. Some of its values might result in text clipping.</p>",
+    "ARIA11": "<p>Ensure that there is only one main landmark in the page. Main landmarks designate the main content of the page and make it easy for screen reader users to quickly navigate to it. Each page should only have one main content, irrespectively of it being designated using HTML5 or ARIA.</p>",
+    "H40": "<p>If description lists contain non list item elements, or if the order of the list item elements is not appropriate, that is, <dt> elements should precede <dd> elements, the list will be incorrectly marked up, and assistive technologies will not be able to render it correctly.</p>"
   },
   "TECHFAIL": {
     "relationF": "This WCAG 2.1 failure is related to:",
