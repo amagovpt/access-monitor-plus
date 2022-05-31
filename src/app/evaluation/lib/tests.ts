@@ -1450,7 +1450,7 @@ export default {
   a_11: {
     type: "prop",
     elem: "all",
-    test: "c",
+    test: "linkNotAName",
     score: 10,
     level: "A",
     trust: "1",
@@ -1545,7 +1545,7 @@ export default {
   },
   object_01: {
     type: "true",
-    elem: "all",
+    elem: "object",
     test: "objectAName",
     score: 10,
     level: "A",
@@ -1557,7 +1557,7 @@ export default {
   },
   object_02: {
     type: "prop",
-    elem: "all",
+    elem: "object",
     test: "objectANameNot",
     score: 10,
     level: "A",
@@ -1965,7 +1965,7 @@ export default {
   },
   listitem_01: {
     type: "true",
-    elem: "li",
+    elem: "all",
     test: "liSemantically",
     score: 10,
     level: "AA",
@@ -1977,7 +1977,7 @@ export default {
   },
   listitem_02: {
     type: "prop",
-    elem: "li",
+    elem: "all",
     test: "liNotSemantically",
     score: 10,
     level: "AA",
@@ -1989,7 +1989,7 @@ export default {
   },
   list_02: {
     type: "true",
-    elem: "li",
+    elem: "all",
     test: "listCorrectly",
     score: 10,
     level: "AA",
@@ -2001,7 +2001,7 @@ export default {
   },
   list_03: {
     type: "prop",
-    elem: "li",
+    elem: "all",
     test: "listNotCorrectly",
     score: 10,
     level: "AA",
@@ -2049,7 +2049,7 @@ export default {
   },
   list_07: {
     type: "prop",
-    elem: "d",
+    elem: "dl",
     test: "notDescList",
     score: 10,
     level: "AAA",
