@@ -946,92 +946,92 @@
       "p": "Verifiquei que existem <mark>{{value}}</mark> nós de texto com propriedade CSS <code>overflow</code> que podem impedir um utilizador de ver o texto quando faz zoom"
     },
     "landmark_01": {
-      "s": "I noticed that the <code>banner</code> landmark <mark>is not</mark> contained within other landmark",
-      "p": "I noticed that the <code>banner</code> landmarks <mark>are not</mark> contained within other landmarks"
+      "s": "Constatei que o elemento com a semântica de <code>banner</code> <mark>não está</mark> contido dentro de nenhum elemento com outra semântica",
+      "p": "Constatei que os elementos com a semântica de <code>banner</code> <mark>não estão</mark> contidos dentro de nenhum elemento com outra semântica"
     },
     "landmark_02": {
-      "s": "I noticed that the <code>banner</code> landmark <mark>is</mark> contained within other landmark",
-      "p": "I noticed that the <code>banner</code> landmarks <mark>are</mark> contained within other landmarks"
+      "s": "Constatei que o elemento com a semântica de <code>banner</code> <mark>está</mark> contido dentro de um elemento com outra semântica",
+      "p": "Constatei que os elementos com a semântica de <code>banner</code> <mark>estão</mark> contidos dentro de elementos com outra semântica"
     },
     "landmark_03": {
-      "s": "I noticed that the <code>complementary</code> landmark <mark>is not</mark> contained within other landmark",
-      "p": "I noticed that the <code>complementary</code> landmarks <mark>are not</mark> contained within other landmarks"
+      "s": "Constatei que o elemento com a semântica de <code>complementary</code> <mark>não está</mark> contido dentro de nenhum elemento com outra semântica",
+      "p": "Constatei que os elementos com a semântica de <code>complementary</code> <mark>não estão</mark> contidos dentro de nenhum elemento com outra semântica"
     },
     "landmark_04": {
-      "s": "I noticed that the <code>complementary</code> landmark <mark>is</mark> contained within other landmark",
-      "p": "I noticed that the <code>complementary</code> landmarks <mark>are</mark> contained within other landmarks"
+      "s": "Constatei que o elemento com a semântica de <code>complementary</code> <mark>está</mark> contido dentro de um elemento com outra semântica",
+      "p": "Constatei que os elementos com a semântica de <code>complementary</code> <mark>estão</mark> contidos dentro de elementos com outra semântica"
     },
     "landmark_05": {
-      "s": "I noticed that the <code>contentinfo</code> landmark <mark>is not</mark> contained within other landmark",
-      "p": "I noticed that the <code>contentinfo</code> landmarks <mark>are not</mark> contained within other landmarks"
+      "s": "Constatei que o elemento com a semântica de <code>contentinfo</code> <mark>não está</mark> contido dentro de nenhum elemento com outra semântica",
+      "p": "Constatei que os elementos com a semântica de <code>contentinfo</code> <mark>não estão</mark> contidos dentro de nenhum elemento com outra semântica"
     },
     "landmark_06": {
-      "s": "I noticed that the <code>contentinfo</code> landmark <mark>is</mark> contained within other landmark",
-      "p": "I noticed that the <code>contentinfo</code> landmarks <mark>are</mark> contained within other landmarks"
+      "s": "Constatei que o elemento com a semântica de <code>contentinfo</code> <mark>está</mark> contido dentro de um elemento com outra semântica",
+      "p": "Constatei que os elementos com a semântica de <code>contentinfo</code> <mark>estão</mark> contidos dentro de elementos com outra semântica"
     },
     "landmark_07": {
-      "s": "I noticed that the <code>main</code> landmark <mark>is not</mark> contained within other landmark",
-      "p": "I noticed that the <code>main</code> landmarks <mark>are not</mark> contained within other landmarks"
+      "s": "Constatei que o elemento com a semântica de <code>main</code> <mark>não está</mark> contido dentro de nenhum elemento com outra semântica",
+      "p": "Constatei que os elementos com a semântica de <code>main</code> <mark>não estão</mark> contidos dentro de nenhum elemento com outra semântica"
     },
     "landmark_08": {
-      "s": "I noticed that the <code>main</code> landmark <mark>is</mark> contained within other landmark",
-      "p": "I noticed that the <code>main</code> landmarks <mark>are</mark> contained within other landmarks"
+      "s": "Constatei que o elemento com a semântica de <code>main</code> <mark>está</mark> contido dentro de um elemento com outra semântica",
+      "p": "Constatei que os elementos com a semântica de <code>main</code> <mark>estão</mark> contidos dentro de elementos com outra semântica"
     },
     "landmark_09": {
-      "s": "I found <mark>one</mark> banner landmark.",
-      "p": "I found <mark>one</mark> banner landmark."
+      "s": "Encontrei <mark>um</mark> elemento com a semântica de <code>banner</code>.",
+      "p": "Encontrei <mark>um</mark> elemento com a semântica de <code>banner</code>."
     },
     "landmark_10": {
-      "s": "I found <mark>{{value}}</mark> banner landmarks.",
-      "p": "I found <mark>{{value}}</mark> banner landmarks."
+      "s": "Encontrei <mark>{{value}}</mark> elementos com a semântica de <code>banner</code>.",
+      "p": "Encontrei <mark>{{value}}</mark> elementos com a semântica de <code>banner</code>."
     },
     "landmark_11": {
-      "s": "I found <mark>one</mark> contentinfo landmark.",
-      "p": "I found <mark>one</mark> contentinfo landmark."
+      "s": "Encontrei <mark>um</mark> elemento com a semântica de <code>contentinfo</code>.",
+      "p": "Encontrei <mark>um</mark> elemento com a semântica de <code>contentinfo</code>."
     },
     "landmark_12": {
-      "s": "I found <mark>{{value}}</mark> contentinfo landmarks.",
-      "p": "I found <mark>{{value}}</mark> contentinfo landmarks."
+      "s": "Encontrei <mark>{{value}}</mark> elementos com a semântica de <code>contentinfo</code>.",
+      "p": "Encontrei <mark>{{value}}</mark> elementos com a semântica de <code>contentinfo</code>."
     },
     "landmark_13": {
-      "s": "I found <mark>one</mark> main landmark.",
-      "p": "I found <mark>one</mark> main landmark."
+      "s": "Encontrei <mark>um</mark> elemento com a semântica de <code>main</code>.",
+      "p": "Encontrei <mark>um</mark> elemento com a semântica de <code>main</code>."
     },
     "landmark_14": {
-      "s": "I found <mark>{{value}}</mark> main landmarks.",
-      "p": "I found <mark>{{value}}</mark> main landmarks."
+      "s": "Encontrei <mark>{{value}}</mark> elementos com a semântica de <code>main</code>.",
+      "p": "Encontrei <mark>{{value}}</mark> elementos com a semântica de <code>main</code>."
     },
     "listitem_01": {
-      "s": "I noticed that <mark>all</mark> <code>&lt;li&gt;</code> elements are contained within a list.",
-      "p": "I noticed that <mark>all</mark> <code>&lt;li&gt;</code> elements are contained within a list."
+      "s": "Verifiquei que <mark>todos</mark> os elementos <code>&lt;li&gt;</code> estão contidos dentro de uma lista.",
+      "p": "Verifiquei que <mark>todos</mark> os elementos <code>&lt;li&gt;</code> estão contidos dentro de uma lista."
     },
     "listitem_02": {
-      "s": "I located <mark>{{value}}</mark> <code>&lt;li&gt;</code> element that is not contained within a list.",
-      "p": "I located <mark>{{value}}</mark> <code>&lt;li&gt;</code> elements that are not contained within a list."
+      "s": "Localizei <mark>{{value}}</mark> elemento <code>&lt;li&gt;</code> que não está contido dentro de uma lista.",
+      "p": "Localizei <mark>{{value}}</mark> elementos <code>&lt;li&gt;</code> que não estão contidos dentro de listas."
     },
     "list_02": {
-      "s": "I noticed that <mark>all</mark> lists only contain list items.",
-      "p": "I noticed that <mark>all</mark> lists only contain list items."
+      "s": "Verifiquei que <mark>todas</mark> as listas só contêm itens de lista.",
+      "p": "Verifiquei que <mark>todas</mark> as listas só contêm itens de lista."
     },
     "list_03": {
-      "s": "I located <mark>{{value}}</mark> list that contains elements that are not list items.",
-      "p": "I located <mark>{{value}}</mark> lists that contain elements that are not list items."
+      "s": "Localizei <mark>{{value}}</mark> lista que contém elementos que não são itens de lista.",
+      "p": "Localizei <mark>{{value}}</mark> listas que contêm elementos que não são itens de lista."
     },
     "list_04": {
-      "s": "I noticed that <mark>all</mark> <code>&lt;dd&gt;</code> and <code>&lt;dt&gt;</code> elements are contained within a list.",
-      "p": "I noticed that <mark>all</mark> <code>&lt;dd&gt;</code> and <code>&lt;dt&gt;</code> elements are contained within a list."
+      "s": "Verifiquei que <mark>todos</mark> os elementos <code>&lt;dd&gt;</code> e <code>&lt;dt&gt;</code> estão contidos dentro de uma lista.",
+      "p": "Verifiquei que <mark>todos</mark> os elementos <code>&lt;dd&gt;</code> e <code>&lt;dt&gt;</code> estão contidos dentro de uma lista."
     },
     "list_05": {
-      "s": "I located <mark>{{value}}</mark> <code>&lt;dd&gt;</code> or <code>&lt;dt&gt;</code> element that is not contained within a list.",
-      "p": "I located <mark>{{value}}</mark> <code>&lt;dd&gt;</code> or <code>&lt;dt&gt;</code> elements that are not contained within a list."
+      "s": "Localizei <mark>{{value}}</mark> elemento <code>&lt;dd&gt;</code> ou <code>&lt;dt&gt;</code> que não está contido dentro de uma lista.",
+      "p": "Localizei <mark>{{value}}</mark> elementos <code>&lt;dd&gt;</code> ou <code>&lt;dt&gt;</code> que não estão contidos dentro de lista."
     },
     "list_06": {
-      "s": "I noticed that <mark>all</mark> description lists only contain correctly ordered list items.",
-      "p": "I noticed that <mark>all</mark> description lists only contain correctly ordered list items."
+      "s": "Verifiquei que <mark>todas</mark> as listas de descrição só contêm itens de lista corretamente ordenados.",
+      "p": "Verifiquei que <mark>todas</mark> as listas de descrição só contêm itens de lista corretamente ordenados."
     },
     "list_07": {
-      "s": "I located <mark>{{value}}</mark> description list that contains elements that are not list items or that are not correctly ordered.",
-      "p": "I located <mark>{{value}}</mark> description lists that contains elements that are not list items or that are not correctly ordered."
+      "s": "Localizei <mark>{{value}}</mark> lista de descrição que contém elementos que não são itens de lista ou que não estão corretamente ordenados.",
+      "p": "Localizei <mark>{{value}}</mark> listas de descrição que contêm elementos que não são itens de lista ou que não estão corretamente ordenados."
     }
   },
   "TECHS": {
