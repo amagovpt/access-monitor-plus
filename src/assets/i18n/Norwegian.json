@@ -119,7 +119,12 @@
             "alt_rowerr": "Ikke akseptabelt:",
             "alt_rowwar": "Må vurderes manuelt:",
             "alt_rowok": "Akseptabelt:",
-            "alt_see": "See results from the practice:"
+            "alt_see": "See results from the practice:",
+            "alt_passed":"Práticas aceitáveis",
+            "alt_failed":"Práticas não aceitáveis",
+            "alt_warning":"Práticas para ver manualmente",
+            "alt_information":"pressione para mais informação",
+            "alt_more_information":"pressione para comprimir informação"
         },
         "scoreboard": {
             "level": "Nivå",
