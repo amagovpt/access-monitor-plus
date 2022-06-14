@@ -127,11 +127,11 @@
       "alt_rowwar": "To view manually:",
       "alt_rowok": "Acceptable:",
       "alt_see": "See results from the practice:",
-      "alt_passed":"Práticas aceitáveis",
-      "alt_failed":"Práticas não aceitáveis",
-      "alt_warning":"Práticas para ver manualmente",
-      "alt_information":"pressione para mais informação",
-      "alt_more_information":"pressione para comprimir informação"
+      "alt_passed":"Acceptable practice",
+      "alt_failed":"Non acceptable practice",
+      "alt_warning":"Practice to view manually",
+      "alt_information":"press for more information",
+      "alt_more_information":"press for less information"
     },
     "scoreboard": {
       "level": "Level",
