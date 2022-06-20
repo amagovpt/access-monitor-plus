@@ -12,7 +12,7 @@ export class ConfigService {
     if (host === "localhost") {
       this.server = "http://localhost:3000";
     } else {
-      this.server = "/api";
+      this.server = "/api2";
     }
   }
 
