@@ -63,7 +63,7 @@
           height="36"
           viewBox="0 0 36 36"
         >
-          <title>monitor_icons_praticas_status_correct</title>
+          <title>{{ "RESULTS.results.alt_passed" | translate }}</title>
           <path
             d="M26,12.29a1.41,1.41,0,0,1,0,2l-9.43,9.43a1.41,1.41,0,0,1-2,0L10,19.22a1.41,1.41,0,0,1,2-2l3.5,3.5L24,12.29a1.41,1.41,0,0,1,2,0ZM36,18A18,18,0,1,1,18,0,18,18,0,0,1,36,18Zm-2.81,0A15.19,15.19,0,1,0,18,33.19,15.18,15.18,0,0,0,33.19,18Zm0,0"
           />
@@ -75,7 +75,7 @@
           height="36"
           viewBox="0 0 36 36"
         >
-          <title>monitor_icons_praticas_status_incorrect</title>
+          <title>{{ "RESULTS.results.alt_failed" | translate }}</title>
           <path
             d="M12.44,23.56a1.5,1.5,0,0,0,2.12,0L18,20.12l3.44,3.44a1.5,1.5,0,1,0,2.12-2.12L20.12,18l3.44-3.44a1.5,1.5,0,1,0-2.12-2.12L18,15.88l-3.44-3.44a1.5,1.5,0,0,0-2.12,2.12L15.88,18l-3.44,3.44a1.5,1.5,0,0,0,0,2.12Zm0,0"
           />
@@ -90,7 +90,7 @@
           height="36"
           viewBox="0 0 36 36"
         >
-          <title>monitor_icons_praticas_status_review</title>
+          <title>{{ "RESULTS.results.alt_warning" | translate }}</title>
           <path
             d="M21.5,19.5h3.86a1.5,1.5,0,0,0,0-3H21.5m3,0H20.64a1.5,1.5,0,1,0,0,3H24.5"
           />
@@ -116,7 +116,7 @@
             height="36"
             viewBox="0 0 36 36"
           >
-            <title>monitor_icons_praticas_status_correct</title>
+            <title>{{ "RESULTS.results.alt_passed" | translate }}</title>
             <path
               d="M26,12.29a1.41,1.41,0,0,1,0,2l-9.43,9.43a1.41,1.41,0,0,1-2,0L10,19.22a1.41,1.41,0,0,1,2-2l3.5,3.5L24,12.29a1.41,1.41,0,0,1,2,0ZM36,18A18,18,0,1,1,18,0,18,18,0,0,1,36,18Zm-2.81,0A15.19,15.19,0,1,0,18,33.19,15.18,15.18,0,0,0,33.19,18Zm0,0"
             />
@@ -128,7 +128,7 @@
             height="36"
             viewBox="0 0 36 36"
           >
-            <title>monitor_icons_praticas_status_incorrect</title>
+            <title>{{ "RESULTS.results.alt_failed" | translate }}</title>
             <path
               d="M12.44,23.56a1.5,1.5,0,0,0,2.12,0L18,20.12l3.44,3.44a1.5,1.5,0,1,0,2.12-2.12L20.12,18l3.44-3.44a1.5,1.5,0,1,0-2.12-2.12L18,15.88l-3.44-3.44a1.5,1.5,0,0,0-2.12,2.12L15.88,18l-3.44,3.44a1.5,1.5,0,0,0,0,2.12Zm0,0"
             />
@@ -143,7 +143,7 @@
             height="36"
             viewBox="0 0 36 36"
           >
-            <title>monitor_icons_praticas_status_review</title>
+            <title>{{ "RESULTS.results.alt_warning" | translate }}</title>
             <path
               d="M21.5,19.5h3.86a1.5,1.5,0,0,0,0-3H21.5m3,0H20.64a1.5,1.5,0,1,0,0,3H24.5"
             />
@@ -224,7 +224,11 @@
               fxLayout="column"
             >
               <table class="table{{ i + 1 }}" fxHide.lt-md>
-                <caption>{{ "ELEMENT_RESULTS.caption" | translate: { value: i + 1} }}</caption>
+                <caption>
+                  {{
+                    "ELEMENT_RESULTS.caption" | translate: { value: i + 1 }
+                  }}
+                </caption>
                 <tr>
                   <td class="counter" rowspan="4" scope="row">
                     <span>{{ i + 1 }}</span>
@@ -282,24 +286,42 @@
               <div fxHide.gt-sm fxLayout="column" fxLayoutAlign="start start">
                 <div class="elem_num">{{ i + 1 }}</div>
                 <div class="elem_elem" fxLayout="column">
-                  <div class="elem_label">{{ "ELEMENT_RESULTS.result.element" | translate }}</div>
-                  <div><span class="element">{{ e.ele }}</span></div>
+                  <div class="elem_label">
+                    {{ "ELEMENT_RESULTS.result.element" | translate }}
+                  </div>
+                  <div>
+                    <span class="element">{{ e.ele }}</span>
+                  </div>
                 </div>
                 <div class="elem_atrib" fxLayout="column">
-                  <div class="elem_label">{{ "ELEMENT_RESULTS.result.attributes" | translate }}</div>
-                  <div><span class="element">{{ e.attr }}</span></div>
+                  <div class="elem_label">
+                    {{ "ELEMENT_RESULTS.result.attributes" | translate }}
+                  </div>
+                  <div>
+                    <span class="element">{{ e.attr }}</span>
+                  </div>
                 </div>
                 <div *ngIf="e.showCode" class="elem_code" fxLayout="column">
-                  <div class="elem_label">{{ "ELEMENT_RESULTS.result.code" | translate }}</div>
-                  <div><code>{{ e.showCode }}</code></div>
+                  <div class="elem_label">
+                    {{ "ELEMENT_RESULTS.result.code" | translate }}
+                  </div>
+                  <div>
+                    <code>{{ e.showCode }}</code>
+                  </div>
                 </div>
                 <div class="elem_cont" fxLayout="column">
-                  <div class="elem_label">{{ "ELEMENT_RESULTS.result.content" | translate }}</div>
+                  <div class="elem_label">
+                    {{ "ELEMENT_RESULTS.result.content" | translate }}
+                  </div>
                   <div class="img2" [innerHTML]="e.code | html"></div>
                 </div>
                 <div class="elem_cont" fxLayout="column">
-                  <div class="elem_label">{{ "ELEMENT_RESULTS.result.content" | translate }}</div>
-                  <div><span class="element">{{ e.pointer }}</span></div>
+                  <div class="elem_label">
+                    {{ "ELEMENT_RESULTS.result.content" | translate }}
+                  </div>
+                  <div>
+                    <span class="element">{{ e.pointer }}</span>
+                  </div>
                 </div>
               </div>
             </li>

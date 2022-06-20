@@ -327,7 +327,11 @@
         </div>
         <div ngClass.gt-md="table_wrapper" fxFlex="grow">
           <table class="summary_practices" fxHide.lt-md>
-            <caption>{{ "RESULTS.summary.metadata.caption" | translate }}</caption>
+            <caption>
+              {{
+                "RESULTS.summary.metadata.caption" | translate
+              }}
+            </caption>
             <thead>
               <tr>
                 <td>
@@ -363,7 +367,9 @@
                         height="36"
                         viewBox="0 0 36 36"
                       >
-                        <title>monitor_icons_praticas_status_correct</title>
+                        <title>
+                          {{ "RESULTS.results.alt_passed" | translate }}
+                        </title>
                         <path
                           d="M26,12.29a1.41,1.41,0,0,1,0,2l-9.43,9.43a1.41,1.41,0,0,1-2,0L10,19.22a1.41,1.41,0,0,1,2-2l3.5,3.5L24,12.29a1.41,1.41,0,0,1,2,0ZM36,18A18,18,0,1,1,18,0,18,18,0,0,1,36,18Zm-2.81,0A15.19,15.19,0,1,0,18,33.19,15.18,15.18,0,0,0,33.19,18Zm0,0"
                         />
@@ -391,7 +397,9 @@
                         height="36"
                         viewBox="0 0 36 36"
                       >
-                        <title>monitor_icons_praticas_status_review</title>
+                        <title>
+                          {{ "RESULTS.results.alt_warning" | translate }}
+                        </title>
                         <path
                           d="M21.5,19.5h3.86a1.5,1.5,0,0,0,0-3H21.5m3,0H20.64a1.5,1.5,0,1,0,0,3H24.5"
                         />
@@ -427,7 +435,9 @@
                         height="36"
                         viewBox="0 0 36 36"
                       >
-                        <title>monitor_icons_praticas_status_incorrect</title>
+                        <title>
+                          {{ "RESULTS.results.alt_failed" | translate }}
+                        </title>
                         <path
                           d="M12.44,23.56a1.5,1.5,0,0,0,2.12,0L18,20.12l3.44,3.44a1.5,1.5,0,1,0,2.12-2.12L20.12,18l3.44-3.44a1.5,1.5,0,1,0-2.12-2.12L18,15.88l-3.44-3.44a1.5,1.5,0,0,0-2.12,2.12L15.88,18l-3.44,3.44a1.5,1.5,0,0,0,0,2.12Zm0,0"
                         />
@@ -508,7 +518,9 @@
                     height="36"
                     viewBox="0 0 36 36"
                   >
-                    <title>monitor_icons_praticas_status_correct</title>
+                    <title>
+                      {{ "RESULTS.results.alt_passed" | translate }}
+                    </title>
                     <path
                       d="M26,12.29a1.41,1.41,0,0,1,0,2l-9.43,9.43a1.41,1.41,0,0,1-2,0L10,19.22a1.41,1.41,0,0,1,2-2l3.5,3.5L24,12.29a1.41,1.41,0,0,1,2,0ZM36,18A18,18,0,1,1,18,0,18,18,0,0,1,36,18Zm-2.81,0A15.19,15.19,0,1,0,18,33.19,15.18,15.18,0,0,0,33.19,18Zm0,0"
                     />
@@ -567,7 +579,9 @@
                     height="36"
                     viewBox="0 0 36 36"
                   >
-                    <title>monitor_icons_praticas_status_correct</title>
+                    <title>
+                      {{ "RESULTS.results.alt_passed" | translate }}
+                    </title>
                     <path
                       d="M26,12.29a1.41,1.41,0,0,1,0,2l-9.43,9.43a1.41,1.41,0,0,1-2,0L10,19.22a1.41,1.41,0,0,1,2-2l3.5,3.5L24,12.29a1.41,1.41,0,0,1,2,0ZM36,18A18,18,0,1,1,18,0,18,18,0,0,1,36,18Zm-2.81,0A15.19,15.19,0,1,0,18,33.19,15.18,15.18,0,0,0,33.19,18Zm0,0"
                     />
@@ -626,7 +640,9 @@
                     height="36"
                     viewBox="0 0 36 36"
                   >
-                    <title>monitor_icons_praticas_status_correct</title>
+                    <title>
+                      {{ "RESULTS.results.alt_passed" | translate }}
+                    </title>
                     <path
                       d="M26,12.29a1.41,1.41,0,0,1,0,2l-9.43,9.43a1.41,1.41,0,0,1-2,0L10,19.22a1.41,1.41,0,0,1,2-2l3.5,3.5L24,12.29a1.41,1.41,0,0,1,2,0ZM36,18A18,18,0,1,1,18,0,18,18,0,0,1,36,18Zm-2.81,0A15.19,15.19,0,1,0,18,33.19,15.18,15.18,0,0,0,33.19,18Zm0,0"
                     />
@@ -760,7 +776,11 @@
         {{ "RESULTS.results.title" | translate }}
       </h2>
       <table class="evaluation-table">
-        <caption>{{ "Results.results.caption" | translate }}</caption>
+        <caption>
+          {{
+            "Results.results.caption" | translate
+          }}
+        </caption>
         <thead>
           <tr>
             <th scope="col" colspan="2">
@@ -784,7 +804,7 @@
                 height="36"
                 viewBox="0 0 36 36"
               >
-                <title>monitor_icons_praticas_status_correct</title>
+                <title>{{ "RESULTS.results.alt_passed" | translate }}</title>
                 <path
                   d="M26,12.29a1.41,1.41,0,0,1,0,2l-9.43,9.43a1.41,1.41,0,0,1-2,0L10,19.22a1.41,1.41,0,0,1,2-2l3.5,3.5L24,12.29a1.41,1.41,0,0,1,2,0ZM36,18A18,18,0,1,1,18,0,18,18,0,0,1,36,18Zm-2.81,0A15.19,15.19,0,1,0,18,33.19,15.18,15.18,0,0,0,33.19,18Zm0,0"
                 />
@@ -796,7 +816,7 @@
                 height="36"
                 viewBox="0 0 36 36"
               >
-                <title>monitor_icons_praticas_status_incorrect</title>
+                <title>{{ "RESULTS.results.alt_failed" | translate }}</title>
                 <path
                   d="M12.44,23.56a1.5,1.5,0,0,0,2.12,0L18,20.12l3.44,3.44a1.5,1.5,0,1,0,2.12-2.12L20.12,18l3.44-3.44a1.5,1.5,0,1,0-2.12-2.12L18,15.88l-3.44-3.44a1.5,1.5,0,0,0-2.12,2.12L15.88,18l-3.44,3.44a1.5,1.5,0,0,0,0,2.12Zm0,0"
                 />
@@ -811,7 +831,9 @@
                 height="36"
                 viewBox="0 0 36 36"
               >
-                <title>monitor_icons_praticas_status_review</title>
+                <title>
+                  {{ "RESULTS.results.alt_warning" | translate }}
+                </title>
                 <path
                   d="M21.5,19.5h3.86a1.5,1.5,0,0,0,0-3H21.5m3,0H20.64a1.5,1.5,0,1,0,0,3H24.5"
                 />
@@ -832,10 +854,38 @@
                 (click)="openCollapsible(i)"
                 fxLayout="row"
                 fxLayoutAlign="start center"
+                [attr.aria-expanded]="isCollapsibleOpen(i)"
               >
                 <span>
-                  <svg *ngIf="!isCollapsibleOpen(i)" xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='30px'><title>icon_arrow_drop</title><path d='M13.6,7.32l-.35.35a1.66,1.66,0,0,1-2.34,0l-3-3-1-1a1.55,1.55,0,0,0-2,.08A1.59,1.59,0,0,0,5,6L8,9l3,3a1.66,1.66,0,0,0,2.34,0l3-3,3-3a1.59,1.59,0,0,0,.11-2.24,1.58,1.58,0,0,0-2.23.1L15.92,5'/></svg>
-                  <svg *ngIf="isCollapsibleOpen(i)" xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='30px'><title>icon_arrow_drop</title><path d='M13.6,7.32l-.35.35a1.66,1.66,0,0,1-2.34,0l-3-3-1-1a1.55,1.55,0,0,0-2,.08A1.59,1.59,0,0,0,5,6L8,9l3,3a1.66,1.66,0,0,0,2.34,0l3-3,3-3a1.59,1.59,0,0,0,.11-2.24,1.58,1.58,0,0,0-2.23.1L15.92,5' transform='rotate(180) translate(-25 -15)'/></svg>
+                  <svg
+                    *ngIf="!isCollapsibleOpen(i)"
+                    xmlns="http://www.w3.org/2000/svg"
+                    version="1.1"
+                    height="16px"
+                    width="30px"
+                  >
+                    <title>
+                      {{ "RESULTS.results.alt_information" | translate }}
+                    </title>
+                    <path
+                      d="M13.6,7.32l-.35.35a1.66,1.66,0,0,1-2.34,0l-3-3-1-1a1.55,1.55,0,0,0-2,.08A1.59,1.59,0,0,0,5,6L8,9l3,3a1.66,1.66,0,0,0,2.34,0l3-3,3-3a1.59,1.59,0,0,0,.11-2.24,1.58,1.58,0,0,0-2.23.1L15.92,5"
+                    />
+                  </svg>
+                  <svg
+                    *ngIf="isCollapsibleOpen(i)"
+                    xmlns="http://www.w3.org/2000/svg"
+                    version="1.1"
+                    height="16px"
+                    width="30px"
+                  >
+                    <title>
+                      {{ "RESULTS.results.alt_more_information" | translate }}
+                    </title>
+                    <path
+                      d="M13.6,7.32l-.35.35a1.66,1.66,0,0,1-2.34,0l-3-3-1-1a1.55,1.55,0,0,0-2,.08A1.59,1.59,0,0,0,5,6L8,9l3,3a1.66,1.66,0,0,0,2.34,0l3-3,3-3a1.59,1.59,0,0,0,.11-2.24,1.58,1.58,0,0,0-2.23.1L15.92,5"
+                      transform="rotate(180) translate(-25 -15)"
+                    />
+                  </svg>
                 </span>
                 <span
                   class="test_description"
@@ -897,9 +947,6 @@
                   <a
                     *ngIf="r.tech_list.ele && !r.tech_list.html_validator"
                     [routerLink]="[r.tech_list.ele]"
-                    attr.aria-label="{{
-                      'RESULTS.results.practice' | translate
-                    }}"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -907,7 +954,9 @@
                       height="22.59"
                       viewBox="0 0 33.46 22.59"
                     >
-                      <title>{{ "RESULTS.results.alt_see" | translate }}</title>
+                      <title>
+                        {{ "RESULTS.results.alt_see" | translate }}
+                      </title>
                       <path
                         d="M32.71,22.11l.13-.13.13-.13a1.69,1.69,0,0,0,0-2.39h0L31.48,18,28.81,15.3a8,8,0,0,0,.57-1.07,2.05,2.05,0,0,1,.14-.46,6.37,6.37,0,0,0,.35-1.12v-.09A4.84,4.84,0,0,1,30,12,8,8,0,1,0,23,19l.28,0,.55-.11a5.12,5.12,0,0,0,.7-.23,2.05,2.05,0,0,1,.41-.12,8,8,0,0,0,1.14-.59l4.22,4.22A1.69,1.69,0,0,0,32.71,22.11ZM22.06,16a5,5,0,1,1,5-5A5,5,0,0,1,22.06,16Z"
                       />
@@ -926,9 +975,6 @@
                     *ngIf="r.tech_list.ele && r.tech_list.html_validator"
                     target="_blank"
                     href="{{ r.tech_list.ele }}"
-                    attr.aria-label="{{
-                      'RESULTS.results.practice' | translate
-                    }}"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -936,7 +982,9 @@
                       height="22.59"
                       viewBox="0 0 33.46 22.59"
                     >
-                      <title>{{ "RESULTS.results.alt_see" | translate }}</title>
+                      <title>
+                        {{ "RESULTS.results.alt_see" | translate }}
+                      </title>
                       <path
                         d="M32.71,22.11l.13-.13.13-.13a1.69,1.69,0,0,0,0-2.39h0L31.48,18,28.81,15.3a8,8,0,0,0,.57-1.07,2.05,2.05,0,0,1,.14-.46,6.37,6.37,0,0,0,.35-1.12v-.09A4.84,4.84,0,0,1,30,12,8,8,0,1,0,23,19l.28,0,.55-.11a5.12,5.12,0,0,0,.7-.23,2.05,2.05,0,0,1,.41-.12,8,8,0,0,0,1.14-.59l4.22,4.22A1.69,1.69,0,0,0,32.71,22.11ZM22.06,16a5,5,0,1,1,5-5A5,5,0,0,1,22.06,16Z"
                       />
@@ -961,7 +1009,6 @@
               <a
                 *ngIf="r.tech_list.ele && !r.tech_list.html_validator"
                 [routerLink]="[r.tech_list.ele]"
-                attr.aria-label="{{ 'RESULTS.results.practice' | translate }}"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -969,7 +1016,9 @@
                   height="22.59"
                   viewBox="0 0 33.46 22.59"
                 >
-                  <title>{{ "RESULTS.results.alt_see" | translate }}</title>
+                  <title>
+                    {{ "RESULTS.results.alt_see" | translate }}
+                  </title>
                   <path
                     d="M32.71,22.11l.13-.13.13-.13a1.69,1.69,0,0,0,0-2.39h0L31.48,18,28.81,15.3a8,8,0,0,0,.57-1.07,2.05,2.05,0,0,1,.14-.46,6.37,6.37,0,0,0,.35-1.12v-.09A4.84,4.84,0,0,1,30,12,8,8,0,1,0,23,19l.28,0,.55-.11a5.12,5.12,0,0,0,.7-.23,2.05,2.05,0,0,1,.41-.12,8,8,0,0,0,1.14-.59l4.22,4.22A1.69,1.69,0,0,0,32.71,22.11ZM22.06,16a5,5,0,1,1,5-5A5,5,0,0,1,22.06,16Z"
                   />
@@ -988,7 +1037,6 @@
                 *ngIf="r.tech_list.ele && r.tech_list.html_validator"
                 target="_blank"
                 href="{{ r.tech_list.ele }}"
-                attr.aria-label="{{ 'RESULTS.results.practice' | translate }}"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -996,7 +1044,9 @@
                   height="22.59"
                   viewBox="0 0 33.46 22.59"
                 >
-                  <title>{{ "RESULTS.results.alt_see" | translate }}</title>
+                  <title>
+                    {{ "RESULTS.results.alt_see" | translate }}
+                  </title>
                   <path
                     d="M32.71,22.11l.13-.13.13-.13a1.69,1.69,0,0,0,0-2.39h0L31.48,18,28.81,15.3a8,8,0,0,0,.57-1.07,2.05,2.05,0,0,1,.14-.46,6.37,6.37,0,0,0,.35-1.12v-.09A4.84,4.84,0,0,1,30,12,8,8,0,1,0,23,19l.28,0,.55-.11a5.12,5.12,0,0,0,.7-.23,2.05,2.05,0,0,1,.41-.12,8,8,0,0,0,1.14-.59l4.22,4.22A1.69,1.69,0,0,0,32.71,22.11ZM22.06,16a5,5,0,1,1,5-5A5,5,0,0,1,22.06,16Z"
                   />

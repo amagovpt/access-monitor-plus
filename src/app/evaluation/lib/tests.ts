@@ -1005,7 +1005,7 @@ export default {
   },
   heading_01: {
     type: "true",
-    elem: "all",
+    elem: "hx",
     test: "hxHasAName",
     score: 10,
     level: "A",
@@ -1017,7 +1017,7 @@ export default {
   },
   heading_02: {
     type: "prop",
-    elem: "all",
+    elem: "hx",
     test: "hxWithoutAName",
     score: 3,
     level: "A",
@@ -1437,7 +1437,7 @@ export default {
   },
   a_10: {
     type: "true",
-    elem: "all",
+    elem: "a",
     test: "linkAName",
     score: 10,
     level: "A",
@@ -1449,7 +1449,7 @@ export default {
   },
   a_11: {
     type: "prop",
-    elem: "all",
+    elem: "a",
     test: "linkNotAName",
     score: 10,
     level: "A",
@@ -1473,7 +1473,7 @@ export default {
   },
   a_13: {
     type: "prop",
-    elem: "all",
+    elem: "a",
     test: "linkIdentANameNot",
     score: 10,
     level: "A",
@@ -1641,7 +1641,7 @@ export default {
   },
   svg_01: {
     type: "true",
-    elem: "all",
+    elem: "svg",
     test: "svgAName",
     score: 10,
     level: "A",
@@ -1653,7 +1653,7 @@ export default {
   },
   svg_02: {
     type: "prop",
-    elem: "all",
+    elem: "svg",
     test: "svgNotAName",
     score: 10,
     level: "A",
@@ -1677,7 +1677,7 @@ export default {
   },
   table_08: {
     type: "prop",
-    elem: "all",
+    elem: "tableData",
     test: "tableHdrNot",
     score: 10,
     level: "A",
@@ -1700,7 +1700,7 @@ export default {
     result: "passed",
   },
   textC_02: {
-    type: "prop",
+    type: "fals",
     elem: "all",
     test: "textContrastHNot",
     score: 10,
@@ -1748,7 +1748,7 @@ export default {
     result: "passed",
   },
   label_03: {
-    type: "prop",
+    type: "fals",
     elem: "all",
     test: "labelANameNot",
     score: 10,
@@ -1772,7 +1772,7 @@ export default {
     result: "passed",
   },
   word_02: {
-    type: "prop",
+    type: "fals",
     elem: "all",
     test: "wordSpacingNot",
     score: 10,
@@ -1808,7 +1808,7 @@ export default {
     result: "passed",
   },
   landmark_02: {
-    type: "prop",
+    type: "fals",
     elem: "all",
     test: "bannerNotTopLevel",
     score: 10,
@@ -1832,7 +1832,7 @@ export default {
     result: "passed",
   },
   landmark_04: {
-    type: "prop",
+    type: "fals",
     elem: "all",
     test: "complementaryNotTopLevel",
     score: 10,
@@ -1856,7 +1856,7 @@ export default {
     result: "passed",
   },
   landmark_06: {
-    type: "prop",
+    type: "fals",
     elem: "all",
     test: "contentinfoNotTopLevel",
     score: 10,
@@ -1880,7 +1880,7 @@ export default {
     result: "passed",
   },
   landmark_08: {
-    type: "prop",
+    type: "fals",
     elem: "all",
     test: "mainNotTopLevel",
     score: 10,
@@ -1904,7 +1904,7 @@ export default {
     result: "passed",
   },
   landmark_10: {
-    type: "prop",
+    type: "fals",
     elem: "all",
     test: "duplicateBanner",
     score: 10,
@@ -1928,7 +1928,7 @@ export default {
     result: "passed",
   },
   landmark_12: {
-    type: "prop",
+    type: "fals",
     elem: "all",
     test: "duplicateContentinfo",
     score: 10,
@@ -1952,7 +1952,7 @@ export default {
     result: "passed",
   },
   landmark_14: {
-    type: "prop",
+    type: "fals",
     elem: "all",
     test: "duplicateMain",
     score: 10,
@@ -1965,7 +1965,7 @@ export default {
   },
   listitem_01: {
     type: "true",
-    elem: "all",
+    elem: "li",
     test: "liSemantically",
     score: 10,
     level: "AA",
@@ -1977,7 +1977,7 @@ export default {
   },
   listitem_02: {
     type: "prop",
-    elem: "all",
+    elem: "li",
     test: "liNotSemantically",
     score: 10,
     level: "AA",
@@ -1989,7 +1989,7 @@ export default {
   },
   list_02: {
     type: "true",
-    elem: "all",
+    elem: "li",
     test: "listCorrectly",
     score: 10,
     level: "AA",
@@ -2001,7 +2001,7 @@ export default {
   },
   list_03: {
     type: "prop",
-    elem: "all",
+    elem: "li",
     test: "listNotCorrectly",
     score: 10,
     level: "AA",
