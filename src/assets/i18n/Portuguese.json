@@ -126,7 +126,14 @@
       "alt_rowerr": "Não aceitável:",
       "alt_rowwar": "Para ver manualmente:",
       "alt_rowok": "Aceitável:",
-      "alt_see": "Ver resultados da prática:"
+      "alt_see": "Ver resultados da prática:",
+      "alt_passed":"Práticas aceitáveis",
+      "alt_failed":"Práticas não aceitáveis",
+      "alt_warning":"Práticas para ver manualmente",
+      "alt_information":"pressione para mais informação",
+      "alt_more_information":"pressione para comprimir informação"
+
+
     },
     "scoreboard": {
       "level": "Nível",

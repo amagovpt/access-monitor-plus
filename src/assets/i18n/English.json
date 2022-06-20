@@ -126,7 +126,12 @@
       "alt_rowerr": "Non acceptable:",
       "alt_rowwar": "To view manually:",
       "alt_rowok": "Acceptable:",
-      "alt_see": "See results from the practice:"
+      "alt_see": "See results from the practice:",
+      "alt_passed":"Acceptable practice",
+      "alt_failed":"Non acceptable practice",
+      "alt_warning":"Practice to view manually",
+      "alt_information":"press for more information",
+      "alt_more_information":"press for less information"
     },
     "scoreboard": {
       "level": "Level",
