@@ -58,7 +58,6 @@ export class EvaluationService {
               this.url = url;
               this.evaluation = response.result;
               this.evaluation.processed = this.processData();
-
               try {
                 sessionStorage.setItem("url", url);
                 sessionStorage.setItem(
@@ -130,94 +129,6 @@ export class EvaluationService {
     const data = this.evaluation.data;
     const allNodes = data.nodes;
     const ele = test;
-
-    const testSee = {
-      css: [
-        "colorContrast",
-        "colorFgBgNo",
-        "cssBlink",
-        "fontAbsVal",
-        "fontValues",
-        "justifiedCss",
-        "layoutFixed",
-        "lineHeightNo",
-        "valueAbsCss",
-        "valueRelCss",
-      ],
-      div: [
-        "aGroupNo",
-        "applet",
-        "appletAltNo",
-        "blink",
-        "brSec",
-        "ehandBoth",
-        "ehandBothNo",
-        "ehandMouse",
-        "ehandTagNo",
-        "ehandler",
-        "charSpacing",
-        "embed",
-        "embedAltNo",
-        "fieldLegNo",
-        "fieldNoForm",
-        "form",
-        "formSubmitNo",
-        "hx",
-        "hxSkip",
-        "id",
-        "idRep",
-        "iframe",
-        "iframeTitleNo",
-        "justifiedTxt",
-        "liNoList",
-        "marquee",
-        "object",
-        "objectAltNo",
-        "table",
-        "tableCaptionSummary",
-        "tableComplex",
-        "tableComplexError",
-        "tableData",
-        "tableDataCaption",
-        "tableLayout",
-        "tableLayoutCaption",
-        "tableNested",
-        "valueAbsHtml",
-        "valueRelHtml",
-      ],
-      span: [
-        "a",
-        "abbrNo",
-        "aJs",
-        "aSameText",
-        "aAdjacent",
-        "aAdjacentSame",
-        "aImgAltNo",
-        "aSkip",
-        "aSkipFirst",
-        "aTitleMatch",
-        "deprecElem",
-        "fontHtml",
-        "img",
-        "imgAltLong",
-        "imgAltNo",
-        "imgAltNot",
-        "imgAltNull",
-        "inpImg",
-        "inpImgAltNo",
-        "inputAltNo",
-        "inputIdTitleNo",
-        "inputLabel",
-        "inputLabelNo",
-        "label",
-        "labelForNo",
-        "labelPosNo",
-        "labelTextNo",
-        "layoutElem",
-        "longDImg",
-        "longDNo",
-      ],
-    };
 
     /*let results = {};
     if (ele !== 'colorFgBgNo' && ele !== 'justifiedCss' && ele !== 'lineHeightNo' && ele !== 'colorContrast' && testSee['css'].includes(ele)) {
@@ -533,9 +444,10 @@ export class EvaluationService {
 
   private getElementsList(nodes: any): Array<any> {
     const elements = new Array();
-
     for (const node of nodes || []) {
+      console.log(node);
       if (node.elements) {
+        console.log("node.elements")
         for (const element of node.elements || []) {
           const ele = this.getTagName(element);
           elements.push({
@@ -552,6 +464,7 @@ export class EvaluationService {
           });
         }
       } else {
+        console.log("node")
         const ele = this.getTagName(node);
         elements.push({
           ele,
@@ -566,6 +479,7 @@ export class EvaluationService {
   }
 
   private getTagName(element: any): string {
+    console.log(element);
     let name = element.htmlCode.slice(1);
 
     let k = 0;
