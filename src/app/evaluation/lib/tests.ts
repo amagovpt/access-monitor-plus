@@ -1862,7 +1862,7 @@ export default {
     result: "passed",
   },
   landmark_06: {
-    type: "decr",
+    type: "fals",
     elem: "all",
     test: "contentinfoNotTopLevel",
     score: 4,
@@ -1886,7 +1886,7 @@ export default {
     result: "passed",
   },
   landmark_08: {
-    type: "decr",
+    type: "fals",
     elem: "all",
     test: "mainNotTopLevel",
     score: 4,
