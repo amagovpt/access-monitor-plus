@@ -864,6 +864,7 @@
                 fxLayout="row"
                 fxLayoutAlign="start center"
                 [attr.aria-expanded]="isCollapsibleOpen(i)"
+                aria-labelledby="testDescription arrow"
               >
                 <span>
                   <svg
@@ -873,6 +874,7 @@
                     height="16px"
                     width="30px"
                     role="img"
+                    id="arrow"
                   >
                     <title>
                       {{ "RESULTS.results.alt_information" | translate }}
@@ -888,6 +890,8 @@
                     height="16px"
                     width="30px"
                     role="img"
+                    id="arrow"
+
                   >
                     <title>
                       {{ "RESULTS.results.alt_more_information" | translate }}
@@ -906,6 +910,7 @@
                       | translate: { value: r.value }
                       | html
                   "
+                  id="testDescription"
                 ></span>
                 <span
                   class="test_description"
