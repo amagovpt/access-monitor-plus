@@ -2,7 +2,7 @@ export default {
   img_01a: {
     type: "fals",
     elem: "img",
-    test: "imgAltNo",
+    test: "imgAlt",
     score: 10,
     level: "a",
     trust: "0.9",
