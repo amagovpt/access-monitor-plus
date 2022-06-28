@@ -749,8 +749,8 @@
       "p": "Verifiquei que <mark>todos</mark> os elementos <code>&lt;button&gt;</code> têm nome acessível."
     },
     "button_02": {
-      "s": "Encontrei <mark>{{value}}</mark> elemento <code>&lt;button&t;</code> sem nome acessível.",
-      "p": "Encontrei <mark>{{value}}</mark> elementos <code>&lt;button&t;</code> sem nome acessível."
+      "s": "Encontrei <mark>{{value}}</mark> elemento <code>&lt;button&gt;</code> sem nome acessível.",
+      "p": "Encontrei <mark>{{value}}</mark> elementos <code>&lt;button&gt;</code> sem nome acessível."
     },
     "element_01": {
       "s": "Encontrei <mark>{{value}}</mark> elemento na ordem de foco sequencial.",
