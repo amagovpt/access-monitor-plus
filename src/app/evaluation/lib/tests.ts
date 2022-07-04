@@ -64,7 +64,7 @@ export default {
   area_01a: {
     type: "fals",
     elem: "area",
-    test: "areaAltNo",
+    test: "areaAltYes",
     score: 10,
     level: "a",
     trust: "0.9",
@@ -88,7 +88,7 @@ export default {
   inp_img_01a: {
     type: "fals",
     elem: "inpImg",
-    test: "inpImgAltNo",
+    test: "inpImgAltYes",
     score: 10,
     level: "a",
     trust: "0.9",
@@ -190,7 +190,7 @@ export default {
   a_01b: {
     type: "fals",
     elem: "a",
-    test: "aSkipFirst",
+    test: "aSkipFirstNo",
     score: 3,
     level: "a",
     trust: "0.9",
@@ -202,7 +202,7 @@ export default {
   a_02a: {
     type: "fals",
     elem: "a",
-    test: "aSkip",
+    test: "aSkipNo",
     score: 3,
     level: "a",
     trust: "0.9",
@@ -226,7 +226,7 @@ export default {
   hx_01a: {
     type: "fals",
     elem: "all",
-    test: "hx",
+    test: "hxNone",
     score: 3,
     level: "A",
     trust: "1",
@@ -353,8 +353,8 @@ export default {
   },
   input_02b: {
     type: "fals",
-    elem: "inputLabel",
-    test: "inputLabelNo",
+    elem: "all",
+    test: "inputLabel",
     score: 10,
     level: "a",
     trust: "0.7",
@@ -414,7 +414,7 @@ export default {
   form_01a: {
     type: "fals",
     elem: "form",
-    test: "formSubmitNo",
+    test: "formSubmit",
     score: 10,
     level: "a",
     trust: "1",
@@ -782,7 +782,7 @@ export default {
   w3c_validator_01a: {
     type: "fals",
     elem: "w3cValidator",
-    test: "w3cValidatorErrors",
+    test: "w3cValidatorErrorsNo",
     score: 10,
     level: "a",
     trust: "1",
@@ -822,7 +822,7 @@ export default {
   layout_01a: {
     type: "fals",
     elem: "all",
-    test: "layoutElem",
+    test: "layoutElemNo",
     score: 10,
     level: "a",
     trust: "1",
