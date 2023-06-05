@@ -873,8 +873,8 @@
       "p": "Localizei <mark>{{value}}</mark> elementos <code>meta</code> refresh que causam refrescamento não imediato da página"
     },
     "meta_05": {
-      "s": "Constatei que o elemento <code>meta</code> <mark>não impede</mark> não impede o utilizador de fazer zoom.",
-      "p": "Constatei que o elemento <code>meta</code> <mark>não impede</mark> não impede o utilizador de fazer zoom."
+      "s": "Constatei que o elemento <code>meta</code> <mark>não impede</mark> o utilizador de fazer zoom.",
+      "p": "Constatei que o elemento <code>meta</code> <mark>não impede</mark> o utilizador de fazer zoom."
     },
     "object_01": {
       "s": "Verifiquei que <mark>todos</mark> os elementos <code>&lt;object&gt;</code> têm equivalente textual alternativo.",
