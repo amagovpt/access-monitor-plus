@@ -865,7 +865,7 @@
                 fxLayout="row"
                 fxLayoutAlign="start center"
                 [attr.aria-expanded]="isCollapsibleOpen(i)"
-                aria-labelledby="testDescription{i} arrow"
+                attr.aria-labelledby="testDescription{{i}} arrow{{i}}"
               >
                 <span>
                   <svg
@@ -875,7 +875,7 @@
                     height="16px"
                     width="30px"
                     role="img"
-                    id="arrow"
+                    attr.id="arrow{{i}}"
                   >
                     <title>
                       {{ "RESULTS.results.alt_information" | translate }}
@@ -891,7 +891,7 @@
                     height="16px"
                     width="30px"
                     role="img"
-                    id="arrow"
+                    attr.id="arrow{{i}}"
 
                   >
                     <title>
@@ -911,7 +911,7 @@
                       | translate: { value: r.value }
                       | html
                   "
-                  id="testDescription{i}"
+                  attr.id="testDescription{{i}}"
                 ></span>
                 <span
                   class="test_description"
@@ -921,6 +921,7 @@
                       | translate: { value: r.value }
                       | html
                   "
+                  attr.id="testDescription{{i}}"
                 ></span>
               </button>
               <div class="collapsible-content" ngClass.lt-md="sm_cc">
