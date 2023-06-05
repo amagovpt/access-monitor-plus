@@ -865,7 +865,7 @@
                 fxLayout="row"
                 fxLayoutAlign="start center"
                 [attr.aria-expanded]="isCollapsibleOpen(i)"
-                aria-labelledby="testDescription arrow"
+                aria-labelledby="testDescription{i} arrow"
               >
                 <span>
                   <svg
@@ -911,7 +911,7 @@
                       | translate: { value: r.value }
                       | html
                   "
-                  id="testDescription"
+                  id="testDescription{i}"
                 ></span>
                 <span
                   class="test_description"
