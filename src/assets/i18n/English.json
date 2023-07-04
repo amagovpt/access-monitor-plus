@@ -997,24 +997,24 @@
       "p": "I found <mark>one</mark> banner landmark."
     },
     "landmark_10": {
-      "s": "I found <mark>{{value}}</mark> banner landmarks.",
-      "p": "I found <mark>{{value}}</mark> banner landmarks."
+      "s": "I found at least one banner landmark.",
+      "p": "I found at least one banner landmark."
     },
     "landmark_11": {
       "s": "I found <mark>one</mark> contentinfo landmark.",
       "p": "I found <mark>one</mark> contentinfo landmark."
     },
     "landmark_12": {
-      "s": "I found <mark>{{value}}</mark> contentinfo landmarks.",
-      "p": "I found <mark>{{value}}</mark> contentinfo landmarks."
+      "s": "I found at least one contentinfo landmark.",
+      "p": "I found at least one contentinfo landmark."
     },
     "landmark_13": {
       "s": "I found <mark>one</mark> main landmark.",
       "p": "I found <mark>one</mark> main landmark."
     },
     "landmark_14": {
-      "s": "I found <mark>{{value}}</mark> main landmarks.",
-      "p": "I found <mark>{{value}}</mark> main landmarks."
+      "s": "I found at least one main landmark.",
+      "p": "I found at least one main landmark."
     },
     "listitem_01": {
       "s": "I noticed that <mark>all</mark> <code>&lt;li&gt;</code> elements are contained within a list.",
