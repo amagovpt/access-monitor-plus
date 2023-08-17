@@ -795,7 +795,7 @@ export default {
     type: "decr",
     elem: "w3cValidator",
     test: "w3cValidatorErrors",
-    score: 5,
+    score: 10,
     level: "A",
     trust: "1",
     top: 10,
