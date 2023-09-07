@@ -493,12 +493,12 @@
       "p": "Localizei <mark>{{value}}</mark> elementos <code>&lt;label&gt;</code> que não estão visíveis ou estão incorretamente posicionados."
     },
     "input_02b": {
-      "s": "Constatei que <mark>todos</mark> os controlos de formulário têm um nome acessivel.",
-      "p": "Constatei que <mark>todos</mark> os controlos de formulário têm um nome acessivel."
+      "s": "Constatei que <mark>todos</mark> os controlos de formulário têm um nome acessível.",
+      "p": "Constatei que <mark>todos</mark> os controlos de formulário têm um nome acessível."
     },
     "input_02": {
       "s": "Encontrei <mark>{{value}}</mark> controlo de formulário sem nome acessível.",
-      "p": "Encontrei <mark>{{value}}</mark> controlos de formulário sem nome acessivel."
+      "p": "Encontrei <mark>{{value}}</mark> controlos de formulário sem nome acessível."
     },
     "input_01": {
       "s": "Identifiquei <mark>{{value}}</mark> controlo de formulário sem o elemento <code>&lt;label&gt;</code> associado e sem o atributo <code>title</code>.",
