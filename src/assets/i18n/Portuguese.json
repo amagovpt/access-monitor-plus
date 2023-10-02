@@ -997,24 +997,24 @@
       "p": "Encontrei <mark>um</mark> elemento com a semântica de <code>banner</code>."
     },
     "landmark_10": {
-      "s": "Encontrei <mark>{{value}}</mark> elementos com a semântica de <code>banner</code>.",
-      "p": "Encontrei <mark>{{value}}</mark> elementos com a semântica de <code>banner</code>."
+      "s": "Encontrei pelo menos um elemento com a semântica de <code>banner</code>.",
+      "p": "Encontrei pelo menos um elemento com a semântica de <code>banner</code>."
     },
     "landmark_11": {
       "s": "Encontrei <mark>um</mark> elemento com a semântica de <code>contentinfo</code>.",
       "p": "Encontrei <mark>um</mark> elemento com a semântica de <code>contentinfo</code>."
     },
     "landmark_12": {
-      "s": "Encontrei <mark>{{value}}</mark> elementos com a semântica de <code>contentinfo</code>.",
-      "p": "Encontrei <mark>{{value}}</mark> elementos com a semântica de <code>contentinfo</code>."
+      "s": "Encontrei pelo menos um elemento com a semântica de <code>contentinfo</code>.",
+      "p": "Encontrei pelo menos um elemento com a semântica de <code>contentinfo</code>."
     },
     "landmark_13": {
       "s": "Encontrei <mark>um</mark> elemento com a semântica de <code>main</code>.",
       "p": "Encontrei <mark>um</mark> elemento com a semântica de <code>main</code>."
     },
     "landmark_14": {
-      "s": "Encontrei <mark>{{value}}</mark> elementos com a semântica de <code>main</code>.",
-      "p": "Encontrei <mark>{{value}}</mark> elementos com a semântica de <code>main</code>."
+      "s": "Encontrei pelo menos um elemento com a semântica de <code>main</code>.",
+      "p": "Encontrei pelo menos um elemento com a semântica de <code>main</code>."
     },
     "listitem_01": {
       "s": "Verifiquei que <mark>todos</mark> os elementos <code>&lt;li&gt;</code> estão contidos dentro de uma lista.",
