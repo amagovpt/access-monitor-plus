@@ -197,7 +197,7 @@ export default {
     ref: "G1",
     scs: "2.4.1",
     dis: "43522",
-    result: "failed",
+    result: "warning",
   },
   a_02a: {
     type: "fals",

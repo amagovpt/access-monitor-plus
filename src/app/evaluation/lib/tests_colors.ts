@@ -1,6 +1,6 @@
 export default {
   a_01a: "Y",
-  a_01b: "R",
+  a_01b: "Y",
   a_02a: "R",
   a_02b: "Y",
   a_03: "R",
