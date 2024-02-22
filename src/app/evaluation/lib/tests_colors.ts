@@ -25,6 +25,8 @@ export default {
   aria_06: "R",
   aria_07: "G",
   aria_08: "R",
+  aria_09: "R",
+  aria_10: "G",
   audio_video_01: "G",
   audio_video_02: "R",
   autocomplete_01: "G",

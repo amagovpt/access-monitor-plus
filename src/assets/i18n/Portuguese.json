@@ -289,6 +289,8 @@
     "ariaStNotPermitted": "Valores de estados e propriedades ARIA não permitidos",
     "ariaAtribDefined": "Atributos aria-* definidos",
     "ariaAtribNotDefined": "Atributos aria-* mal definidos",
+    "ariaControlsIdNotFound": "Atributo <code>aria-controls</code> com valor que não corresponde a um <code>id</code> de um elemento",
+    "ariaControlsIdFound": "Atributo <code>aria-controls</code> com valor que corresponde a um <code>id</code> de um elemento",
     "audioAvoidsAutoPlay": "Elementos <code>audio</code> e <code>video</code> não tocam automaticamente",
     "audioAutoPlay": "Elementos <code>audio</code> e <code>video</code> tocam automaticamente",
     "autoCmpltValid": "Atributos autocomplete válidos",
@@ -736,6 +738,14 @@
       "s": "Encontrei <mark>{{value}}</mark> atributo aria-* que não está na especificação ARIA.",
       "p": "Encontrei <mark>{{value}}</mark> atributos aria-* que não estão na especificação ARIA."
     },
+    "aria_09": {
+      "s": "Encontrei <mark>{{value}}</mark> referência de um atributo aria-controls que não existe na página.",
+      "p": "Encontrei <mark>{{value}}</mark> referências de atributos aria-controls que não existem na página."
+    },
+    "aria_10": {
+      "s": "Constatei que <mark>a referência</mark> de um atributo aria-controls existe na página.",
+      "p": "Constatei que <mark>todas as referências</mark> de atributos aria-controls existem na página."
+    },
     "audio_video_01": {
       "s": "Não encontrei <mark>nenhum</mark> elemento <code>&lt;audio&gt;</code> ou <code>&lt;video&gt;</code> que iniciasse automaticamente.",
       "p": "Não encontrei <mark>nenhum</mark> elemento <code>&lt;audio&gt;</code> ou <code>&lt;video&gt;</code> que iniciasse automaticamente."
@@ -1140,7 +1150,8 @@
     "9e45ec": "Espaçamento de palavras nos atributos de estilo não é !important",
     "59br37": "Nó de texto ampliado não é cortado por CSS <code>overflow</code>",
     "ARIA11": "Usar landmarks ARIA para identificar regiões da página",
-    "H40": "Usar listas de descrição"
+    "H40": "Usar listas de descrição",
+    "in6db8": "Referências ARIA existem"
   },
   "TXT_TECHNIQUES": {
     "H37": "<p>Verifique se o equivalente alternativo em texto existente nas imagens serve informação ou função igual à desempenhada pela imagem na página.</p>",
@@ -1233,7 +1244,8 @@
     "9e45ec": "<p>Um espaçamento entre palavras igual ou superior a 0,16 vezes o tamanho da fonte é importante para garantir que todos os utilizadores conseguem ler o texto. Os estilos CSS não devem impedir que os utilizadores aumentem o espaçamento entre palavras se assim o entenderem.</p>",
     "59br37": "<p>Ao ampliar a página a dimensão relativa do texto e dos seus contentores pode mudar o que faz com que estes possam necessitar de mais espaço para apresentar o mesmo texto. A propriedade CSS <code>overflow</code> determina como os contentores se ajustam. Alguns dos seus valores podem resultar no texto ser cortado.</p>",
     "ARIA11": "<p>Garanta que só há um elemento com a semântica de main na página. Elementos com esta semântica designam a parte principal da página e permitem que utilizadores de leitor de ecrã naveguem rapidamente para essa parte da página. Cada página só deve ter um conteúdo principal, independentemente de ser especificado usando HTML5 ou ARIA.</p>",
-    "H40": "<p>Se uma lista de descrições conter elementos que não são itens da lista, ou se a ordem dos elementos não estiver correta, isto é, os elementos <dt> precederem os elementos <dd>, a lista estará mal formatada, e tecnologias de apoio não serão capazes de a apresentar corretamente.</p>"
+    "H40": "<p>Se uma lista de descrições conter elementos que não são itens da lista, ou se a ordem dos elementos não estiver correta, isto é, os elementos <dt> precederem os elementos <dd>, a lista estará mal formatada, e tecnologias de apoio não serão capazes de a apresentar corretamente.</p>",
+    "in6db8": "<p>Todas as referências obrigatórias a elementos indicadas num atributo WAI-ARIA têm de existir na página.</p>"
   },
   "TECHFAIL": {
     "relationF": "Esta falha WCAG 2.1 está relacionada com:",
