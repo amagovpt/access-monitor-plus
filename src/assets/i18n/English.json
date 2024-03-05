@@ -289,6 +289,8 @@
     "ariaStNotPermitted": "Not allowed ARIA states and properties",
     "ariaAtribDefined": "Attributes aria-* defined",
     "ariaAtribNotDefined": "Attributes aria-* wrongly defined",
+    "ariaControlsIdNotFound": "Attribute <code>aria-controls</code> without the corresponding element",
+    "ariaControlsIdFound": "Attribute <code>aria-controls</code> with the corresponding element",
     "audioAvoidsAutoPlay": "<code>audio</code> and <code>video</code> elementos do not play automatically",
     "audioAutoPlay": "<code>audio</code> and <code>video</code> elementos that play automatically",
     "autoCmpltValid": "Valid autocomplete attribute",
@@ -736,6 +738,14 @@
       "s": "I found <mark>{{value}}</mark> aria-* attribute that is not defined in the ARIA specification.",
       "p": "I found <mark>{{value}}</mark> aria-* attributes that are not defined in the ARIA specification."
     },
+    "aria_09": {
+      "s": "I found <mark>{{value}}</mark> references of aria-controls attribute that do not exist in the page.",
+      "p": "I found <mark>{{value}}</mark> references of aria-controls attributes that do not exist in the page."
+    },
+    "aria_10": {
+      "s": "I found that <mark>all references</mark> of aria-controls attribute exist in the page.",
+      "p": "I found that <mark>all references</mark> of aria-controls attributes exist in the page."
+    },
     "audio_video_01": {
       "s": "I haven’t found <mark>any</mark> <code>&lt;audio&gt;</code> or <code>&lt;video&gt;</code> element that plays automatically.",
       "p": "I haven’t found <mark>any</mark> <code>&lt;audio&gt;</code> or <code>&lt;video&gt;</code> element that plays automatically."
@@ -1140,7 +1150,8 @@
     "9e45ec": "Word spacing in style attributes is not !important",
     "59br37": "Zoomed text node is not clipped with CSS <code>overflow</code>",
     "ARIA11": "Using ARIA landmarks to identify regions of a page",
-    "H40": "Using description lists"
+    "H40": "Using description lists",
+    "in6db8": "ARIA required ID references exist"
   },
   "TXT_TECHNIQUES": {
     "H37": "<p>Check if the alternative text equivalent found in the images provides equal information or function as the one performed by the image on the page.</p>",
@@ -1233,7 +1244,8 @@
     "9e45ec": "<p>A word spacing equal to or larger than 0.16 times the font size is important to ensure that all users are able to read the text. CSS styles should not prevent users from increasing the word spacing if they so desire.</p>",
     "59br37": "<p>When zooming on a page, the relative size of text and respective container might change, resulting in extra space being needed to present the same text. The CSS property <code>overflow</code> determines how the containers adjust when zooming. Some of its values might result in text clipping.</p>",
     "ARIA11": "<p>Ensure that there is only one main landmark in the page. Main landmarks designate the main content of the page and make it easy for screen reader users to quickly navigate to it. Each page should only have one main content, irrespectively of it being designated using HTML5 or ARIA.</p>",
-    "H40": "<p>If description lists contain non list item elements, or if the order of the list item elements is not appropriate, that is, <dt> elements should precede <dd> elements, the list will be incorrectly marked up, and assistive technologies will not be able to render it correctly.</p>"
+    "H40": "<p>If description lists contain non list item elements, or if the order of the list item elements is not appropriate, that is, <dt> elements should precede <dd> elements, the list will be incorrectly marked up, and assistive technologies will not be able to render it correctly.</p>",
+    "in6db8": "<p>Check that every ID reference required by WAI-ARIA exists.</p>"
   },
   "TECHFAIL": {
     "relationF": "This WCAG 2.1 failure is related to:",
