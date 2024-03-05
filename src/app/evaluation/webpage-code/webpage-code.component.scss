@@ -110,7 +110,10 @@ nav a {
 .html_code {
   padding: 15px;
   background-color: var(--webpage-code-background);
-  color: var(--webpage-code-text);
   overflow: scroll;
   margin-bottom: 100px;
+}
+
+.html_code pre code {
+  color: var(--webpage-code-text);
 }
