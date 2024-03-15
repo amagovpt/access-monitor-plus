@@ -1,5 +1,5 @@
 import React from "react";
-import TableComponent from "./index";
+import { TableComponent } from "./index";
 
 export default {
   title: "components/Molecules/Table",
