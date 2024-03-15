@@ -1,0 +1,34 @@
+.btn-secondary {
+  border: 2px solid transparent;
+  font-weight: 700;
+  color: var(--primary);
+  background-color: #fff;
+}
+
+.btn-secondary:disabled {
+  color: #515151;
+  opacity: 0.8 !important;
+  background-color: #fff;
+  border: 2px solid transparent;
+}
+
+.btn-secondary:hover {
+  border: 2px solid #5d56c5;
+  color: #5d56c5;
+  background-color: #fff;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active,
+.btn-secondary:not(:disabled):not(.disabled):active,
+.show > .btn-secondary.dropdown-toggle {
+  color: #fff;
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-check:focus + .btn,
+.btn-secondary:focus {
+  color: var(--white);
+  background-color: var(--primary);
+  outline: 0;
+}

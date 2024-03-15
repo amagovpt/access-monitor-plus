@@ -1,0 +1,16 @@
+.btn-ghost {
+  color: var(--primary);
+  font-weight: 700;
+  border: 1px solid var(--primary);
+}
+
+.btn-ghost:hover {
+  color: #5d56c5;
+  border: 2px solid #5d56c5;
+}
+
+.btn-ghost:disabled {
+  opacity: 0.8;
+  color: #515151;
+  border: 1px solid #515151;
+}

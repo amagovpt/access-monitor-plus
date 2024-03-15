@@ -1,0 +1,19 @@
+.btn-danger {
+  color: var(--white);
+  background-color: #dc3545;
+  font-weight: 700;
+  border: 2px solid #dc3545;
+}
+
+.btn-danger:hover {
+  color: var(--white);
+  border-color: transparent;
+  background-color: #a62831;
+}
+
+.btn-danger:disabled {
+  opacity: 1;
+  border-color: transparent;
+  color: var(--white);
+  background-color: var(--primary-disabled);
+}

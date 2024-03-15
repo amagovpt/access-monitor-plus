@@ -1,0 +1,124 @@
+.table-alterantive {
+  border-collapse: collapse;
+
+  border-spacing: 0;
+  border-bottom: #fff;
+}
+
+.table-alterantive tr th {
+  color: #333 !important;
+  padding: 0;
+  background-color: #fff !important;
+}
+
+.table-alterantive tbody tr td {
+  vertical-align: middle;
+  text-align: left;
+}
+
+.table-alterantive .heading_total {
+  font-family: var(--font-lato);
+  font-size: 1.5em;
+  font-weight: bold;
+  letter-spacing: 0;
+  text-align: center;
+
+  width: 100px !important;
+}
+
+.table-alterantive .total_top {
+  padding-top: 0;
+  margin-top: 0;
+  vertical-align: top;
+}
+
+.table-alterantive .total_bottom {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  padding-top: 0.7em;
+  vertical-align: bottom;
+}
+
+.table-alterantive .body_text {
+  text-align: center;
+  background-color: #efefee;
+}
+
+.border_right {
+  border-right: 1px solid #000;
+}
+
+.aceptable_continer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #efefee;
+  position: relative;
+}
+
+.icon_and_text {
+  width: 100%;
+  padding-left: 1em;
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  font-size: 1em;
+  font-weight: bold !important;
+  font-family: var(--font-lato);
+  margin-left: 1em;
+}
+
+.ammount {
+  padding-right: 3em;
+  width: 3em;
+  font-size: 1.5em;
+  font-weight: 700;
+  font-family: var(--font-lato);
+  display: flex;
+  align-items: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #333 !important;
+  height: 100% !important;
+  padding-top: 0.7em !important;
+  padding-bottom: 0.7em !important;
+
+  z-index: 1;
+}
+
+.overlay_aceptable {
+  background-color: #bce1bc;
+}
+
+.overlay_manual {
+  background-color: #ff9;
+}
+
+.overlay_no_aceptable {
+  background-color: #f99;
+}
+
+.total_practices {
+  font-size: 2.25em;
+  font-weight: 900;
+  font-family: var(--font-lato);
+  padding-left: 0.5em;
+}
+
+.practices_found {
+  font-size: 1.25em;
+  font-weight: 700;
+  margin-left: 0.2em;
+  font-family: var(--font-lato);
+}

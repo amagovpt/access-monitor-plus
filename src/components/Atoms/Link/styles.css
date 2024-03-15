@@ -1,0 +1,19 @@
+.link-container {
+  display: flex;
+  align-items: center;
+  gap: 10px !important;
+  flex-direction: row;
+  color: var(--primary) !important;
+}
+
+.link-container a {
+  font-weight: 500 !important;
+  color: var(--primary) !important;
+  text-decoration-color: var(--primary) !important;
+}
+
+.link-container a:focus {
+  border: 3px solid var(--focus-button);
+  box-shadow: none;
+  outline: 0;
+}

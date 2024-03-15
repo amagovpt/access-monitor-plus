@@ -1,0 +1,119 @@
+.footer {
+  padding: 50px 0px;
+  background-color: #f1f1f1;
+
+  font-family: var(--font-lato);
+
+  /* position: fixed; */
+  bottom: 0;
+  position: relative;
+  /* margin-top: 20px; */
+
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.links a {
+  font-size: 16px;
+  color: #333399;
+  font-family: var(--font-lato);
+  padding-right: 30px !important;
+  height: 44px;
+  padding-bottom: 65px;
+  padding-top: 5px;
+  text-decoration: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.selo_large {
+  margin-left: 80px;
+}
+
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.footer img {
+  max-width: 100%;
+  height: auto;
+}
+
+.footer ul {
+  list-style-type: none;
+  padding: 0px !important;
+  text-align: center;
+  margin: 0;
+}
+
+@media (max-width: 576px) {
+  .footer .links a {
+    padding-right: 0px !important;
+    padding-bottom: 0px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer .links a {
+    font-size: 16px;
+    line-height: 30px;
+  }
+}
+
+/* Footer for Figam */
+
+.back-to-top {
+  position: absolute;
+  top: -25px;
+  right: 40px;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.back-to-top button {
+  width: 50px;
+  background-color: var(--primary);
+  border-radius: 100px;
+  height: 50px;
+
+  padding: 0;
+  text-align: center;
+  outline: none;
+
+  border: 0px !important;
+}
+
+.back-to-top button i {
+  color: #fff !important;
+  transform: translateX(190px);
+}
+
+.dark {
+  background-color: var(--primary);
+  color: #b6dcf6;
+}
+
+.dark ul li a {
+  color: #b6dcf6;
+}
+
+.dark .back-to-top button {
+  border: inherit;
+  background-color: #b6dcf6;
+}
+
+.dark .back-to-top button i {
+  color: var(--primary);
+}

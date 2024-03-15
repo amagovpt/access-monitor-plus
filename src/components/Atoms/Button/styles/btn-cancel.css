@@ -1,0 +1,17 @@
+.btn-cancel {
+  font-weight: 700;
+  background-color: var(--white);
+  border: 1px solid #333 !important;
+}
+
+.btn-cancel:hover {
+  color: #5c5c5c;
+  background-color: #d6d6d6;
+  border: 2px solid #5c5c5c;
+}
+
+.btn-cancel:disabled {
+  opacity: 0.8;
+  color: #515151;
+  border: 1px solid #515151;
+}

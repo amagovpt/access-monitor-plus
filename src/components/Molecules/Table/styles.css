@@ -1,0 +1,56 @@
+.table tr th {
+  color: #fff;
+  padding: 14px;
+  background-color: #333 !important;
+  font-family: var(--fonte-lato);
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.table thead tr td {
+  vertical-align: middle;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid #333;
+}
+
+.table tbody tr:last-child {
+  border: 0 !important;
+  /* border-bottom: 0 !important; */
+}
+
+.table tbody tr td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.table tbody tr td:first-child {
+  width: 70px;
+  height: 72px;
+  background: #bce1bc;
+}
+
+.table_primary tbody tr td:last-child {
+  width: 8em;
+}
+
+.middle_col {
+  width: 5em;
+}
+
+/* Accordion in table */
+
+.table .accordion-button:not(.collapsed) {
+  background-color: transparent !important;
+}
+
+.table .accordion-button:focus {
+  box-shadow: none;
+  border-radius: 2px !important;
+  border: 1px solid #000;
+}
+
+.table .accordion-button {
+  padding: 0 !important;
+}

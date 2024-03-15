@@ -1,0 +1,58 @@
+@import url("./btn-primary.css");
+@import url("./btn-secondary.css");
+@import url("./btn-cancel.css");
+@import url("./btn-success.css");
+@import url("./btn-ghost.css");
+@import url("./btn-danger.css");
+
+.btn-loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-loading-container .btn-loading-text {
+  margin-left: 5px;
+}
+
+button,
+.btn {
+  border-radius: 0;
+  padding: 0 1em !important;
+  display: flex !important;
+  align-items: center;
+  height: 42px;
+  justify-content: center;
+  gap: 10px !important;
+
+  font-family: var(--font-lato) !important;
+  border: 2px solid inherit #fff;
+}
+
+button,
+.btn:focus {
+  border: 3px solid var(--focus-button);
+  box-shadow: none;
+}
+
+/* Rever o MT */
+.button-icon {
+  display: flex;
+  align-items: center;
+  margin-top: 2px;
+}
+
+button.btn-lg {
+  height: 50px;
+  font-size: 18px;
+}
+
+button.btn-md {
+  height: 42px;
+  font-size: 16px;
+}
+
+button.btn-sm {
+  height: 32px;
+  font-size: 12px;
+}

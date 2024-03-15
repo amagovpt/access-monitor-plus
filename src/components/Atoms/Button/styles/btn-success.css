@@ -1,0 +1,19 @@
+.btn-success {
+  color: #000;
+  background-color: #1acc60;
+  font-weight: 700;
+  border: 2px solid transparent;
+}
+
+.btn-success:hover {
+  color: #000;
+  background-color: #38b458;
+  border-color: transparent;
+}
+
+.btn-success:disabled {
+  opacity: 1;
+  border-color: transparent;
+  color: var(--white);
+  background-color: var(--primary-disabled);
+}

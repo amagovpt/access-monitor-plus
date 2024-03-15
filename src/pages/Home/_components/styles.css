@@ -1,0 +1,13 @@
+.tab_content_view input {
+  height: 54px;
+  margin-bottom: 2rem;
+}
+
+.tab_content_view label {
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.tab_content_view textarea {
+  margin-bottom: 2rem;
+}

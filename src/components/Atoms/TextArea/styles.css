@@ -1,0 +1,25 @@
+.field label {
+  font-size: 1rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.field textarea {
+  height: 100px;
+  border: 2px solid var(--primary) !important;
+  background-color: #ffffff;
+  margin: 8px 0 8px 0;
+  min-width: 50px;
+  padding: 10px 16px;
+  color: #333;
+  font-weight: 400;
+  font-size: 1em;
+  font-family: var(--font-lato);
+
+  border-radius: 0;
+}
+
+.field textarea:focus {
+  /* REVER o Boxshadow */
+  box-shadow: none;
+}

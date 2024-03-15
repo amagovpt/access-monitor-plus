@@ -1,0 +1,108 @@
+.main {
+  height: auto;
+  background-color: #e4e4e4;
+  position: relative;
+  padding-bottom: 4rem;
+}
+
+.main .link_breadcrumb_container {
+  padding: 3rem 0px 2rem 0px;
+}
+
+.acess_monitor {
+  font-size: 19px;
+  line-height: 48px;
+  color: #fff;
+  background-color: var(--primary);
+  font-weight: 700;
+  font-family: var(--fonte-lato);
+  height: 31px;
+  width: 157px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0.38px;
+}
+
+.report_container_title {
+  font-size: 2.6em;
+  color: #333;
+  font-weight: 900;
+  font-family: "Lato";
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  word-break: break-all;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.report_container_subtitle {
+  font-size: 1.5em;
+  color: #333;
+  font-weight: 700;
+  font-family: "Lato";
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.sumary_container {
+  margin: 40px 0;
+  padding: 30px 60px;
+}
+
+.chart_container {
+  width: 20%;
+  margin-right: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resume_info_about_uri div span:first-child {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.resume_info_about_uri div span:last-child {
+  font-size: 18px;
+}
+
+.size_container {
+  width: 20%;
+  margin-right: 4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.size_container div span:first-child {
+  font-size: 2.25em;
+  font-weight: 900;
+  color: #333;
+}
+
+.size_container div span:last-child {
+  font-size: 1em;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: #333;
+}
+
+.table_container_sumary {
+  width: 76%;
+}
+
+.avaliation_container {
+  padding: 30px 60px;
+}
+
+.avaliation_title {
+  margin-bottom: 3rem;
+}

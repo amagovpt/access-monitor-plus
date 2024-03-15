@@ -1,0 +1,53 @@
+.main {
+  height: auto;
+  background-color: #e4e4e4;
+
+  position: relative;
+  /* height: 100% !important; */
+  padding-bottom: 4rem;
+  /* margin-bottom: 4rem; */
+}
+
+.main .link_breadcrumb_container {
+  padding: 3rem 0px 2rem 0px;
+}
+
+.main .validator_container {
+  padding: 62px 60px;
+
+  display: grid !important;
+  grid-template-columns: 55% 45%;
+}
+
+.main .validator_container_description {
+  font-size: 18px;
+  font-weight: 400 !important;
+  line-height: 1.75em;
+}
+
+.main .validator_container aside:first-child {
+  /* padding-right: 20px !important; */
+
+  flex-direction: column;
+  box-sizing: border-box;
+  display: flex;
+  place-content: stretch flex-start;
+  align-items: stretch;
+}
+
+.main .validator_container aside:last-child {
+  place-content: flex-start center;
+  align-items: flex-start;
+  flex-direction: row;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.main .verify_img {
+  width: 237px;
+}
+
+.validator_container .nav-link {
+  width: 200px !important;
+  height: 55px;
+}

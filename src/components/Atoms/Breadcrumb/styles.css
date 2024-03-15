@@ -1,0 +1,17 @@
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">";
+  color: var(--primary);
+}
+
+.breadcrumb-item a {
+  color: var(--primary);
+}
+
+.breadcrumb-item {
+  font-family: var(--font-lato);
+  font-size: 18px;
+}
+
+.breadcrumb-item.active {
+  color: #333 !important;
+}
