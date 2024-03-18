@@ -4,7 +4,7 @@ import { RoutesConfig } from "./routes";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/">
       <RoutesConfig />
     </BrowserRouter>
   );

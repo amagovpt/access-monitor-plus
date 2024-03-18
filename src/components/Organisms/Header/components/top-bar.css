@@ -4,6 +4,10 @@
   padding-bottom: 1px;
 }
 
+.top-bar button {
+  border-color: transparent !important;
+}
+
 .top-bar .d-flex.justify-content-between {
   flex-direction: column-reverse;
 }

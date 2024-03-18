@@ -7,7 +7,7 @@ import Details from "../pages/Details";
 export function RoutesConfig() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route exact path="/" element={<Home />} />
       <Route path="/resumo" element={<Resume />} />
       <Route path="/detalhe" element={<Details />} />
 

@@ -1,6 +1,6 @@
 import "./top-bar.css";
 
-import { Icon } from "../../../Atoms/Icon";
+import { Icon } from "../../../index";
 
 export function TopBar() {
   return (
