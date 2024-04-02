@@ -391,8 +391,8 @@
       "p": "Encontrei <mark>{{value}}</mark> imagens na página que não têm o necessário equivalente alternativo em texto."
     },
     "img_02": {
-      "s": "Encontrei <mark>{{value}}</mark> imagem na página com <code>alt=\"\"</code> (alt vazio).",
-      "p": "Encontrei <mark>{{value}}</mark> imagens na página com <code>alt=\"\"</code> (alt vazio)."
+      "s": "Encontrei <mark>{{value}}</mark> imagem decorativa na página (com <code>alt=\"\"</code> (alt vazio) ou com <code>role=\"presentation\"</code> ou <code>role=\"none\"</code>.",
+      "p": "Encontrei <mark>{{value}}</mark> imagens decorativas na página (com <code>alt=\"\"</code> (alt vazio) ou com <code>role=\"presentation\"</code> ou <code>role=\"none\"</code>."
     },
     "img_03": {
       "s": "Encontrei <mark>{{value}}</mark> imagem na página com <code>alt</code> que não serve de equivalente alternativo.",

@@ -391,8 +391,8 @@
       "p": "I found <mark>{{value}}</mark> images on the page without the alternative text equivalent."
     },
     "img_02": {
-      "s": "I found <mark>{{value}}</mark> image on the page with <code>alt=\"\"</code> (empty alt).",
-      "p": "I found <mark>{{value}}</mark> images on the page with <code>alt=\"\"</code> (empty alt)."
+      "s": "I found <mark>{{value}}</mark> decorative image on the page (with <code>alt=\"\"</code> (empty alt) or with <code>role=\"presentation\"</code> or <code>role=\"none\"</code>.",
+      "p": "I found <mark>{{value}}</mark> decorative images on the page (with <code>alt=\"\"</code> (empty alt) or with <code>role=\"presentation\"</code> or <code>role=\"none\"</code>."
     },
     "img_03": {
       "s": "I found <mark>{{value}}</mark> image on the page with an <code>alt</code> that does not serve as an alternative equivalent.",
