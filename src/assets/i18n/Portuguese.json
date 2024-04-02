@@ -202,7 +202,7 @@
   "ELEMS": {
     "imgAlt": "Imagens com texto alternativo preenchido",
     "imgAltNo": "Imagens sem equivalente alternativo em texto",
-    "imgAltNull": "Imagens com <code>alt</code> vazio",
+    "imgAltNull": "Imagens decorativas",
     "imgAltNot": "Imagens com um texto alternativo incorrecto",
     "imgAltLong": "Imagens com um atributo <code>alt</code> longo",
     "areaAltYes": "Áreas de mapas de imagem com <code>alt</code>",
