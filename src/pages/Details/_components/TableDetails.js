@@ -5,9 +5,6 @@ const renderHTML = (htmlString) => {
 };
 
 export function TableDetails({ data }) {
-  console.log("Data", data);
-  console.log("Data", data);
-
   return (
     <table className="table1">
       <caption className="visually-hidden"> Result 1 of the practice </caption>

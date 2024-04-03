@@ -7,8 +7,9 @@ import "./styles.css";
 import { useNavigate } from "react-router-dom";
 
 const TableComponent = ({ data, allData, setAllData, setEle }) => {
-  console.log("Dataxc", data);
+  // console.log("Dataxc", data);
   const navigate = useNavigate();
+
   if (!data || !data.results) {
     return <div>Dados inválidos ou ausentes.</div>;
   }

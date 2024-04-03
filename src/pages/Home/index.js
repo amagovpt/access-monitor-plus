@@ -1,5 +1,6 @@
 import { InsertHtmlUpload } from "./_components/insert-upload-html";
 import { InsertUrl } from "./_components/insert-url";
+import { InsertHtml } from "./_components/insert-html";
 import "./styles.css";
 
 import { Breadcrumb, Tabs } from "../../components/index";
@@ -14,7 +15,7 @@ export default function Home({ changeState }) {
     {
       eventKey: "tab2",
       title: "Insert HTML code",
-      component: <InsertHtmlUpload />,
+      component: <InsertHtml />,
     },
     {
       eventKey: "tab3",

@@ -7,7 +7,8 @@ import { TableDetails } from "./_components/TableDetails";
 import "./styles.css";
 
 export default function Details({ allData, ele }) {
-  console.log("Ele", ele);
+  // console.log("Ele", ele);
+
   const [dataTable, setDataTable] = useState([]);
 
   const dataBreadCrumb = [
@@ -28,7 +29,7 @@ export default function Details({ allData, ele }) {
   function getDetails() {
     const response = getTestResults(ele, allData);
     setDataTable(response);
-    console.log("Response", response);
+    // console.log("Response", response);
   }
 
   useEffect(() => {
@@ -71,8 +72,6 @@ export default function Details({ allData, ele }) {
 
   const textHeading = jsonPt.ELEMS[ele];
 
-  console.log("TextH", textHeading);
-
   return (
     <>
       <div className="container">
@@ -112,7 +111,11 @@ export default function Details({ allData, ele }) {
           </div>
         </div>
 
-        <Tabs tabs={detailsTabs} defaultActiveKey="tab1" vertical={false} />
+        <Tabs
+          tabs={detailsTabs && detailsTabs}
+          defaultActiveKey="tab1"
+          vertical={false}
+        />
       </div>
     </>
   );

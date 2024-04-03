@@ -16,11 +16,9 @@ export function InsertUrl() {
   function handleResume() {
     try {
       console.log("URL válida:", url);
-      // changeState("resumo");
       navigate("/resumo");
     } catch (error) {
       setError(null);
-      console.log("Error", error);
     }
   }
 
@@ -40,6 +38,16 @@ export function InsertUrl() {
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      if (isDisabled === false) {
+        handleResume();
+      } else {
+        return;
+      }
+    }
+  };
+
   return (
     <div className="tab_content_view">
       <Input
@@ -48,6 +56,7 @@ export function InsertUrl() {
         placeholder="Http(s)"
         error={error}
         onChange={handleUrlChange}
+        onKeyDown={handleKeyDown}
       />
 
       <Button

@@ -7,7 +7,7 @@ import { refWebsite, testView } from "../pages/Resume/utils";
 import { convertBytes } from "../utils/utils";
 
 export function processData(tot) {
-  console.log("tot", tot);
+  // console.log("tot", tot);
 
   if (tot === null) {
     return null;
@@ -148,7 +148,7 @@ export function getElements(allNodes, ele) {
     ele = "formSubmitNo";
   }
 
-  const elements = getElementsList(allNodes[ele]);
+  const elements = getElementsList(allNodes && allNodes[ele]);
 
   let result = "G";
   const results = ead.results.map((r) => r.msg);
@@ -215,7 +215,7 @@ export function fixCode(code) {
 export function getElementsList(nodes) {
   const elements = new Array();
   for (const node of nodes || []) {
-    console.log("ND", node);
+    // console.log("ND", node);
     if (node.elements) {
       for (const element of node.elements || []) {
         const ele = getTagName(element);
