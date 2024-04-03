@@ -114,3 +114,19 @@
   font-size: 20px;
   padding-left: 10px;
 }
+
+ul.ama-list {
+  padding-left: unset;
+}
+
+ul.ama-list > li {
+  /* padding-left: 2rem; */
+  list-style: none;
+  margin-bottom: 1rem;
+  position: relative;
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  #darkModeBtn {
+    display: none !important;
+  }
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, buttonVariant } from "./index";
-import Icon from "../Icon";
+import { Icon } from "../../index";
 
 export default {
   title: "components/Atoms/Button",
@@ -61,19 +61,19 @@ _LoadingButton.args = {
 export const _ButtonWithLeftIcon = Template.bind({});
 _ButtonWithLeftIcon.args = {
   loading: false,
-  iconLeft: <Icon name="AMA-Setaoficial-Solid" />,
+  iconLeft: <Icon name="AMA-Setalongaoficial-Line" />,
 };
 
 export const _ButtonWithRightIcon = Template.bind({});
 _ButtonWithRightIcon.args = {
   loading: false,
-  iconRight: <Icon name="AMA-Setaoficial-Solid" />,
+  iconRight: <Icon name="AMA-Setalongaoficial-Line" />,
 };
 
 export const _ButtonWithBothIcons = Template.bind({});
 _ButtonWithBothIcons.args = {
   loading: false,
   variant: buttonVariant.WITH_ICONS,
-  iconLeft: <Icon name="AMA-Setaoficial-Solid" />,
-  iconRight: <Icon name="AMA-Setaoficial-Solid" />,
+  iconLeft: <Icon name="AMA-Setalongaoficial-Line" />,
+  iconRight: <Icon name="AMA-Setalongaoficial-Line" />,
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link as LinkComponent } from "./index";
-import Icon from "../Icon";
+import { Icon } from "../../index";
 
 export default {
   title: "components/Atoms/Link",
@@ -22,12 +22,12 @@ export const _LinkWithLeftIcon = Template.bind({});
 _LinkWithLeftIcon.args = {
   text: "Link",
   to: "/",
-  iconLeft: <Icon name="AMA-Setaoficial-Solid" />,
+  iconLeft: <Icon name="AMA-Setalongaoficial-Line" />,
 };
 
 export const _LinkWithRightIcon = Template.bind({});
 _LinkWithRightIcon.args = {
   text: "Link",
   to: "/",
-  iconRight: <Icon name="AMA-Setaoficial-Solid" />,
+  iconRight: <Icon name="AMA-Setalongaoficial-Line" />,
 };

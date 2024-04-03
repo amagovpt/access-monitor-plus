@@ -16,4 +16,5 @@ Default.args = {
   label: "Custom TextArea",
   type: "text",
   placeholder: "Enter value",
+  error: "",
 };

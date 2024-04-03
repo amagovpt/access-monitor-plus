@@ -1,8 +1,11 @@
 import "./top-bar.css";
 
-import { Icon } from "../../../index";
+import { Icon, Link } from "../../../index";
+import { useState } from "react";
 
 export function TopBar() {
+  const [ecossistemaAberto, setEcossistemaAberto] = useState(false);
+
   return (
     <>
       <div className="top-bar">
@@ -14,11 +17,13 @@ export function TopBar() {
                 className="btn btn-link btn-ecossistema collapsed d-flex align-items-center p-1"
                 data-bs-toggle="collapse"
                 data-bs-target="#flushEcossistema"
-                aria-expanded="false"
+                // aria-expanded="false"
                 aria-controls="flushEcossistema"
+                onClick={() => setEcossistemaAberto(!ecossistemaAberto)}
+                aria-expanded={ecossistemaAberto ? "true" : "false"}
               >
                 <span
-                  className="icon-AMA-MenuCima-Line icon-ed-menu-dots"
+                  className="icon-AMA-MenuCimaGrande-Line icon-ed-menu-dots"
                   aria-hidden="true"
                 />
 
@@ -45,10 +50,13 @@ export function TopBar() {
               </button>
             </div>
             <div
-              id="flushEcossistema"
-              className="accordion-collapse collapse"
-              aria-labelledby="flushHeading"
+              // id="flushEcossistema"
+              // className="accordion-collapse collapse"
+              // aria-labelledby="flushHeading"
               data-bs-parent="#accordionTopBar"
+              id="flushEcossistema"
+              className={`accordion-collapse collapse ${ecossistemaAberto ? "show" : ""}`}
+              aria-labelledby="flushHeading"
             >
               <div className="accordion-body ps-0 pe-0">
                 <div className="container">
@@ -100,32 +108,49 @@ export function TopBar() {
                       <div className="left-column-ecossistema-ama">
                         <ul className="ama-list">
                           <li>
-                            <a href="https://observatorio.acessibilidade.gov.pt/">
-                              Observatório Português da Acessibilidade Web
-                            </a>
+                            <Link
+                              iconLeft={
+                                <Icon name="AMA-Setalongaoficial-Line" />
+                              }
+                              to="https://observatorio.acessibilidade.gov.pt/"
+                              text="Observatório Português da Acessibilidade Web"
+                            />
                           </li>
 
                           <li>
-                            <a href="https://www.acessibilidade.gov.pt/gerador/">
-                              Gerador "Declaração de Acessibilidade"
-                            </a>
+                            <Link
+                              iconLeft={
+                                <Icon name="AMA-Setalongaoficial-Line" />
+                              }
+                              to="https://www.acessibilidade.gov.pt/gerador/"
+                              text={`Gerador "Declaração de Acessibilidade"`}
+                            />
                           </li>
 
                           <li>
-                            <a href="https://accessmonitor.acessibilidade.gov.pt/">
-                              AccessMonitor
-                            </a>
+                            <Link
+                              iconLeft={
+                                <Icon name="AMA-Setalongaoficial-Line" />
+                              }
+                              to="https://accessmonitor.acessibilidade.gov.pt/"
+                              text="AccessMonitor"
+                            />
                           </li>
 
                           <li>
-                            <a href="https://www.acessibilidade.gov.pt/wcag/">
+                            <Link
+                              iconLeft={
+                                <Icon name="AMA-Setalongaoficial-Line" />
+                              }
+                              to="https://www.acessibilidade.gov.pt/wcag/"
+                            >
                               <abbr
                                 title="Web Content Accessibility Guidelines, version 2.1"
                                 lang="en"
                               >
                                 WCAG 2.1
                               </abbr>
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                       </div>
@@ -153,35 +178,57 @@ export function TopBar() {
                       <div className="center-column-ecossistema-ama">
                         <ul className="ama-list">
                           <li>
-                            <a href="https://mosaico.gov.pt/areas-tecnicas/usabilidade">
-                              Usabilidade no Mosaico
-                            </a>
+                            <Link
+                              iconLeft={
+                                <Icon name="AMA-Setalongaoficial-Line" />
+                              }
+                              to="https://mosaico.gov.pt/areas-tecnicas/usabilidade"
+                              text="Usabilidade no Mosaico"
+                            />
                           </li>
 
                           <li>
-                            <a href="https://zeroheight.com/1be481dc2/p/97181d-agora-design-system">
+                            <Link
+                              iconLeft={
+                                <Icon name="AMA-Setalongaoficial-Line" />
+                              }
+                              to="https://zeroheight.com/1be481dc2/p/97181d-agora-design-system"
+                            >
                               Ágora <em lang="en">Design System</em> -
                               documentação
-                            </a>
+                            </Link>
                           </li>
 
                           <li>
-                            <a href="https://prd-agora.northeurope.cloudapp.azure.com">
+                            <Link
+                              iconLeft={
+                                <Icon name="AMA-Setalongaoficial-Line" />
+                              }
+                              to="https://prd-agora.northeurope.cloudapp.azure.com"
+                            >
                               Ágora <em lang="en">Design System</em> -
                               componentes
-                            </a>
+                            </Link>
                           </li>
 
                           <li>
-                            <a href="https://guias.mosaico.gov.pt/guias-praticos/usabilidade-como-realizar-testes-de-usabilidade">
-                              Como realizar testes de usabilidade?
-                            </a>
+                            <Link
+                              iconLeft={
+                                <Icon name="AMA-Setalongaoficial-Line" />
+                              }
+                              to="https://guias.mosaico.gov.pt/guias-praticos/usabilidade-como-realizar-testes-de-usabilidade"
+                              text="Como realizar testes de usabilidade?"
+                            />
                           </li>
 
                           <li>
-                            <a href="https://guias.mosaico.gov.pt/guias-praticos/usabilidade-como-desenvolver-aplicacoes-para-dispositivos-moveis">
-                              Como desenvolver aplicações móveis?
-                            </a>
+                            <Link
+                              iconLeft={
+                                <Icon name="AMA-Setalongaoficial-Line" />
+                              }
+                              to="https://guias.mosaico.gov.pt/guias-praticos/usabilidade-como-desenvolver-aplicacoes-para-dispositivos-moveis"
+                              text="Como desenvolver aplicações móveis?"
+                            />
                           </li>
                         </ul>
                       </div>
@@ -209,27 +256,43 @@ export function TopBar() {
                       <div className="right-column-ecossistema-ama">
                         <ul className="ama-list">
                           <li>
-                            <a href="https://pprselo.usabilidade.gov.pt/candidatura/">
-                              Candidatura ao Selo
-                            </a>
+                            <Link
+                              iconLeft={
+                                <Icon name="AMA-Setalongaoficial-Line" />
+                              }
+                              to="https://pprselo.usabilidade.gov.pt/candidatura/"
+                              text="Candidatura ao Selo"
+                            />
                           </li>
 
                           <li>
-                            <a href="https://pprselo.usabilidade.gov.pt/requisitos/">
-                              Requisitos do Selo
-                            </a>
+                            <Link
+                              iconLeft={
+                                <Icon name="AMA-Setalongaoficial-Line" />
+                              }
+                              to="https://pprselo.usabilidade.gov.pt/requisitos/"
+                              text="Requisitos do Selo"
+                            />
                           </li>
 
                           <li>
-                            <a href="https://amagovpt.github.io/kit-selo/">
-                              Kit informativo do Selo
-                            </a>
+                            <Link
+                              iconLeft={
+                                <Icon name="AMA-Setalongaoficial-Line" />
+                              }
+                              to="https://amagovpt.github.io/kit-selo/"
+                              text="Kit informativo do Selo"
+                            />
                           </li>
 
                           <li>
-                            <a href="https://pprselo.usabilidade.gov.pt/ajuda/">
-                              Dúvidas sobre o Selo?
-                            </a>
+                            <Link
+                              iconLeft={
+                                <Icon name="AMA-Setalongaoficial-Line" />
+                              }
+                              to="https://pprselo.usabilidade.gov.pt/ajuda/"
+                              text="Dúvidas sobre o Selo?"
+                            />
                           </li>
                         </ul>
                       </div>

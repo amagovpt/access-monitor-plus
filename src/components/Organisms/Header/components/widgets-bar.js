@@ -5,7 +5,8 @@ export function WidgetBar({ description, logo }) {
         <div className="row ml-0 mr-0">
           <div className="col-12 col-lg-6 align-self-center">
             <div className="d-flex justify-content-between">
-              <a href="/">{logo}</a>
+              <h1 className="logo">{logo}</h1>
+
               <div className="d-flex d-lg-none flex-column align-items-center">
                 <button type="button" className="open-mobile-menu">
                   <span

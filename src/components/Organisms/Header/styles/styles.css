@@ -75,3 +75,10 @@
   text-align: right;
   margin-bottom: 0;
 }
+
+@media (max-width: 768px) {
+  .logo img {
+    max-width: 90%;
+    height: auto;
+  }
+}

@@ -1,77 +1,66 @@
-import React from "react";
-
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import { Icon } from "../../index";
+import { Accordion } from "../../Atoms/Accordion";
+import { optionForAccordion } from "../../../pages/Resume/utils";
 import "./styles.css";
 
-import { Accordion } from "../../Atoms/Accordion";
+import { useNavigate } from "react-router-dom";
 
-const TableComponent = () => {
-  const options = [
-    {
-      id: "1",
-      title:
-        "I found 1 image on the page without the alternative text equivalent.",
-      component: (
-        <div>
-          Check if the alternative text equivalent found in the images provides
-          equal information or function as the one performed by the image on the
-          page. H37: Using alt attributes on img elements This WCAG 2.1
-          technique is related to: Success criteria 1.1.1 (Level A) Notions
-          about the SC 1.1.1
-        </div>
-      ),
-    },
-  ];
+const TableComponent = ({ data, allData, setAllData, setEle }) => {
+  console.log("Dataxc", data);
+  const navigate = useNavigate();
+  if (!data || !data.results) {
+    return <div>Dados inválidos ou ausentes.</div>;
+  }
+
+  function setAllDataResult(ele) {
+    setAllData(allData);
+    setEle(ele);
+    navigate("/detalhe");
+  }
+
+  const optionsArray = optionForAccordion(data);
+
   return (
     <>
       <table className="table table_primary">
+        <caption className="visually-hidden">practices found</caption>
         <thead>
           <tr>
-            <th></th>
+            <th>
+              <span class="visually-hidden">#</span>
+            </th>
             <th>Practice found</th>
             <th>Level</th>
             <th>See detail</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>
-              <img
-                src="/img/icons/check.svg"
-                alt="Check"
-                width="36px"
-                height="36px"
-              />
-            </td>
-            <td>
-              <Accordion options={options} iconAlignment="left" flush={true} />
-            </td>
-            <td className="middle_col">A</td>
-            <td>
-              <a href="/#">
-                <img src="/img/icons/searchs.svg" alt="" />
-              </a>
-            </td>
-          </tr>
 
-          <tr>
-            <td>
-              <img
-                src="/img/icons/check.svg"
-                alt="Check"
-                width="36px"
-                height="36px"
-              />
-            </td>
-            <td>
-              <Accordion options={options} iconAlignment="left" flush={true} />
-            </td>
-            <td className="middle_col">A</td>
-            <td>
-              <a href="/detalhe">
-                <img src="/img/icons/searchs.svg" alt="" />
-              </a>
-            </td>
-          </tr>
+        <tbody>
+          {optionsArray.map((option) => (
+            <tr key={option.id}>
+              <td className={option?.tdClassName}>
+                <Icon name={option.iconName} />
+              </td>
+              <td>
+                <Accordion
+                  options={[option]}
+                  iconAlignment="left"
+                  flush={true}
+                />
+              </td>
+              <td className="middle_col">{option?.lvl}</td>
+              <td>
+                <button
+                  onClick={() => setAllDataResult(option.ele)}
+                  className="detail_link"
+                >
+                  <Icon name="AMA-Detalhe-Line" />
+                  <span class="visually-hidden">Detalhe</span>
+                </button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </>

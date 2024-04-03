@@ -1,0 +1,20 @@
+path {
+  stroke-linecap: round;
+  stroke-width: 6;
+}
+
+.grey {
+  stroke: #e5e5e5;
+}
+
+.red {
+  stroke: #dc3545;
+}
+
+.green {
+  stroke: #38b458;
+}
+
+.yellow {
+  stroke: #f9ce41;
+}

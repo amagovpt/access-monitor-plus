@@ -14,7 +14,6 @@
 
 .main .validator_container {
   padding: 62px 60px;
-
   display: grid !important;
   grid-template-columns: 55% 45%;
 }
@@ -25,9 +24,7 @@
   line-height: 1.75em;
 }
 
-.main .validator_container aside:first-child {
-  /* padding-right: 20px !important; */
-
+.main .validator_container .first_container {
   flex-direction: column;
   box-sizing: border-box;
   display: flex;
@@ -35,12 +32,28 @@
   align-items: stretch;
 }
 
-.main .validator_container aside:last-child {
+.main .validator_container .last_container {
   place-content: flex-start center;
   align-items: flex-start;
   flex-direction: row;
   box-sizing: border-box;
   display: flex;
+}
+
+/* Adicionando estilos para tornar o layout responsivo */
+@media only screen and (max-width: 1024px) {
+  .main .validator_container {
+    grid-template-columns: 100%;
+    padding: 20px;
+  }
+
+  .main .validator_container .first_container {
+    width: 100%;
+  }
+
+  .main .validator_container .last_container {
+    display: none;
+  }
 }
 
 .main .verify_img {

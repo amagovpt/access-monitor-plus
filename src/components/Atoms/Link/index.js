@@ -7,9 +7,8 @@ export function Link({ to, text, children, iconLeft, iconRight, ...rest }) {
     <div className="link-container">
       {iconLeft && <>{iconLeft}</>}
       <a href={to} {...rest}>
-        {text}
+        {children || <span dangerouslySetInnerHTML={{ __html: text }} />}
       </a>
-
       {iconRight && <>{iconRight}</>}
     </div>
   );
@@ -17,8 +16,8 @@ export function Link({ to, text, children, iconLeft, iconRight, ...rest }) {
 
 Link.propTypes = {
   to: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
+  text: PropTypes.string,
+  children: PropTypes.node,
   iconLeft: PropTypes.object,
   iconRight: PropTypes.object,
 };

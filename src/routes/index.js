@@ -8,9 +8,8 @@ export function RoutesConfig() {
   return (
     <Routes>
       <Route exact path="/" element={<Home />} />
-      <Route path="/resumo" element={<Resume />} />
+      <Route path="/resumo" element={<Resume />} />s
       <Route path="/detalhe" element={<Details />} />
-
       {/* <Route path="*" element={<NotFound />} /> */}
     </Routes>
   );

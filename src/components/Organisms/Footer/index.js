@@ -8,8 +8,9 @@ export function Footer() {
       <footer className="footer">
         <div id="back-to-top" className="back-to-top">
           <button id="#back-to-topo-button">
+            <span class="visually-hidden">Voltar ao Topo</span>
             <span>
-              <Icon name="AMA-SetaoficialCima-Solid" />
+              <Icon name="AMA-SetadoisoficialCima-Line" />
             </span>
           </button>
         </div>

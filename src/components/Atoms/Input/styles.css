@@ -23,3 +23,15 @@
   /* REVER o Boxshadow */
   box-shadow: none;
 }
+
+.field .form-control.is-invalid {
+  border-color: #d10000 !important;
+}
+
+.field .invalid-feedback {
+  color: #d10000;
+  font-size: 1em;
+  font-weight: 700;
+  margin-top: -0.5rem;
+  margin-bottom: 1.5rem;
+}

@@ -1,11 +1,30 @@
-import { BrowserRouter } from "react-router-dom";
 import "./styles/theme.css";
-import { RoutesConfig } from "./routes";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./pages/Layout";
+import Home from "./pages/Home/";
+import Resume from "./pages/Resume";
+import Detail from "./pages/Details";
+import { useState } from "react";
 
 export default function App() {
+  const [allData, setAllData] = useState([]);
+  const [ele, setEle] = useState([]);
   return (
-    <BrowserRouter basename="/">
-      <RoutesConfig />
-    </BrowserRouter>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/resumo"
+            element={<Resume setAllData={setAllData} setEle={setEle} />}
+          />
+          <Route
+            path="/detalhe"
+            element={<Detail allData={allData} ele={ele} />}
+          />
+          {/* Outras rotas */}
+        </Routes>
+      </Layout>
+    </Router>
   );
 }

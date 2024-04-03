@@ -28,7 +28,6 @@
 .table tbody tr td:first-child {
   width: 70px;
   height: 72px;
-  background: #bce1bc;
 }
 
 .table_primary tbody tr td:last-child {
@@ -53,4 +52,57 @@
 
 .table .accordion-button {
   padding: 0 !important;
+}
+
+.content_error {
+  text-align: left;
+}
+
+.content_error a {
+  color: #333 !important;
+  font-weight: 700;
+  text-decoration: underline !important;
+}
+
+mark,
+code {
+  font-weight: 900 !important;
+  text-decoration: underline;
+  background-color: transparent;
+  color: #333 !important;
+}
+
+.criteiro {
+  display: block;
+  margin-left: 3rem;
+}
+
+.criteiro a {
+  font-weight: 400;
+}
+
+.detail_link {
+  font-size: 1.8rem;
+  text-decoration: none !important;
+  color: var(--primary) !important;
+  border: 0;
+  background-color: transparent;
+}
+
+.error-cell {
+  background: #f99 !important;
+}
+
+.warning-cell {
+  background: #ff9 !important;
+}
+
+.success-cell {
+  background: #bce1bc !important;
+}
+
+.success-cell,
+.warning-cell,
+.error-cell i {
+  font-size: 36px;
 }

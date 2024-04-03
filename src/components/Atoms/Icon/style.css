@@ -1,7 +1,8 @@
 @font-face {
   font-family: "AMA";
   src: url("../../../fonts/AMA.eot?9zvrzh");
-  src: url("../../../fonts/AMA.eot?9zvrzh#iefix") format("embedded-opentype"),
+  src:
+    url("../../../fonts/AMA.eot?9zvrzh#iefix") format("embedded-opentype"),
     url("../../../fonts/AMA.ttf?9zvrzh") format("truetype"),
     url("../../../fonts/AMA.woff?9zvrzh") format("woff"),
     url("../../../fonts/AMA.svg?9zvrzh#AMA") format("svg");
@@ -26,6 +27,99 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-AMA-ArticleIdea-Line:before {
+  content: "\e9eb";
+}
+.icon-AMA-Aviso-Solid:before {
+  content: "\e9ec";
+}
+.icon-AMA-BracoPartido-Line:before {
+  content: "\e9ef";
+}
+.icon-AMA-Braille-Line:before {
+  content: "\e9f0";
+}
+.icon-AMA-CadeiraRodasPC-Line:before {
+  content: "\e9f1";
+}
+.icon-AMA-Carteira-Line1:before {
+  content: "\e9f2";
+}
+.icon-AMA-DeclaracaoDark-Line:before {
+  content: "\e9f3";
+}
+.icon-AMA-Declaracao-Line:before {
+  content: "\e9f4";
+}
+.icon-AMA-DocPartilhar-Solid:before {
+  content: "\e9f5";
+}
+.icon-AMA-DownloadFile-Line:before {
+  content: "\e9f6";
+}
+.icon-AMA-Esfera-Line:before {
+  content: "\e9f7";
+}
+.icon-AMA-Exit-Line:before {
+  content: "\e9f8";
+}
+.icon-AMA-Filter-Line:before {
+  content: "\e9f9";
+}
+.icon-AMA-Idoso-Line:before {
+  content: "\e9fa";
+}
+.icon-AMA-Invisible-Solid:before {
+  content: "\e9fb";
+}
+.icon-AMA-LastPage-Solid:before {
+  content: "\e9fc";
+}
+.icon-AMA-LoadURL-Line:before {
+  content: "\e9fd";
+}
+.icon-AMA-ManualIdeia-Line:before {
+  content: "\e9fe";
+}
+.icon-AMA-MarcadorGrande-Line:before {
+  content: "\e9ff";
+}
+.icon-AMA-MarcadorGrande-Solid:before {
+  content: "\ea00";
+}
+.icon-AMA-MenuCimaGrande-Line:before {
+  content: "\ea01";
+}
+.icon-AMA-Negativo-Solid:before {
+  content: "\ea02";
+}
+.icon-AMA-Ponto-Solid:before {
+  content: "\ea03";
+}
+.icon-AMA-Premio-Line:before {
+  content: "\ea04";
+}
+.icon-AMA-SeloDark2-Line:before {
+  content: "\ea05";
+}
+.icon-AMA-SeloDark-Line:before {
+  content: "\ea06";
+}
+.icon-AMA-SetaDir3-Solid:before {
+  content: "\ea07";
+}
+.icon-AMA-SiteAcessibilidade-Line:before {
+  content: "\ea08";
+}
+.icon-AMA-UploadFile-Line:before {
+  content: "\ea09";
+}
+.icon-AMA-Visible-Line:before {
+  content: "\ea0a";
+}
+.icon-AMA-X-Line:before {
+  content: "\ea0b";
+}
 .icon-AMA-Detalhe-Line:before {
   content: "\e9e9";
 }
@@ -35,13 +129,13 @@
 .icon-AMA-Plus-Line:before {
   content: "\e9dd";
 }
-.icon-AMA-SetaoficialDto-Solid:before {
+.icon-AMA-SetacurtaoficialDto-Line:before {
   content: "\e9e4";
 }
 .icon-AMA-Code-Line:before {
   content: "\e99f";
 }
-.icon-AMA-download-Line:before {
+.icon-AMA-DownloadSetacurta-Line:before {
   content: "\e9a0";
 }
 .icon-AMA-Reload-Line:before {
@@ -50,19 +144,19 @@
 .icon-AMA-Check-Line:before {
   content: "\e98f";
 }
-.icon-AMA-Wrong-Solid:before {
+.icon-AMA-Wrong-Line:before {
   content: "\e991";
 }
-.icon-AMA-Middle-Solid:before {
+.icon-AMA-Middle-Line:before {
   content: "\e998";
 }
-.icon-AMA-SetaoficialEsq-Solid:before {
+.icon-AMA-SetacurtaoficialEsq-Line:before {
   content: "\e96e";
 }
-.icon-AMA-SetaoficialCima-Solid:before {
+.icon-AMA-SetadoisoficialCima-Line:before {
   content: "\e986";
 }
-.icon-AMA-Setaoficial-Solid:before {
+.icon-AMA-Setalongaoficial-Line:before {
   content: "\e951";
 }
 .icon-AMA-Assistente-Solid:before {
@@ -89,7 +183,7 @@
 .icon-AMA-Conversa-Solid:before {
   content: "\e907";
 }
-.icon-AMA-Favorito-Solid:before {
+.icon-AMA-Estrela-Solid:before {
   content: "\e908";
 }
 .icon-AMA-MarcadorEsq-Solid:before {
@@ -131,7 +225,7 @@
 .icon-AMA-Casa-Line:before {
   content: "\e915";
 }
-.icon-AMA-Favorito-Line:before {
+.icon-AMA-Estrela-Line:before {
   content: "\e916";
 }
 .icon-AMA-Entrar-Line:before {
@@ -176,7 +270,7 @@
 .icon-AMA-Caixa-Line:before {
   content: "\e924";
 }
-.icon-AMA-Partilhar-Line:before {
+.icon-AMA-DocPartilhar-Line:before {
   content: "\e925";
 }
 .icon-AMA-Editar-Line:before {
@@ -203,7 +297,7 @@
 .icon-AMA-Anexar-Line:before {
   content: "\e92d";
 }
-.icon-AMA-Lista2-Line-:before {
+.icon-AMA-ListaPonto-Line:before {
   content: "\e92e";
 }
 .icon-AMA-Configurar-Line:before {
@@ -215,10 +309,10 @@
 .icon-AMA-Transferir-Line:before {
   content: "\e931";
 }
-.icon-AMA-OrdenarBaixo2-Line:before {
+.icon-AMA-OrdenarDescendente-Line:before {
   content: "\e932";
 }
-.icon-AMA-Ordenar-Line:before {
+.icon-AMA-OrdenarAscendente-Line:before {
   content: "\e933";
 }
 .icon-AMA-OrdenarAlfabetico-Line:before {
@@ -767,7 +861,7 @@
 .icon-AMA-EscuroClaro-Line:before {
   content: "\6b";
 }
-.icon-AMA-MenuHamburguer-Line:before {
+.icon-AMA-MenuHamburguer-Solid:before {
   content: "\6c";
 }
 .icon-AMA-Info-Line:before {
@@ -779,7 +873,7 @@
 .icon-AMA-Codigo-Line:before {
   content: "\6f";
 }
-.icon-AMA-Ideia-Line:before {
+.icon-AMA-MockupIdeia-Line:before {
   content: "\70";
 }
 .icon-AMA-Alerta3-Line:before {
@@ -839,7 +933,7 @@
 .icon-AMA-Ferramentas-Line:before {
   content: "\4a";
 }
-.icon-AMA-Ideia-Solid:before {
+.icon-AMA-ManualIdeia-Solid:before {
   content: "\4b";
 }
 .icon-AMA-Lei-Line:before {

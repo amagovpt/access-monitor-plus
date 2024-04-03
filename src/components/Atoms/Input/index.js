@@ -3,11 +3,26 @@ import Form from "react-bootstrap/Form";
 
 import "./styles.css";
 
-const Input = ({ label, type, placeholder, ...rest }) => {
+import classNames from "classnames";
+
+const Input = ({ label, type, placeholder, error, id, ...rest }) => {
+  const inputClass = classNames("form-control", {
+    "is-invalid": error,
+  });
   return (
     <Form.Group className="field">
-      <Form.Label>{label}</Form.Label>
-      <Form.Control type={type} placeholder={placeholder} {...rest} />
+      <Form.Label htmlFor={id}>{label}</Form.Label>
+      <Form.Control
+        type={type}
+        placeholder={placeholder}
+        className={inputClass}
+        id={id}
+        {...rest}
+      />
+
+      {error && (
+        <Form.Control.Feedback type="invalid">{error}</Form.Control.Feedback>
+      )}
     </Form.Group>
   );
 };

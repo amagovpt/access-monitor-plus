@@ -1,13 +1,24 @@
+import { sumAllValues, sumValuesByKey } from "../../../../pages/Resume/utils";
+import { Icon } from "../../../index";
 import "./styles.css";
 
-export function TableAlternative() {
+export function TableAlternative(data) {
+  let sumValueA = sumValuesByKey("A", data?.data?.infoak);
+  let sumValueAA = sumValuesByKey("AA", data?.data?.infoak);
+  let sumValueAAA = sumValuesByKey("AAA", data?.data?.infoak);
+
+  let allvalues = sumAllValues(data?.data.infoak);
+
   return (
     <>
       <table className="table table-bordereds table-alterantive">
+        <caption className="visually-hidden">practices found</caption>
         <thead>
           <tr>
             <th scope="col" className="text-left border_right ">
-              <span className="total_practices">33</span>{" "}
+              <span className="total_practices">
+                {data?.data?.metadata?.count_results}
+              </span>{" "}
               <span className="practices_found">practices found</span>
             </th>
             <th className="border_right heading_total total_top">A</th>
@@ -21,74 +32,98 @@ export function TableAlternative() {
             <th scope="row" className="border_right">
               <div className="aceptable_continer">
                 <div className="icon_and_text">
-                  <img src="/img/icons/check.svg" alt="" />
+                  <Icon name="AMA-Check-Line" />
+
                   <span className="title">Aceptable</span>
                 </div>
                 <div
                   className="overlay overlay_aceptable"
-                  style={{ width: "1%" }}
+                  style={{ width: `${allvalues.ok}%` }}
                 />
 
-                <span className="ammount"> 24</span>
+                <span className="ammount">{allvalues.ok} </span>
               </div>
             </th>
-            <td className="border_right body_text">14</td>
-            <td className="border_right body_text">10</td>
-            <td className="border_right body_text">0</td>
+            <td className="border_right body_text">
+              {data?.data && data?.data?.infoak?.A?.ok}
+            </td>
+            <td className="border_right body_text">
+              {" "}
+              {data?.data && data?.data?.infoak?.AA?.ok}
+            </td>
+            <td className="border_right body_text">
+              {" "}
+              {data?.data && data?.data?.infoak?.AAA?.ok}
+            </td>
           </tr>
 
           <tr>
             <th scope="row" className="border_right">
               <div className="aceptable_continer">
                 <div className="icon_and_text">
-                  <img src="/img/icons/warning.svg" alt="" />
+                  <Icon name="AMA-Middle-Line" />
                   <span className="title">To view manually</span>
                 </div>
                 <div
                   className="overlay overlay_manual"
-                  style={{ width: "10%" }}
+                  style={{ width: `${allvalues.war}%` }}
                 />
 
-                <span className="ammount">7</span>
+                <span className="ammount">{allvalues.war}</span>
               </div>
             </th>
-            <td className="border_right body_text">4</td>
-            <td className="border_right body_text">0</td>
-            <td className="border_right body_text">3</td>
+            <td className="border_right body_text">
+              {" "}
+              {data?.data && data?.data?.infoak?.A?.war}
+            </td>
+            <td className="border_right body_text">
+              {data?.data && data?.data?.infoak?.AA?.war}
+            </td>
+            <td className="border_right body_text">
+              {data?.data && data?.data?.infoak?.AAA?.war}
+            </td>
           </tr>
 
           <tr>
             <th scope="row" className="border_right">
               <div className="aceptable_continer">
                 <div className="icon_and_text">
-                  <img src="/img/icons/x.svg" alt="" />
+                  <Icon name="AMA-Wrong-Line" />
 
                   <span className="title">Non Acceptable</span>
                 </div>
 
                 <div
                   className="overlay overlay_no_aceptable"
-                  style={{ width: "10%" }}
+                  style={{ width: `${allvalues.err}%` }}
                 />
 
-                <span className="ammount">2</span>
+                <span className="ammount">{allvalues.err}</span>
               </div>
             </th>
-            <td className="border_right body_text">1</td>
-            <td className="border_right body_text">0</td>
-            <td className="border_right body_text">1</td>
+            <td className="border_right body_text">
+              {data?.data && data?.data?.infoak?.A?.err}
+            </td>
+            <td className="border_right body_text">
+              {data?.data && data?.data?.infoak?.AA?.err}
+            </td>
+            <td className="border_right body_text">
+              {data?.data && data?.data?.infoak?.AAA?.err}
+            </td>
           </tr>
 
           <tr>
-            <th scope="row" className="border-bottom-0 border_right"></th>
+            <th scope="row" className="border-bottom-0 border_right">
+              <span class="visually-hidden">Total</span>
+            </th>
             <td className="border-bottom-0 border_right heading_total total_bottom">
-              19
+              {sumValueA}
             </td>
             <td className="border-bottom-0 border_right heading_total total_bottom">
-              10
+              {sumValueAA}
             </td>
             <td className="border-bottom-0 border_right heading_total total_bottom">
-              4
+              {sumValueAAA}
             </td>
           </tr>
         </tbody>

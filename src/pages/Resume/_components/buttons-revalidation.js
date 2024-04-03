@@ -6,7 +6,7 @@ export function ButtonsActions() {
       <Button
         size="md"
         text="Avaliar nova página"
-        iconRight={<Icon name="AMA-Setaoficial-Solid" />}
+        iconRight={<Icon name="AMA-Setalongaoficial-Line" />}
       />
 
       <div className="d-flex flex-row gap-3">
@@ -28,7 +28,7 @@ export function ButtonsActions() {
           size="md"
           variant="secondary"
           text="Descarregar dados"
-          iconRight={<Icon name="AMA-download-Line" />}
+          iconRight={<Icon name="AMA-DownloadSetacurta-Line" />}
         />
       </div>
     </div>

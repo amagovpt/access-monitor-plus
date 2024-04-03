@@ -23,3 +23,11 @@
   /* REVER o Boxshadow */
   box-shadow: none;
 }
+
+.field .form-control.is-invalid {
+  border-color: #dc3545 !important;
+}
+
+.field .invalid-feedback {
+  color: #dc3545;
+}

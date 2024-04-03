@@ -12,8 +12,10 @@ const Template = (args) => {
 };
 
 export const Default = Template.bind({});
+
 Default.args = {
   label: "Custom Input",
   type: "text",
   placeholder: "http(s)",
+  error: "",
 };
