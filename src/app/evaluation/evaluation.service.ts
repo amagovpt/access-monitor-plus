@@ -674,7 +674,7 @@ export class EvaluationService {
 
           result["ref_website"] = this.refWebsite(ref)
           result["relation"] =
-            tests[test]["ref"].length > 3 ? "relationACT" : "relationT";
+            tests[test]["ref"].length > 4 ? "relationACT" : "relationT";
           result["ref_related_sc"] = new Array();
           result["value"] = tnum;
           result["prio"] = color === "ok" ? 3 : color === "err" ? 1 : 2;
