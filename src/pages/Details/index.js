@@ -7,6 +7,8 @@ import { TableDetails } from "./_components/TableDetails";
 import "./styles.css";
 
 export default function Details({ allData, ele }) {
+  console.log("AllData", allData);
+  console.log("AllData2", ele);
   // console.log("Ele", ele);
 
   const [dataTable, setDataTable] = useState([]);
@@ -20,10 +22,10 @@ export default function Details({ allData, ele }) {
       title: "Access Monitor",
       href: "/",
     },
-    {
-      title: "https://lbc-global.com/",
-      href: "#",
-    },
+    // {
+    //   title: "https://lbc-global.com/",
+    //   href: "#",
+    // },
   ];
 
   function getDetails() {

@@ -1,0 +1,48 @@
+.loadingContainer {
+  background-color: #fff;
+  display: flex;
+
+  height: 87px;
+  padding: 0px 75px 0px 64px;
+  align-items: center;
+  gap: 300px;
+  flex-shrink: 0;
+  font-family: var(--font-lato);
+
+  margin-bottom: 10rem !important;
+}
+
+.group_mobile {
+  display: none;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .deskGroupMobile {
+    display: none !important;
+  }
+
+  .group_mobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between !important;
+  }
+}
+
+.firstGroupContainer,
+.secondGroupContainer {
+  width: 48% !important;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.firstGroupContainer button,
+.secondGroupContainer button {
+  width: 100%;
+  font-size: 13.5px;
+}
+
+.firstGroupContainer button:first-child,
+.secondGroupContainer button:first-child {
+  margin-bottom: 10px;
+}

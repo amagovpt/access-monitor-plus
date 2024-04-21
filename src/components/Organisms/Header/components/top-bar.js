@@ -1,26 +1,66 @@
 import "./top-bar.css";
 
 import { Icon, Link } from "../../../index";
-import { useState } from "react";
+import { useContext, useRef, useState } from "react";
+
+import { ThemeContext } from "../../../../context/ThemeContext";
 
 export function TopBar() {
-  const [ecossistemaAberto, setEcossistemaAberto] = useState(false);
+  const [openAccordion, setOpenAccordion] = useState(false);
+  const { theme, toggleTheme } = useContext(ThemeContext);
+  const accordionContentRef = useRef(null);
+
+  const themeClass = theme === "light" ? "" : "dark_mode";
+
+  const toggleAccordion = () => {
+    setOpenAccordion(!openAccordion);
+    if (!openAccordion && accordionContentRef.current) {
+      accordionContentRef.current.focus();
+    }
+  };
 
   return (
     <>
-      <div className="top-bar">
+      <div className={`top-bar ${themeClass}`}>
         <div className="accordion accordion-flush" id="accordionTopBar">
           <div className="container">
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-between flex-row-reverse">
+              <div className="d-flex flex-row gap-4">
+                <button
+                  className="btn btn-link dark-mode p-1 d-flex align-items-center"
+                  id="darkModeBtn"
+                  onClick={toggleTheme}
+                >
+                  <span id="darkModeLabel">
+                    {theme === "light" ? "Modo claro" : "Modo escuro"}
+                  </span>
+                  <Icon
+                    name="AMA-EscuroClaro-Line icon-dark"
+                    aria-hidden="true"
+                  />
+                </button>
+
+                <button
+                  className="btn btn-link language-mode p-1  d-flex align-items-center"
+                  id="langModeBtn"
+                >
+                  <span id="langModeLabel">Ver em português</span>
+                  <Icon
+                    name="AMA-EscuroClaro-Line icon-lang"
+                    aria-hidden="true"
+                  />
+                </button>
+              </div>
+
               <button
                 type="button"
                 className="btn btn-link btn-ecossistema collapsed d-flex align-items-center p-1"
                 data-bs-toggle="collapse"
                 data-bs-target="#flushEcossistema"
-                // aria-expanded="false"
                 aria-controls="flushEcossistema"
-                onClick={() => setEcossistemaAberto(!ecossistemaAberto)}
-                aria-expanded={ecossistemaAberto ? "true" : "false"}
+                onClick={toggleAccordion}
+                aria-expanded={openAccordion ? "true" : "false"}
+                id="accordionBtn"
               >
                 <span
                   className="icon-AMA-MenuCimaGrande-Line icon-ed-menu-dots"
@@ -29,33 +69,25 @@ export function TopBar() {
 
                 <span id="flushHeading">
                   Uma ferramenta do ecossistema{" "}
-                  <span className="text-primary fw-bold">
+                  <span className="text-primary fw-bold dark_mode_span">
                     acessibilidade.gov.pt
                   </span>
                 </span>
+
                 <span
-                  className="icon-AMA-SetaBaixo3-Line icon"
+                  className={` icon ${
+                    openAccordion
+                      ? "icon-AMA-SetaCima3-Line"
+                      : "icon-AMA-SetaBaixo3-Line "
+                  }`}
                   aria-hidden="true"
                 ></span>
               </button>
-              <button
-                className="btn btn-link dark-mode p-1 d-flex align-items-center"
-                id="darkModeBtn"
-              >
-                <span id="darkModeLabel">Modo Escuro</span>
-                <Icon
-                  name="AMA-EscuroClaro-Line icon-dark"
-                  aria-hidden="true"
-                />
-              </button>
             </div>
             <div
-              // id="flushEcossistema"
-              // className="accordion-collapse collapse"
-              // aria-labelledby="flushHeading"
               data-bs-parent="#accordionTopBar"
               id="flushEcossistema"
-              className={`accordion-collapse collapse ${ecossistemaAberto ? "show" : ""}`}
+              className={`accordion-collapse collapse ${openAccordion ? "show" : ""}`}
               aria-labelledby="flushHeading"
             >
               <div className="accordion-body ps-0 pe-0">

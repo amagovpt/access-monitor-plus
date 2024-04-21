@@ -1,3 +1,13 @@
+import { useContext } from "react";
+import { ThemeContext } from "../../../../context/ThemeContext";
+
 export default function LogoAcessmonitor() {
-  return <img src="/img/logo.svg" alt="accessMonitor" />;
+  const { theme } = useContext(ThemeContext);
+
+  const logoURL = theme === "light" ? "/img/logo.svg" : "/img/logo-dark.svg";
+  return (
+    <>
+      <img src={logoURL} alt="accessMonitor" />
+    </>
+  );
 }

@@ -36,7 +36,8 @@ const Gauge = ({ percentage }) => {
           style={{ fill: "none" }}
         />
         <path
-          className={determineColorClass()}
+          // className={determineColorClass()}
+          className={`animated ${determineColorClass()}`}
           d="M55,90 A55,55 0 1,1 140,90"
           style={{
             fill: "none",

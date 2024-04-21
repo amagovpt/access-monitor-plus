@@ -7,6 +7,10 @@
   vertical-align: middle;
 }
 
+.table button {
+  height: auto !important;
+}
+
 .table thead tr td {
   vertical-align: middle;
 }
@@ -17,7 +21,6 @@
 
 .table tbody tr:last-child {
   border: 0 !important;
-  /* border-bottom: 0 !important; */
 }
 
 .table tbody tr td {
@@ -105,4 +108,29 @@ code {
 .warning-cell,
 .error-cell i {
   font-size: 36px;
+}
+
+.hide_desktop-screen {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .hide-on-small-screen {
+    display: none;
+  }
+
+  .table tbody tr td:first-child {
+    width: 50px;
+    height: auto !important;
+  }
+  .mobile-options {
+    height: auto !important;
+  }
+
+  .hide_desktop-screen {
+    display: flex !important;
+    flex-direction: row;
+    margin: 15px 0;
+    justify-content: space-between;
+  }
 }

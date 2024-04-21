@@ -7,6 +7,7 @@ const { Item, Header, Body } = BAccordion;
 const Accordion = ({ options, backgroundColor, textColor, ...props }) => {
   const accordionStyle = {
     backgroundColor: backgroundColor,
+    minHeight: "auto",
   };
 
   const headerStyle = {

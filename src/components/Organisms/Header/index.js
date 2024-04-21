@@ -11,9 +11,7 @@ export function Header() {
       <div className="skip-to-content">
         <div className="container">
           <a className="skip-to-content-link" href="#content">
-            <span className="visually-hidden-focusable">
-              Saltar para o conteúdo principal da página
-            </span>
+            <span>Saltar para o conteúdo principal da página</span>
           </a>
         </div>
       </div>

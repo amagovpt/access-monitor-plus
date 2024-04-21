@@ -9,10 +9,12 @@
   --white: #ffffff;
   --focus-button: #ffc107;
   --info: #e0e0e0;
+  --background: #e4e4e4;
   --font-lato: "Lato", sans-serif;
   --font-red-hat: "Red Hat Display", sans-serif;
 
   --header-dark: #272777;
+  --header-top-bar-dark-text: #b6dcf6;
 
   --primary-disabled: #707070;
 }
@@ -24,7 +26,6 @@
 }
 
 body {
-  /* height: 100vh; */
   font-family: "Lato", sans-serif;
 }
 

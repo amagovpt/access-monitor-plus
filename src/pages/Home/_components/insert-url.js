@@ -1,51 +1,44 @@
 import { useState } from "react";
-
 import { Button, Icon, Input } from "../../../components";
-
-import "./styles.css";
-
 import { validateURL } from "../../../utils/utils";
 import { useNavigate } from "react-router-dom";
+import "./styles.css";
 
 export function InsertUrl() {
   const [url, setURL] = useState("");
   const [error, setError] = useState(null);
-  const [isDisabled, setIsdisabled] = useState(true);
-
   const navigate = useNavigate();
-  function handleResume() {
-    try {
-      console.log("URL válida:", url);
-      navigate("/resumo");
-    } catch (error) {
-      setError(null);
-    }
-  }
 
   const handleUrlChange = (event) => {
     const value = event.target.value;
     setURL(value);
+    setError(
+      validateURL(value)
+        ? null
+        : "Insira um URL válido. Ex: http://www.google.com"
+    );
+  };
 
-    if (value === "") {
-      setError(null);
-      setIsdisabled(true);
-    } else if (!validateURL(value)) {
-      setError("Insira um URL válido. E.x, http://www.google.com");
-      setIsdisabled(true);
-    } else {
-      setError(null);
-      setIsdisabled(false);
+  const handleSubmit = () => {
+    if (!error) {
+      navigate("/resumo", {
+        state: { content: removeProtocol(url), type: "url" },
+      });
     }
   };
 
+  const removeProtocol = (url) => {
+    return url.replace(/^(https?:\/\/)?(www\.)?/, "");
+  };
+
   const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      if (isDisabled === false) {
-        handleResume();
-      } else {
-        return;
-      }
+    if (e.key === "Enter" && !isDisabled()) {
+      handleSubmit();
     }
+  };
+
+  const isDisabled = () => {
+    return !validateURL(url) || !url;
   };
 
   return (
@@ -58,13 +51,12 @@ export function InsertUrl() {
         onChange={handleUrlChange}
         onKeyDown={handleKeyDown}
       />
-
       <Button
         text="Evaluate"
         size="lg"
-        disabled={isDisabled}
+        disabled={isDisabled()}
         iconRight={<Icon name="AMA-Setalongaoficial-Line" />}
-        onClick={handleResume}
+        onClick={handleSubmit}
       />
     </div>
   );

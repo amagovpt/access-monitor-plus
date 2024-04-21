@@ -29,11 +29,11 @@ const TableComponent = ({ data, allData, setAllData, setEle }) => {
         <thead>
           <tr>
             <th>
-              <span class="visually-hidden">#</span>
+              <span className="visually-hidden">#</span>
             </th>
             <th>Practice found</th>
-            <th>Level</th>
-            <th>See detail</th>
+            <th className="hide-on-small-screen">Level</th>
+            <th className="hide-on-small-screen">See detail</th>
           </tr>
         </thead>
 
@@ -43,15 +43,27 @@ const TableComponent = ({ data, allData, setAllData, setEle }) => {
               <td className={option?.tdClassName}>
                 <Icon name={option.iconName} />
               </td>
-              <td>
+              <td className="mobile-options">
                 <Accordion
                   options={[option]}
                   iconAlignment="left"
                   flush={true}
                 />
+
+                <div className="hide_desktop-screen">
+                  <span>Nível: {option?.lvl}</span>
+
+                  <button
+                    onClick={() => setAllDataResult(option.ele)}
+                    className="detail_link"
+                  >
+                    <Icon name="AMA-Detalhe-Line" />
+                    <span class="visually-hidden">Detalhe</span>
+                  </button>
+                </div>
               </td>
-              <td className="middle_col">{option?.lvl}</td>
-              <td>
+              <td className="middle_col hide-on-small-screen">{option?.lvl}</td>
+              <td className="hide-on-small-screen">
                 <button
                   onClick={() => setAllDataResult(option.ele)}
                   className="detail_link"

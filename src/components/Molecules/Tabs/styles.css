@@ -13,7 +13,32 @@
 .nav-tabs .nav-link.active {
   font-weight: 700;
   color: var(--primary);
-  font-family: var(--fonte-lato);
+  font-family: var(--font-lato);
   background-color: #eaeaea;
   border-bottom: 5px solid var(--primary);
+}
+
+.nav-pills .nav-link {
+  display: block;
+  width: 100%;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .nav-tabs {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-tabs .nav-link {
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    align-items: flex-start !important;
+  }
+
+  .nav-tabs .nav-link.active {
+    color: #fff !important;
+    background-color: var(--primary);
+    border: 0;
+  }
 }

@@ -18,3 +18,7 @@ path {
 .yellow {
   stroke: #f9ce41;
 }
+
+.animated {
+  transition: stroke-dashoffset 5s ease-in-out !important;
+}

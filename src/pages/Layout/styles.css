@@ -1,13 +1,16 @@
 .main {
   height: auto;
-  background-color: #e4e4e4;
-
+  background-color: var(--background);
   position: relative;
-  /* height: 100% !important; */
   padding-bottom: 4rem;
-  /* margin-bottom: 4rem; */
 }
 
 .main .link_breadcrumb_container {
   padding: 3rem 0px 2rem 0px;
+}
+
+/* DARK */
+
+.main_dark {
+  background-color: #20242c !important;
 }

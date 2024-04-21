@@ -14,8 +14,11 @@ export function TableAlternative(data) {
       <table className="table table-bordereds table-alterantive">
         <caption className="visually-hidden">practices found</caption>
         <thead>
-          <tr>
-            <th scope="col" className="text-left border_right ">
+          <tr className="mobile_table">
+            <th
+              scope="col"
+              className="text-left border_right practices_found_container"
+            >
               <span className="total_practices">
                 {data?.data?.metadata?.count_results}
               </span>{" "}
@@ -43,16 +46,35 @@ export function TableAlternative(data) {
 
                 <span className="ammount">{allvalues.ok} </span>
               </div>
+
+              {/* MOBILE */}
+              <div className="d-flex flex-row justify-content-end mobile_row-container">
+                <div className="d-flex flex-column mobile-row">
+                  <span>A</span>
+                  <span>{data?.data && data?.data?.infoak?.A?.ok}</span>
+                </div>
+
+                <div className="d-flex flex-column mobile-row">
+                  <span>AA</span>
+                  <span>{data?.data && data?.data?.infoak?.AA?.ok}</span>
+                </div>
+
+                <div className="d-flex flex-column mobile-row">
+                  <span>AAA</span>
+                  <span>{data?.data && data?.data?.infoak?.AAA?.ok}</span>
+                </div>
+              </div>
             </th>
-            <td className="border_right body_text">
+
+            {/* DESKTOP */}
+
+            <td className="border_right body_text desk_row">
               {data?.data && data?.data?.infoak?.A?.ok}
             </td>
-            <td className="border_right body_text">
-              {" "}
+            <td className="border_right body_text desk_row">
               {data?.data && data?.data?.infoak?.AA?.ok}
             </td>
-            <td className="border_right body_text">
-              {" "}
+            <td className="border_right body_text desk_row">
               {data?.data && data?.data?.infoak?.AAA?.ok}
             </td>
           </tr>
@@ -71,15 +93,35 @@ export function TableAlternative(data) {
 
                 <span className="ammount">{allvalues.war}</span>
               </div>
+
+              {/* MOBILE */}
+              <div className="d-flex flex-row justify-content-end mobile_row-container">
+                <div className="d-flex flex-column mobile-row">
+                  <span>A</span>
+                  <span>{data?.data && data?.data?.infoak?.A?.war}</span>
+                </div>
+
+                <div className="d-flex flex-column mobile-row">
+                  <span>AA</span>
+                  <span>{data?.data && data?.data?.infoak?.AA?.war}</span>
+                </div>
+
+                <div className="d-flex flex-column mobile-row">
+                  <span>AAA</span>
+                  <span>{data?.data && data?.data?.infoak?.AAA?.war}</span>
+                </div>
+              </div>
             </th>
-            <td className="border_right body_text">
-              {" "}
+
+            {/* DESKTOP */}
+
+            <td className="border_right body_text desk_row">
               {data?.data && data?.data?.infoak?.A?.war}
             </td>
-            <td className="border_right body_text">
+            <td className="border_right body_text desk_row">
               {data?.data && data?.data?.infoak?.AA?.war}
             </td>
-            <td className="border_right body_text">
+            <td className="border_right body_text desk_row">
               {data?.data && data?.data?.infoak?.AAA?.war}
             </td>
           </tr>
@@ -100,20 +142,67 @@ export function TableAlternative(data) {
 
                 <span className="ammount">{allvalues.err}</span>
               </div>
+
+              {/* MOBILE */}
+
+              <div className="d-flex flex-row justify-content-end mobile_row-container">
+                <div className="d-flex flex-column mobile-row">
+                  <span>A</span>
+                  <span>{data?.data && data?.data?.infoak?.A?.err}</span>
+                </div>
+
+                <div className="d-flex flex-column mobile-row">
+                  <span>AA</span>
+                  <span>{data?.data && data?.data?.infoak?.AA?.err}</span>
+                </div>
+
+                <div className="d-flex flex-column mobile-row">
+                  <span>AAA</span>
+                  <span>{data?.data && data?.data?.infoak?.AAA?.err}</span>
+                </div>
+              </div>
             </th>
-            <td className="border_right body_text">
+
+            {/* DESKTOP */}
+            <td className="border_right body_text desk_row">
               {data?.data && data?.data?.infoak?.A?.err}
             </td>
-            <td className="border_right body_text">
+            <td className="border_right body_text desk_row">
               {data?.data && data?.data?.infoak?.AA?.err}
             </td>
-            <td className="border_right body_text">
+            <td className="border_right body_text desk_row">
               {data?.data && data?.data?.infoak?.AAA?.err}
             </td>
           </tr>
 
-          <tr>
-            <th scope="row" className="border-bottom-0 border_right">
+          {/* TOTAL */}
+
+          {/* MOBILE */}
+          <div className="d-flex flex-row justify-content-end total_mobile mobile_row-container-total">
+            <div className="d-flex flex-column mobile-row">
+              <span>Total</span>
+              <span>{data?.data?.metadata?.count_results}</span>
+            </div>
+
+            <div className="d-flex flex-column mobile-row">
+              <span>A</span>
+              <span>{sumValueA}</span>
+            </div>
+
+            <div className="d-flex flex-column mobile-row">
+              <span>AA</span>
+              <span>{sumValueAA}</span>
+            </div>
+
+            <div className="d-flex flex-column mobile-row">
+              <span>AAA</span>
+              <span>{sumValueAAA}</span>
+            </div>
+          </div>
+
+          {/* DESK */}
+          <tr className="total_bottom-container">
+            <th scope="row" className="border-bottom-0 border_right ">
               <span class="visually-hidden">Total</span>
             </th>
             <td className="border-bottom-0 border_right heading_total total_bottom">
