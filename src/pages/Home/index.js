@@ -7,21 +7,25 @@ import { Breadcrumb, Tabs } from "../../components/index";
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 
+import { useTranslation } from "react-i18next"
+
 export default function Home({ changeState }) {
+  const {t} = useTranslation()
+
   const tabs = [
     {
       eventKey: "tab1",
-      title: "Insert URL",
+      title: t("HEADER.dialog.insert_url"),
       component: <InsertUrl changeState={changeState} />,
     },
     {
       eventKey: "tab2",
-      title: "Insert HTML code",
+      title: t("HEADER.dialog.insert_html"),
       component: <InsertHtml />,
     },
     {
       eventKey: "tab3",
-      title: "Upload HTML file",
+      title: t("HEADER.dialog.upload_html"),
       component: <InsertHtmlUpload />,
     },
   ];
@@ -53,9 +57,7 @@ export default function Home({ changeState }) {
         >
           <div className="d-flex flex-column align-items-stretch left_container">
             <p className="validator_container_description">
-              Aceda aqui ao nosso validador de práticas de acessibilidade Web
-              (WCAG 2.1). Obtenha um relatório de acessibilidade através de um
-              dos seguintes métodos:
+              {t("HOME_PAGE.intro_text")}
             </p>
 
             <Tabs tabs={tabs} defaultActiveKey="tab1" vertical={false} />

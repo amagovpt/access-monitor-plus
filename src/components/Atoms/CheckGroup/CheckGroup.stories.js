@@ -1,5 +1,8 @@
 import React from "react";
 import { CheckGroup } from "./index";
+import { useTranslation } from "react-i18next"
+
+const {t} = useTranslation()
 
 export default {
   title: "components/Atoms/Checkgroup",
@@ -37,7 +40,7 @@ const Template = (args) => {
   return (
     <>
       <CheckGroup {...args} value={value} onChange={setValue} />
-      <div>value: {value}</div>
+      <div>{t("ELEMENT_RESULTS.result.value") + " " + value}</div>
     </>
   );
 };

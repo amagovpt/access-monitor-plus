@@ -5,6 +5,8 @@ import { useContext, useRef, useState } from "react";
 
 import { ThemeContext } from "../../../../context/ThemeContext";
 
+import { useTranslation } from "react-i18next"
+
 export function TopBar() {
   const [openAccordion, setOpenAccordion] = useState(false);
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -19,6 +21,16 @@ export function TopBar() {
     }
   };
 
+  const {t, i18n: {changeLanguage, language}} = useTranslation()
+
+  const toggleLanguage = () => {
+    if(language === "en"){
+      changeLanguage("pt")
+    } else {
+      changeLanguage("en")
+    }
+  }
+
   return (
     <>
       <div className={`top-bar ${themeClass}`}>
@@ -32,7 +44,7 @@ export function TopBar() {
                   onClick={toggleTheme}
                 >
                   <span id="darkModeLabel">
-                    {theme === "light" ? "Modo claro" : "Modo escuro"}
+                    {theme === "light" ? t("HEADER.light_mode") : t("HEADER.dark_mode")}
                   </span>
                   <Icon
                     name="AMA-EscuroClaro-Line icon-dark"
@@ -43,8 +55,9 @@ export function TopBar() {
                 <button
                   className="btn btn-link language-mode p-1  d-flex align-items-center"
                   id="langModeBtn"
+                  onClick={toggleLanguage}
                 >
-                  <span id="langModeLabel">Ver em português</span>
+                  <span id="langModeLabel">{t("HEADER.language_en")}</span>
                   <Icon
                     name="AMA-EscuroClaro-Line icon-lang"
                     aria-hidden="true"
@@ -68,7 +81,7 @@ export function TopBar() {
                 />
 
                 <span id="flushHeading">
-                  Uma ferramenta do ecossistema{" "}
+                  {t('HEADER.tool')}
                   <span className="text-primary fw-bold dark_mode_span">
                     acessibilidade.gov.pt
                   </span>
@@ -97,7 +110,7 @@ export function TopBar() {
                       <div className="d-flex justify-content-between">
                         <div className="title-ecosssistema-ama">
                           <div className="h2">
-                            ecossistema
+                            {t('DROPDOWN.ecosystem')}
                             <br />
                             <strong>acessibilidade</strong>.gov.pt
                           </div>
@@ -107,10 +120,7 @@ export function TopBar() {
                     <div className="col-12 col-lg-6 align-self-center">
                       <div className="description-ecossistema-ama">
                         <p>
-                          Os sítios e as ferramentas de apoio à acessibilidade e
-                          à usabilidade, para garantir a promoção das boas
-                          práticas e melhorar a experiência de utilização dos
-                          serviços públicos digitais.
+                          {t('DROPDOWN.text')}
                         </p>
                       </div>
                     </div>
@@ -125,9 +135,7 @@ export function TopBar() {
                       </div>
                       <div className="left-column-ecossistema-ama">
                         <p>
-                          Divulgação, partilha e promoção das melhores práticas
-                          de acessibilidade para conteúdos Web e aplicações
-                          móveis.
+                          {t('DROPDOWN.accessibility.text')}
                         </p>
                       </div>
                       <div className="left-column-ecossistema-ama">
@@ -145,7 +153,7 @@ export function TopBar() {
                                 <Icon name="AMA-Setalongaoficial-Line" />
                               }
                               to="https://observatorio.acessibilidade.gov.pt/"
-                              text="Observatório Português da Acessibilidade Web"
+                              text={t('DROPDOWN.accessibility.link1')}
                             />
                           </li>
 
@@ -155,7 +163,7 @@ export function TopBar() {
                                 <Icon name="AMA-Setalongaoficial-Line" />
                               }
                               to="https://www.acessibilidade.gov.pt/gerador/"
-                              text={`Gerador "Declaração de Acessibilidade"`}
+                              text={t('DROPDOWN.accessibility.link2')}
                             />
                           </li>
 
@@ -165,7 +173,7 @@ export function TopBar() {
                                 <Icon name="AMA-Setalongaoficial-Line" />
                               }
                               to="https://accessmonitor.acessibilidade.gov.pt/"
-                              text="AccessMonitor"
+                              text={t('DROPDOWN.accessibility.link3')}
                             />
                           </li>
 
@@ -195,9 +203,7 @@ export function TopBar() {
                       </div>
                       <div className="center-column-ecossistema-ama">
                         <p>
-                          Recursos, ferramentas e boas práticas para melhorar a
-                          experiência de utilização dos serviços públicos
-                          digitais.
+                          {t('DROPDOWN.usability.text')}
                         </p>
                       </div>
                       <div className="center-column-ecossistema-ama">
@@ -215,7 +221,7 @@ export function TopBar() {
                                 <Icon name="AMA-Setalongaoficial-Line" />
                               }
                               to="https://mosaico.gov.pt/areas-tecnicas/usabilidade"
-                              text="Usabilidade no Mosaico"
+                              text={t('DROPDOWN.usability.link1')}
                             />
                           </li>
 
@@ -225,10 +231,8 @@ export function TopBar() {
                                 <Icon name="AMA-Setalongaoficial-Line" />
                               }
                               to="https://zeroheight.com/1be481dc2/p/97181d-agora-design-system"
-                            >
-                              Ágora <em lang="en">Design System</em> -
-                              documentação
-                            </Link>
+                              text={t('DROPDOWN.usability.link2')}
+                            />
                           </li>
 
                           <li>
@@ -237,10 +241,8 @@ export function TopBar() {
                                 <Icon name="AMA-Setalongaoficial-Line" />
                               }
                               to="https://prd-agora.northeurope.cloudapp.azure.com"
-                            >
-                              Ágora <em lang="en">Design System</em> -
-                              componentes
-                            </Link>
+                              text={t('DROPDOWN.usability.link3')}
+                            />
                           </li>
 
                           <li>
@@ -273,9 +275,7 @@ export function TopBar() {
                       </div>
                       <div className="right-column-ecossistema-ama">
                         <p>
-                          Selo de excelência que premeia as boas práticas de
-                          acessibilidade e usabilidade nos sítios Web dos
-                          serviços públicos digitais.
+                        {t('DROPDOWN.badge.text')}
                         </p>
                       </div>
                       <div className="right-column-ecossistema-ama">
@@ -293,7 +293,7 @@ export function TopBar() {
                                 <Icon name="AMA-Setalongaoficial-Line" />
                               }
                               to="https://pprselo.usabilidade.gov.pt/candidatura/"
-                              text="Candidatura ao Selo"
+                              text={t('DROPDOWN.badge.link3')}
                             />
                           </li>
 
@@ -313,7 +313,7 @@ export function TopBar() {
                                 <Icon name="AMA-Setalongaoficial-Line" />
                               }
                               to="https://amagovpt.github.io/kit-selo/"
-                              text="Kit informativo do Selo"
+                              text={t('DROPDOWN.badge.link2')}
                             />
                           </li>
 
@@ -323,7 +323,7 @@ export function TopBar() {
                                 <Icon name="AMA-Setalongaoficial-Line" />
                               }
                               to="https://pprselo.usabilidade.gov.pt/ajuda/"
-                              text="Dúvidas sobre o Selo?"
+                              text={t('DROPDOWN.badge.link1')}
                             />
                           </li>
                         </ul>

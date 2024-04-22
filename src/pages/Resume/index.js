@@ -12,10 +12,14 @@ import { processData } from "../../services";
 import { LoadingComponent } from "./_components/loading";
 import { api } from "../../config/api";
 
+import { useTranslation } from "react-i18next"
+
 export let tot;
 
 export default function Resume({ setAllData, setEle }) {
   const location = useLocation();
+  const {t} = useTranslation()
+
   const [dataProcess, setDataProcess] = useState([]);
   const [loadingProgress, setLoadingProgress] = useState(true);
   const [originalData, setOriginalData] = useState([]);
@@ -68,14 +72,14 @@ export default function Resume({ setAllData, setEle }) {
         <div className="acess_monitor">AcessMonitor</div>
         <h1 className="report_container_title">{dataProcess?.metadata?.url}</h1>
         <p className="report_container_subtitle">
-          Relatório de práticas de acessibilidade Web (WCAG 2.1 do W3C)
+          {t("RESULTS.title")}
         </p>
         {loadingProgress ? <LoadingComponent /> : <ButtonsActions />}
       </div>
       {!loadingProgress && (
         <>
           <section className="sumary_container bg-white">
-            <h2>Sumário</h2>
+            <h2>{t("RESULTS.summary.title")}</h2>
             <div className="d-flex flex-row mt-5 mb-5 justify-content-between container_uri_chart">
               <div className="chart_container">
                 <Gauge percentage={dataProcess?.metadata?.score} />
@@ -87,7 +91,7 @@ export default function Resume({ setAllData, setEle }) {
                 </div>
                 <br />
                 <div className="d-flex flex-column">
-                  <span>Title</span>
+                  <span>{t("RESULTS.summary.metadata.title_label")}</span>
                   <span>{dataProcess?.metadata?.title}</span>
                 </div>
               </div>
@@ -96,12 +100,12 @@ export default function Resume({ setAllData, setEle }) {
               <div className="size_container">
                 <div>
                   <span>{dataProcess?.metadata?.n_elements}</span> <br />
-                  <span>(x)HTML elements</span>
+                  <span>{t("RESULTS.summary.metadata.n_elements_label")}</span>
                 </div>
                 <br />
                 <div>
                   <span>{dataProcess?.metadata?.size}</span> <br />
-                  <span>Page size</span>
+                  <span>{t("RESULTS.summary.metadata.page_size_label")}</span>
                 </div>
               </div>
               <div className="table_container_sumary">
@@ -110,7 +114,7 @@ export default function Resume({ setAllData, setEle }) {
             </div>
           </section>
           <section className="bg-white avaliation_container">
-            <h2 className="avaliation_title">Avaliação</h2>
+            <h2 className="avaliation_title">{t("RESULTS.results.title")}</h2>
             <TableComponent
               data={dataProcess}
               allData={originalData?.result?.data}

@@ -6,8 +6,11 @@ import "./styles.css";
 
 import { useNavigate } from "react-router-dom";
 
+import { useTranslation } from "react-i18next"
+
 const TableComponent = ({ data, allData, setAllData, setEle }) => {
   const navigate = useNavigate();
+  const {t} = useTranslation()
 
   if (!data || !data.results) {
     return;
@@ -24,15 +27,15 @@ const TableComponent = ({ data, allData, setAllData, setEle }) => {
   return (
     <>
       <table className="table table_primary">
-        <caption className="visually-hidden">practices found</caption>
+        <caption className="visually-hidden">{t("RESULTS.summary.table.title")}</caption>
         <thead>
           <tr>
             <th>
               <span className="visually-hidden">#</span>
             </th>
-            <th>Practice found</th>
-            <th className="hide-on-small-screen">Level</th>
-            <th className="hide-on-small-screen">See detail</th>
+            <th>{t("RESULTS.results.practice")}</th>
+            <th className="hide-on-small-screen">{t("RESULTS.results.lvl")}</th>
+            <th className="hide-on-small-screen">{t("RESULTS.results.details")}</th>
           </tr>
         </thead>
 
@@ -46,7 +49,7 @@ const TableComponent = ({ data, allData, setAllData, setEle }) => {
                 <Accordion options={[option]} flush={true} />
 
                 <div className="hide_desktop-screen">
-                  <span>Nível: {option?.lvl}</span>
+                  <span>{t("RESULTS.results.lvl")}: {option?.lvl}</span>
 
                   {option.ele && (
                     <button
@@ -54,7 +57,7 @@ const TableComponent = ({ data, allData, setAllData, setEle }) => {
                       className="detail_link"
                     >
                       <Icon name="AMA-Detalhe-Line" />
-                      <span className="visually-hidden">Detalhe</span>
+                      <span className="visually-hidden">{t("RESULTS.results.details")}</span>
                     </button>
                   )}
                 </div>
@@ -69,7 +72,7 @@ const TableComponent = ({ data, allData, setAllData, setEle }) => {
                   className="detail_link"
                 >
                   <Icon name="AMA-Detalhe-Line" />
-                  <span className="visually-hidden">Detalhe</span>
+                  <span className="visually-hidden">{t("RESULTS.results.details")}</span>
                 </button>
               </td>
             </tr>

@@ -1,7 +1,9 @@
 import { Icon } from "../../Atoms/Icon";
 import "./styles.css";
+import { useTranslation } from "react-i18next"
 
 export function Footer() {
+  const {t} = useTranslation()
   return (
     <footer>
       <div>
@@ -22,10 +24,10 @@ export function Footer() {
             <nav aria-label="Menu de conformidade do acessibilidade.gov.pt">
               <ul className="d-sm-flex d-block justify-content-center p-3">
                 <li className="d-flex links">
-                  <a href="/acessibilidade">Acessibilidade</a>
+                  <a href="/acessibilidade">{t("FOOTER.accessibility")}</a>
                 </li>
                 <li className="d-flex links">
-                  <a href="/termos-e-condicoes/">Termos e Condições</a>
+                  <a href="/termos-e-condicoes/">{t("FOOTER.terms")}</a>
                 </li>
                 <li className="d-flex links">
                   <a
@@ -33,7 +35,7 @@ export function Footer() {
                     href="https://www.ama.gov.pt/web/agencia-para-a-modernizacao-administrativa/politica-de-privacidade"
                     rel="noopener noreferrer"
                   >
-                    Política de Privacidade
+                    {t("FOOTER.privacy")}
                   </a>
                 </li>
                 <li className="d-flex links">
@@ -51,11 +53,11 @@ export function Footer() {
                     href="/glossario/"
                     rel="noopener noreferrer"
                   >
-                    Glossário
+                    {t("FOOTER.glossary")}
                   </a>
                 </li>
                 <li className="d-flex links">
-                  <a href="/opcoes-de-visualizacao/">Opções de Visualização</a>
+                  <a href="/opcoes-de-visualizacao/">{t("FOOTER.options")}</a>
                 </li>
               </ul>
             </nav>
@@ -69,7 +71,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="sr-only">hiperligação externa</span>
+                <span className="sr-only">{t("DROPDOWN.external_link")}</span>
                 <img
                   src="/img/selo_ouro_small.png"
                   alt="Selo Ouro de Usabilidade e Acessibilidade"
@@ -127,7 +129,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="sr-only">hiperligação externa</span>
+                <span className="sr-only">{t("DROPDOWN.external_link")}</span>
                 <img
                   src="/img/selo.png"
                   alt="Selo Ouro de Usabilidade e Acessibilidade"
@@ -140,8 +142,7 @@ export function Footer() {
           © <script>document.write(new Date().getFullYear())</script>2024 AMA{" "}
           <span className="d-none d-sm-inline">-</span>{" "}
           <br className="d-block d-sm-none" />
-          Agência para a Modernização Administrativa, I. P. Todos os direitos
-          reservados.
+          {t("FOOTER.link") + " " + t("FOOTER.rights")}
         </div>
       </div>
     </footer>
