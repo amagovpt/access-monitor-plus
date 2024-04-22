@@ -203,7 +203,7 @@ export function TableAlternative(data) {
           {/* DESK */}
           <tr className="total_bottom-container">
             <th scope="row" className="border-bottom-0 border_right ">
-              <span class="visually-hidden">Total</span>
+              <span className="visually-hidden">Total</span>
             </th>
             <td className="border-bottom-0 border_right heading_total total_bottom">
               {sumValueA}

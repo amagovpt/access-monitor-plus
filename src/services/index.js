@@ -6,13 +6,13 @@ import { refWebsite, testView } from "../pages/Resume/utils";
 
 import { convertBytes } from "../utils/utils";
 
-export function processData(tot) {
-  // console.log("tot", tot);
+// console.log("tot", tot);
 
+export function processData(tot) {
   if (tot === null) {
+    console.log("Tot2xs", tot);
     return null;
   }
-
   const datax = {};
 
   datax["metadata"] = {};
@@ -104,9 +104,10 @@ export function processData(tot) {
         result["prio"] = color === "ok" ? 3 : color === "err" ? 1 : 2;
 
         const scstmp = tests[test]["scs"].split(",");
-        const li = {};
+        // console.log("Sss", scstmp);
         for (let s in scstmp) {
           if (s) {
+            const li = {};
             s = scstmp[s].trim();
             if (s !== "") {
               li["sc"] = s;
@@ -122,7 +123,6 @@ export function processData(tot) {
         }
 
         result["tech_list"] = testView(tes, tes, tes, color, tnum);
-
         datax["results"].push(result);
       }
     }

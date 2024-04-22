@@ -107,16 +107,22 @@ export function optionForAccordion(data) {
       const sc_text =
         result.ref_related_sc &&
         Array.isArray(result.ref_related_sc) &&
-        result.ref_related_sc.length > 0 &&
-        result.ref_related_sc[0].sc
-          ? result.ref_related_sc[0].sc
+        result.ref_related_sc.length > 0
+          ? result.ref_related_sc.map((item) => item.sc)
           : null;
 
       const linkcs =
         result.ref_related_sc &&
         Array.isArray(result.ref_related_sc) &&
         result.ref_related_sc.length > 0
-          ? result.ref_related_sc[0].link
+          ? result.ref_related_sc.map((item) => item.link)
+          : null;
+
+      const sc_level =
+        result.ref_related_sc &&
+        Array.isArray(result.ref_related_sc) &&
+        result.ref_related_sc.length > 0
+          ? result.ref_related_sc.map((item) => item.lvl)
           : null;
 
       const additionalInfo = jsonPT.TXT_TECHNIQUES[result.ref] || "";
@@ -162,16 +168,26 @@ export function optionForAccordion(data) {
         ref_website: result.ref_website,
         component: (
           <div className="content_error">
-            <p>{additionalInfo}</p>
+            <p dangerouslySetInnerHTML={{ __html: additionalInfo }} />
             <a href={result?.ref_website}>{additionalInfoLink}</a> <br />
             <span>{additionalInfoWagError}</span> <br />
-            <span className="criteiro">
-              Critério de sucesso {sc_text}{" "}
-              <i>
-                (Nível {result?.lvl}){" "}
-                <a href={linkcs}>Noções sobre o CS {sc_text}</a>
-              </i>
-            </span>
+            <div className="criterio d-block">
+              {sc_text && (
+                <ul className="d-flex flex-column">
+                  {sc_text.map((sc, index) => (
+                    <li key={index}>
+                      Critérios de sucesso: {sc}
+                      <span>
+                        <i>(Nível {sc_level[index]})</i>
+                      </span>
+                      <a href={linkcs[index]} className="fw-normal m-1">
+                        Noções sobre o CS {sc}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
           </div>
         ),
       };

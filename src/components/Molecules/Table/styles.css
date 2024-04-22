@@ -45,6 +45,7 @@
 
 .table .accordion-button:not(.collapsed) {
   background-color: transparent !important;
+  box-shadow: none;
 }
 
 .table .accordion-button:focus {
@@ -53,9 +54,9 @@
   border: 1px solid #000;
 }
 
-.table .accordion-button {
+/* .table .accordion-button {
   padding: 0 !important;
-}
+} */
 
 .content_error {
   text-align: left;

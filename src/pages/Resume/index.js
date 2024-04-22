@@ -31,7 +31,13 @@ export default function Resume({ setAllData, setEle }) {
             ? await api.post("/eval/html", { html: content })
             : await api.get(`/eval/${content}`);
         setOriginalData(response.data);
-        setDataProcess(processData(response.data?.result?.data.tot));
+
+        console.log("Response", response.data.result.data.tot);
+        setDataProcess(processData(response.data?.result?.data?.tot));
+
+        tot = response.data.result.data.tot;
+
+        console.log("Tot", tot);
         setLoadingProgress(false);
       } catch (error) {
         console.error("Erro", error);

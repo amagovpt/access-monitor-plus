@@ -7,10 +7,8 @@ import { TableDetails } from "./_components/TableDetails";
 import "./styles.css";
 
 export default function Details({ allData, ele }) {
-  console.log("AllData", allData);
-  console.log("AllData2", ele);
-  // console.log("Ele", ele);
-
+  const url = allData?.rawUrl;
+  const textHeading = jsonPt.ELEMS[ele];
   const [dataTable, setDataTable] = useState([]);
 
   const dataBreadCrumb = [
@@ -22,16 +20,20 @@ export default function Details({ allData, ele }) {
       title: "Access Monitor",
       href: "/",
     },
-    // {
-    //   title: "https://lbc-global.com/",
-    //   href: "#",
-    // },
+    {
+      title: url,
+      href: url,
+    },
+
+    {
+      title: textHeading,
+      href: "#",
+    },
   ];
 
   function getDetails() {
     const response = getTestResults(ele, allData);
     setDataTable(response);
-    // console.log("Response", response);
   }
 
   useEffect(() => {
@@ -71,8 +73,6 @@ export default function Details({ allData, ele }) {
   } else {
     tdClassName = "success-cell";
   }
-
-  const textHeading = jsonPt.ELEMS[ele];
 
   return (
     <>

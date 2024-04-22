@@ -7,11 +7,10 @@ import "./styles.css";
 import { useNavigate } from "react-router-dom";
 
 const TableComponent = ({ data, allData, setAllData, setEle }) => {
-  // console.log("Dataxc", data);
   const navigate = useNavigate();
 
   if (!data || !data.results) {
-    return <div>Dados inválidos ou ausentes.</div>;
+    return;
   }
 
   function setAllDataResult(ele) {
@@ -44,32 +43,33 @@ const TableComponent = ({ data, allData, setAllData, setEle }) => {
                 <Icon name={option.iconName} />
               </td>
               <td className="mobile-options">
-                <Accordion
-                  options={[option]}
-                  iconAlignment="left"
-                  flush={true}
-                />
+                <Accordion options={[option]} flush={true} />
 
                 <div className="hide_desktop-screen">
                   <span>Nível: {option?.lvl}</span>
 
-                  <button
-                    onClick={() => setAllDataResult(option.ele)}
-                    className="detail_link"
-                  >
-                    <Icon name="AMA-Detalhe-Line" />
-                    <span class="visually-hidden">Detalhe</span>
-                  </button>
+                  {option.ele && (
+                    <button
+                      onClick={() => setAllDataResult(option.ele)}
+                      className="detail_link"
+                    >
+                      <Icon name="AMA-Detalhe-Line" />
+                      <span className="visually-hidden">Detalhe</span>
+                    </button>
+                  )}
                 </div>
               </td>
               <td className="middle_col hide-on-small-screen">{option?.lvl}</td>
-              <td className="hide-on-small-screen">
+
+              <td
+                className={`hide-on-small-screen ${option.ele ? "" : "visually-hidden"}`}
+              >
                 <button
-                  onClick={() => setAllDataResult(option.ele)}
+                  onClick={() => setAllDataResult(option.ele && option.ele)}
                   className="detail_link"
                 >
                   <Icon name="AMA-Detalhe-Line" />
-                  <span class="visually-hidden">Detalhe</span>
+                  <span className="visually-hidden">Detalhe</span>
                 </button>
               </td>
             </tr>
