@@ -1,14 +1,17 @@
 import { Breadcrumb, Icon, Tabs } from "../../components";
-import jsonPt from "../../utils/portuguese.json";
 
 import { getTestResults } from "../../services";
 import { useEffect, useState } from "react";
 import { TableDetails } from "./_components/TableDetails";
 import "./styles.css";
+import { useTranslation } from "react-i18next"
 
 export default function Details({ allData, ele }) {
+  const {t} = useTranslation()
+
   const url = allData?.rawUrl;
-  const textHeading = jsonPt.ELEMS[ele];
+  // const textHeading = jsonPt.ELEMS[ele];
+  const textHeading = t(`ELEMS.${ele}`)
   const [dataTable, setDataTable] = useState([]);
 
   const dataBreadCrumb = [
@@ -89,7 +92,7 @@ export default function Details({ allData, ele }) {
           </h1>
 
           <p className="report_container_subtitle test_result">
-            Resultados do teste
+            {t("ELEMENT_RESULTS.subtitle")}
           </p>
         </div>
 
@@ -108,7 +111,7 @@ export default function Details({ allData, ele }) {
 
             <div className="result_left_container">
               <span>{dataTable?.size}</span>
-              <span>elements founds</span>
+              <span>{t("ELEMENT_RESULTS.total_elements")}</span>
             </div>
           </div>
         </div>

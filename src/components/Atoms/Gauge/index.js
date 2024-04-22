@@ -1,7 +1,11 @@
 import React from "react";
 import "./styles.css";
+import { useTranslation } from "react-i18next"
 
 const Gauge = ({ percentage }) => {
+
+  const {t} = useTranslation()
+
   const adjustedPercentage = percentage * 10;
 
   const calculateDashOffset = () => {
@@ -64,7 +68,7 @@ const Gauge = ({ percentage }) => {
           fontSize="8"
           fontFamily="Lato"
         >
-          Pontuação
+          {t("RESULTS.summary.score")}
         </text>
       </svg>
     </div>

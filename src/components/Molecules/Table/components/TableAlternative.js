@@ -1,6 +1,7 @@
 import { sumAllValues, sumValuesByKey } from "../../../../pages/Resume/utils";
 import { Icon } from "../../../index";
 import "./styles.css";
+import { useTranslation } from "react-i18next"
 
 export function TableAlternative(data) {
   let sumValueA = sumValuesByKey("A", data?.data?.infoak);
@@ -9,10 +10,11 @@ export function TableAlternative(data) {
 
   let allvalues = sumAllValues(data?.data.infoak);
 
+  const {t} = useTranslation()
   return (
     <>
       <table className="table table-bordereds table-alterantive">
-        <caption className="visually-hidden">practices found</caption>
+        <caption className="visually-hidden">{t("RESULTS.summary.table.title")}</caption>
         <thead>
           <tr className="mobile_table">
             <th
@@ -22,7 +24,7 @@ export function TableAlternative(data) {
               <span className="total_practices">
                 {data?.data?.metadata?.count_results}
               </span>{" "}
-              <span className="practices_found">practices found</span>
+              <span className="practices_found">{t("RESULTS.summary.table.title")}</span>
             </th>
             <th className="border_right heading_total total_top">A</th>
             <th className="border_right heading_total total_top">AA</th>
@@ -37,7 +39,7 @@ export function TableAlternative(data) {
                 <div className="icon_and_text">
                   <Icon name="AMA-Check-Line" />
 
-                  <span className="title">Aceptable</span>
+                  <span className="title">{t("RESULTS.summary.table.labels.ok")}</span>
                 </div>
                 <div
                   className="overlay overlay_aceptable"
@@ -84,7 +86,7 @@ export function TableAlternative(data) {
               <div className="aceptable_continer">
                 <div className="icon_and_text">
                   <Icon name="AMA-Middle-Line" />
-                  <span className="title">To view manually</span>
+                  <span className="title">{t("RESULTS.summary.table.labels.warn")}</span>
                 </div>
                 <div
                   className="overlay overlay_manual"
@@ -132,7 +134,7 @@ export function TableAlternative(data) {
                 <div className="icon_and_text">
                   <Icon name="AMA-Wrong-Line" />
 
-                  <span className="title">Non Acceptable</span>
+                  <span className="title">{t("RESULTS.summary.table.labels.err")}</span>
                 </div>
 
                 <div

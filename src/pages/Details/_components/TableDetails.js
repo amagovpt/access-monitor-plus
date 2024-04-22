@@ -1,13 +1,17 @@
 import "./styles.css";
+import { useTranslation } from "react-i18next"
+
 
 const renderHTML = (htmlString) => {
   return { __html: htmlString };
 };
 
 export function TableDetails({ data }) {
+  const {t} = useTranslation()
   return (
     <table className="table1">
-      <caption className="visually-hidden"> Result 1 of the practice </caption>
+      {/*<caption className="visually-hidden"> Result 1 of the practice </caption>*/}
+      <caption className="visually-hidden"> {t("ELEMENT_RESULTS.caption", { value: 1})} </caption>
       <tbody>
         {data &&
           data.map((item, index) => (
@@ -17,7 +21,7 @@ export function TableDetails({ data }) {
                   <span>{index + 1}</span>
                 </td>
                 <th scope="row" className="label">
-                  <strong>Element:</strong>
+                  <strong>{t("ELEMENT_RESULTS.result.element")}</strong>
                 </th>
                 <td className="value">
                   <span className="element">{item?.ele}</span>
@@ -25,7 +29,7 @@ export function TableDetails({ data }) {
               </tr>
               <tr key={`${index}-code`}>
                 <th scope="row" className="label">
-                  <strong>Code:</strong>
+                  <strong>{t("ELEMENT_RESULTS.result.code")}</strong>
                 </th>
                 <td className="value">
                   <code>{item?.code}</code>
@@ -33,7 +37,7 @@ export function TableDetails({ data }) {
               </tr>
               <tr key={`${index}-showCode`}>
                 <th scope="row" className="label">
-                  <strong>Content/text:</strong>
+                  <strong>{t("ELEMENT_RESULTS.result.content")}</strong>
                 </th>
                 <td className="value">
                   <div
@@ -44,7 +48,7 @@ export function TableDetails({ data }) {
               </tr>
               <tr key={`${index}-pointer`}>
                 <th scope="row" className="label">
-                  <strong>Location:</strong>
+                  <strong>{t("ELEMENT_RESULTS.result.location")}</strong>
                 </th>
                 <td className="value">
                   <span className="element">{item?.pointer}</span>

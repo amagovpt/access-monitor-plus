@@ -3,11 +3,13 @@ import { Button, Icon, Input } from "../../../components";
 import { validateURL } from "../../../utils/utils";
 import { useNavigate } from "react-router-dom";
 import "./styles.css";
+import { useTranslation } from "react-i18next"
 
 export function InsertUrl() {
   const [url, setURL] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const {t} = useTranslation()
 
   const handleUrlChange = (event) => {
     const value = event.target.value;
@@ -15,7 +17,7 @@ export function InsertUrl() {
     setError(
       validateURL(value)
         ? null
-        : "Insira um URL válido. Ex: http://www.google.com"
+        : t("HOME_PAGE.url_error")
     );
   };
 
@@ -45,14 +47,14 @@ export function InsertUrl() {
     <div className="tab_content_view">
       <Input
         id="url"
-        label="Enter url here"
+        label={t("HOME_PAGE.url_label")}
         placeholder="Http(s)"
         error={error}
         onChange={handleUrlChange}
         onKeyDown={handleKeyDown}
       />
       <Button
-        text="Evaluate"
+        text={t("HOME_PAGE.submit")}
         size="lg"
         disabled={isDisabled()}
         iconRight={<Icon name="AMA-Setalongaoficial-Line" />}

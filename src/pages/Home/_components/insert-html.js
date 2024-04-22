@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Button, Icon, TextArea } from "../../../components";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next"
 
 export function InsertHtml() {
+  const {t} = useTranslation()
   const [htmlValue, setHtmlValue] = useState("");
   const navigate = useNavigate();
 
@@ -18,14 +20,14 @@ export function InsertHtml() {
     <div className="tab_content_view">
       <TextArea
         id="html"
-        label="Insert the HTML code down below"
-        placeholder="Insert the HTML code here"
+        label={t("HOME_PAGE.html_label")}
+        placeholder={t("HOME_PAGE.html_placeholder")}
         value={htmlValue}
         onChange={(e) => setHtmlValue(e.target.value)}
       />
 
       <Button
-        text="Evaluate"
+        text={t("HOME_PAGE.submit")}
         size="lg"
         disabled={htmlValue === ""}
         onClick={handleSubmit}
