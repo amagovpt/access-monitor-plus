@@ -67,7 +67,7 @@ export default function Home({ changeState }) {
             <img
               src={imgUrl}
               // src="/img/verify.svg"
-              alt="imagem de verificação"
+              alt={t("HOME_PAGE.intro_img_text")}
               className="verify_img"
             />
           </div>

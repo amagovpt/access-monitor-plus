@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../../../context/ThemeContext";
+import { useTranslation } from "react-i18next";
 
 export function WidgetBar({ description, logo }) {
   const { theme } = useContext(ThemeContext);
+  const {t} = useTranslation()
 
   const themeClass = theme === "light" ? "" : "dark_mode";
   return (
@@ -24,7 +26,7 @@ export function WidgetBar({ description, logo }) {
                       aria-hidden="true"
                     ></span>
                     <span className="visually-hidden">
-                      Abrir menu de navegação
+                      {t("HEADER.mobile_menu")}
                     </span>
                   </button>
                 </div>

@@ -21,7 +21,7 @@ export function Footer() {
       <div className="d-block">
         <div className="row no-gutters">
           <div className="col-sm-12 col-8">
-            <nav aria-label="Menu de conformidade do acessibilidade.gov.pt">
+            <nav aria-label={t("FOOTER.main_aria_label")}>
               <ul className="d-sm-flex d-block justify-content-center p-3">
                 <li className="d-flex links">
                   <a href="/acessibilidade">{t("FOOTER.accessibility")}</a>
@@ -71,10 +71,10 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="sr-only">{t("DROPDOWN.external_link")}</span>
+                <span className="sr-only">{t("HEADER.DROPDOWN.external_link")}</span>
                 <img
                   src="/img/selo_ouro_small.png"
-                  alt="Selo Ouro de Usabilidade e Acessibilidade"
+                  alt={t("FOOTER.gold_badge_label")}
                 />
               </a>
             </div>
@@ -82,35 +82,35 @@ export function Footer() {
           <div className="col-sm-12 d-flex justify-content-center">
             <nav
               className="d-inline-flex"
-              aria-label="Proprietário e co-financiadores do acessibilidade.gov.pt"
+              aria-label={t("FOOTER.owner_and_co_financers_aria_label")}
             >
               <ul className="d-sm-flex justify-content-center d-block">
                 <li className="d-inline-flex justify-content-center">
                   <img
                     id="republica_portuguesa"
                     src="/img/republica_portuguesa.png"
-                    alt="República Portuguesa"
+                    alt={t("FOOTER.img_portuguese_replubic")}
                   />
                 </li>
                 <li className="d-inline-flex justify-content-center">
                   <img
                     id="ama_img"
                     src="/img/ama-modernizacao_administrativa.png"
-                    alt="AMA – Agência para a Modernização Administrativa I.P."
+                    alt={t("FOOTER.img_ama")}
                   />
                 </li>
                 <li className="d-inline-flex justify-content-center">
                   <img
                     id="compete_2020"
                     src="/img/compete_2020.png"
-                    alt="COMPETE 2020 – Programa Operacional Competitividade e Internacionalização"
+                    alt={t("FOOTER.img_compete_2020")}
                   />
                 </li>
                 <li className="d-inline-flex justify-content-center">
                   <img
                     id="uniao_europeia"
                     src="/img/UE-uniao_europeia.png"
-                    alt="União Europeia – Fundo Europeu de Desenvolvimento Regional"
+                    alt={t("FOOTER.img_european_union")}
                   />
                 </li>
                 <li className="d-inline-flex justify-content-center">
@@ -129,10 +129,10 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="sr-only">{t("DROPDOWN.external_link")}</span>
+                <span className="sr-only">{t("HEADER.DROPDOWN.external_link")}</span>
                 <img
                   src="/img/selo.png"
-                  alt="Selo Ouro de Usabilidade e Acessibilidade"
+                  alt={t("FOOTER.gold_badge_label")}
                 />
               </a>
             </div>
