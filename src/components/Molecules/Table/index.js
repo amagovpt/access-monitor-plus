@@ -22,7 +22,7 @@ const TableComponent = ({ data, allData, setAllData, setEle }) => {
     navigate("/detalhe");
   }
 
-  const optionsArray = optionForAccordion(data);
+  const optionsArray = optionForAccordion(t, data);
 
   return (
     <>

@@ -1,7 +1,3 @@
-// import { useTranslation } from "react-i18next"
-
-// const {t} = useTranslationn()
-
 import jsonPT from "../../utils/portuguese.json";
 
 export function refWebsite(ref) {
@@ -98,12 +94,12 @@ export function sumAllValues(object) {
 
 // Format Result second table
 
-export function optionForAccordion(data) {
+export function optionForAccordion(t, data) {
   const optionsArray = data.results
     .map((result) => {
       const testResultType = result.value === 1 ? "s" : "p";
-      const testResult = jsonPT.TESTS_RESULTS[result.msg][testResultType];
-      // const testResult = t(`TESTS_RESULTS.${result.msg}.${testResultType}`)
+      //const testResult = jsonPT.TESTS_RESULTS[result.msg][testResultType];
+      const testResult = t(`TESTS_RESULTS.${result.msg}.${testResultType}`)
 
       if (!testResult) {
         return null;
@@ -130,13 +126,13 @@ export function optionForAccordion(data) {
           ? result.ref_related_sc.map((item) => item.lvl)
           : null;
 
-      const additionalInfo = jsonPT.TXT_TECHNIQUES[result.ref] || "";
-      const additionalInfoLink = jsonPT.TECHS[result.ref] || "";
-      const additionalInfoWagError = jsonPT.TECHFAIL[result.relation] || "";
+      // const additionalInfo = jsonPT.TXT_TECHNIQUES[result.ref] || "";
+      // const additionalInfoLink = jsonPT.TECHS[result.ref] || "";
+      // const additionalInfoWagError = jsonPT.TECHFAIL[result.relation] || "";
 
-      // const additionalInfo = t(`TXT_TECHNIQUES.${result.ref}`) || "";
-      // const additionalInfoLink = t(`TECHS.${result.ref}`) || "";
-      // const additionalInfoWagError = t(`TECHFAIL.${result.relation}`) || "";
+      const additionalInfo = t(`TXT_TECHNIQUES.${result.ref}`) || "";
+      const additionalInfoLink = t(`TECHS.${result.ref}`) || "";
+      const additionalInfoWagError = t(`TECHFAIL.${result.relation}`) || "";
 
       let iconName;
 
