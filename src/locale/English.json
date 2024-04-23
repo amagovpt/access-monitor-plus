@@ -1,4 +1,5 @@
 {
+  "translation": {
   "HEADER": {
     "tool": "A tool of the ecosystem from",
     "logo_alt": "AccessMonitor - a web accessibility evaluator",
@@ -1240,4 +1241,5 @@
     "relationT": "This WCAG 2.1 technique is related to:",
     "relationACT": "This Accessibility Conformance Testing rule is related to:"
   }
+}
 }
