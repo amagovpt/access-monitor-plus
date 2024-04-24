@@ -1,0 +1,72 @@
+.acess_monitor {
+  font-size: 19px;
+  line-height: 48px;
+  color: #fff;
+  background-color: var(--primary);
+  font-weight: 700;
+  font-family: var(--fonte-lato);
+  height: 31px;
+  width: 157px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0.38px;
+}
+
+.report_container_title {
+  font-size: 2.6em;
+  color: #333;
+  font-weight: 900;
+  font-family: "Lato";
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  word-break: break-all;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.report_container_subtitle {
+  font-size: 1.5em;
+  color: #333;
+  font-weight: 700;
+  font-family: "Lato";
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .report_container_title {
+    font-size: 38px;
+    font-weight: bold !important;
+  }
+
+  .report_container_subtitle {
+    font-size: 22px;
+    margin-top: 15px;
+  }
+}
+
+.html_code {
+  padding: 15px;
+  background-color: var(--white);
+  overflow: auto;
+  margin-bottom: 100px;
+  word-break: normal;
+  white-space: pre;
+  margin: 40px 0;
+}
+
+.code_text {
+  font-size: 87.5%;
+  color: #212529;
+  word-break: normal;
+  text-decoration: none;
+}
+
+.right {
+  justify-content: flex-end;
+}

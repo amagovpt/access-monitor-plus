@@ -1,0 +1,63 @@
+.group_mobile {
+  display: none;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .deskGroupMobile {
+    display: none !important;
+  }
+
+  .group_mobile {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.firstGroupContainer {
+  width: 48% !important;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.firstGroupContainer button {
+  width: 100%;
+  font-size: 13.5px;
+}
+
+.firstGroupContainer button:first-child {
+  margin-bottom: 10px;
+}
+
+.dropdown-content {
+  display: none;
+  width: 200px;
+  margin-top: 1em;
+  padding: 1em;
+  color: var(--white);
+  border-radius: 25px;
+  background-color: var(--primary);
+  position: absolute;
+  z-index: 1;
+}
+
+.show_dropdown {
+  display: block !important;
+}
+
+.dropdown-content a {
+  color: var(--white);
+  display: block;
+  padding: .5em;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.underline:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.right {
+  justify-content: flex-end;
+}

@@ -5,6 +5,7 @@ import Home from "./pages/Home/";
 import './i18n'
 import Resume from "./pages/Resume";
 import Detail from "./pages/Details";
+import PageCode from "./pages/PageCode"
 import { useState } from "react";
 import { ThemeProvider } from "./context/ThemeContext";
 
@@ -24,6 +25,10 @@ export default function App() {
             <Route
               path="/detalhe"
               element={<Detail allData={allData} ele={ele} />}
+            />
+            <Route
+              path="/resumo/code"
+              element={<PageCode setAllData={setAllData} setEle={setEle} />}
             />
             {/* Outras rotas */}
           </Routes>
