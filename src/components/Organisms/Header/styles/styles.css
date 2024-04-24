@@ -80,10 +80,20 @@
   margin-bottom: 0;
 }
 
+.button-mobile {
+  display: none !important;
+}
+
 @media (max-width: 768px) {
   .logo img {
     max-width: 90%;
     height: auto;
+  }
+
+  .button-mobile {
+    display: flex !important;
+    margin: 0.5rem 0;
+    justify-content: space-between !important;
   }
 }
 

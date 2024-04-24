@@ -161,3 +161,102 @@
     padding: 30px 15px;
   }
 }
+
+/* Dark mode */
+
+.dark_mode-resume .acess_monitor {
+  background-color: #b6dcf6;
+  color: #20242c;
+}
+
+.dark_mode-resume .report_container_title,
+.dark_mode-resume .report_container_subtitle,
+.dark_mode-resume .sumary_container h2,
+.dark_mode-resume .sumary_container .size_container span {
+  color: #ebf2f6 !important;
+}
+
+.dark_mode-resume .sumary_container {
+  background-color: #2c3241 !important;
+  color: #ebf2f6;
+}
+
+.dark_mode-resume .chart_container text {
+  fill: #ebf2f6 !important;
+}
+
+.dark_mode-resume .table_container_sumary .table-alterantive tr th {
+  background-color: transparent !important;
+  color: #ebf2f6 !important;
+}
+
+.dark_mode-resume .aceptable_continer {
+  background-color: #a7b1be !important;
+  color: #20242c;
+}
+
+.dark_mode-resume .table-alterantive .body_text {
+  background-color: #a7b1be !important;
+  color: #20242c;
+}
+
+.dark_mode-resume .table-alterantive .total_bottom {
+  background-color: transparent !important;
+  color: #ebf2f6 !important;
+}
+
+.dark_mode-resume .avaliation_container {
+  background-color: #2c3241 !important;
+  color: #ebf2f6;
+}
+
+.dark_mode-resume .avaliation_title {
+  color: #ebf2f6;
+}
+
+.dark_mode-resume .table_primary tr th {
+  background-color: #20242c !important;
+  color: #ebf2f6;
+}
+
+.dark_mode-resume .table_primary tbody tr .mobile-options,
+.hide-on-small-screen {
+  border-bottom: 1px solid #333;
+  background-color: transparent !important;
+}
+
+.dark_mode-resume .accordion-flush .accordion-item .accordion-header button {
+  background-color: #2c3241 !important;
+  color: #ebf2f6 !important;
+}
+
+.dark_mode-resume
+  .accordion-flush
+  .accordion-item
+  .accordion-header
+  button
+  mark,
+button code {
+  color: #ebf2f6 !important;
+}
+
+.dark_mode-resume .table_primary tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border-style: none !important;
+}
+
+.dark_mode-resume .detail_link i {
+  color: #b6dcf6 !important;
+}
+
+.dark_mode-resume .middle_col {
+  color: #ebf2f6 !important;
+}
+
+.dark_mode-resume .accordion-button i {
+  color: red !important;
+}

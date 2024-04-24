@@ -7,10 +7,10 @@ import { Breadcrumb, Tabs } from "../../components/index";
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 
-import { useTranslation } from "react-i18next"
+import { useTranslation } from "react-i18next";
 
 export default function Home({ changeState }) {
-  const {t} = useTranslation()
+  const { t } = useTranslation();
 
   const tabs = [
     {
@@ -66,7 +66,6 @@ export default function Home({ changeState }) {
           <div className="d-flex flex-row align-items-start right_container">
             <img
               src={imgUrl}
-              // src="/img/verify.svg"
               alt={t("HOME_PAGE.intro_img_text")}
               className="verify_img"
             />

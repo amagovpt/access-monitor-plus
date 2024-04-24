@@ -59,13 +59,15 @@
   color: var(--header-top-bar-dark-text);
 }
 
-.main_content_home .tab_content_view .field input {
+.main_content_home .tab_content_view .field input,
+.main_content_home .tab_content_view .field textarea {
   color: var(--header-top-bar-dark-text) !important;
   background-color: transparent !important;
   border-color: var(--header-top-bar-dark-text) !important;
 }
 
-.main_content_home .tab_content_view .field input::placeholder {
+.main_content_home .tab_content_view .field input::placeholder,
+.main_content_home .tab_content_view .field textarea::placeholder {
   color: var(--header-top-bar-dark-text) !important;
 }
 
@@ -81,4 +83,16 @@
 
 .main_content_home .nav-tabs .nav-link.active {
   border-bottom-color: var(--header-top-bar-dark-text);
+}
+
+.main_dark .breadcrumb-item {
+  color: var(--header-top-bar-dark-text) !important;
+}
+
+.main_dark .breadcrumb-item a {
+  color: var(--header-top-bar-dark-text) !important;
+}
+
+.main_dark .breadcrumb-item::before {
+  color: var(--header-top-bar-dark-text) !important;
 }

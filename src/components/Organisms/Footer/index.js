@@ -1,148 +1,162 @@
-import { Icon } from "../../Atoms/Icon";
+import { useContext } from "react";
+import { ThemeContext } from "../../../context/ThemeContext";
 import "./styles.css";
-import { useTranslation } from "react-i18next"
+
+import { useTranslation } from "react-i18next";
 
 export function Footer() {
-  const {t} = useTranslation()
+  const { t } = useTranslation();
+  const { theme } = useContext(ThemeContext);
+
+  const themeClass = theme === "light" ? "" : "dark_mode_footer";
+
   return (
-    <footer>
-      <div>
-        <a
-          href="#wrapper-navbar"
-          className="back-to-top"
-          id="back-to-topo-button"
-        >
-          <span className="visually-hidden">Voltar ao Topo</span>
-
-          <Icon name="AMA-SetadoisoficialCima-Line" />
-        </a>
-      </div>
-
-      <div className="d-block">
-        <div className="row no-gutters">
-          <div className="col-sm-12 col-8">
-            <nav aria-label={t("FOOTER.main_aria_label")}>
-              <ul className="d-sm-flex d-block justify-content-center p-3">
-                <li className="d-flex links">
-                  <a href="/acessibilidade">{t("FOOTER.accessibility")}</a>
-                </li>
-                <li className="d-flex links">
-                  <a href="/termos-e-condicoes/">{t("FOOTER.terms")}</a>
-                </li>
-                <li className="d-flex links">
-                  <a
-                    target="_blank"
-                    href="https://www.ama.gov.pt/web/agencia-para-a-modernizacao-administrativa/politica-de-privacidade"
-                    rel="noopener noreferrer"
-                  >
-                    {t("FOOTER.privacy")}
-                  </a>
-                </li>
-                <li className="d-flex links">
-                  <a
-                    target="_blank"
-                    href="https://amagovpt.github.io/kit-selo/"
-                    rel="noopener noreferrer"
-                  >
-                    GitHub
-                  </a>
-                </li>
-                <li className="d-flex links">
-                  <a
-                    target="_blank"
-                    href="/glossario/"
-                    rel="noopener noreferrer"
-                  >
-                    {t("FOOTER.glossary")}
-                  </a>
-                </li>
-                <li className="d-flex links">
-                  <a href="/opcoes-de-visualizacao/">{t("FOOTER.options")}</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-
-          <div className="col-4 d-flex justify-content-end d-sm-none">
-            <div>
-              <a
-                className="position-relative"
-                href="https://selo.acessibilidade.gov.pt/"
-                target="_blank"
-                rel="noopener noreferrer"
+    <footer className={`${themeClass}`}>
+      <div className="container">
+        <nav aria-label="Menu de rodapé do selo.usabilidade.gov.pt">
+          <div className="menu-menu-de-rodape-container">
+            <ul id="menu-menu-de-rodape" className="footer-menu">
+              <li
+                id="menu-item-193"
+                className="menu-item menu-item-type-post_type menu-item-object-page menu-item-193"
               >
-                <span className="sr-only">{t("HEADER.DROPDOWN.external_link")}</span>
-                <img
-                  src="/img/selo_ouro_small.png"
-                  alt={t("FOOTER.gold_badge_label")}
-                />
-              </a>
+                <a href="https://selo.leadershipbt.com/selo/">
+                  {t("FOOTER.accessibility")}
+                </a>
+              </li>
+
+              <li
+                id="menu-item-193"
+                className="menu-item menu-item-type-post_type menu-item-object-page menu-item-193"
+              >
+                <a href="https://selo.leadershipbt.com/selo/">
+                  {t("FOOTER.terms")}
+                </a>
+              </li>
+
+              <li
+                id="menu-item-190"
+                className="menu-item menu-item-type-custom menu-item-object-custom menu-item-190"
+              >
+                <a href="https://www.ama.gov.pt/web/agencia-para-a-modernizacao-administrativa/politica-de-privacidade">
+                  {t("FOOTER.privacy")}
+                </a>
+              </li>
+
+              <li
+                id="menu-item-191"
+                className="menu-item menu-item-type-custom menu-item-object-custom menu-item-191"
+              >
+                <a href="https://amagovpt.github.io/kit-selo/">Github</a>
+              </li>
+
+              <li
+                id="menu-item-192"
+                className="menu-item menu-item-type-custom menu-item-object-custom menu-item-192"
+              >
+                <a href="/acessibilidade">{t("FOOTER.glossary")}</a>
+              </li>
+              <li
+                id="menu-item-68"
+                className="menu-item menu-item-type-post_type menu-item-object-page menu-item-68"
+              >
+                <a href="https://selo.leadershipbt.com/contactos/">
+                  {t("FOOTER.options")}
+                </a>
+              </li>
+            </ul>
+          </div>{" "}
+        </nav>
+        <div className="footer-logos">
+          <div className="footer-logo">
+            <div className="lazyblock-imagem-ama-2rOgz0 wp-block-lazyblock-imagem-ama">
+              <img
+                decoding="async"
+                alt=""
+                src="https://selo.leadershipbt.com/wp-content/uploads/2023/02/logo_republica_portuguesa.svg"
+                className="img-fluid"
+                width="150"
+              />
             </div>
           </div>
-          <div className="col-sm-12 d-flex justify-content-center">
-            <nav
-              className="d-inline-flex"
-              aria-label={t("FOOTER.owner_and_co_financers_aria_label")}
-            >
-              <ul className="d-sm-flex justify-content-center d-block">
-                <li className="d-inline-flex justify-content-center">
-                  <img
-                    id="republica_portuguesa"
-                    src="/img/republica_portuguesa.png"
-                    alt={t("FOOTER.img_portuguese_replubic")}
-                  />
-                </li>
-                <li className="d-inline-flex justify-content-center">
-                  <img
-                    id="ama_img"
-                    src="/img/ama-modernizacao_administrativa.png"
-                    alt={t("FOOTER.img_ama")}
-                  />
-                </li>
-                <li className="d-inline-flex justify-content-center">
-                  <img
-                    id="compete_2020"
-                    src="/img/compete_2020.png"
-                    alt={t("FOOTER.img_compete_2020")}
-                  />
-                </li>
-                <li className="d-inline-flex justify-content-center">
-                  <img
-                    id="uniao_europeia"
-                    src="/img/UE-uniao_europeia.png"
-                    alt={t("FOOTER.img_european_union")}
-                  />
-                </li>
-                <li className="d-inline-flex justify-content-center">
-                  <img
-                    id="portugal_2020"
-                    src="/img/portugal_2020.png"
-                    alt="Portugal 2020"
-                  />
-                </li>
-              </ul>
-            </nav>
-            <div className="d-sm-flex d-none selo_large">
-              <a
-                className="position-relative"
-                href="https://selo.acessibilidade.gov.pt/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="sr-only">{t("HEADER.DROPDOWN.external_link")}</span>
-                <img
-                  src="/img/selo.png"
-                  alt={t("FOOTER.gold_badge_label")}
-                />
-              </a>
+          <div className="footer-logo">
+            <div className="lazyblock-imagem-ama-Z2oMmri wp-block-lazyblock-imagem-ama">
+              <img
+                decoding="async"
+                alt=""
+                src="https://selo.leadershipbt.com/wp-content/uploads/2023/02/logo_ama.svg"
+                className="img-fluid"
+                width="150"
+              />
+            </div>
+          </div>
+          <div className="footer-logo">
+            <div className="lazyblock-imagem-ama-jmjHR wp-block-lazyblock-imagem-ama">
+              <img
+                decoding="async"
+                alt=""
+                src="https://selo.leadershipbt.com/wp-content/uploads/2023/02/logo_eportugal.svg"
+                className="img-fluid"
+                width="150"
+              />
+            </div>
+          </div>
+          <div className="footer-logo">
+            <div className="lazyblock-imagem-ama-25Hrrx wp-block-lazyblock-imagem-ama">
+              <img
+                decoding="async"
+                alt=""
+                src="https://selo.leadershipbt.com/wp-content/uploads/2023/02/logo_usabilidade.svg"
+                className="img-fluid"
+                width="150"
+              />
+            </div>
+          </div>
+          <div className="footer-logo">
+            <div className="lazyblock-imagem-ama-1DuQY7 wp-block-lazyblock-imagem-ama">
+              <img
+                decoding="async"
+                alt=""
+                src="https://selo.leadershipbt.com/wp-content/uploads/2023/02/logo_compete.svg"
+                className="img-fluid"
+                width="150"
+              />
+            </div>
+          </div>
+          <div className="footer-logo">
+            <div className="lazyblock-imagem-ama-1r3njs wp-block-lazyblock-imagem-ama">
+              <img
+                decoding="async"
+                alt=""
+                src="https://selo.leadershipbt.com/wp-content/uploads/2023/02/logo_2020.svg"
+                className="img-fluid"
+                width="150"
+              />
+            </div>
+          </div>
+          <div className="footer-logo">
+            <div className="lazyblock-imagem-ama-Z13rhsj wp-block-lazyblock-imagem-ama">
+              <img
+                decoding="async"
+                alt=""
+                src="https://selo.leadershipbt.com/wp-content/uploads/2023/02/logo_uniao_europeia.svg"
+                className="img-fluid"
+                width="150"
+              />
             </div>
           </div>
         </div>
-        <div className="d-flex justify-content-center p-3 copyright">
-          © <script>document.write(new Date().getFullYear())</script>2024 AMA{" "}
-          <span className="d-none d-sm-inline">-</span>{" "}
-          <br className="d-block d-sm-none" />
-          {t("FOOTER.link") + " " + t("FOOTER.rights")}
+        <div className="logo-selo">
+          <img
+            src="https://selo.leadershipbt.com/wp-content/themes/www-a11y-theme/img/selo-ouro.svg"
+            alt="Selo Ouro de Usabilidade e Acesisbilidade"
+          />
+        </div>
+        <div className="copyright">
+          <p>
+            © 2024 AMA - Agência para a Modernização Administrativa, I. P.
+            Todos os direitos reservados.
+          </p>
         </div>
       </div>
     </footer>

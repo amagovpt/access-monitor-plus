@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   Breadcrumb,
   Gauge,
@@ -12,19 +12,24 @@ import { processData } from "../../services";
 import { LoadingComponent } from "./_components/loading";
 import { api } from "../../config/api";
 
-import { useTranslation } from "react-i18next"
+import { useTranslation } from "react-i18next";
+import { ThemeContext } from "../../context/ThemeContext";
 
 export let tot;
 
 export default function Resume({ setAllData, setEle }) {
   const location = useLocation();
-  const {t} = useTranslation()
+  const { t } = useTranslation();
 
   const [dataProcess, setDataProcess] = useState([]);
   const [loadingProgress, setLoadingProgress] = useState(true);
   const [originalData, setOriginalData] = useState([]);
   const content = location.state?.content || null;
   const typeRequest = location.state?.type || null;
+
+  const { theme } = useContext(ThemeContext);
+
+  const themeClass = theme === "light" ? "" : "dark_mode-resume";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -64,16 +69,14 @@ export default function Resume({ setAllData, setEle }) {
   ];
 
   return (
-    <div className="container">
+    <div className={`container ${themeClass}`}>
       <div className="link_breadcrumb_container">
         <Breadcrumb data={dataBreadCrumb} />
       </div>
       <div className="report_container">
         <div className="acess_monitor">AcessMonitor</div>
         <h1 className="report_container_title">{dataProcess?.metadata?.url}</h1>
-        <p className="report_container_subtitle">
-          {t("RESULTS.title")}
-        </p>
+        <p className="report_container_subtitle">{t("RESULTS.title")}</p>
         {loadingProgress ? <LoadingComponent /> : <ButtonsActions />}
       </div>
       {!loadingProgress && (

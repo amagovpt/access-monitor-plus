@@ -2,11 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Accordion as BAccordion } from "react-bootstrap";
 
+import "./styles.css";
+
 const { Item, Header, Body } = BAccordion;
 
-const Accordion = ({ options, backgroundColor, textColor, ...props }) => {
+const Accordion = ({ options, textColor, ...props }) => {
   const accordionStyle = {
-    backgroundColor: backgroundColor,
     minHeight: "auto",
   };
 
@@ -28,14 +29,13 @@ const Accordion = ({ options, backgroundColor, textColor, ...props }) => {
 
 Accordion.defaultProps = {
   options: [],
-  backgroundColor: "#ffffff",
-  textColor: "#000000",
+  // backgroundColor: "#ffffff",
+  // textColor: "#000000",
 };
 
 Accordion.propTypes = {
   options: PropTypes.arrayOf(Object),
-  backgroundColor: PropTypes.string,
-  textColor: PropTypes.string,
+  // textColor: PropTypes.string,
 };
 
 export default Accordion;

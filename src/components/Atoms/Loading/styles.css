@@ -1,0 +1,41 @@
+.loadingContainer {
+  align-items: center;
+  display: flex;
+  height: 105px;
+  padding: 0 64px;
+}
+
+.text_container {
+  width: 40%;
+}
+
+.loader {
+  width: 220px;
+  height: 25px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--primary);
+  animation: dotAnimation 2.6s infinite linear;
+}
+
+@keyframes dotAnimation {
+  0% {
+    transform: scale(1, 1);
+  }
+  33% {
+    transform: scale(2, 2);
+  }
+  66% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}

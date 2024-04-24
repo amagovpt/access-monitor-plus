@@ -5,7 +5,7 @@ import { useContext, useRef, useState } from "react";
 
 import { ThemeContext } from "../../../../context/ThemeContext";
 
-import { useTranslation } from "react-i18next"
+import { useTranslation } from "react-i18next";
 
 export function TopBar() {
   const [openAccordion, setOpenAccordion] = useState(false);
@@ -21,17 +21,20 @@ export function TopBar() {
     }
   };
 
-  const {t, i18n: {changeLanguage, language}} = useTranslation()
+  const {
+    t,
+    i18n: { changeLanguage, language },
+  } = useTranslation();
 
   const toggleLanguage = () => {
-    if(language === "en"){
-      changeLanguage("pt")
-      document.querySelector('html')?.setAttribute('lang', 'pt-PT');
+    if (language === "en") {
+      changeLanguage("pt");
+      document.querySelector("html")?.setAttribute("lang", "pt-PT");
     } else {
-      changeLanguage("en")
-      document.querySelector('html')?.setAttribute('lang', 'en');
+      changeLanguage("en");
+      document.querySelector("html")?.setAttribute("lang", "en");
     }
-  }
+  };
 
   return (
     <>
@@ -46,7 +49,9 @@ export function TopBar() {
                   onClick={toggleTheme}
                 >
                   <span id="darkModeLabel">
-                    {theme === "light" ? t("HEADER.light_mode") : t("HEADER.dark_mode")}
+                    {theme === "light"
+                      ? t("HEADER.light_mode")
+                      : t("HEADER.dark_mode")}
                   </span>
                   <Icon
                     name="AMA-EscuroClaro-Line icon-dark"
@@ -60,10 +65,7 @@ export function TopBar() {
                   onClick={toggleLanguage}
                 >
                   <span id="langModeLabel">{t("HEADER.language_en")}</span>
-                  <Icon
-                    name="AMA-EscuroClaro-Line icon-lang"
-                    aria-hidden="true"
-                  />
+                  <Icon name="AMA-Globo-Line icon-lang" aria-hidden="true" />
                 </button>
               </div>
 
@@ -83,7 +85,7 @@ export function TopBar() {
                 />
 
                 <span id="flushHeading">
-                  {t('HEADER.tool') + " "}
+                  {t("HEADER.tool") + " "}
                   <span className="text-primary fw-bold dark_mode_span">
                     acessibilidade.gov.pt
                   </span>
@@ -112,7 +114,7 @@ export function TopBar() {
                       <div className="d-flex justify-content-between">
                         <div className="title-ecosssistema-ama">
                           <div className="h2">
-                            {t('HEADER.DROPDOWN.ecosystem')}
+                            {t("HEADER.DROPDOWN.ecosystem")}
                             <br />
                             <strong>acessibilidade</strong>.gov.pt
                           </div>
@@ -121,9 +123,7 @@ export function TopBar() {
                     </div>
                     <div className="col-12 col-lg-6 align-self-center">
                       <div className="description-ecossistema-ama">
-                        <p>
-                          {t('HEADER.DROPDOWN.text')}
-                        </p>
+                        <p>{t("HEADER.DROPDOWN.text")}</p>
                       </div>
                     </div>
                   </div>
@@ -136,9 +136,7 @@ export function TopBar() {
                         </div>
                       </div>
                       <div className="left-column-ecossistema-ama">
-                        <p>
-                          {t('HEADER.DROPDOWN.accessibility.text')}
-                        </p>
+                        <p>{t("HEADER.DROPDOWN.accessibility.text")}</p>
                       </div>
                       <div className="left-column-ecossistema-ama">
                         <div
@@ -155,7 +153,7 @@ export function TopBar() {
                                 <Icon name="AMA-Setalongaoficial-Line" />
                               }
                               to="https://observatorio.acessibilidade.gov.pt/"
-                              text={t('HEADER.DROPDOWN.accessibility.link1')}
+                              text={t("HEADER.DROPDOWN.accessibility.link1")}
                             />
                           </li>
 
@@ -165,7 +163,7 @@ export function TopBar() {
                                 <Icon name="AMA-Setalongaoficial-Line" />
                               }
                               to="https://www.acessibilidade.gov.pt/gerador/"
-                              text={t('HEADER.DROPDOWN.accessibility.link2')}
+                              text={t("HEADER.DROPDOWN.accessibility.link2")}
                             />
                           </li>
 
@@ -175,7 +173,7 @@ export function TopBar() {
                                 <Icon name="AMA-Setalongaoficial-Line" />
                               }
                               to="https://accessmonitor.acessibilidade.gov.pt/"
-                              text={t('HEADER.DROPDOWN.accessibility.link3')}
+                              text={t("HEADER.DROPDOWN.accessibility.link3")}
                             />
                           </li>
 
@@ -204,9 +202,7 @@ export function TopBar() {
                         </div>
                       </div>
                       <div className="center-column-ecossistema-ama">
-                        <p>
-                          {t('HEADER.DROPDOWN.usability.text')}
-                        </p>
+                        <p>{t("HEADER.DROPDOWN.usability.text")}</p>
                       </div>
                       <div className="center-column-ecossistema-ama">
                         <div
@@ -223,7 +219,7 @@ export function TopBar() {
                                 <Icon name="AMA-Setalongaoficial-Line" />
                               }
                               to="https://mosaico.gov.pt/areas-tecnicas/usabilidade"
-                              text={t('HEADER.DROPDOWN.usability.link1')}
+                              text={t("HEADER.DROPDOWN.usability.link1")}
                             />
                           </li>
 
@@ -233,7 +229,7 @@ export function TopBar() {
                                 <Icon name="AMA-Setalongaoficial-Line" />
                               }
                               to="https://zeroheight.com/1be481dc2/p/97181d-agora-design-system"
-                              text={t('HEADER.DROPDOWN.usability.link2')}
+                              text={t("HEADER.DROPDOWN.usability.link2")}
                             />
                           </li>
 
@@ -243,7 +239,7 @@ export function TopBar() {
                                 <Icon name="AMA-Setalongaoficial-Line" />
                               }
                               to="https://prd-agora.northeurope.cloudapp.azure.com"
-                              text={t('HEADER.DROPDOWN.usability.link3')}
+                              text={t("HEADER.DROPDOWN.usability.link3")}
                             />
                           </li>
 
@@ -253,7 +249,7 @@ export function TopBar() {
                                 <Icon name="AMA-Setalongaoficial-Line" />
                               }
                               to="https://guias.mosaico.gov.pt/guias-praticos/usabilidade-como-realizar-testes-de-usabilidade"
-                              text={t('HEADER.DROPDOWN.usability.link5')}
+                              text={t("HEADER.DROPDOWN.usability.link5")}
                             />
                           </li>
 
@@ -263,7 +259,7 @@ export function TopBar() {
                                 <Icon name="AMA-Setalongaoficial-Line" />
                               }
                               to="https://guias.mosaico.gov.pt/guias-praticos/usabilidade-como-desenvolver-aplicacoes-para-dispositivos-moveis"
-                              text={t('HEADER.DROPDOWN.usability.link6')}
+                              text={t("HEADER.DROPDOWN.usability.link6")}
                             />
                           </li>
                         </ul>
@@ -276,9 +272,7 @@ export function TopBar() {
                         </div>
                       </div>
                       <div className="right-column-ecossistema-ama">
-                        <p>
-                        {t('HEADER.DROPDOWN.badge.text')}
-                        </p>
+                        <p>{t("HEADER.DROPDOWN.badge.text")}</p>
                       </div>
                       <div className="right-column-ecossistema-ama">
                         <div
@@ -295,7 +289,7 @@ export function TopBar() {
                                 <Icon name="AMA-Setalongaoficial-Line" />
                               }
                               to="https://pprselo.usabilidade.gov.pt/candidatura/"
-                              text={t('HEADER.DROPDOWN.badge.link3')}
+                              text={t("HEADER.DROPDOWN.badge.link3")}
                             />
                           </li>
 
@@ -305,7 +299,7 @@ export function TopBar() {
                                 <Icon name="AMA-Setalongaoficial-Line" />
                               }
                               to="https://pprselo.usabilidade.gov.pt/requisitos/"
-                              text={t('HEADER.DROPDOWN.badge.link5')}
+                              text={t("HEADER.DROPDOWN.badge.link5")}
                             />
                           </li>
 
@@ -315,7 +309,7 @@ export function TopBar() {
                                 <Icon name="AMA-Setalongaoficial-Line" />
                               }
                               to="https://amagovpt.github.io/kit-selo/"
-                              text={t('HEADER.DROPDOWN.badge.link2')}
+                              text={t("HEADER.DROPDOWN.badge.link2")}
                             />
                           </li>
 
@@ -325,7 +319,7 @@ export function TopBar() {
                                 <Icon name="AMA-Setalongaoficial-Line" />
                               }
                               to="https://pprselo.usabilidade.gov.pt/ajuda/"
-                              text={t('HEADER.DROPDOWN.badge.link1')}
+                              text={t("HEADER.DROPDOWN.badge.link1")}
                             />
                           </li>
                         </ul>

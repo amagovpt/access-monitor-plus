@@ -17,7 +17,7 @@
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
-  .loadingContainer{
+  .loadingContainer {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: start;
@@ -52,6 +52,8 @@
 .secondGroupContainer button:first-child {
   margin-bottom: 10px;
 }
+
+/* LOADING */
 
 .loader {
   width: 220px;
@@ -97,18 +99,17 @@
   animation-delay: 3.2s;
 }
 
-
 @keyframes dotAnimation {
   0% {
-    transform: scale(1,1);
+    transform: scale(1, 1);
   }
   33% {
-    transform: scale(2,2);
+    transform: scale(2, 2);
   }
   66% {
-    transform: scale(1,1);
+    transform: scale(1, 1);
   }
   100% {
-    transform: scale(1,1);
+    transform: scale(1, 1);
   }
 }
