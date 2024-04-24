@@ -26,6 +26,7 @@ export default function Resume({ setAllData, setEle }) {
   const [originalData, setOriginalData] = useState([]);
   const content = location.state?.content || null;
   const typeRequest = location.state?.type || null;
+  let pageCode
 
   const { theme } = useContext(ThemeContext);
 
@@ -45,6 +46,8 @@ export default function Resume({ setAllData, setEle }) {
         setDataProcess(processData(response.data?.result?.data?.tot));
 
         tot = response.data.result.data.tot;
+
+        pageCode = response.data?.result?.pagecode || "html"
 
         console.log("Tot", tot);
         setLoadingProgress(false);
@@ -76,8 +79,10 @@ export default function Resume({ setAllData, setEle }) {
       <div className="report_container">
         <div className="acess_monitor">AcessMonitor</div>
         <h1 className="report_container_title">{dataProcess?.metadata?.url}</h1>
-        <p className="report_container_subtitle">{t("RESULTS.title")}</p>
-        {loadingProgress ? <LoadingComponent /> : <ButtonsActions />}
+        <p className="report_container_subtitle">
+          {t("RESULTS.title")}
+        </p>
+        {loadingProgress ? <LoadingComponent /> : <ButtonsActions htmlValue={dataProcess?.metadata?.url} dataProcess={dataProcess} pageCode={pageCode} />}
       </div>
       {!loadingProgress && (
         <>

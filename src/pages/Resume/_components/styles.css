@@ -113,3 +113,32 @@
     transform: scale(1, 1);
   }
 }
+
+.dropdown-content {
+  display: none;
+  width: 200px;
+  margin-top: 1em;
+  padding: 1em;
+  color: var(--white);
+  border-radius: 25px;
+  background-color: var(--primary);
+  position: absolute;
+  z-index: 1;
+}
+
+.show_dropdown {
+  display: block !important;
+}
+
+.dropdown-content a {
+  color: var(--white);
+  display: block;
+  padding: .5em;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.underline:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
