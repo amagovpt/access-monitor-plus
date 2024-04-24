@@ -24,6 +24,7 @@
 
 .nav-item button {
   width: 200px !important;
+  min-width: 210px !important;
   height: 55px !important;
 }
 
