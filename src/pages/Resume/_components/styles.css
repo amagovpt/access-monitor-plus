@@ -17,6 +17,12 @@
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
+  .loadingContainer{
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: start;
+    gap: unset;
+  }
   .deskGroupMobile {
     display: none !important;
   }
@@ -45,4 +51,64 @@
 .firstGroupContainer button:first-child,
 .secondGroupContainer button:first-child {
   margin-bottom: 10px;
+}
+
+.loader {
+  width: 220px;
+  height: 25px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--primary);
+  animation: dotAnimation 3.6s infinite linear;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+.dot:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.dot:nth-child(3) {
+  animation-delay: 0.8s;
+}
+.dot:nth-child(4) {
+  animation-delay: 1.2s;
+}
+.dot:nth-child(5) {
+  animation-delay: 1.6s;
+}
+.dot:nth-child(6) {
+  animation-delay: 2s;
+}
+.dot:nth-child(7) {
+  animation-delay: 2.4s;
+}
+.dot:nth-child(8) {
+  animation-delay: 2.8s;
+}
+.dot:nth-child(9) {
+  animation-delay: 3.2s;
+}
+
+
+@keyframes dotAnimation {
+  0% {
+    transform: scale(1,1);
+  }
+  33% {
+    transform: scale(2,2);
+  }
+  66% {
+    transform: scale(1,1);
+  }
+  100% {
+    transform: scale(1,1);
+  }
 }
