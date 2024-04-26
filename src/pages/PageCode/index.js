@@ -7,6 +7,8 @@ import { useTranslation } from "react-i18next";
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 
+import { downloadCSV } from '../../utils/utils'
+
 export default function Resume() {
   const location = useLocation();
   const { t } = useTranslation();
@@ -16,6 +18,7 @@ export default function Resume() {
   const themeClass = theme === "light" ? "" : "dark_mode-code";
 
   const dataProcess = location.state?.content || null;
+  const originalData = location.state?.original || null;
   const code = location.state?.code || null;
 
   const dataBreadCrumb = [
@@ -44,7 +47,7 @@ export default function Resume() {
           {dataProcess?.metadata?.url || "html"}
         </h1>
         <p className="report_container_subtitle">{t("HEADER.NAV.code")}</p>
-        <ButtonsActions htmlValue={dataProcess?.metadata?.url} />
+        <ButtonsActions htmlValue={dataProcess?.metadata?.url} originalData={originalData} downloadCSV={() => downloadCSV(dataProcess, originalData, t)} />
       </div>
       <section className="html_code">
         <pre>{code || `<></>`}</pre>

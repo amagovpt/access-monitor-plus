@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react'
 
-export function ButtonsActions({dataProcess, pageCode, downloadCSV}) {
+export function ButtonsActions({reRequest, seeCode, downloadCSV}) {
   const {t} = useTranslation()
   const navigate = useNavigate();
   const [seePage, setSeePage] = useState(false)
@@ -35,7 +35,7 @@ export function ButtonsActions({dataProcess, pageCode, downloadCSV}) {
             variant="secondary"
             text={t("RESULTS.actions.re_evaluate")}
             iconRight={<Icon name="AMA-Reload-Line" />}
-            onClick={() => navigate("/resumo", { state: { content: dataProcess?.metadata?.url, type: "html" } })}
+            onClick={() => reRequest()}
           />
 
           <div>
@@ -47,7 +47,7 @@ export function ButtonsActions({dataProcess, pageCode, downloadCSV}) {
               onClick={openPageLinks}
             />
             {seePage && <div className="dropdown-content show_dropdown">
-              <a className="underline" onClick={() => navigate("/resumo/code", { state: { content: dataProcess, code: pageCode } })}>{t("RESULTS.actions.pagecode")}</a>
+              <a className="underline" onClick={() => seeCode()}>{t("RESULTS.actions.pagecode")}</a>
               <a className="underline" target="_blank" href="https://www.google.pt/">{t("RESULTS.actions.open_webpage")}</a>
             </div>}
           </div>
@@ -86,7 +86,7 @@ export function ButtonsActions({dataProcess, pageCode, downloadCSV}) {
               onClick={openPageLinks}
             />
             {seePage && <div className="dropdown-content show_dropdown">
-              <a className="underline" onClick={() => navigate("/resumo/code", { state: { content: dataProcess, code: pageCode } })}>{t("RESULTS.actions.pagecode")}</a>
+              <a className="underline" onClick={() => seeCode()}>{t("RESULTS.actions.pagecode")}</a>
               <a className="underline" target="_blank" href="https://www.google.pt/">{t("RESULTS.actions.open_webpage")}</a>
             </div>}
           </div>
@@ -98,7 +98,7 @@ export function ButtonsActions({dataProcess, pageCode, downloadCSV}) {
             variant="secondary"
             text={t("RESULTS.actions.re_evaluate")}
             iconRight={<Icon name="AMA-Reload-Line" />}
-            onClick={() => navigate("/resumo", { state: { content: dataProcess?.metadata?.url, type: "html" } })}
+            onClick={() => reRequest()}
           />
 
           <div>

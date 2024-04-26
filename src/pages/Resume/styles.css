@@ -259,7 +259,7 @@
   color: #ebf2f6 !important;
 }
 
-.dark_mode-resume tr:hover {
+.dark_mode-resume .table_primary tr:hover {
   background-color: #20242c !important;
 }
 
