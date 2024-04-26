@@ -259,6 +259,18 @@
   color: #ebf2f6 !important;
 }
 
+.dark_mode-resume tr:hover {
+  background-color: #20242c !important;
+}
+
+.dark_mode-resume tr:hover .accordion-flush .accordion-item .accordion-header button {
+  background-color: #20242c !important;
+}
+
+.dark_mode-resume .show {
+  background-color: #20242c !important;
+}
+
 .dark_mode-resume
   .accordion-flush
   .accordion-item

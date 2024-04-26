@@ -45,12 +45,12 @@ const TableComponent = ({ data, allData, setAllData, setEle }) => {
 
         <tbody>
           {optionsArray.map((option) => (
-            <tr key={option.id}>
+            <tr id={option.id} key={option.id}>
               <td className={option?.tdClassName}>
                 <Icon name={option.iconName} />
               </td>
               <td className="mobile-options">
-                <Accordion options={[option]} flush={true} />
+                <Accordion options={[option]} flush={true} id={option.id} />
 
                 <div className="hide_desktop-screen">
                   <span>

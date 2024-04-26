@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react'
 
-export function ButtonsActions({htmlValue, dataProcess, pageCode}) {
+export function ButtonsActions({dataProcess, pageCode, downloadCSV}) {
   const {t} = useTranslation()
   const navigate = useNavigate();
   const [seePage, setSeePage] = useState(false)
@@ -35,7 +35,7 @@ export function ButtonsActions({htmlValue, dataProcess, pageCode}) {
             variant="secondary"
             text={t("RESULTS.actions.re_evaluate")}
             iconRight={<Icon name="AMA-Reload-Line" />}
-            onClick={() => navigate("/resumo", { state: { content: htmlValue, type: "html" } })}
+            onClick={() => navigate("/resumo", { state: { content: dataProcess?.metadata?.url, type: "html" } })}
           />
 
           <div>
@@ -61,7 +61,7 @@ export function ButtonsActions({htmlValue, dataProcess, pageCode}) {
               onClick={openDownloadLinks}
             />
             {seeDownloads && <div className="dropdown-content show_dropdown">
-              <a className="underline" download="eval.csv">CSV</a>
+              <a className="underline" onClick={downloadCSV} download="eval.csv">CSV</a>
               <a className="underline" download="eval.json">EARL</a>
             </div>}
           </div>
@@ -98,7 +98,7 @@ export function ButtonsActions({htmlValue, dataProcess, pageCode}) {
             variant="secondary"
             text={t("RESULTS.actions.re_evaluate")}
             iconRight={<Icon name="AMA-Reload-Line" />}
-            onClick={() => navigate("/resumo", { state: { content: htmlValue, type: "html" } })}
+            onClick={() => navigate("/resumo", { state: { content: dataProcess?.metadata?.url, type: "html" } })}
           />
 
           <div>
@@ -110,7 +110,7 @@ export function ButtonsActions({htmlValue, dataProcess, pageCode}) {
               onClick={openDownloadLinks}
             />
             {seeDownloads && <div className="dropdown-content show_dropdown">
-              <a className="underline" download="eval.csv">CSV</a>
+              <a className="underline" onClick={downloadCSV} download="eval.csv">CSV</a>
               <a className="underline" download="eval.json">EARL</a>
             </div>}
           </div>
