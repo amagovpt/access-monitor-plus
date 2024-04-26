@@ -137,7 +137,12 @@
         "alt_failed":"Non acceptable practice",
         "alt_warning":"Practice to view manually",
         "alt_information":"press for more information",
-        "alt_more_information":"press for less information"
+        "alt_more_information":"press for less information",
+        "image_title": {
+          "AMA-Check-Line": "Acceptable practice",
+          "AMA-Wrong-Line": "Non acceptable practice",
+          "AMA-Middle-Line": "Practice to view manually"
+        }
       },
       "scoreboard": {
         "level": "Level",

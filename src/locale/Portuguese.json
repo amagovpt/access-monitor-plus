@@ -137,7 +137,12 @@
         "alt_failed": "Prática não aceitável",
         "alt_warning": "Prática para ver manualmente",
         "alt_information": "pressione para mais informação",
-        "alt_more_information": "pressione para comprimir informação"
+        "alt_more_information": "pressione para comprimir informação",
+        "image_title": {
+          "AMA-Check-Line": "Prática aceitável",
+          "AMA-Wrong-Line": "Prática não aceitável",
+          "AMA-Middle-Line": "Prática para ver manualmente"
+        }
       },
       "scoreboard": {
         "level": "Nível",
