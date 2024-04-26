@@ -139,11 +139,11 @@
 }
 
 .dark_mode-details .img h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+.dark_mode-details .img h2,
+.dark_mode-details .img h3,
+.dark_mode-details .img h4,
+.dark_mode-details .img h5,
+.dark_mode-details .img h6 {
   color: #ebf2f6 !important;
 }
 

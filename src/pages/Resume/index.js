@@ -81,6 +81,9 @@ export default function Resume({ setAllData, setEle }) {
       <div className="link_breadcrumb_container">
         <Breadcrumb data={dataBreadCrumb} />
       </div>
+
+      {/* <Gauge percentage={5} /> */}
+
       <div className="report_container">
         <div className="acess_monitor">AcessMonitor</div>
         <h1 className="report_container_title">{dataProcess?.metadata?.url}</h1>

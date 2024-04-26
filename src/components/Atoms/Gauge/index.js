@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.css";
-import { useTranslation } from "react-i18next"
+import { useTranslation } from "react-i18next";
 
 const Gauge = ({ percentage }) => {
+  const { t } = useTranslation();
+  const [animatedPercentage, setAnimatedPercentage] = useState(0);
 
-  const {t} = useTranslation()
+  useEffect(() => {
+    if (percentage) {
+      setAnimatedPercentage(percentage);
+    } else {
+      const interval = setInterval(() => {
+        setAnimatedPercentage((prevPercentage) => {
+          if (prevPercentage < 100) {
+            return prevPercentage + 1;
+          } else {
+            clearInterval(interval);
+            return 100;
+          }
+        });
+      }, 20);
+    }
+  }, [percentage]);
 
-  const adjustedPercentage = percentage * 10;
+  const adjustedPercentage = animatedPercentage * 10;
 
   const calculateDashOffset = () => {
     const totalLength = 248;
@@ -14,9 +31,10 @@ const Gauge = ({ percentage }) => {
   };
 
   const determineColorClass = () => {
-    if (percentage >= 8) {
+    console.log("An", animatedPercentage);
+    if (animatedPercentage >= 8) {
       return "green";
-    } else if (percentage >= 5) {
+    } else if (animatedPercentage >= 5) {
       return "yellow";
     } else {
       return "red";
@@ -40,7 +58,6 @@ const Gauge = ({ percentage }) => {
           style={{ fill: "none" }}
         />
         <path
-          // className={determineColorClass()}
           className={`animated ${determineColorClass()}`}
           d="M55,90 A55,55 0 1,1 140,90"
           style={{
@@ -58,7 +75,7 @@ const Gauge = ({ percentage }) => {
           fontWeight="bold"
           fontFamily="Lato"
         >
-          {percentage}
+          {animatedPercentage}
         </text>
         <text
           x="97"

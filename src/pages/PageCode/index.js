@@ -4,10 +4,16 @@ import "./styles.css";
 import { useLocation } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 export default function Resume() {
   const location = useLocation();
   const { t } = useTranslation();
+
+  const { theme } = useContext(ThemeContext);
+
+  const themeClass = theme === "light" ? "" : "dark_mode-code";
 
   const dataProcess = location.state?.content || null;
   const code = location.state?.code || null;
@@ -28,7 +34,7 @@ export default function Resume() {
   ];
 
   return (
-    <div className="container">
+    <div className={`container ${themeClass} `}>
       <div className="link_breadcrumb_container">
         <Breadcrumb data={dataBreadCrumb} />
       </div>
