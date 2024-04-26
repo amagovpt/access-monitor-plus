@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Button, Icon, TextArea } from "../../../components";
 import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next"
+import { useTranslation } from "react-i18next";
 
 export function InsertHtml() {
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   const [htmlValue, setHtmlValue] = useState("");
   const navigate = useNavigate();
 
@@ -29,6 +29,7 @@ export function InsertHtml() {
       <Button
         text={t("HOME_PAGE.submit")}
         size="lg"
+        id="btn-html"
         disabled={htmlValue === ""}
         onClick={handleSubmit}
         iconRight={<Icon name="AMA-Setalongaoficial-Line" />}

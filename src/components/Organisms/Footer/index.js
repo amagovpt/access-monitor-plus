@@ -26,7 +26,7 @@ export function Footer() {
               </li>
 
               <li
-                id="menu-item-193"
+                id="menu-item-194"
                 className="menu-item menu-item-type-post_type menu-item-object-page menu-item-193"
               >
                 <a href="https://selo.leadershipbt.com/selo/">
@@ -72,7 +72,7 @@ export function Footer() {
             <div className="lazyblock-imagem-ama-2rOgz0 wp-block-lazyblock-imagem-ama">
               <img
                 decoding="async"
-                alt=""
+                alt={t("FOOTER.img_portuguese_replubic")}
                 src="https://selo.leadershipbt.com/wp-content/uploads/2023/02/logo_republica_portuguesa.svg"
                 className="img-fluid"
                 width="150"
@@ -83,7 +83,7 @@ export function Footer() {
             <div className="lazyblock-imagem-ama-Z2oMmri wp-block-lazyblock-imagem-ama">
               <img
                 decoding="async"
-                alt=""
+                alt={t("FOOTER.img_ama")}
                 src="https://selo.leadershipbt.com/wp-content/uploads/2023/02/logo_ama.svg"
                 className="img-fluid"
                 width="150"
@@ -94,7 +94,7 @@ export function Footer() {
             <div className="lazyblock-imagem-ama-jmjHR wp-block-lazyblock-imagem-ama">
               <img
                 decoding="async"
-                alt=""
+                alt="eportugal"
                 src="https://selo.leadershipbt.com/wp-content/uploads/2023/02/logo_eportugal.svg"
                 className="img-fluid"
                 width="150"
@@ -105,7 +105,7 @@ export function Footer() {
             <div className="lazyblock-imagem-ama-25Hrrx wp-block-lazyblock-imagem-ama">
               <img
                 decoding="async"
-                alt=""
+                alt={t("FOOTER.img_ama")}
                 src="https://selo.leadershipbt.com/wp-content/uploads/2023/02/logo_usabilidade.svg"
                 className="img-fluid"
                 width="150"
@@ -116,7 +116,7 @@ export function Footer() {
             <div className="lazyblock-imagem-ama-1DuQY7 wp-block-lazyblock-imagem-ama">
               <img
                 decoding="async"
-                alt=""
+                alt={t("FOOTER.img_compete_2020")}
                 src="https://selo.leadershipbt.com/wp-content/uploads/2023/02/logo_compete.svg"
                 className="img-fluid"
                 width="150"
@@ -127,7 +127,7 @@ export function Footer() {
             <div className="lazyblock-imagem-ama-1r3njs wp-block-lazyblock-imagem-ama">
               <img
                 decoding="async"
-                alt=""
+                alt="Portugal 2020"
                 src="https://selo.leadershipbt.com/wp-content/uploads/2023/02/logo_2020.svg"
                 className="img-fluid"
                 width="150"
@@ -138,7 +138,7 @@ export function Footer() {
             <div className="lazyblock-imagem-ama-Z13rhsj wp-block-lazyblock-imagem-ama">
               <img
                 decoding="async"
-                alt=""
+                alt={t("FOOTER.img_european_union")}
                 src="https://selo.leadershipbt.com/wp-content/uploads/2023/02/logo_uniao_europeia.svg"
                 className="img-fluid"
                 width="150"

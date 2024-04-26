@@ -162,6 +162,10 @@
   }
 }
 
+.table-alterantive tbody tr {
+  border-bottom: 1px solid #fff !important;
+}
+
 /* Dark mode */
 
 .dark_mode-resume .acess_monitor {
@@ -183,6 +187,12 @@
 
 .dark_mode-resume .chart_container text {
   fill: #ebf2f6 !important;
+}
+
+/* DARK Table */
+
+.dark_mode-resume .border_right {
+  border-color: #525865 !important;
 }
 
 .dark_mode-resume .table_container_sumary .table-alterantive tr th {
@@ -219,10 +229,29 @@
   color: #ebf2f6;
 }
 
-.dark_mode-resume .table_primary tbody tr .mobile-options,
-.hide-on-small-screen {
-  border-bottom: 1px solid #333;
+.dark_mode-resume .table_primary tbody tr {
+  border-bottom: 1px solid #525865 !important;
+}
+
+.dark_mode-resume .table_primary td {
   background-color: transparent !important;
+}
+
+.dark_mode-resume .table_primary .error-cell {
+  background: #f99 !important;
+}
+
+.dark_mode-resume .table_primary .warning-cell {
+  background: #ff9 !important;
+}
+
+.dark_mode-resume .table_primary .success-cell {
+  background: #bce1bc !important;
+}
+
+.dark_mode-resume .detail_link i,
+.dark_mode-resume .middle_col {
+  color: #b6dcf6 !important;
 }
 
 .dark_mode-resume .accordion-flush .accordion-item .accordion-header button {
@@ -235,28 +264,22 @@
   .accordion-item
   .accordion-header
   button
-  mark,
-button code {
+  code {
   color: #ebf2f6 !important;
 }
 
-.dark_mode-resume .table_primary tbody,
-td,
-tfoot,
-th,
-thead,
-tr {
-  border-style: none !important;
-}
-
-.dark_mode-resume .detail_link i {
-  color: #b6dcf6 !important;
-}
-
-.dark_mode-resume .middle_col {
+.dark_mode-resume
+  .accordion-flush
+  .accordion-item
+  .accordion-header
+  button
+  mark {
   color: #ebf2f6 !important;
 }
 
-.dark_mode-resume .accordion-button i {
-  color: red !important;
+.dark_mode-resume .accordion-body {
+  background-color: #20242c !important;
+  color: #ebf2f6 !important;
 }
+
+/* .highlight */

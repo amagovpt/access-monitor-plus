@@ -1,18 +1,16 @@
-import {
-  Breadcrumb,
-} from "../../components/index";
+import { Breadcrumb } from "../../components/index";
 import { ButtonsActions } from "./_components/buttons-revalidation";
 import "./styles.css";
 import { useLocation } from "react-router-dom";
 
-import { useTranslation } from "react-i18next"
+import { useTranslation } from "react-i18next";
 
 export default function Resume() {
   const location = useLocation();
-  const {t} = useTranslation()
+  const { t } = useTranslation();
 
   const dataProcess = location.state?.content || null;
-  const code = location.state?.code || null
+  const code = location.state?.code || null;
 
   const dataBreadCrumb = [
     {
@@ -36,16 +34,14 @@ export default function Resume() {
       </div>
       <div className="report_container">
         <div className="acess_monitor">AcessMonitor</div>
-        <h1 className="report_container_title">{dataProcess?.metadata?.url || "html"}</h1>
-        <p className="report_container_subtitle">
-          {t("HEADER.NAV.code")}
-        </p>
+        <h1 className="report_container_title">
+          {dataProcess?.metadata?.url || "html"}
+        </h1>
+        <p className="report_container_subtitle">{t("HEADER.NAV.code")}</p>
         <ButtonsActions htmlValue={dataProcess?.metadata?.url} />
       </div>
       <section className="html_code">
-        <h2 className="code_text">
-            {code || `<></>`}
-        </h2>
+        <pre>{code || `<></>`}</pre>
       </section>
     </div>
   );

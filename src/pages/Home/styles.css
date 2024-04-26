@@ -97,3 +97,18 @@
 .main_dark .breadcrumb-item::before {
   color: var(--header-top-bar-dark-text) !important;
 }
+
+.main_dark #btn-url,
+.main_dark #btn-html,
+.main_dark #btn-upload {
+  color: #000;
+  background-color: #b6dcf6;
+  border-color: transparent;
+}
+
+.main_dark #btn-url:disabled,
+.main_dark #btn-html:disabled,
+.main_dark #btn-upload:disabled {
+  background-color: #808080 !important;
+  color: #000;
+}

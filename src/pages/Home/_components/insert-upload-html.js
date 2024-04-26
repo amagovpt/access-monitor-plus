@@ -1,8 +1,8 @@
 import { Button, Icon, Input } from "../../../components";
-import { useTranslation } from "react-i18next"
+import { useTranslation } from "react-i18next";
 
 export function InsertHtmlUpload() {
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   return (
     <div className="tab_content_view">
       <Input
@@ -15,6 +15,7 @@ export function InsertHtmlUpload() {
       <Button
         text={t("HOME_PAGE.submit")}
         size="lg"
+        id="btn-upload"
         disabled={true}
         iconRight={<Icon name="AMA-Setalongaoficial-Line" />}
       />

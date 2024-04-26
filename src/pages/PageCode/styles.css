@@ -70,3 +70,18 @@
 .right {
   justify-content: flex-end;
 }
+
+.html_code {
+  padding: 15px;
+  /* background-color: var(--webpage-code-background); */
+  overflow: scroll;
+  margin-bottom: 100px;
+}
+
+.html_code pre {
+  display: block !important;
+  font-size: 87.5%;
+  color: #212529;
+
+  word-wrap: break-word;
+}

@@ -1,9 +1,9 @@
 import { Icon } from "../../Atoms/Icon";
 import "./styles.css";
-import { useTranslation } from "react-i18next"
+import { useTranslation } from "react-i18next";
 
 export function Footer() {
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   return (
     <footer>
       <div>
@@ -71,7 +71,9 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="sr-only">{t("HEADER.DROPDOWN.external_link")}</span>
+                <span className="sr-only">
+                  {t("HEADER.DROPDOWN.external_link")}
+                </span>
                 <img
                   src="/img/selo_ouro_small.png"
                   alt={t("FOOTER.gold_badge_label")}
@@ -129,11 +131,10 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="sr-only">{t("HEADER.DROPDOWN.external_link")}</span>
-                <img
-                  src="/img/selo.png"
-                  alt={t("FOOTER.gold_badge_label")}
-                />
+                <span className="sr-only">
+                  {t("HEADER.DROPDOWN.external_link")}
+                </span>
+                <img src="/img/selo.png" alt={t("FOOTER.gold_badge_label")} />
               </a>
             </div>
           </div>

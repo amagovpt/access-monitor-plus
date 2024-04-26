@@ -55,10 +55,9 @@ export function WidgetBar({ description, logo }) {
             <div className="d-flex flex-row gap-4 button-mobile">
               <button
                 className="btn btn-link dark-mode p-1 d-flex align-items-center"
-                // id="darkModeBtn"
                 onClick={toggleTheme}
               >
-                <span id="darkModeLabel">
+                <span id="darkModeLabel-mobile">
                   {theme === "light"
                     ? t("HEADER.light_mode")
                     : t("HEADER.dark_mode")}
@@ -71,10 +70,9 @@ export function WidgetBar({ description, logo }) {
 
               <button
                 className="btn btn-link language-mode p-1  d-flex align-items-center"
-                // id="langModeBtn"
                 onClick={toggleLanguage}
               >
-                <span id="langModeLabel">{t("HEADER.language_en")}</span>
+                <span id="langModeLabel-mobile">{t("HEADER.language_en")}</span>
                 <Icon name="AMA-Globo-Line icon-lang" aria-hidden="true" />
               </button>
             </div>
