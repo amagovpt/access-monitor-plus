@@ -20,5 +20,5 @@ path {
 }
 
 .animated {
-  transition: stroke-dashoffset 5s ease-in-out !important;
+  transition: stroke-dashoffset 3s ease-in-out !important;
 }
