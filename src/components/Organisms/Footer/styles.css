@@ -1,7 +1,5 @@
 footer {
-  /* border-top: 1px solid #535353; */
   padding: 40px 0;
-
   background-color: #f1f1f1;
 }
 
@@ -36,14 +34,14 @@ footer .footer-menu li a:hover {
   padding: 15px;
 }
 
-.footer-logo {
+.footer-logos li {
   display: inline-block;
   width: 50%;
   vertical-align: middle;
 }
 
 @media (min-width: 576px) {
-  .footer-logo {
+  .footer-logos li {
     display: inline-block;
     width: 25%;
   }
@@ -66,7 +64,7 @@ footer .footer-menu li a:hover {
     gap: 0.5rem;
   }
 
-  .footer-logo {
+  .footer-logos li {
     display: initial;
     width: initial;
   }

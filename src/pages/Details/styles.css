@@ -46,6 +46,10 @@
   margin-bottom: 2rem;
 }
 
+.details-container .nav-tabs {
+  margin-bottom: 0 !important;
+}
+
 .textHeader {
   font-size: 1.125em;
   line-height: 3em;
@@ -62,6 +66,7 @@
 .tabContent_container-details {
   background: #fff;
   padding: 32px 48px;
+  overflow: auto;
 }
 
 @media (max-width: 768px) {
@@ -83,4 +88,75 @@
   .test_result {
     font-weight: normal;
   }
+}
+
+/* Dark mode */
+
+.dark_mode-details .acess_monitor {
+  background-color: #b6dcf6;
+  color: #20242c;
+}
+
+.dark_mode-details .report_container_title,
+.dark_mode-details .report_container_subtitle,
+.dark_mode-details .sumary_container h2,
+.dark_mode-details .sumary_container .size_container span {
+  color: #ebf2f6 !important;
+}
+
+.dark_mode-details .show_details {
+  background-color: #2c3241 !important;
+}
+
+.dark_mode-details .show_details span {
+  color: #ebf2f6;
+}
+
+.dark_mode-details .nav-tabs {
+  background-color: transparent !important;
+  border-bottom: 0 !important;
+}
+
+.dark_mode-details .nav-tabs .nav-item button {
+  background-color: transparent !important;
+  color: #b6dcf6 !important;
+  border-bottom-color: #b6dcf6;
+}
+
+.dark_mode-details .tabContent_container-details {
+  background-color: #2c3241 !important;
+}
+
+.dark_mode-details .label {
+  background-color: #20242c;
+  color: #ebf2f6 !important;
+}
+
+.dark_mode-details .counter,
+.dark_mode-details .value,
+.dark_mode-details .img {
+  color: #ebf2f6 !important;
+}
+
+.dark_mode-details .img h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #ebf2f6 !important;
+}
+
+.dark_mode-details .table_container-details:first-child {
+  border-color: #525865 !important;
+}
+
+.value img {
+  position: relative !important;
+  max-width: 100%;
+  transform: none !important;
+}
+
+.dark_mode-details .value code {
+  color: #e39d9f !important;
 }

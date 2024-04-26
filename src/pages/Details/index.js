@@ -1,17 +1,22 @@
 import { Breadcrumb, Icon, Tabs } from "../../components";
 
 import { getTestResults } from "../../services";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { TableDetails } from "./_components/TableDetails";
 import "./styles.css";
-import { useTranslation } from "react-i18next"
+import { useTranslation } from "react-i18next";
+import { ThemeContext } from "../../context/ThemeContext";
 
 export default function Details({ allData, ele }) {
-  const {t} = useTranslation()
+  const { t } = useTranslation();
+
+  const { theme } = useContext(ThemeContext);
+
+  const themeClass = theme === "light" ? "" : "dark_mode-details";
 
   const url = allData?.rawUrl;
   // const textHeading = jsonPt.ELEMS[ele];
-  const textHeading = t(`ELEMS.${ele}`)
+  const textHeading = t(`ELEMS.${ele}`);
   const [dataTable, setDataTable] = useState([]);
 
   const dataBreadCrumb = [
@@ -79,7 +84,7 @@ export default function Details({ allData, ele }) {
 
   return (
     <>
-      <div className="container">
+      <div className={`container ${themeClass} details-container`}>
         <div className="link_breadcrumb_container">
           <Breadcrumb data={dataBreadCrumb} />
         </div>
