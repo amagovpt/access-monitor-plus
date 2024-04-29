@@ -28,14 +28,11 @@ const TableComponent = ({ data, allData, setAllData, setEle }) => {
     <>
       <table className="table table_primary">
         <caption className="visually-hidden">
-          {t("RESULTS.summary.table.title")}
+          {t("RESULTS.results.caption")}
         </caption>
         <thead>
           <tr>
-            <th>
-              <span className="visually-hidden">#</span>
-            </th>
-            <th>{t("RESULTS.results.practice")}</th>
+            <th colspan="2" >{t("RESULTS.results.practice")}</th>
             <th className="hide-on-small-screen">{t("RESULTS.results.lvl")}</th>
             <th className="hide-on-small-screen">
               {t("RESULTS.results.details")}

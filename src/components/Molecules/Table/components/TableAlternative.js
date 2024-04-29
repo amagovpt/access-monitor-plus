@@ -14,7 +14,7 @@ export function TableAlternative(data) {
   return (
     <>
       <table className="table table-bordereds table-alterantive">
-        <caption className="visually-hidden">{t("RESULTS.summary.table.title")}</caption>
+        <caption className="visually-hidden">{t("RESULTS.summary.metadata.caption")}</caption>
         <thead>
           <tr className="mobile_table">
             <th
