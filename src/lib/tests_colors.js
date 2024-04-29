@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 export default {
   a_01a: "Y",
   a_01b: "R",

@@ -1,4 +1,4 @@
-import jsonPT from "../../utils/portuguese.json";
+// import jsonPT from "../../utils/portuguese.json";
 
 export function refWebsite(ref) {
   let result;
@@ -99,7 +99,7 @@ export function optionForAccordion(t, data) {
     .map((result) => {
       const testResultType = result.value === 1 ? "s" : "p";
       //const testResult = jsonPT.TESTS_RESULTS[result.msg][testResultType];
-      const testResult = t(`TESTS_RESULTS.${result.msg}.${testResultType}`)
+      const testResult = t(`TESTS_RESULTS.${result.msg}.${testResultType}`);
 
       if (!testResult) {
         return null;
