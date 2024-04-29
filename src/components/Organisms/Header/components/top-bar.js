@@ -49,7 +49,7 @@ export function TopBar() {
                   onClick={toggleTheme}
                 >
                   <span id="darkModeLabel">
-                    {theme === "light"
+                    {theme !== "light"
                       ? t("HEADER.light_mode")
                       : t("HEADER.dark_mode")}
                   </span>
