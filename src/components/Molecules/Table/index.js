@@ -32,7 +32,10 @@ const TableComponent = ({ data, allData, setAllData, setEle }) => {
         </caption>
         <thead>
           <tr>
-            <th colspan="2">{t("RESULTS.results.practice")}</th>
+            <th>
+              <span className="visually-hidden">#</span>
+            </th>
+            <th>{t("RESULTS.results.practice")}</th>
             <th className="hide-on-small-screen">{t("RESULTS.results.lvl")}</th>
             <th className="hide-on-small-screen">
               {t("RESULTS.results.details")}

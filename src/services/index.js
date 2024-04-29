@@ -1,4 +1,3 @@
-/* eslint-disable no-array-constructor */
 import scs from "../lib/scs";
 import tests from "../lib/tests";
 import tests_colors from "../lib/tests_colors";

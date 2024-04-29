@@ -2,10 +2,10 @@ import "./styles/theme.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home/";
-import './i18n'
+import "./i18n";
 import Resume from "./pages/Resume";
 import Detail from "./pages/Details";
-import PageCode from "./pages/PageCode"
+import PageCode from "./pages/PageCode";
 import { useState } from "react";
 import { ThemeProvider } from "./context/ThemeContext";
 

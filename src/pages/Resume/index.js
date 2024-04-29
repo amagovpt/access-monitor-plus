@@ -15,7 +15,9 @@ import { api } from "../../config/api";
 import { useTranslation } from "react-i18next";
 import { ThemeContext } from "../../context/ThemeContext";
 
-import { downloadCSV } from '../../utils/utils'
+import { downloadCSV } from "../../utils/utils";
+
+import localJson from "../../utils/data.json";
 
 export let tot;
 
@@ -35,22 +37,52 @@ export default function Resume({ setAllData, setEle }) {
 
   const themeClass = theme === "light" ? "" : "dark_mode-resume";
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     setLoadingProgress(true);
+  //     try {
+  //       const response =
+  //         typeRequest === "html"
+  //           ? await api.post("/eval/html", { html: content })
+  //           : await api.get(`/eval/${content}`);
+  //       setOriginalData(response.data);
+
+  //       console.log("Responseeee", response);
+
+  //       console.log("Response", response.data.result.data.tot);
+
+  //       setDataProcess(processData(response.data?.result?.data?.tot));
+
+  //       tot = response.data.result.data.tot;
+
+  //       setPageCode(response.data?.result?.pagecode || "html");
+  //       setLoadingProgress(false);
+  //     } catch (error) {
+  //       console.error("Erro", error);
+  //       setLoadingProgress(false);
+  //     }
+  //   };
+  //   fetchData();
+  // }, [content, typeRequest]);
+
+  // LOCAL
+
   useEffect(() => {
     const fetchData = async () => {
       setLoadingProgress(true);
       try {
-        const response =
-          typeRequest === "html"
-            ? await api.post("/eval/html", { html: content })
-            : await api.get(`/eval/${content}`);
-        setOriginalData(response.data);
+        const response = localJson;
+        setOriginalData(response);
 
-        console.log("Response", response.data.result.data.tot);
-        setDataProcess(processData(response.data?.result?.data?.tot));
+        console.log("Responseeee", response);
 
-        tot = response.data.result.data.tot;
+        console.log("Response2zyyy", response?.result?.data?.tot);
 
-        setPageCode(response.data?.result?.pagecode || "html");
+        setDataProcess(processData(response?.result?.data?.tot));
+
+        tot = response?.result?.data.tot;
+
+        setPageCode(response?.result?.pagecode || "html");
         setLoadingProgress(false);
       } catch (error) {
         console.error("Erro", error);
@@ -58,15 +90,17 @@ export default function Resume({ setAllData, setEle }) {
       }
     };
     fetchData();
-  }, [content, typeRequest]);
+  }, []);
 
   const reRequest = () => {
-    navigate("/resumo", { state: { content: content, type: typeRequest } })
-  }
+    navigate("/resumo", { state: { content: content, type: typeRequest } });
+  };
 
   const seeCode = () => {
-    navigate("/resumo/code", { state: { content: dataProcess, original: originalData, code: pageCode } })
-  }
+    navigate("/resumo/code", {
+      state: { content: dataProcess, original: originalData, code: pageCode },
+    });
+  };
 
   const dataBreadCrumb = [
     {
@@ -98,10 +132,16 @@ export default function Resume({ setAllData, setEle }) {
       <div className="report_container">
         <div className="acess_monitor">AcessMonitor</div>
         <h1 className="report_container_title">{dataProcess?.metadata?.url}</h1>
-        <p className="report_container_subtitle">
-          {t("RESULTS.title")}
-        </p>
-        {loadingProgress ? <LoadingComponent /> : <ButtonsActions reRequest={reRequest} seeCode={seeCode} downloadCSV={() => downloadCSV(dataProcess, originalData, t)} />}
+        <p className="report_container_subtitle">{t("RESULTS.title")}</p>
+        {loadingProgress ? (
+          <LoadingComponent />
+        ) : (
+          <ButtonsActions
+            reRequest={reRequest}
+            seeCode={seeCode}
+            downloadCSV={() => downloadCSV(dataProcess, originalData, t)}
+          />
+        )}
       </div>
       {!loadingProgress && (
         <>
