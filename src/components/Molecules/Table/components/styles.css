@@ -48,6 +48,10 @@
   border-right: 1px solid #000;
 }
 
+.border_left {
+  border-left: 1px solid #000;
+}
+
 .aceptable_continer {
   display: flex;
   justify-content: space-between;
@@ -203,6 +207,10 @@
 
   .border_right {
     border-right: 0px;
+  }
+
+  .border_left {
+    border-left: 0px;
   }
 
   .ammount {
