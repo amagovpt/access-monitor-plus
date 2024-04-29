@@ -42,7 +42,7 @@ const Gauge = ({ percentage }) => {
   };
 
   return (
-    <div>
+    <div role="img" aria-label={t("Gauge.title")}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -52,6 +52,7 @@ const Gauge = ({ percentage }) => {
         width="200"
         height="170"
       >
+        <title>Pontuação {animatedPercentage} de 10</title>
         <path
           className="grey"
           d="M55,90 A55,55 0 1,1 140,90"
@@ -74,6 +75,7 @@ const Gauge = ({ percentage }) => {
           fontSize="42"
           fontWeight="bold"
           fontFamily="Lato"
+          aria-label={t("Gauge.title")}
         >
           {animatedPercentage}
         </text>
@@ -84,6 +86,7 @@ const Gauge = ({ percentage }) => {
           fill="#858585"
           fontSize="8"
           fontFamily="Lato"
+          aria-label={t("Gauge.title")}
         >
           {t("RESULTS.summary.score")}
         </text>
