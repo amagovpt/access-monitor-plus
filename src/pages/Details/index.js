@@ -5,9 +5,15 @@ import { useEffect, useState } from "react";
 import { TableDetails } from "./_components/TableDetails";
 import "./styles.css";
 import { useTranslation } from "react-i18next";
+import { ThemeContext } from "../../context/ThemeContext";
+import { useContext } from "react";
 
 export default function Details({ allData, ele }) {
   const { t } = useTranslation();
+
+  const { theme } = useContext(ThemeContext);
+
+  const themeClass = theme === "light" ? "" : "dark_mode-details";
 
   const url = allData?.rawUrl;
   // const textHeading = jsonPt.ELEMS[ele];
@@ -79,7 +85,7 @@ export default function Details({ allData, ele }) {
 
   return (
     <>
-      <div className="container">
+      <div className={`container ${themeClass}`}>
         <div className="link_breadcrumb_container">
           <Breadcrumb data={dataBreadCrumb} />
         </div>
