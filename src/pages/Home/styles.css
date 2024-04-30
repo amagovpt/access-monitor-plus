@@ -4,13 +4,13 @@
 
 .validator_container {
   padding: 62px 60px;
-  display: grid !important;
+  display: grid;
   grid-template-columns: 55% 45%;
 }
 
 .validator_container_description {
   font-size: 18px;
-  font-weight: 400 !important;
+  font-weight: 400;
   line-height: 1.75em;
 }
 
@@ -23,14 +23,14 @@
 }
 
 .nav-item button {
-  width: 200px !important;
-  min-width: 210px !important;
-  height: 55px !important;
+  width: 200px;
+  min-width: 210px;
+  height: 55px;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
   .link_breadcrumb_container {
-    padding: 2rem 0px 1rem 0px !important;
+    padding: 2rem 0px 1rem 0px;
   }
 }
 
