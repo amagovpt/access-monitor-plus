@@ -42,7 +42,7 @@ const Gauge = ({ percentage }) => {
   };
 
   return (
-    <div role="img" aria-label={t("Gauge.title")}>
+    <div role="graphics-document" aria-label={t("Gauge.title")}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -51,6 +51,7 @@ const Gauge = ({ percentage }) => {
         viewBox="37 -5 120 100"
         width="200"
         height="170"
+        role="graphics-document"
       >
         <title>Pontuação {animatedPercentage} de 10</title>
         <path
