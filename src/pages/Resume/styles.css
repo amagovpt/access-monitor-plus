@@ -168,11 +168,6 @@
 
 /* Dark mode */
 
-.dark_mode-resume .acess_monitor {
-  background-color: #b6dcf6;
-  color: #20242c;
-}
-
 .dark_mode-resume .report_container_title,
 .dark_mode-resume .report_container_subtitle,
 .dark_mode-resume .sumary_container h2,
@@ -271,7 +266,12 @@
   background-color: #20242c !important;
 }
 
-.dark_mode-resume tr:hover .accordion-flush .accordion-item .accordion-header button {
+.dark_mode-resume
+  tr:hover
+  .accordion-flush
+  .accordion-item
+  .accordion-header
+  button {
   background-color: #20242c !important;
 }
 

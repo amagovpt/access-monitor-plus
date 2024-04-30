@@ -1,5 +1,3 @@
-// import jsonPT from "../../utils/portuguese.json";
-
 export function refWebsite(ref) {
   let result;
   if (ref.length > 3) {
@@ -98,7 +96,6 @@ export function optionForAccordion(t, data) {
   const optionsArray = data.results
     .map((result) => {
       const testResultType = result.value === 1 ? "s" : "p";
-      //const testResult = jsonPT.TESTS_RESULTS[result.msg][testResultType];
       const testResult = t(`TESTS_RESULTS.${result.msg}.${testResultType}`);
 
       if (!testResult) {
@@ -125,10 +122,6 @@ export function optionForAccordion(t, data) {
         result.ref_related_sc.length > 0
           ? result.ref_related_sc.map((item) => item.lvl)
           : null;
-
-      // const additionalInfo = jsonPT.TXT_TECHNIQUES[result.ref] || "";
-      // const additionalInfoLink = jsonPT.TECHS[result.ref] || "";
-      // const additionalInfoWagError = jsonPT.TECHFAIL[result.relation] || "";
 
       const additionalInfo = t(`TXT_TECHNIQUES.${result.ref}`) || "";
       const additionalInfoLink = t(`TECHS.${result.ref}`) || "";
@@ -172,10 +165,15 @@ export function optionForAccordion(t, data) {
 
         ref_website: result.ref_website,
         component: (
-          <div className="content_error">
-            <p dangerouslySetInnerHTML={{ __html: additionalInfo }} />
-            <a href={result?.ref_website}>{additionalInfoLink}</a> <br />
-            <span>{additionalInfoWagError}</span> <br />
+          <div className="content_info">
+            <div className="d-flex flex-column">
+              <div dangerouslySetInnerHTML={{ __html: additionalInfo }} />
+              <a
+                href={result?.ref_website}
+              >{`${result.ref}: ${additionalInfoLink}`}</a>
+              <span>{additionalInfoWagError}</span>
+            </div>
+
             <div className="criterio d-block">
               {sc_text && (
                 <ul className="d-flex flex-column">

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Breadcrumb, Icon, Tabs } from "../../components";
 
 import { getTestResults } from "../../services";

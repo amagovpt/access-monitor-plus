@@ -17,7 +17,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 
 import { downloadCSV } from "../../utils/utils";
 
-import localJson from "../../utils/data.json";
+// import localJson from "../../utils/data.json";
 
 export let tot;
 
@@ -37,52 +37,30 @@ export default function Resume({ setAllData, setEle }) {
 
   const themeClass = theme === "light" ? "" : "dark_mode-resume";
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     setLoadingProgress(true);
-  //     try {
-  //       const response =
-  //         typeRequest === "html"
-  //           ? await api.post("/eval/html", { html: content })
-  //           : await api.get(`/eval/${content}`);
-  //       setOriginalData(response.data);
-
-  //       console.log("Responseeee", response);
-
-  //       console.log("Response", response.data.result.data.tot);
-
-  //       setDataProcess(processData(response.data?.result?.data?.tot));
-
-  //       tot = response.data.result.data.tot;
-
-  //       setPageCode(response.data?.result?.pagecode || "html");
-  //       setLoadingProgress(false);
-  //     } catch (error) {
-  //       console.error("Erro", error);
-  //       setLoadingProgress(false);
-  //     }
-  //   };
-  //   fetchData();
-  // }, [content, typeRequest]);
-
-  // LOCAL
-
   useEffect(() => {
     const fetchData = async () => {
       setLoadingProgress(true);
       try {
-        const response = localJson;
-        setOriginalData(response);
+        const storedData = localStorage.getItem("evaluation");
+        if (storedData) {
+          const parsedStoredData = JSON.parse(storedData);
+          setOriginalData(parsedStoredData);
+          setDataProcess(processData(parsedStoredData?.result?.data?.tot));
+          setPageCode(parsedStoredData?.result?.pagecode || "html");
+          setLoadingProgress(false);
+          return;
+        }
 
-        console.log("Responseeee", response);
+        const response =
+          typeRequest === "html"
+            ? await api.post("/eval/html", { html: content })
+            : await api.get(`/eval/${content}`);
 
-        console.log("Response2zyyy", response?.result?.data?.tot);
+        localStorage.setItem("evaluation", JSON.stringify(response.data));
 
-        setDataProcess(processData(response?.result?.data?.tot));
-
-        tot = response?.result?.data.tot;
-
-        setPageCode(response?.result?.pagecode || "html");
+        setOriginalData(response.data);
+        setDataProcess(processData(response.data?.result?.data?.tot));
+        setPageCode(response.data?.result?.pagecode || "html");
         setLoadingProgress(false);
       } catch (error) {
         console.error("Erro", error);
@@ -90,7 +68,29 @@ export default function Resume({ setAllData, setEle }) {
       }
     };
     fetchData();
-  }, []);
+  }, [content, typeRequest]);
+
+  // LOCAL
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     setLoadingProgress(true);
+  //     try {
+  //       const response = localJson;
+  //       setOriginalData(response);
+  //       setDataProcess(processData(response?.result?.data?.tot));
+
+  //       tot = response?.result?.data.tot;
+
+  //       setPageCode(response?.result?.pagecode || "html");
+  //       setLoadingProgress(false);
+  //     } catch (error) {
+  //       console.error("Erro", error);
+  //       setLoadingProgress(false);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
 
   const reRequest = () => {
     navigate("/resumo", { state: { content: content, type: typeRequest } });
@@ -126,8 +126,6 @@ export default function Resume({ setAllData, setEle }) {
       <div className="link_breadcrumb_container">
         <Breadcrumb data={dataBreadCrumb} />
       </div>
-
-      {/* <Gauge percentage={5} /> */}
 
       <div className="report_container">
         <div className="acess_monitor">AcessMonitor</div>

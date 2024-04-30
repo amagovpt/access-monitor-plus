@@ -36,3 +36,12 @@ button {
 ul {
   list-style: none;
 }
+
+/* Dark for all pages */
+
+.dark_mode-resume .acess_monitor,
+.dark_mode-details .acess_monitor,
+.dark_mode-code .acess_monitor {
+  background-color: #b6dcf6;
+  color: #20242c;
+}

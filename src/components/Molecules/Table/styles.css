@@ -58,11 +58,11 @@
   padding: 0 !important;
 } */
 
-.content_error {
+.content_info {
   text-align: left;
 }
 
-.content_error a {
+.content_info a {
   color: #333 !important;
   font-weight: 700;
   text-decoration: underline !important;

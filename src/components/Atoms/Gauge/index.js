@@ -31,7 +31,6 @@ const Gauge = ({ percentage }) => {
   };
 
   const determineColorClass = () => {
-    console.log("An", animatedPercentage);
     if (animatedPercentage >= 8) {
       return "green";
     } else if (animatedPercentage >= 5) {
