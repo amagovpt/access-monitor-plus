@@ -98,7 +98,7 @@ export default function Resume({ setAllData, setEle }) {
 
   const seeCode = () => {
     navigate("/resumo/code", {
-      state: { content: dataProcess, original: originalData, code: pageCode },
+      state: { content: dataProcess, original: originalData, code: pageCode, url: content, type: typeRequest },
     });
   };
 

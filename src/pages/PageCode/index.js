@@ -1,7 +1,7 @@
 import { Breadcrumb } from "../../components/index";
 import { ButtonsActions } from "./_components/buttons-revalidation";
 import "./styles.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
 import { useContext } from "react";
@@ -11,6 +11,7 @@ import { downloadCSV } from '../../utils/utils'
 
 export default function Resume() {
   const location = useLocation();
+  const navigate = useNavigate();
   const { t } = useTranslation();
 
   const { theme } = useContext(ThemeContext);
@@ -19,7 +20,15 @@ export default function Resume() {
 
   const dataProcess = location.state?.content || null;
   const originalData = location.state?.original || null;
+  const url = location.state?.url || null;
+  const type = location.state?.type || null;
   const code = location.state?.code || null;
+
+  const testing = (item) => {
+    if(item.title === (dataProcess?.metadata?.url || "html")) {
+      navigate("/resumo", { state: { content: url, type: type } });
+    }
+  }
 
   const dataBreadCrumb = [
     {
@@ -29,7 +38,6 @@ export default function Resume() {
     { title: "Access Monitor", href: "/" },
     {
       title: dataProcess?.metadata?.url || "html",
-      href: dataProcess?.metadata?.url,
     },
     {
       title: t("HEADER.NAV.code"),
@@ -39,7 +47,7 @@ export default function Resume() {
   return (
     <div className={`container ${themeClass} `}>
       <div className="link_breadcrumb_container">
-        <Breadcrumb data={dataBreadCrumb} />
+        <Breadcrumb data={dataBreadCrumb} onClick={testing} />
       </div>
       <div className="report_container">
         <div className="acess_monitor">AcessMonitor</div>

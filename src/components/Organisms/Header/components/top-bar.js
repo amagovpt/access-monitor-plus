@@ -64,7 +64,7 @@ export function TopBar() {
                   id="langModeBtn"
                   onClick={toggleLanguage}
                 >
-                  <span id="langModeLabel">{t("HEADER.language_en")}</span>
+                  <span lang={language === "en" ? "pt-PT" : "en"} id="langModeLabel">{t("HEADER.language_en")}</span>
                   <Icon name="AMA-Globo-Line icon-lang" aria-hidden="true" />
                 </button>
               </div>

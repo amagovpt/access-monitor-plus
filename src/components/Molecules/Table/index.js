@@ -25,48 +25,48 @@ const TableComponent = ({ data, allData, setAllData, setEle }) => {
   const optionsArray = optionForAccordion(t, data);
 
   return (
-    <table className="table table_primary">
-      <caption className="visually-hidden">
-        {t("RESULTS.results.caption")}
-      </caption>
-      <thead>
-        <tr>
-          <th colSpan="2">{t("RESULTS.results.practice")}</th>
-          <th className="hide-on-small-screen">{t("RESULTS.results.lvl")}</th>
-          <th className="hide-on-small-screen">
-            {t("RESULTS.results.details")}
-          </th>
-        </tr>
-      </thead>
+    <>
+      <table className="table table_primary">
+        <caption className="visually-hidden">
+          {t("RESULTS.results.caption")}
+        </caption>
+        <thead>
+          <tr>
+            <th colSpan="2" >{t("RESULTS.results.practice")}</th>
+            <th className="hide-on-small-screen">{t("RESULTS.results.lvl")}</th>
+            <th className="hide-on-small-screen">
+              {t("RESULTS.results.details")}
+            </th>
+          </tr>
+        </thead>
 
-      <tbody>
-        {optionsArray.map((option) => (
-          <tr id={option.id} key={option.id}>
-            <td className={option?.tdClassName}>
-              <Icon name={option.iconName} />
-            </td>
-            <td className="mobile-options">
-              <Accordion options={[option]} flush={true} id={option.id} />
+        <tbody>
+          {optionsArray.map((option) => (
+            <tr id={option.id} key={option.id}>
+              <td className={option?.tdClassName}>
+                <span className="visually-hidden">{t(`RESULTS.results.image_title.${option.iconName}`)}</span>
+                <Icon name={option.iconName} />
+              </td>
+              <td className="mobile-options">
+                <Accordion options={[option]} flush={true} id={option.id} />
 
               <div className="hide_desktop-screen">
                 <span>
                   {t("RESULTS.results.lvl")}: {option?.lvl}
                 </span>
 
-                {option.ele && (
-                  <button
-                    onClick={() => setAllDataResult(option.ele)}
-                    className="detail_link"
-                  >
-                    <Icon name="AMA-Detalhe-Line" />
-                    <span className="visually-hidden">
-                      {t("RESULTS.results.details")}
-                    </span>
-                  </button>
-                )}
-              </div>
-            </td>
-            <td className="middle_col hide-on-small-screen">{option?.lvl}</td>
+                  {option.ele && (
+                    <button
+                      onClick={() => setAllDataResult(option.ele)}
+                      className="detail_link"
+                      aria-label={t("RESULTS.results.details")}
+                    >
+                      <Icon name="AMA-Detalhe-Line" />
+                    </button>
+                  )}
+                </div>
+              </td>
+              <td className="middle_col hide-on-small-screen">{option?.lvl}</td>
 
             <td
               className={`hide-on-small-screen ${option.ele ? "" : "visually-hidden"}`}
@@ -74,17 +74,16 @@ const TableComponent = ({ data, allData, setAllData, setEle }) => {
               <button
                 onClick={() => setAllDataResult(option.ele && option.ele)}
                 className="detail_link"
+                aria-label={t("RESULTS.results.details")}
               >
                 <Icon name="AMA-Detalhe-Line" />
-                <span className="visually-hidden">
-                  {t("RESULTS.results.details")}
-                </span>
               </button>
             </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
   );
 };
 

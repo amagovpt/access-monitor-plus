@@ -42,6 +42,7 @@ export function InsertHtmlUpload() {
         id="file"
         accept=".html"
         onChange={handleChange}
+        upload={true}
       />
 
       <Button

@@ -1,37 +1,58 @@
-.field label {
+.field label,
+.fieldUpload label {
   font-size: 1rem;
   color: #333;
   font-weight: 700;
 }
 
-.field input {
+.field input,
+.fieldUpload input {
   height: 42px;
   border: 2px solid var(--primary) !important;
   background-color: #ffffff;
   margin: 8px 0 8px 0;
   min-width: 50px;
-  padding: 0px 16px;
   color: #333;
   font-weight: 400;
   font-size: 1em;
   font-family: var(--font-lato);
-
-  border-radius: 0;
+  border-radius: 0px;
 }
 
-.field input:focus {
+.fieldUpload input {
+  border-radius: 0px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+
+.field input:focus,
+.fieldUpload input:focus {
   /* REVER o Boxshadow */
   box-shadow: none;
 }
 
-.field .form-control.is-invalid {
+.field .form-control.is-invalid,
+.fieldUpload .form-control.is-invalid {
   border-color: #d10000 !important;
 }
 
-.field .invalid-feedback {
+.field .invalid-feedback,
+.fieldUpload .invalid-feedback {
   color: #d10000;
   font-size: 1em;
   font-weight: 700;
   margin-top: -0.5rem;
   margin-bottom: 1.5rem;
+}
+
+input[type="file"].form-control::file-selector-button {
+  background-color: var(--primary);
+  border-radius: 25px;
+  color: var(--white);
+  border: 0 solid;
+  border-color: var(--primary);
+  padding: 0px 10px;
+  margin-left: -16px;
+  height: 50px;
 }

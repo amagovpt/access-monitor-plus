@@ -1,11 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { Button, Icon } from "../../../components";
 import { useTranslation } from "react-i18next";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export function ButtonsActions({ downloadCSV }) {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [seeDownloads, setSeeDownloads] = useState(false);
 
   const openDownloadLinks = () => {
@@ -14,7 +15,14 @@ export function ButtonsActions({ downloadCSV }) {
 
   return (
     <>
-      <div className="d-flex justify-content-end">
+      <div className="d-flex justify-content-between">
+        <Button
+          size="md"
+          text={t("HEADER.evaluate_new_page")}
+          iconRight={<Icon name="AMA-Setalongaoficial-Line" />}
+          onClick={() => navigate("/")}
+        />
+
         <div>
           <Button
             size="md"

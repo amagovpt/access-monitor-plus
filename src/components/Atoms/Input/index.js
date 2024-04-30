@@ -5,12 +5,12 @@ import "./styles.css";
 
 import classNames from "classnames";
 
-const Input = ({ label, type, placeholder, error, id, ...rest }) => {
+const Input = ({ upload, label, type, placeholder, error, id, ...rest }) => {
   const inputClass = classNames("form-control", {
     "is-invalid": error,
   });
   return (
-    <Form.Group className="field">
+    <Form.Group className={upload ? "fieldUpload" : "field"}>
       <Form.Label htmlFor={id}>{label}</Form.Label>
       <Form.Control
         type={type}
