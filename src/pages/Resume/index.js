@@ -17,7 +17,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 
 import { downloadCSV } from "../../utils/utils";
 
-// import localJson from "../../utils/data.json";
+import localJson from "../../utils/data.json";
 
 export let tot;
 
@@ -37,52 +37,30 @@ export default function Resume({ setAllData, setEle }) {
 
   const themeClass = theme === "light" ? "" : "dark_mode-resume";
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoadingProgress(true);
-      try {
-        const storedData = localStorage.getItem("evaluation");
-        if (storedData) {
-          const parsedStoredData = JSON.parse(storedData);
-          setOriginalData(parsedStoredData);
-          setDataProcess(processData(parsedStoredData?.result?.data?.tot));
-          setPageCode(parsedStoredData?.result?.pagecode || "html");
-          setLoadingProgress(false);
-          return;
-        }
-
-        const response =
-          typeRequest === "html"
-            ? await api.post("/eval/html", { html: content })
-            : await api.get(`/eval/${content}`);
-
-        localStorage.setItem("evaluation", JSON.stringify(response.data));
-
-        setOriginalData(response.data);
-        setDataProcess(processData(response.data?.result?.data?.tot));
-        setPageCode(response.data?.result?.pagecode || "html");
-        setLoadingProgress(false);
-      } catch (error) {
-        console.error("Erro", error);
-        setLoadingProgress(false);
-      }
-    };
-    fetchData();
-  }, [content, typeRequest]);
-
-  // LOCAL
-
   // useEffect(() => {
   //   const fetchData = async () => {
   //     setLoadingProgress(true);
   //     try {
-  //       const response = localJson;
-  //       setOriginalData(response);
-  //       setDataProcess(processData(response?.result?.data?.tot));
+  //       const storedData = localStorage.getItem("evaluation");
+  //       if (storedData) {
+  //         const parsedStoredData = JSON.parse(storedData);
+  //         setOriginalData(parsedStoredData);
+  //         setDataProcess(processData(parsedStoredData?.result?.data?.tot));
+  //         setPageCode(parsedStoredData?.result?.pagecode || "html");
+  //         setLoadingProgress(false);
+  //         return;
+  //       }
 
-  //       tot = response?.result?.data.tot;
+  //       const response =
+  //         typeRequest === "html"
+  //           ? await api.post("/eval/html", { html: content })
+  //           : await api.get(`/eval/${content}`);
 
-  //       setPageCode(response?.result?.pagecode || "html");
+  //       localStorage.setItem("evaluation", JSON.stringify(response.data));
+
+  //       setOriginalData(response.data);
+  //       setDataProcess(processData(response.data?.result?.data?.tot));
+  //       setPageCode(response.data?.result?.pagecode || "html");
   //       setLoadingProgress(false);
   //     } catch (error) {
   //       console.error("Erro", error);
@@ -90,7 +68,29 @@ export default function Resume({ setAllData, setEle }) {
   //     }
   //   };
   //   fetchData();
-  // }, []);
+  // }, [content, typeRequest]);
+
+  // LOCAL
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoadingProgress(true);
+      try {
+        const response = localJson;
+        setOriginalData(response);
+        setDataProcess(processData(response?.result?.data?.tot));
+
+        tot = response?.result?.data.tot;
+
+        setPageCode(response?.result?.pagecode || "html");
+        setLoadingProgress(false);
+      } catch (error) {
+        console.error("Erro", error);
+        setLoadingProgress(false);
+      }
+    };
+    fetchData();
+  }, []);
 
   const reRequest = () => {
     navigate("/resumo", { state: { content: content, type: typeRequest } });
@@ -98,7 +98,13 @@ export default function Resume({ setAllData, setEle }) {
 
   const seeCode = () => {
     navigate("/resumo/code", {
-      state: { content: dataProcess, original: originalData, code: pageCode, url: content, type: typeRequest },
+      state: {
+        content: dataProcess,
+        original: originalData,
+        code: pageCode,
+        url: content,
+        type: typeRequest,
+      },
     });
   };
 
