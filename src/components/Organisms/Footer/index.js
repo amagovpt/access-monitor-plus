@@ -130,7 +130,7 @@ export function Footer() {
           <li>
             <img
               decoding="async"
-              alt={t("FOOTER.img_ama")}
+              alt="Logo da usabilidade"
               src="https://selo.leadershipbt.com/wp-content/uploads/2023/02/logo_usabilidade.svg"
               className="img-fluid"
               width="150"
