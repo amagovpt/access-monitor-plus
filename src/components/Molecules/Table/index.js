@@ -69,6 +69,7 @@ const TableComponent = ({ data, allData, setAllData }) => {
                       onClick={() => setAllDataResult(option.ele)}
                       className="detail_link"
                       aria-label={t("RESULTS.results.details")}
+                      aria-describedby={option.id}
                     >
                       <Icon name="AMA-Detalhe-Line" />
                     </button>
@@ -84,6 +85,7 @@ const TableComponent = ({ data, allData, setAllData }) => {
                   onClick={() => setAllDataResult(option.ele && option.ele)}
                   className="detail_link"
                   aria-label={t("RESULTS.results.details")}
+                  aria-describedby={option.id}
                 >
                   <Icon name="AMA-Detalhe-Line" />
                 </button>

@@ -22,7 +22,6 @@ export function Footer() {
               >
                 <a
                   href="https://www.acessibilidade.gov.pt/acessibilidade/"
-                  target="_blank"
                   rel="noreferrer"
                 >
                   {t("FOOTER.accessibility")}
@@ -35,7 +34,6 @@ export function Footer() {
               >
                 <a
                   href="https://www.acessibilidade.gov.pt/termos-e-condicoes/"
-                  target="_blank"
                   rel="noreferrer"
                 >
                   {t("FOOTER.terms")}
@@ -48,7 +46,6 @@ export function Footer() {
               >
                 <a
                   href="https://www.ama.gov.pt/web/agencia-para-a-modernizacao-administrativa/politica-de-privacidade"
-                  target="_blank"
                   rel="noreferrer"
                 >
                   {t("FOOTER.privacy")}
@@ -61,7 +58,6 @@ export function Footer() {
               >
                 <a
                   href="https://amagovpt.github.io/kit-selo/"
-                  target="_blank"
                   rel="noreferrer"
                 >
                   Github
@@ -74,7 +70,6 @@ export function Footer() {
               >
                 <a
                   href="https://www.acessibilidade.gov.pt/glossario/"
-                  target="_blank"
                   rel="noreferrer"
                 >
                   {t("FOOTER.glossary")}
@@ -86,7 +81,6 @@ export function Footer() {
               >
                 <a
                   href="https://www.acessibilidade.gov.pt/opcoes-de-visualizacao/"
-                  target="_blank"
                   rel="noreferrer"
                 >
                   {t("FOOTER.options")}
@@ -130,7 +124,7 @@ export function Footer() {
           <li>
             <img
               decoding="async"
-              alt="Logo da usabilidade"
+              alt="usabilidade.gov.pt"
               src="https://selo.leadershipbt.com/wp-content/uploads/2023/02/logo_usabilidade.svg"
               className="img-fluid"
               width="150"
@@ -171,13 +165,13 @@ export function Footer() {
         <div className="logo-selo">
           <img
             src="https://selo.leadershipbt.com/wp-content/themes/www-a11y-theme/img/selo-ouro.svg"
-            alt="Selo Ouro de Usabilidade e Acesisbilidade"
+            alt={t("FOOTER.gold_badge_label")}
           />
         </div>
         <div className="copyright">
           <p>
-            © 2024 AMA - Agência para a Modernização Administrativa, I. P.
-            Todos os direitos reservados.
+            © 2024 AMA - {t("FOOTER.link")}
+            {t("FOOTER.rights")}
           </p>
         </div>
       </div>

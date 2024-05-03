@@ -220,6 +220,7 @@ export default function Resume({ setAllData, setEle }) {
             seeCode={seeCode}
             downloadCSV={() => downloadCSV(dataProcess, originalData, t)}
             href={dataProcess?.metadata?.url}
+            themeClass={themeClass}
           />
         )}
       </div>
@@ -233,7 +234,7 @@ export default function Resume({ setAllData, setEle }) {
               </div>
               <div className="resume_info_about_uri d-flex flex-column gap-4">
                 <div className="d-flex flex-column">
-                  <span>URI</span>
+                  <span>URL</span>
                   <span>{dataProcess?.metadata?.url}</span>
                 </div>
 

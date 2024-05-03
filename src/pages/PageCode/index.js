@@ -54,9 +54,9 @@ export default function Resume() {
         </h1>
         <p className="report_container_subtitle">{t("HEADER.NAV.code")}</p>
         <ButtonsActions
-          htmlValue={dataProcess?.metadata?.url}
-          originalData={originalData}
           downloadCSV={() => downloadCSV(dataProcess, originalData, t)}
+          handleGoBack={() => handleGoBack()}
+          themeClass={themeClass}
         />
       </div>
       <section className="html_code">

@@ -108,6 +108,9 @@
             "err": "Não aceitáveis",
             "warn": "Para ver manualmente"
           }
+        },
+        "gauge": {
+          "title": "Pontuação do AccessMonitor. Avaliação da página: {{value}} de 10"
         }
       },
       "results": {
@@ -192,7 +195,7 @@
       "options": "Opções de visualização",
       "glossary": "Glossário",
       "link": "Agência para a Modernização Administrativa, I.P.",
-      "rights": "Todos os Direitos Reservados."
+      "rights": " Todos os Direitos Reservados."
     },
     "LANGUAGES": {
       "Portuguese": "Português",

@@ -2,14 +2,15 @@
 import { Button, Icon } from "../../../components";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import "./styles.css"
 
-export function ButtonsActions({ downloadCSV }) {
+export function ButtonsActions({ downloadCSV, handleGoBack, themeClass }) {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
   return (
     <>
-      <div className="d-flex justify-content-between">
+      <div className={`d-flex justify-content-between ${themeClass}`}>
         <Button
           size="md"
           text={t("HEADER.evaluate_new_page")}
@@ -17,7 +18,15 @@ export function ButtonsActions({ downloadCSV }) {
           onClick={() => navigate("/")}
         />
 
-        <div>
+        <div className="d-flex flex-row gap-3 other">
+          <Button
+            size="md"
+            variant="secondary"
+            text={t("RESULTS.actions.back")}
+            iconRight={<Icon name="AMA-Setalongaoficial-Line" />}
+            onClick={handleGoBack}
+          />
+
           <Button
             size="md"
             id="btn-download-code"

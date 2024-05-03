@@ -6,6 +6,7 @@ import "./i18n";
 import Resume from "./pages/Resume";
 import Detail from "./pages/Details";
 import PageCode from "./pages/PageCode";
+import Error from "./pages/Error";
 import { useState } from "react";
 import { ThemeProvider } from "./context/ThemeContext";
 
@@ -35,6 +36,12 @@ export default function App() {
             />
 
             {/* Outras rotas */}
+
+            {/* Error page needs to be last */}
+            <Route
+              path="*"
+              element={<Error />}
+            />
           </Routes>
         </Layout>
       </Router>

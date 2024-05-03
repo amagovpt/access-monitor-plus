@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-export function ButtonsActions({ reRequest, seeCode, downloadCSV, href }) {
+export function ButtonsActions({ reRequest, seeCode, downloadCSV, href, themeClass }) {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [seePage, setSeePage] = useState(false);
@@ -15,7 +15,7 @@ export function ButtonsActions({ reRequest, seeCode, downloadCSV, href }) {
 
   return (
     <>
-      <div className="d-flex flex-row justify-content-between deskGroupMobile">
+      <div className={`d-flex flex-row justify-content-between deskGroupMobile ${themeClass}`}>
         <Button
           size="md"
           text={t("HEADER.evaluate_new_page")}
@@ -23,7 +23,7 @@ export function ButtonsActions({ reRequest, seeCode, downloadCSV, href }) {
           onClick={() => navigate("/")}
         />
 
-        <div className="d-flex flex-row gap-3">
+        <div className="d-flex flex-row gap-3 other">
           <Button
             size="md"
             variant="secondary"
@@ -38,22 +38,25 @@ export function ButtonsActions({ reRequest, seeCode, downloadCSV, href }) {
               size="md"
               variant="secondary"
               text={t("RESULTS.actions.see_page")}
-              iconRight={<Icon name="AMA-Code-Line" />}
+              iconRight={<Icon name={seePage ? "AMA-SetaCima3-Line" : "AMA-SetaBaixo3-Line"} />}
               onClick={openPageLinks}
               aria-expanded={seePage}
             />
             {seePage && (
               <u className="dropdown-content show_dropdown" aria-labelledby="dropdownMenuButton" >
                 <li>
-                  <button onClick={() => seeCode()}>{t("RESULTS.actions.pagecode")}</button>
+                  <button onClick={() => seeCode()}>
+                    <span>{t("RESULTS.actions.pagecode")}</span>
+                    <Icon name="AMA-Code-Line" />
+                  </button>
                 </li>
                 <li>
                   <a
-                    target="_blank"
                     href={href}
                     rel="noreferrer"
                   >
-                    {t("RESULTS.actions.open_webpage")}
+                    <span>{t("RESULTS.actions.open_webpage")}</span>
+                    <Icon name="AMA-Externo-Line" />
                   </a>
                 </li>
               </u>
@@ -73,7 +76,7 @@ export function ButtonsActions({ reRequest, seeCode, downloadCSV, href }) {
         </div>
       </div>
 
-      <div className="group_mobile">
+      <div className={`group_mobile ${themeClass}`}>
         <div className="firstGroupContainer">
           <Button
             size="md"
@@ -88,22 +91,25 @@ export function ButtonsActions({ reRequest, seeCode, downloadCSV, href }) {
               size="md"
               variant="secondary"
               text={t("RESULTS.actions.see_page")}
-              iconRight={<Icon name="AMA-Code-Line" />}
+              iconRight={<Icon name={seePage ? "AMA-SetaCima3-Line" : "AMA-SetaBaixo3-Line"} />}
               onClick={openPageLinks}
               aria-expanded={seePage}
             />
             {seePage && (
               <u className="dropdown-content show_dropdown" aria-labelledby="dropdownMenuButton" >
                 <li>
-                  <button onClick={() => seeCode()}>{t("RESULTS.actions.pagecode")}</button>
+                  <button onClick={() => seeCode()}>
+                    <span>{t("RESULTS.actions.pagecode")}</span>
+                    <Icon name="AMA-Code-Line" />
+                  </button>
                 </li>
                 <li>
                   <a
-                    target="_blank"
                     href={href}
                     rel="noreferrer"
                   >
-                    {t("RESULTS.actions.open_webpage")}
+                    <span>{t("RESULTS.actions.open_webpage")}</span>
+                    <Icon name="AMA-Externo-Line" />
                   </a>
                 </li>
               </u>

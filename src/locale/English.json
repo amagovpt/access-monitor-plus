@@ -108,6 +108,9 @@
             "err": "Non Acceptable",
             "warn": "To view manually"
           }
+        },
+        "gauge": {
+          "title": "AccessMonitor score. Page rating: {{value}} out of 10"
         }
       },
       "results": {
@@ -191,8 +194,8 @@
       "privacy": "Privacy policy",
       "options": "Visualization options",
       "glossary": "Glossary",
-      "link": "Administrative Modernization Agency",
-      "rights": "All rights reserved."
+      "link": "Administrative Modernization Agency.",
+      "rights": " All rights reserved."
     },
     "LANGUAGES": {
       "Portuguese": "Português",

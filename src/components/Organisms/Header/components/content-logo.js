@@ -7,7 +7,7 @@ export default function LogoAcessmonitor() {
   const logoURL = theme === "light" ? "/img/logo.svg" : "/img/logo-dark.svg";
   return (
     <>
-      <img src={logoURL} alt="accessMonitor" />
+      <img src={logoURL} alt="accessMonitor" lang="en" />
     </>
   );
 }

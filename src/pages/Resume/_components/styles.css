@@ -114,9 +114,13 @@
   }
 }
 
+.show_dropdown {
+  display: block !important;
+}
+
 .dropdown-content {
   display: none;
-  width: 200px;
+  width: fit-content;
   margin-top: 1em;
   padding: 1em;
   color: var(--white);
@@ -127,33 +131,72 @@
   text-decoration: none;
 }
 
-.show_dropdown {
-  display: block !important;
-}
-
 .dropdown-content a {
   color: var(--white);
-  display: block;
   padding: .5em;
   text-decoration: none;
   font-weight: 700;
   cursor: pointer;
+  align-items: center;
+  text-decoration: none !important;
+  display: flex !important;
+  width: auto !important;
+  justify-content: space-between !important;
 }
 
 .dropdown-content li::marker {
   content: "";
 }
 
-.dropdown-content li:hover {
-  text-decoration: underline;
-}
-
-.dropdown-content li button {
+.dropdown-content button {
   background-color: transparent;
-  color: white;
+  color: var(--white);
   border: none;
   text-align: left;
   font-size: 16px;
   padding: 8px !important;
   font-weight: bold;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none !important;  
+}
+
+.dropdown-content a span:hover,
+.dropdown-content button span:hover {
+  text-decoration: underline;
+}
+
+
+/* Dark Mode */
+.dark_mode-resume .deskGroupMobile button,
+.dark_mode-resume .group_mobile button {
+  background-color: #b6dcf6 !important;
+  border-color: #b6dcf6 !important;
+  color: #2c3241;
+}
+
+.dark_mode-resume .deskGroupMobile button:hover,
+.dark_mode-resume .group_mobile button:hover {
+  background-color: transparent !important;
+  border-color: #b6dcf6 !important;
+  color: #b6dcf6;
+}
+
+.dark_mode-resume .other button {
+  background-color: #2c3241 !important;
+  border-color: #2c3241 !important;
+  color: #b6dcf6;
+}
+
+.dark_mode-resume .dropdown-content {
+  width: fit-content;
+}
+
+.dark_mode-resume .dropdown-content,
+.dark_mode-resume .other button:hover,
+.dark_mode-resume .dropdown-content li button,
+.dark_mode-resume .dropdown-content a {
+  background-color: #b6dcf6 !important;
+  border-color: #b6dcf6 !important;
+  color: #2c3241;
 }
