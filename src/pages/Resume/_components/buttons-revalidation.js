@@ -34,14 +34,16 @@ export function ButtonsActions({ reRequest, seeCode, downloadCSV, href }) {
 
           <div>
             <Button
+              id="dropdownMenuButton"
               size="md"
               variant="secondary"
               text={t("RESULTS.actions.see_page")}
               iconRight={<Icon name="AMA-Code-Line" />}
               onClick={openPageLinks}
+              aria-expanded={seePage}
             />
             {seePage && (
-              <u className="dropdown-content show_dropdown">
+              <u className="dropdown-content show_dropdown" aria-labelledby="dropdownMenuButton" >
                 <li>
                   <button onClick={() => seeCode()}>{t("RESULTS.actions.pagecode")}</button>
                 </li>
@@ -82,14 +84,16 @@ export function ButtonsActions({ reRequest, seeCode, downloadCSV, href }) {
 
           <div>
             <Button
+              id="dropdownMenuButton"
               size="md"
               variant="secondary"
               text={t("RESULTS.actions.see_page")}
               iconRight={<Icon name="AMA-Code-Line" />}
               onClick={openPageLinks}
+              aria-expanded={seePage}
             />
             {seePage && (
-              <u className="dropdown-content show_dropdown">
+              <u className="dropdown-content show_dropdown" aria-labelledby="dropdownMenuButton" >
                 <li>
                   <button onClick={() => seeCode()}>{t("RESULTS.actions.pagecode")}</button>
                 </li>
