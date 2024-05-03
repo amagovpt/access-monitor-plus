@@ -23,7 +23,7 @@ export function ButtonsActions({ downloadCSV, handleGoBack, themeClass }) {
             size="md"
             variant="secondary"
             text={t("RESULTS.actions.back")}
-            iconRight={<Icon name="AMA-Setalongaoficial-Line" />}
+            iconLeft={<Icon name="AMA-SetacurtaoficialEsq-Line" />}
             onClick={handleGoBack}
           />
 
