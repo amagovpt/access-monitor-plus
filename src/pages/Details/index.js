@@ -9,16 +9,22 @@ import { useTranslation } from "react-i18next";
 import { ThemeContext } from "../../context/ThemeContext";
 import { useContext } from "react";
 
-export default function Details({ allData, ele }) {
-  const { t } = useTranslation();
+import { useParams, useNavigate } from "react-router-dom";
 
+export default function Details({ allData }) {
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { details } = useParams();
   const { theme } = useContext(ThemeContext);
 
   const themeClass = theme === "light" ? "" : "dark_mode-details";
 
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   const url = allData?.rawUrl;
-  // const textHeading = jsonPt.ELEMS[ele];
-  const textHeading = t(`ELEMS.${ele}`);
+  const textHeading = t(`ELEMS.${details}`);
   const [dataTable, setDataTable] = useState([]);
 
   const dataBreadCrumb = [
@@ -31,8 +37,8 @@ export default function Details({ allData, ele }) {
       href: "/",
     },
     {
-      title: url,
-      href: url,
+      title: url || "html",
+      href: "",
     },
 
     {
@@ -42,7 +48,7 @@ export default function Details({ allData, ele }) {
   ];
 
   function getDetails() {
-    const response = getTestResults(ele, allData);
+    const response = getTestResults(details, allData);
     setDataTable(response);
   }
 
@@ -88,7 +94,7 @@ export default function Details({ allData, ele }) {
     <>
       <div className={`container ${themeClass}`}>
         <div className="link_breadcrumb_container">
-          <Breadcrumb data={dataBreadCrumb} />
+          <Breadcrumb data={dataBreadCrumb} onClick={handleGoBack} />
         </div>
 
         <div className="report_container">

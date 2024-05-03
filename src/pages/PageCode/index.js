@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 
-import { downloadCSV } from '../../utils/utils'
+import { downloadCSV } from "../../utils/utils";
 
 export default function Resume() {
   const location = useLocation();
@@ -20,15 +20,12 @@ export default function Resume() {
 
   const dataProcess = location.state?.content || null;
   const originalData = location.state?.original || null;
-  const url = location.state?.url || null;
-  const type = location.state?.type || null;
+
   const code = location.state?.code || null;
 
-  const testing = (item) => {
-    if(item.title === (dataProcess?.metadata?.url || "html")) {
-      navigate("/resumo", { state: { content: url, type: type } });
-    }
-  }
+  const handleGoBack = () => {
+    navigate(-1);
+  };
 
   const dataBreadCrumb = [
     {
@@ -38,6 +35,7 @@ export default function Resume() {
     { title: "Access Monitor", href: "/" },
     {
       title: dataProcess?.metadata?.url || "html",
+      href: "",
     },
     {
       title: t("HEADER.NAV.code"),
@@ -47,7 +45,7 @@ export default function Resume() {
   return (
     <div className={`container ${themeClass} `}>
       <div className="link_breadcrumb_container">
-        <Breadcrumb data={dataBreadCrumb} onClick={testing} />
+        <Breadcrumb data={dataBreadCrumb} onClick={handleGoBack} />
       </div>
       <div className="report_container">
         <div className="acess_monitor">AcessMonitor</div>
@@ -55,7 +53,11 @@ export default function Resume() {
           {dataProcess?.metadata?.url || "html"}
         </h1>
         <p className="report_container_subtitle">{t("HEADER.NAV.code")}</p>
-        <ButtonsActions htmlValue={dataProcess?.metadata?.url} originalData={originalData} downloadCSV={() => downloadCSV(dataProcess, originalData, t)} />
+        <ButtonsActions
+          htmlValue={dataProcess?.metadata?.url}
+          originalData={originalData}
+          downloadCSV={() => downloadCSV(dataProcess, originalData, t)}
+        />
       </div>
       <section className="html_code">
         <pre>{code || `<></>`}</pre>

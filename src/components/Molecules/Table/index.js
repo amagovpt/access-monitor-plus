@@ -8,7 +8,7 @@ import "./styles.css";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-const TableComponent = ({ data, allData, setAllData, setEle }) => {
+const TableComponent = ({ data, allData, setAllData }) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
@@ -18,8 +18,15 @@ const TableComponent = ({ data, allData, setAllData, setEle }) => {
 
   function setAllDataResult(ele) {
     setAllData(allData);
-    setEle(ele);
-    navigate("/detalhe");
+    const type = allData.rawUrl;
+
+    if (type === "") {
+      const content = "html";
+      navigate(`/results/${content}/${ele}`);
+    } else {
+      const encodedURL = encodeURIComponent(allData?.rawUrl);
+      navigate(`/results/${encodedURL}/${ele}`);
+    }
   }
 
   const optionsArray = optionForAccordion(t, data);
@@ -32,7 +39,7 @@ const TableComponent = ({ data, allData, setAllData, setEle }) => {
         </caption>
         <thead>
           <tr>
-            <th colSpan="2" >{t("RESULTS.results.practice")}</th>
+            <th colSpan="2">{t("RESULTS.results.practice")}</th>
             <th className="hide-on-small-screen">{t("RESULTS.results.lvl")}</th>
             <th className="hide-on-small-screen">
               {t("RESULTS.results.details")}
@@ -44,16 +51,18 @@ const TableComponent = ({ data, allData, setAllData, setEle }) => {
           {optionsArray.map((option) => (
             <tr id={option.id} key={option.id}>
               <td className={option?.tdClassName}>
-                <span className="visually-hidden">{t(`RESULTS.results.image_title.${option.iconName}`)}</span>
+                <span className="visually-hidden">
+                  {t(`RESULTS.results.image_title.${option.iconName}`)}
+                </span>
                 <Icon name={option.iconName} />
               </td>
               <td className="mobile-options">
                 <Accordion options={[option]} flush={true} id={option.id} />
 
-              <div className="hide_desktop-screen">
-                <span>
-                  {t("RESULTS.results.lvl")}: {option?.lvl}
-                </span>
+                <div className="hide_desktop-screen">
+                  <span>
+                    {t("RESULTS.results.lvl")}: {option?.lvl}
+                  </span>
 
                   {option.ele && (
                     <button
@@ -68,17 +77,17 @@ const TableComponent = ({ data, allData, setAllData, setEle }) => {
               </td>
               <td className="middle_col hide-on-small-screen">{option?.lvl}</td>
 
-            <td
-              className={`hide-on-small-screen ${option.ele ? "" : "visually-hidden"}`}
-            >
-              <button
-                onClick={() => setAllDataResult(option.ele && option.ele)}
-                className="detail_link"
-                aria-label={t("RESULTS.results.details")}
+              <td
+                className={`hide-on-small-screen ${option.ele ? "" : "visually-hidden"}`}
               >
-                <Icon name="AMA-Detalhe-Line" />
-              </button>
-            </td>
+                <button
+                  onClick={() => setAllDataResult(option.ele && option.ele)}
+                  className="detail_link"
+                  aria-label={t("RESULTS.results.details")}
+                >
+                  <Icon name="AMA-Detalhe-Line" />
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>

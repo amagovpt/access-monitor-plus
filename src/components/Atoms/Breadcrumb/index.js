@@ -9,14 +9,17 @@ const { Item } = BBreadcrumb;
 const Breadcrumb = ({ data, onClick, ...props }) => {
   const size = data.length - 1;
   const handleOnClick = (item) => (e) => {
-    onClick(item, e);
+    if (item.href === "") {
+      e.preventDefault();
+      onClick(item, e);
+    }
   };
   return (
     <BBreadcrumb {...props}>
       {data.map((item, index) => (
         <Item
           key={`id-${index}`}
-          href={item.href}
+          href={item.href === "" ? "" : item.href}
           active={index === size}
           onClick={handleOnClick(item)}
         >

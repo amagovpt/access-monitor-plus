@@ -7,10 +7,9 @@ import { refWebsite, testView } from "../pages/Resume/utils";
 
 import { convertBytes } from "../utils/utils";
 
-// console.log("tot", tot);
-
 export function processData(tot) {
-  if (tot === null) {
+  console.log("Totx", tot);
+  if (tot === null || tot === undefined) {
     console.log("Tot2xs", tot);
     return null;
   }
@@ -152,10 +151,10 @@ export function getElements(allNodes, ele) {
   const elements = getElementsList(allNodes && allNodes[ele]);
 
   let result = "G";
-  const results = ead.results.map((r) => r.msg);
+  const results = ead?.results.map((r) => r.msg);
   for (const test in tests || {}) {
     const _test = tests[test];
-    if (_test.test === ele && results.includes(test)) {
+    if (_test.test === ele && results?.includes(test)) {
       result = tests_colors[test];
       break;
     }
@@ -166,7 +165,7 @@ export function getElements(allNodes, ele) {
     result,
     elements,
     size: elements.length,
-    finalUrl: ead.metadata.url,
+    finalUrl: ead?.metadata.url,
   };
 }
 

@@ -5,70 +5,127 @@ import {
   TableAlternative,
   TableComponent,
 } from "../../components/index";
-import { ButtonsActions } from "./_components/buttons-revalidation";
-import "./styles.css";
-import { useLocation, useNavigate } from "react-router-dom";
+
+// import { api } from "../../config/api";
 import { processData } from "../../services";
 import { LoadingComponent } from "./_components/loading";
-import { api } from "../../config/api";
+import { ButtonsActions } from "./_components/buttons-revalidation";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
-import { ThemeContext } from "../../context/ThemeContext";
-
 import { downloadCSV } from "../../utils/utils";
+import { ThemeContext } from "../../context/ThemeContext";
+import "./styles.css";
 
 import localJson from "../../utils/data.json";
+// import { getTot, setTot } from "../../utils/tot";
 
 export let tot;
 
 export default function Resume({ setAllData, setEle }) {
-  const location = useLocation();
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [dataProcess, setDataProcess] = useState([]);
   const [loadingProgress, setLoadingProgress] = useState(true);
   const [originalData, setOriginalData] = useState([]);
-  const content = location.state?.content || null;
-  const typeRequest = location.state?.type || null;
   const [pageCode, setPageCode] = useState();
+  const contentHtml = location.state?.contentHtml || null;
+  const { content } = useParams();
 
   const { theme } = useContext(ThemeContext);
-
   const themeClass = theme === "light" ? "" : "dark_mode-resume";
 
+  // const removeProtocol = (url) => {
+  //   return url.replace(/^(https?:\/\/)?(www\.)?/, "");
+  // };
+
+  // const decodedUrl = removeProtocol(content);
+
   // useEffect(() => {
-  //   const fetchData = async () => {
-  //     setLoadingProgress(true);
-  //     try {
-  //       const storedData = localStorage.getItem("evaluation");
-  //       if (storedData) {
-  //         const parsedStoredData = JSON.parse(storedData);
-  //         setOriginalData(parsedStoredData);
-  //         setDataProcess(processData(parsedStoredData?.result?.data?.tot));
-  //         setPageCode(parsedStoredData?.result?.pagecode || "html");
-  //         setLoadingProgress(false);
-  //         return;
-  //       }
+  // const fetchData = async () => {
+  //   setLoadingProgress(true);
 
-  //       const response =
-  //         typeRequest === "html"
-  //           ? await api.post("/eval/html", { html: content })
-  //           : await api.get(`/eval/${content}`);
+  //   try {
+  //     const storedData = localStorage.getItem("evaluation");
 
-  //       localStorage.setItem("evaluation", JSON.stringify(response.data));
-
-  //       setOriginalData(response.data);
-  //       setDataProcess(processData(response.data?.result?.data?.tot));
-  //       setPageCode(response.data?.result?.pagecode || "html");
+  //     if (storedData) {
+  //       const parsedStoredData = JSON.parse(storedData);
+  //       setOriginalData(parsedStoredData);
+  //       setDataProcess(processData(parsedStoredData?.result?.data?.tot));
+  //       setPageCode(parsedStoredData?.result?.pagecode || "html");
   //       setLoadingProgress(false);
-  //     } catch (error) {
-  //       console.error("Erro", error);
-  //       setLoadingProgress(false);
+  //       return;
   //     }
-  //   };
+
+  //     const response =
+  //       content === "html"
+  //         ? await api.post("/eval/html", { html: contentHtml })
+  //         : await api.get(`/eval/${decodedUrl}`);
+
+  //     localStorage.setItem("evaluation", JSON.stringify(response.data));
+
+  //     tot = response?.data?.result?.data.tot;
+
+  //     setOriginalData(response.data);
+  //     setDataProcess(processData(response.data?.result?.data?.tot));
+  //     setPageCode(response.data?.result?.pagecode || "html");
+  //     setLoadingProgress(false);
+  //   } catch (error) {
+  //     console.error("Erro", error);
+  //     setLoadingProgress(false);
+  //   }
+  // };
+
+  // const fetchData = async () => {
+  //   setLoadingProgress(true);
+
+  //   try {
+  //     const storedData = localStorage.getItem("evaluation");
+  //     const storedUrl = localStorage.getItem("evaluationUrl");
+  //     // const storedTot = localStorage.getItem("evaluationTot");
+  //     const currentUrl = content === "html" ? contentHtml : decodedUrl;
+
+  //     if (storedData && storedUrl === currentUrl) {
+  //       const parsedStoredData = JSON.parse(storedData);
+  //       setOriginalData(parsedStoredData);
+  //       setDataProcess(processData(parsedStoredData?.result?.data?.tot));
+  //       setPageCode(parsedStoredData?.result?.pagecode || "html");
+  //       setLoadingProgress(false);
+
+  //       // tot = storedTot;
+
+  //       const tot = await getTot();
+
+  //       console.log("Valor atual de tot:", tot);
+  //       return;
+  //     }
+
+  //     const response =
+  //       content === "html"
+  //         ? await api.post("/eval/html", { html: contentHtml })
+  //         : await api.get(`/eval/${decodedUrl}`);
+
+  //     localStorage.setItem("evaluation", JSON.stringify(response.data));
+  //     localStorage.setItem("evaluationUrl", currentUrl);
+
+  //     tot = response?.data?.result?.data.tot;
+
+  //     setTot(response?.data?.result?.data?.tot);
+
+  //     setOriginalData(response.data);
+  //     setDataProcess(processData(response.data?.result?.data?.tot));
+  //     setPageCode(response.data?.result?.pagecode || "html");
+  //     setLoadingProgress(false);
+  //   } catch (error) {
+  //     console.error("Erro", error);
+  //     setLoadingProgress(false);
+  //   }
+  // };
+
   //   fetchData();
-  // }, [content, typeRequest]);
+  // }, [content, contentHtml, decodedUrl]);
 
   // LOCAL
 
@@ -93,17 +150,33 @@ export default function Resume({ setAllData, setEle }) {
   }, []);
 
   const reRequest = () => {
-    navigate("/resumo", { state: { content: content, type: typeRequest } });
+    if (content === "html") {
+      const currentURL = window.location.pathname + window.location.search;
+
+      if (`/results/${content}` === currentURL) {
+        window.location.href = currentURL;
+      } else {
+        navigate(`results/${content}`, { state: { contentHtml } });
+      }
+    } else {
+      const encodedURL = encodeURIComponent(content);
+      const currentURL = window.location.pathname + window.location.search;
+
+      if (`/results/${encodedURL}` === currentURL) {
+        window.location.href = currentURL;
+      } else {
+        navigate(`/results/${encodedURL}`);
+      }
+    }
   };
 
   const seeCode = () => {
-    navigate("/resumo/code", {
+    const encodedURL = encodeURIComponent(content);
+    navigate(`/results/${encodedURL}/code`, {
       state: {
         content: dataProcess,
         original: originalData,
         code: pageCode,
-        url: content,
-        type: typeRequest,
       },
     });
   };

@@ -11,25 +11,29 @@ import { ThemeProvider } from "./context/ThemeContext";
 
 export default function App() {
   const [allData, setAllData] = useState([]);
-  const [ele, setEle] = useState([]);
+  const [setEle] = useState([]);
   return (
     <ThemeProvider>
       <Router>
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
+
             <Route
-              path="/resumo"
+              path="/results/:content"
               element={<Resume setAllData={setAllData} setEle={setEle} />}
             />
+
             <Route
-              path="/detalhe"
-              element={<Detail allData={allData} ele={ele} />}
+              path="/results/:content/:details"
+              element={<Detail allData={allData} />}
             />
+
             <Route
-              path="/resumo/code"
+              path="/results/:content/code"
               element={<PageCode setAllData={setAllData} setEle={setEle} />}
             />
+
             {/* Outras rotas */}
           </Routes>
         </Layout>

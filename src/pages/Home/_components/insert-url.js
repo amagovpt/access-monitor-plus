@@ -19,14 +19,9 @@ export function InsertUrl() {
 
   const handleSubmit = () => {
     if (!error) {
-      navigate("/resumo", {
-        state: { content: removeProtocol(url), type: "url" },
-      });
+      const encodedURL = encodeURIComponent(url);
+      navigate(`/results/${encodedURL}`);
     }
-  };
-
-  const removeProtocol = (url) => {
-    return url.replace(/^(https?:\/\/)?(www\.)?/, "");
   };
 
   const handleKeyDown = (e) => {

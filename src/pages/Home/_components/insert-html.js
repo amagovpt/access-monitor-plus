@@ -10,7 +10,8 @@ export function InsertHtml() {
 
   async function handleSubmit() {
     try {
-      navigate("/resumo", { state: { content: htmlValue, type: "html" } });
+      const type = "html";
+      navigate(`results/${type}`, { state: { contentHtml: htmlValue } });
     } catch (error) {
       console.log("Erro", error);
     }
