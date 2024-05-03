@@ -50,7 +50,7 @@ const Gauge = ({ percentage }) => {
         viewBox="37 -5 120 100"
         width="200"
         height="170"
-        role="graphics-document"
+        // role="graphics-document"
       >
         <title>Pontuação {animatedPercentage} de 10</title>
         <path
