@@ -4,20 +4,13 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-export function ButtonsActions({ reRequest, seeCode, downloadCSV }) {
+export function ButtonsActions({ reRequest, seeCode, downloadCSV, href }) {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [seePage, setSeePage] = useState(false);
-  const [seeDownloads, setSeeDownloads] = useState(false);
 
   const openPageLinks = () => {
     setSeePage(!seePage);
-    setSeeDownloads(false);
-  };
-
-  const openDownloadLinks = () => {
-    setSeePage(false);
-    setSeeDownloads(!seeDownloads);
   };
 
   return (
@@ -48,19 +41,20 @@ export function ButtonsActions({ reRequest, seeCode, downloadCSV }) {
               onClick={openPageLinks}
             />
             {seePage && (
-              <div className="dropdown-content show_dropdown">
-                <a className="underline" onClick={() => seeCode()}>
-                  {t("RESULTS.actions.pagecode")}
-                </a>
-                <a
-                  className="underline"
-                  target="_blank"
-                  href="https://www.google.pt/"
-                  rel="noreferrer"
-                >
-                  {t("RESULTS.actions.open_webpage")}
-                </a>
-              </div>
+              <u className="dropdown-content show_dropdown">
+                <li>
+                  <button onClick={() => seeCode()}>{t("RESULTS.actions.pagecode")}</button>
+                </li>
+                <li>
+                  <a
+                    target="_blank"
+                    href={href}
+                    rel="noreferrer"
+                  >
+                    {t("RESULTS.actions.open_webpage")}
+                  </a>
+                </li>
+              </u>
             )}
           </div>
 
@@ -70,22 +64,9 @@ export function ButtonsActions({ reRequest, seeCode, downloadCSV }) {
               variant="secondary"
               text={t("RESULTS.actions.download")}
               iconRight={<Icon name="AMA-DownloadSetacurta-Line" />}
-              onClick={openDownloadLinks}
+              onClick={downloadCSV}
+              download="eval.csv"
             />
-            {seeDownloads && (
-              <div className="dropdown-content show_dropdown">
-                <a
-                  className="underline"
-                  onClick={downloadCSV}
-                  download="eval.csv"
-                >
-                  CSV
-                </a>
-                <a className="underline" download="eval.json">
-                  EARL
-                </a>
-              </div>
-            )}
           </div>
         </div>
       </div>
@@ -108,19 +89,20 @@ export function ButtonsActions({ reRequest, seeCode, downloadCSV }) {
               onClick={openPageLinks}
             />
             {seePage && (
-              <div className="dropdown-content show_dropdown">
-                <a className="underline" onClick={() => seeCode()}>
-                  {t("RESULTS.actions.pagecode")}
-                </a>
-                <a
-                  className="underline"
-                  target="_blank"
-                  href="https://www.google.pt/"
-                  rel="noreferrer"
-                >
-                  {t("RESULTS.actions.open_webpage")}
-                </a>
-              </div>
+              <u className="dropdown-content show_dropdown">
+                <li>
+                  <button onClick={() => seeCode()}>{t("RESULTS.actions.pagecode")}</button>
+                </li>
+                <li>
+                  <a
+                    target="_blank"
+                    href={href}
+                    rel="noreferrer"
+                  >
+                    {t("RESULTS.actions.open_webpage")}
+                  </a>
+                </li>
+              </u>
             )}
           </div>
         </div>
@@ -140,22 +122,9 @@ export function ButtonsActions({ reRequest, seeCode, downloadCSV }) {
               variant="secondary"
               text={t("RESULTS.actions.download")}
               iconRight={<Icon name="AMA-DownloadSetacurta-Line" />}
-              onClick={openDownloadLinks}
+              onClick={downloadCSV}
+              download="eval.csv"
             />
-            {seeDownloads && (
-              <div className="dropdown-content show_dropdown">
-                <a
-                  className="underline"
-                  onClick={downloadCSV}
-                  download="eval.csv"
-                >
-                  CSV
-                </a>
-                <a className="underline" download="eval.json">
-                  EARL
-                </a>
-              </div>
-            )}
           </div>
         </div>
       </div>

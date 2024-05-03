@@ -83,7 +83,7 @@
       "actions": {
         "back": "Go back",
         "re_evaluate": "Re-evaluate page",
-        "download": "Download data",
+        "download": "Download data in CSV",
         "see_page": "See page",
         "pagecode": "See page code",
         "open_webpage": "Open webpage"

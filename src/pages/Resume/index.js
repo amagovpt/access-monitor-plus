@@ -207,7 +207,7 @@ export default function Resume({ setAllData, setEle }) {
       </div>
 
       <div className="report_container">
-        <div className="acess_monitor">AcessMonitor</div>
+        <div className="acess_monitor" lang="en">AcessMonitor</div>
         <h1 className="report_container_title">{dataProcess?.metadata?.url}</h1>
         <p className="report_container_subtitle">{t("RESULTS.title")}</p>
         {loadingProgress ? (
@@ -217,6 +217,7 @@ export default function Resume({ setAllData, setEle }) {
             reRequest={reRequest}
             seeCode={seeCode}
             downloadCSV={() => downloadCSV(dataProcess, originalData, t)}
+            href={dataProcess?.metadata?.url}
           />
         )}
       </div>

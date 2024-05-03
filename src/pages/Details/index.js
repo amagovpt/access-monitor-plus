@@ -98,7 +98,7 @@ export default function Details({ allData }) {
         </div>
 
         <div className="report_container">
-          <div className="acess_monitor">AcessMonitor</div>
+          <div className="acess_monitor"  lang="en">AccessMonitor</div>
 
           <h1 className="report_container_title url_content">
             {dataTable?.finalUrl}

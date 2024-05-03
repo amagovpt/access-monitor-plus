@@ -124,6 +124,7 @@
   background-color: var(--primary);
   position: absolute;
   z-index: 1;
+  text-decoration: none;
 }
 
 .show_dropdown {
@@ -136,9 +137,23 @@
   padding: .5em;
   text-decoration: none;
   font-weight: 700;
+  cursor: pointer;
 }
 
-.underline:hover {
+.dropdown-content li::marker {
+  content: "";
+}
+
+.dropdown-content li:hover {
   text-decoration: underline;
-  cursor: pointer;
+}
+
+.dropdown-content li button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  text-align: left;
+  font-size: 16px;
+  padding: 8px !important;
+  font-weight: bold;
 }

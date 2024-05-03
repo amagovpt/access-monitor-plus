@@ -83,7 +83,7 @@
       "actions": {
         "back": "Voltar",
         "re_evaluate": "Re-avaliar a página",
-        "download": "Descarregar dados",
+        "download": "Descarregar dados em CSV",
         "see_page": "Ver página",
         "pagecode": "Ver código da página",
         "open_webpage": "Abrir página web"
