@@ -207,7 +207,9 @@ export default function Resume({ setAllData, setEle }) {
       </div>
 
       <div className="report_container">
-        <div className="acess_monitor" lang="en">AcessMonitor</div>
+        <div className="acess_monitor" lang="en">
+          AccessMonitor
+        </div>
         <h1 className="report_container_title">{dataProcess?.metadata?.url}</h1>
         <p className="report_container_subtitle">{t("RESULTS.title")}</p>
         {loadingProgress ? (
@@ -229,12 +231,12 @@ export default function Resume({ setAllData, setEle }) {
               <div className="chart_container">
                 <Gauge percentage={scoreDataFormatted} />
               </div>
-              <div className="resume_info_about_uri">
+              <div className="resume_info_about_uri d-flex flex-column gap-4">
                 <div className="d-flex flex-column">
                   <span>URI</span>
                   <span>{dataProcess?.metadata?.url}</span>
                 </div>
-                <br />
+
                 <div className="d-flex flex-column">
                   <span>{t("RESULTS.summary.metadata.title_label")}</span>
                   <span>{dataProcess?.metadata?.title}</span>
@@ -242,14 +244,14 @@ export default function Resume({ setAllData, setEle }) {
               </div>
             </div>
             <div className="d-flex flex-row justify-content-between size_and_table_container">
-              <div className="size_container">
-                <div>
-                  <span>{dataProcess?.metadata?.n_elements}</span> <br />
+              <div className="size_container d-flex flex-column gap-4">
+                <div className="d-flex flex-column">
+                  <span>{dataProcess?.metadata?.n_elements}</span>
                   <span>{t("RESULTS.summary.metadata.n_elements_label")}</span>
                 </div>
-                <br />
-                <div>
-                  <span>{dataProcess?.metadata?.size}</span> <br />
+
+                <div className="d-flex flex-column">
+                  <span>{dataProcess?.metadata?.size}</span>
                   <span>{t("RESULTS.summary.metadata.page_size_label")}</span>
                 </div>
               </div>
