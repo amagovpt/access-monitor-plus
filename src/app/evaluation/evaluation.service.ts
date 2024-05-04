@@ -759,10 +759,10 @@ export class EvaluationService {
   }
   private refWebsite(ref: string):string {
     let result;
-    if(ref.length>5){
-      result = this.refWebsiteACT(ref);
-    }else{
+    if(ref.charCodeAt(0) >= 65 && ref.charCodeAt(0) <= 90){
       result = this.refWebsiteTecnique(ref);
+    }else{
+      result = this.refWebsiteACT(ref);
     }
     return result;
   }
