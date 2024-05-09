@@ -175,6 +175,13 @@
   color: #2c3241;
 }
 
+.dark_mode-resume .deskGroupMobile button:active,
+.dark_mode-resume .group_mobile button:active {
+  background-color: #b6dcf6 !important;
+  border-color: #b6dcf6 !important;
+  color: #2c3241 !important;
+}
+
 .dark_mode-resume .deskGroupMobile button:hover,
 .dark_mode-resume .group_mobile button:hover {
   background-color: transparent !important;
