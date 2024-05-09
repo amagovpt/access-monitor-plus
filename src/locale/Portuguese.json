@@ -70,6 +70,7 @@
       "html_label": "Insira o código HTML abaixo",
       "html_placeholder": "Inserir código HTML aqui",
       "file_label": "Escolher ficheiro",
+      "file_title": "Escolha um ficheiro HTML",
       "file_name_label": "Nome do ficheiro",
       "file_type_error": "Tipo de ficheiro inválido",
       "submit": "Validar",

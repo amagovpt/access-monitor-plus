@@ -11,3 +11,40 @@
 .tab_content_view textarea {
   margin-bottom: 2rem;
 }
+
+.input-group .btn {
+  height: 54px;
+  border: 2px solid var(--primary) !important;
+  background-color: var(--primary);
+  color: var(--white);
+  font-weight: 400;
+  font-size: 1em;
+  font-family: var(--font-lato);
+  border-radius: 27px;
+  border-top-right-radius: 27px !important;
+  border-bottom-right-radius: 27px !important;
+  margin-right: 10px;
+  position: absolute;
+  z-index: 2;
+}
+
+.input-group .btn:hover {
+  background-color: var(--white);
+  color: var(--primary);
+}
+
+.margin-bottom {
+  margin-bottom: 15px;
+}
+
+input[type=file].form-control::file-selector-button {
+  display: none;
+}
+
+input[type=file] {
+  margin-bottom: 0px;
+  margin-left: 12% !important;
+  padding-left: 90px;
+  border: 2px solid var(--primary) !important;
+  border-radius: 0;
+}

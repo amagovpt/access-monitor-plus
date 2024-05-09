@@ -112,3 +112,21 @@
   background-color: #808080 !important;
   color: #000;
 }
+
+.main_content_home input[type="file"].form-control {
+  background-color: #2c3241;
+  color: #b6dcf6;
+  border-color: #b6dcf6 !important;
+}
+
+.main_content_home .input-group .btn {
+  background-color: #b6dcf6;
+  color: #000;
+  border-color: #b6dcf6 !important;
+}
+
+.main_content_home .input-group .btn:hover {
+  background-color: #2c3241;
+  color: #b6dcf6;
+  border-color: #b6dcf6 !important;
+}

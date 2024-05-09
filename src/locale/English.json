@@ -70,6 +70,7 @@
       "html_label": "Insert the HTML code down below",
       "html_placeholder": "Insert HTML code here",
       "file_label": "Select file",
+      "file_title": "Select an HTML file",
       "file_name_label": "File name",
       "file_type_error": "Invalid file type",
       "submit": "Evaluate",

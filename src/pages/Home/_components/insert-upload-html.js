@@ -1,12 +1,21 @@
 import { Button, Icon, Input } from "../../../components";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 export function InsertHtmlUpload() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [file, setFile] = useState("");
+
+  const fileInputRef = useRef(null);
+
+  const handleButtonClick = () => {
+    // Trigger a click event on the file input
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
 
   const handleChange = async (event) => {
     const file = event.target.files[0];
@@ -42,15 +51,11 @@ export function InsertHtmlUpload() {
 
   return (
     <form className="tab_content_view" onSubmit={handleSubmit}>
-      <Input
-        type="file"
-        label={t("HOME_PAGE.url_label")}
-        // placeholder="Http(s)"
-        id="file"
-        accept=".html"
-        onChange={handleChange}
-        upload={true}
-      />
+      <label className="margin-bottom">{t("HOME_PAGE.file_title")}</label>
+      <div className="input-group mb-3 d-flex justify-content-start align-items-start">
+        <button className="btn" type="button" onClick={handleButtonClick}>{t("HOME_PAGE.file_label")}</button>
+        <input ref={fileInputRef} type="file" className="form-control" aria-label="Upload" onChange={handleChange} />
+      </div>
 
       <Button
         text={t("HOME_PAGE.submit")}
