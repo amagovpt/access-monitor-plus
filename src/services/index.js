@@ -4,6 +4,7 @@ import tests from "../lib/tests";
 import tests_colors from "../lib/tests_colors";
 import { tot } from "../pages/Resume";
 import { refWebsite, testView } from "../pages/Resume/utils";
+// import { getTot } from "../utils/tot";
 
 import { convertBytes } from "../utils/utils";
 

@@ -11,7 +11,9 @@ export function InsertHtml() {
   async function handleSubmit() {
     try {
       const type = "html";
-      navigate(`results/${type}`, { state: { contentHtml: htmlValue } });
+      navigate(`/amp-react/results/${type}`, {
+        state: { contentHtml: htmlValue },
+      });
     } catch (error) {
       console.log("Erro", error);
     }

@@ -35,15 +35,15 @@ export default function Home({ changeState }) {
       title: "Acessibilidade.gov.pt",
       href: "/",
     },
-    {
-      title: "Access Monitor",
-      href: "/",
-    },
+    { title: "Access Monitor", href: "/amp-react" },
   ];
 
   const { theme } = useContext(ThemeContext);
   const main_content_home = theme === "light" ? "" : "main_content_home";
-  const imgUrl = theme === "light" ? "/img/verify.svg" : "/img/verify-dark.svg";
+  const imgUrl =
+    theme === "light"
+      ? "/amp-react/img/verify.svg"
+      : "/amp-react/img/verify-dark.svg";
 
   return (
     <>

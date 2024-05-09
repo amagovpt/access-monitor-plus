@@ -32,10 +32,7 @@ export default function Details({ allData }) {
       title: "Acessibilidade.gov.pt",
       href: "/",
     },
-    {
-      title: "Access Monitor",
-      href: "/",
-    },
+    { title: "Access Monitor", href: "/amp-react" },
     {
       title: url || "html",
       href: "",
@@ -98,7 +95,9 @@ export default function Details({ allData }) {
         </div>
 
         <div className="report_container">
-          <div className="acess_monitor"  lang="en">AccessMonitor</div>
+          <div className="acess_monitor" lang="en">
+            AccessMonitor
+          </div>
 
           <h1 className="report_container_title url_content">
             {dataTable?.finalUrl}

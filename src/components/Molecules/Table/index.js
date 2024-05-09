@@ -22,10 +22,10 @@ const TableComponent = ({ data, allData, setAllData }) => {
 
     if (type === "") {
       const content = "html";
-      navigate(`/results/${content}/${ele}`);
+      navigate(`/amp-react/results/${content}/${ele}`);
     } else {
       const encodedURL = encodeURIComponent(allData?.rawUrl);
-      navigate(`/results/${encodedURL}/${ele}`);
+      navigate(`/amp-react/results/${encodedURL}/${ele}`);
     }
   }
 

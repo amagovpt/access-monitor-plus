@@ -20,7 +20,7 @@ export function InsertUrl() {
   const handleSubmit = () => {
     if (!error) {
       const encodedURL = encodeURIComponent(url);
-      navigate(`/results/${encodedURL}`);
+      navigate(`/amp-react/results/${encodedURL}`);
     }
   };
 

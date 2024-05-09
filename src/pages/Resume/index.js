@@ -6,7 +6,7 @@ import {
   TableComponent,
 } from "../../components/index";
 
-// import { api } from "../../config/api";
+import { api } from "../../config/api";
 import { processData } from "../../services";
 import { LoadingComponent } from "./_components/loading";
 import { ButtonsActions } from "./_components/buttons-revalidation";
@@ -17,8 +17,7 @@ import { downloadCSV } from "../../utils/utils";
 import { ThemeContext } from "../../context/ThemeContext";
 import "./styles.css";
 
-import localJson from "../../utils/data.json";
-// import { getTot, setTot } from "../../utils/tot";
+// import localJson from "../../utils/data.json";
 
 export let tot;
 
@@ -37,142 +36,110 @@ export default function Resume({ setAllData, setEle }) {
   const { theme } = useContext(ThemeContext);
   const themeClass = theme === "light" ? "" : "dark_mode-resume";
 
-  // const removeProtocol = (url) => {
-  //   return url.replace(/^(https?:\/\/)?(www\.)?/, "");
-  // };
+  const removeProtocol = (url) => {
+    return url.replace(/^(https?:\/\/)?(www\.)?/, "");
+  };
 
-  // const decodedUrl = removeProtocol(content);
-
-  // useEffect(() => {
-  // const fetchData = async () => {
-  //   setLoadingProgress(true);
-
-  //   try {
-  //     const storedData = localStorage.getItem("evaluation");
-
-  //     if (storedData) {
-  //       const parsedStoredData = JSON.parse(storedData);
-  //       setOriginalData(parsedStoredData);
-  //       setDataProcess(processData(parsedStoredData?.result?.data?.tot));
-  //       setPageCode(parsedStoredData?.result?.pagecode || "html");
-  //       setLoadingProgress(false);
-  //       return;
-  //     }
-
-  //     const response =
-  //       content === "html"
-  //         ? await api.post("/eval/html", { html: contentHtml })
-  //         : await api.get(`/eval/${decodedUrl}`);
-
-  //     localStorage.setItem("evaluation", JSON.stringify(response.data));
-
-  //     tot = response?.data?.result?.data.tot;
-
-  //     setOriginalData(response.data);
-  //     setDataProcess(processData(response.data?.result?.data?.tot));
-  //     setPageCode(response.data?.result?.pagecode || "html");
-  //     setLoadingProgress(false);
-  //   } catch (error) {
-  //     console.error("Erro", error);
-  //     setLoadingProgress(false);
-  //   }
-  // };
-
-  // const fetchData = async () => {
-  //   setLoadingProgress(true);
-
-  //   try {
-  //     const storedData = localStorage.getItem("evaluation");
-  //     const storedUrl = localStorage.getItem("evaluationUrl");
-  //     // const storedTot = localStorage.getItem("evaluationTot");
-  //     const currentUrl = content === "html" ? contentHtml : decodedUrl;
-
-  //     if (storedData && storedUrl === currentUrl) {
-  //       const parsedStoredData = JSON.parse(storedData);
-  //       setOriginalData(parsedStoredData);
-  //       setDataProcess(processData(parsedStoredData?.result?.data?.tot));
-  //       setPageCode(parsedStoredData?.result?.pagecode || "html");
-  //       setLoadingProgress(false);
-
-  //       // tot = storedTot;
-
-  //       const tot = await getTot();
-
-  //       console.log("Valor atual de tot:", tot);
-  //       return;
-  //     }
-
-  //     const response =
-  //       content === "html"
-  //         ? await api.post("/eval/html", { html: contentHtml })
-  //         : await api.get(`/eval/${decodedUrl}`);
-
-  //     localStorage.setItem("evaluation", JSON.stringify(response.data));
-  //     localStorage.setItem("evaluationUrl", currentUrl);
-
-  //     tot = response?.data?.result?.data.tot;
-
-  //     setTot(response?.data?.result?.data?.tot);
-
-  //     setOriginalData(response.data);
-  //     setDataProcess(processData(response.data?.result?.data?.tot));
-  //     setPageCode(response.data?.result?.pagecode || "html");
-  //     setLoadingProgress(false);
-  //   } catch (error) {
-  //     console.error("Erro", error);
-  //     setLoadingProgress(false);
-  //   }
-  // };
-
-  //   fetchData();
-  // }, [content, contentHtml, decodedUrl]);
-
-  // LOCAL
+  const decodedUrl = removeProtocol(content);
 
   useEffect(() => {
     const fetchData = async () => {
       setLoadingProgress(true);
+
       try {
-        const response = localJson;
-        setOriginalData(response);
-        setDataProcess(processData(response?.result?.data?.tot));
+        const storedData = localStorage.getItem("evaluation");
+        const storedUrl = localStorage.getItem("evaluationUrl");
+        // const storedTot = localStorage.getItem("evaluationTot");
+        const currentUrl = content === "html" ? contentHtml : decodedUrl;
 
-        tot = response?.result?.data.tot;
+        console.log("Decode", currentUrl);
 
-        setPageCode(response?.result?.pagecode || "html");
+        if (storedData && storedUrl === currentUrl) {
+          console.log("Aki");
+          const parsedStoredData = JSON.parse(storedData);
+          console.log("parsedStoredData", parsedStoredData);
+          setOriginalData(parsedStoredData);
+          setDataProcess(processData(parsedStoredData?.result?.data?.tot));
+          setPageCode(parsedStoredData?.result?.pagecode || "html");
+          setLoadingProgress(false);
+
+          tot = parsedStoredData?.result?.data?.tot;
+
+          console.log("Valor atual de tot:", tot);
+          return;
+        }
+
+        const response =
+          content === "html"
+            ? await api.post("/eval/html", { html: contentHtml })
+            : await api.get(`/eval/${decodedUrl}`);
+
+        if (content !== "html") {
+          localStorage.setItem("evaluation", JSON.stringify(response.data));
+          localStorage.setItem("evaluationUrl", currentUrl);
+        }
+
+        tot = response?.data?.result?.data.tot;
+
+        setOriginalData(response.data);
+        setDataProcess(processData(response.data?.result?.data?.tot));
+        setPageCode(response.data?.result?.pagecode || "html");
         setLoadingProgress(false);
       } catch (error) {
         console.error("Erro", error);
         setLoadingProgress(false);
       }
     };
+
     fetchData();
-  }, []);
+  }, [content, contentHtml, decodedUrl]);
+
+  // LOCAL
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     setLoadingProgress(true);
+  //     try {
+  //       const response = localJson;
+  //       setOriginalData(response);
+  //       setDataProcess(processData(response?.result?.data?.tot));
+
+  //       tot = response?.result?.data.tot;
+
+  //       setPageCode(response?.result?.pagecode || "html");
+  //       setLoadingProgress(false);
+  //     } catch (error) {
+  //       console.error("Erro", error);
+  //       setLoadingProgress(false);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
 
   const reRequest = () => {
     if (content === "html") {
       const currentURL = window.location.pathname + window.location.search;
 
-      if (`/results/${content}` === currentURL) {
+      if (`/amp-react/results/${content}` === currentURL) {
         window.location.href = currentURL;
       } else {
-        navigate(`results/${content}`, { state: { contentHtml } });
+        navigate(`/amp-react/results/${content}`, { state: { contentHtml } });
       }
     } else {
       const encodedURL = encodeURIComponent(content);
       const currentURL = window.location.pathname + window.location.search;
 
-      if (`/results/${encodedURL}` === currentURL) {
+      if (`/amp-react/results/${encodedURL}` === currentURL) {
         window.location.href = currentURL;
       } else {
-        navigate(`/results/${encodedURL}`);
+        navigate(`/amp-react/results/${encodedURL}`);
       }
     }
   };
 
   const seeCode = () => {
     const encodedURL = encodeURIComponent(content);
-    navigate(`/results/${encodedURL}/code`, {
+    navigate(`/amp-react/results/${encodedURL}/code`, {
       state: {
         content: dataProcess,
         original: originalData,
@@ -186,7 +153,7 @@ export default function Resume({ setAllData, setEle }) {
       title: "Acessibilidade.gov.pt",
       href: "https://www.acessibilidade.gov.pt/",
     },
-    { title: "Access Monitor", href: "/" },
+    { title: "Access Monitor", href: "/amp-react" },
     {
       title: dataProcess?.metadata?.url || "html",
       href: dataProcess?.metadata?.url,

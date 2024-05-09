@@ -12,12 +12,12 @@ export default function Resume() {
 
   return (
     <div className={`container_error ${themeClass}`}>
-        <h1>{t("MISC._404.title")}</h1>
-        <p>{t("MISC._404.description")}</p>
-        <a href="/">
-            <span>{t("MISC._404.homepage")}</span>
-            <Icon name="AMA-Entrar-Line" />
-        </a>
+      <h1>{t("MISC._404.title")}</h1>
+      <p>{t("MISC._404.description")}</p>
+      <a href="/amp-react/">
+        <span>{t("MISC._404.homepage")}</span>
+        <Icon name="AMA-Entrar-Line" />
+      </a>
     </div>
   );
 }
