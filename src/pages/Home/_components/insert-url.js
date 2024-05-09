@@ -35,7 +35,7 @@ export function InsertUrl() {
   };
 
   return (
-    <div className="tab_content_view">
+    <form className="tab_content_view" onSubmit={handleSubmit}>
       <Input
         id="url"
         label={t("HOME_PAGE.url_label")}
@@ -51,8 +51,8 @@ export function InsertUrl() {
         id="btn-url"
         disabled={isDisabled()}
         iconRight={<Icon name="AMA-Setalongaoficial-Line" />}
-        onClick={handleSubmit}
+        type="submit"
       />
-    </div>
+    </form>
   );
 }

@@ -20,7 +20,7 @@ export function InsertHtml() {
   }
 
   return (
-    <div className="tab_content_view">
+    <form className="tab_content_view" onSubmit={handleSubmit}>
       <TextArea
         id="html"
         label={t("HOME_PAGE.html_label")}
@@ -34,9 +34,9 @@ export function InsertHtml() {
         size="lg"
         id="btn-html"
         disabled={htmlValue === ""}
-        onClick={handleSubmit}
+        type="submit"
         iconRight={<Icon name="AMA-Setalongaoficial-Line" />}
       />
-    </div>
+    </form>
   );
 }

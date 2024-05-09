@@ -41,7 +41,7 @@ export function InsertHtmlUpload() {
   };
 
   return (
-    <div className="tab_content_view">
+    <form className="tab_content_view" onSubmit={handleSubmit}>
       <Input
         type="file"
         label={t("HOME_PAGE.url_label")}
@@ -58,8 +58,8 @@ export function InsertHtmlUpload() {
         id="btn-upload"
         disabled={!file}
         iconRight={<Icon name="AMA-Setalongaoficial-Line" />}
-        onClick={handleSubmit}
+        type="submit"
       />
-    </div>
+    </form>
   );
 }
