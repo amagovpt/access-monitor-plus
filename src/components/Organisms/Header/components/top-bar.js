@@ -63,9 +63,9 @@ export function TopBar() {
                   className="btn btn-link language-mode p-1  d-flex align-items-center"
                   id="langModeBtn"
                   onClick={toggleLanguage}
+                  lang={language === "en" ? "pt-PT" : "en"}
                 >
                   <span
-                    lang={language === "en" ? "pt-PT" : "en"}
                     id="langModeLabel"
                   >
                     {t("HEADER.language_en")}

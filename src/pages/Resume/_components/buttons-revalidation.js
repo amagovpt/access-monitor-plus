@@ -20,7 +20,7 @@ export function ButtonsActions({ reRequest, seeCode, downloadCSV, href, themeCla
           size="md"
           text={t("HEADER.evaluate_new_page")}
           iconRight={<Icon name="AMA-Setalongaoficial-Line" />}
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/amp-react")}
         />
 
         <div className="d-flex flex-row gap-3 other">
@@ -82,7 +82,7 @@ export function ButtonsActions({ reRequest, seeCode, downloadCSV, href, themeCla
             size="md"
             text={t("HEADER.evaluate_new_page")}
             iconRight={<Icon name="AMA-Setalongaoficial-Line" />}
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/amp-react")}
           />
 
           <div>

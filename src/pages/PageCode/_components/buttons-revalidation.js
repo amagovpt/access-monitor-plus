@@ -15,7 +15,7 @@ export function ButtonsActions({ downloadCSV, handleGoBack, themeClass }) {
           size="md"
           text={t("HEADER.evaluate_new_page")}
           iconRight={<Icon name="AMA-Setalongaoficial-Line" />}
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/amp-react")}
         />
 
         <div className="d-flex flex-row gap-3 other">
