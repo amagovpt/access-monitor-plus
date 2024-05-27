@@ -38,7 +38,7 @@ export default function App() {
             {/* Outras rotas */}
 
             {/* Error page needs to be last */}
-            <Route path="*" element={<Error />} />
+            <Route path="/amp-react/*" element={<Error />} />
           </Routes>
         </Layout>
       </Router>

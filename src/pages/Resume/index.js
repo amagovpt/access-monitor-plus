@@ -49,13 +49,10 @@ export default function Resume({ setAllData, setEle }) {
       try {
         const storedData = localStorage.getItem("evaluation");
         const storedUrl = localStorage.getItem("evaluationUrl");
-        // const storedTot = localStorage.getItem("evaluationTot");
+
         const currentUrl = content === "html" ? contentHtml : decodedUrl;
 
-        console.log("Decode", currentUrl);
-
         if (storedData && storedUrl === currentUrl) {
-          console.log("Aki");
           const parsedStoredData = JSON.parse(storedData);
           console.log("parsedStoredData", parsedStoredData);
           setOriginalData(parsedStoredData);
@@ -65,7 +62,6 @@ export default function Resume({ setAllData, setEle }) {
 
           tot = parsedStoredData?.result?.data?.tot;
 
-          console.log("Valor atual de tot:", tot);
           return;
         }
 

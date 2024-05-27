@@ -1,4 +1,4 @@
-import { Button, Icon, Input } from "../../../components";
+import { Button, Icon } from "../../../components";
 import { useTranslation } from "react-i18next";
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
@@ -53,8 +53,16 @@ export function InsertHtmlUpload() {
     <form className="tab_content_view" onSubmit={handleSubmit}>
       <label className="margin-bottom">{t("HOME_PAGE.file_title")}</label>
       <div className="input-group mb-3 d-flex justify-content-start align-items-start">
-        <button className="btn" type="button" onClick={handleButtonClick}>{t("HOME_PAGE.file_label")}</button>
-        <input ref={fileInputRef} type="file" className="form-control" aria-label="Upload" onChange={handleChange} />
+        <button className="btn" type="button" onClick={handleButtonClick}>
+          {t("HOME_PAGE.file_label")}
+        </button>
+        <input
+          ref={fileInputRef}
+          type="file"
+          className="form-control"
+          aria-label="Upload"
+          onChange={handleChange}
+        />
       </div>
 
       <Button

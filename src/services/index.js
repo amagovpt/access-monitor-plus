@@ -1,10 +1,10 @@
 /* eslint-disable no-array-constructor */
+
 import scs from "../lib/scs";
 import tests from "../lib/tests";
 import tests_colors from "../lib/tests_colors";
 import { tot } from "../pages/Resume";
 import { refWebsite, testView } from "../pages/Resume/utils";
-// import { getTot } from "../utils/tot";
 
 import { convertBytes } from "../utils/utils";
 
@@ -143,7 +143,9 @@ export function getTestResults(test, data) {
 }
 
 export function getElements(allNodes, ele) {
-  const ead = processData(tot);
+  // const ead = processData(tot);
+
+  const dataTransform = processData(tot);
 
   if (ele === "form") {
     ele = "formSubmitNo";
@@ -152,7 +154,7 @@ export function getElements(allNodes, ele) {
   const elements = getElementsList(allNodes && allNodes[ele]);
 
   let result = "G";
-  const results = ead?.results.map((r) => r.msg);
+  const results = dataTransform?.results.map((r) => r.msg);
   for (const test in tests || {}) {
     const _test = tests[test];
     if (_test.test === ele && results?.includes(test)) {
@@ -166,7 +168,7 @@ export function getElements(allNodes, ele) {
     result,
     elements,
     size: elements.length,
-    finalUrl: ead?.metadata.url,
+    finalUrl: dataTransform?.metadata.url,
   };
 }
 
