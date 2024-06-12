@@ -56,7 +56,7 @@ export default function Details({ allData }) {
   const detailsTabs = [
     {
       eventKey: "tab1",
-      title: "Elements",
+      title: t("ELEMENT_RESULTS.elements_tab"),
       component: (
         <>
           <div className="tabContent_container-details">
@@ -95,17 +95,9 @@ export default function Details({ allData }) {
         </div>
 
         <div className="report_container">
-          <div className="acess_monitor" lang="en">
-            AccessMonitor
-          </div>
-
-          <h1 className="report_container_title url_content">
-            {dataTable?.finalUrl}
-          </h1>
-
-          <p className="report_container_subtitle test_result">
+          <h1 className="report_container_title url_content mb-5">
             {t("ELEMENT_RESULTS.subtitle")}
-          </p>
+          </h1>
         </div>
 
         <div className="bg-white show_details">

@@ -30,12 +30,12 @@
 }
 
 .report_container_subtitle {
-  font-size: 1.5em;
+  font-size: 2em;
   color: #333;
   font-weight: 700;
   font-family: "Lato";
   margin-top: 0;
-  margin-bottom: 1em;
+  margin-bottom: 2em !important;
 }
 
 .sumary_container {

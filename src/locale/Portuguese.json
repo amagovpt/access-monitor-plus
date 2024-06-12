@@ -3,6 +3,7 @@
     "HEADER": {
       "tool": "Uma ferramenta do ecossistema do",
       "logo_alt": "AccessMonitor - o validador de práticas de acessibilidade Web",
+      "header_arial_label": "Cabeçalho da página do AccessMonitor",
       "NAV": {
         "location": "Você está em",
         "ecosystem": "ecossistema",
@@ -52,13 +53,17 @@
           "link3": "Candidatura",
           "link4": "Declaração de acessibilidade e usabilidade",
           "link5": "Requisitos do Selo"
-        }
+        },
+        "youarehere": "você está aqui",
+        "open_dropdown": "pressione para comprimir a nossa lista de aplicações e sítios web",
+        "close_dropdown": "pressione para expandir a nossa lista de aplicações e sítios web"
       }
     },
     "HOME_PAGE": {
       "header": "Obtenha um relatório de acessibilidade através de um dos seguintes métodos",
-      "intro_text": "Aceda aqui ao nosso validador de práticas de acessibilidade Web (WCAG 2.1). Obtenha um relatório de acessibilidade através de um dos seguintes métodos:",
-      "intro_img_text": "imagem de verificação",
+      "intro_text": "A sua página Web é acessível?",
+      "intro_text_content": "Obtenha um relatório de acessibilidade através de um dos seguintes métodos:",
+      "intro_img_text": "imagem de verificação", 
       "tabs": {
         "url": "Inserir URL",
         "input": "Inserir código HTML",
@@ -76,7 +81,8 @@
       "submit": "Validar",
       "messages": {
         "invalid_url": "O url inserido é inválido ou não existe"
-      }
+      },
+      "main_aria": "corpo principal da página do AccessMonitor"
     },
     "RESULTS": {
       "title": "Relatório de práticas de acessibilidade Web (WCAG 2.1 do W3C)",
@@ -155,7 +161,7 @@
       }
     },
     "ELEMENT_RESULTS": {
-      "subtitle": "Resultados do teste",
+      "subtitle": "Detalhes do teste",
       "elements_tab": "Elementos",
       "page_tab": "Página",
       "total_elements": "elementos encontrados",

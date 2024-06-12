@@ -3,6 +3,7 @@
     "HEADER": {
       "tool": "A tool of the ecosystem from",
       "logo_alt": "AccessMonitor - a web accessibility evaluator",
+      "header_arial_label": "AccessMonitor page header",
       "NAV": {
         "location": "You are in",
         "ecosystem": "Ecosystem",
@@ -52,12 +53,17 @@
           "link3": "Candidacy",
           "link4": "Declaration of accessibility and usability",
           "link5": "Badge requirements"
-        }
+        },
+          "youarehere": "you are here",
+          "open_dropdown": "press to compress our list of applications and websites",
+          "close_dropdown": "press to expand our list of applications and websites"
       }
     },
     "HOME_PAGE": {
       "header": "Get an accessibility report using one of the following methods",
-      "intro_text": "Access our web accessibility practices (WCAG 2.1) assessor here. Obtain an accessibility report using one of the following methods:",
+      "intro_text": "Is your website accessible?",
+      "intro_text_content": "Obtain an accessibility report using one of the following methods:",
+
       "intro_img_text": "check image",
       "tabs": {
         "url": "Insert URL",
@@ -76,7 +82,8 @@
       "submit": "Evaluate",
       "messages": {
         "invalid_url": "The given url is invalid or does not exist"
-      }
+      },
+      "main_aria": "main body of the AccessMonitor page"
     },
     "RESULTS": {
       "title": "Web accessibility practices report (W3C WCAG 2.1)",
@@ -155,7 +162,7 @@
       }
     },
     "ELEMENT_RESULTS": {
-      "subtitle": "Test results",
+      "subtitle": "Test details",
       "elements_tab": "Elements",
       "page_tab": "Page",
       "total_elements": "elements found",

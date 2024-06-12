@@ -56,9 +56,15 @@ export default function Home({ changeState }) {
           className={`bg-white validator_container ${main_content_home}`}
         >
           <div className="d-flex flex-column align-items-stretch left_container">
-            <p className="validator_container_description">
-              {t("HOME_PAGE.intro_text")}
-            </p>
+            <div className="d-flex flex-column mb-4">
+              <p className="validator_container_description">
+                {t("HOME_PAGE.intro_text")}
+              </p>
+
+              <p className="validator_container_description">
+                {t("HOME_PAGE.intro_text_content")}
+              </p>
+            </div>
 
             <Tabs tabs={tabs} defaultActiveKey="tab1" vertical={false} />
           </div>

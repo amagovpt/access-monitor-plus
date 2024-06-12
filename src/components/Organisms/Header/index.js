@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next"
+import { useTranslation } from "react-i18next";
 
 import LogoAcessmonitor from "./components/content-logo";
 
@@ -8,9 +8,9 @@ import { WidgetBar } from "./components/widgets-bar";
 import "./styles/styles.css";
 
 export function Header() {
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   return (
-    <header id="wrapper-navbar">
+    <header id="wrapper-navbar" aria-label={t("HEADER.header_arial_label")}>
       <div className="skip-to-content">
         <div className="container">
           <a className="skip-to-content-link" href="#content">

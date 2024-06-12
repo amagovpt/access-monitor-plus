@@ -9,9 +9,7 @@ import { refWebsite, testView } from "../pages/Resume/utils";
 import { convertBytes } from "../utils/utils";
 
 export function processData(tot) {
-  console.log("Totx", tot);
   if (tot === null || tot === undefined) {
-    console.log("Tot2xs", tot);
     return null;
   }
   const datax = {};
@@ -105,7 +103,7 @@ export function processData(tot) {
         result["prio"] = color === "ok" ? 3 : color === "err" ? 1 : 2;
 
         const scstmp = tests[test]["scs"].split(",");
-        // console.log("Sss", scstmp);
+
         for (let s in scstmp) {
           if (s) {
             const li = {};
@@ -173,7 +171,6 @@ export function getElements(allNodes, ele) {
 }
 
 export function getTagName(element) {
-  // console.log("El", element);
   let name = element.htmlCode.slice(1);
 
   let k = 0;
@@ -218,7 +215,6 @@ export function fixCode(code) {
 export function getElementsList(nodes) {
   const elements = new Array();
   for (const node of nodes || []) {
-    // console.log("ND", node);
     if (node.elements) {
       for (const element of node.elements || []) {
         const ele = getTagName(element);

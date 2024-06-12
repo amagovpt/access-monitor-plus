@@ -82,7 +82,7 @@
   }
 
   .url_content {
-    font-size: 28px;
+    font-size: 26px;
   }
 
   .test_result {
@@ -154,4 +154,8 @@
 
 .dark_mode-details .value code {
   color: #e39d9f !important;
+}
+
+.url_content {
+  font-size: 2em !important;
 }

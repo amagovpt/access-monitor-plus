@@ -54,7 +54,6 @@ export default function Resume({ setAllData, setEle }) {
 
         if (storedData && storedUrl === currentUrl) {
           const parsedStoredData = JSON.parse(storedData);
-          console.log("parsedStoredData", parsedStoredData);
           setOriginalData(parsedStoredData);
           setDataProcess(processData(parsedStoredData?.result?.data?.tot));
           setPageCode(parsedStoredData?.result?.pagecode || "html");
@@ -170,11 +169,7 @@ export default function Resume({ setAllData, setEle }) {
       </div>
 
       <div className="report_container">
-        <div className="acess_monitor" lang="en">
-          AccessMonitor
-        </div>
-        <h1 className="report_container_title">{dataProcess?.metadata?.url}</h1>
-        <p className="report_container_subtitle">{t("RESULTS.title")}</p>
+        <h1 className="report_container_subtitle">{t("RESULTS.title")}</h1>
         {loadingProgress ? (
           <LoadingComponent />
         ) : (
