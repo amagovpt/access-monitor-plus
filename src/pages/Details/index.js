@@ -32,7 +32,7 @@ export default function Details({ allData }) {
       title: "Acessibilidade.gov.pt",
       href: "/",
     },
-    { title: "Access Monitor", href: "/amp-react" },
+    { title: "Access Monitor", href: "/amp" },
     {
       title: url || "html",
       href: "",

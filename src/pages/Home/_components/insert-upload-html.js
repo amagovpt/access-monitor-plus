@@ -35,7 +35,7 @@ export function InsertHtmlUpload() {
   async function handleSubmit() {
     try {
       const type = "html";
-      navigate(`/amp-react/results/${type}`, {
+      navigate(`/amp/results/${type}`, {
         state: { contentHtml: file },
       });
     } catch (error) {

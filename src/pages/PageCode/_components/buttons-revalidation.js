@@ -2,7 +2,7 @@
 import { Button, Icon } from "../../../components";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import "./styles.css"
+import "./styles.css";
 
 export function ButtonsActions({ downloadCSV, handleGoBack, themeClass }) {
   const { t } = useTranslation();
@@ -15,7 +15,7 @@ export function ButtonsActions({ downloadCSV, handleGoBack, themeClass }) {
           size="md"
           text={t("HEADER.evaluate_new_page")}
           iconRight={<Icon name="AMA-Setalongaoficial-Line" />}
-          onClick={() => navigate("/amp-react")}
+          onClick={() => navigate("/amp")}
         />
 
         <div className="d-flex flex-row gap-3 other">

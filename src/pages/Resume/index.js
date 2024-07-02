@@ -17,8 +17,6 @@ import { downloadCSV } from "../../utils/utils";
 import { ThemeContext } from "../../context/ThemeContext";
 import "./styles.css";
 
-// import localJson from "../../utils/data.json";
-
 export let tot;
 
 export default function Resume({ setAllData, setEle }) {
@@ -89,52 +87,30 @@ export default function Resume({ setAllData, setEle }) {
     fetchData();
   }, [content, contentHtml, decodedUrl]);
 
-  // LOCAL
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     setLoadingProgress(true);
-  //     try {
-  //       const response = localJson;
-  //       setOriginalData(response);
-  //       setDataProcess(processData(response?.result?.data?.tot));
-
-  //       tot = response?.result?.data.tot;
-
-  //       setPageCode(response?.result?.pagecode || "html");
-  //       setLoadingProgress(false);
-  //     } catch (error) {
-  //       console.error("Erro", error);
-  //       setLoadingProgress(false);
-  //     }
-  //   };
-  //   fetchData();
-  // }, []);
-
   const reRequest = () => {
     if (content === "html") {
       const currentURL = window.location.pathname + window.location.search;
 
-      if (`/amp-react/results/${content}` === currentURL) {
+      if (`/amp/results/${content}` === currentURL) {
         window.location.href = currentURL;
       } else {
-        navigate(`/amp-react/results/${content}`, { state: { contentHtml } });
+        navigate(`/amp/results/${content}`, { state: { contentHtml } });
       }
     } else {
       const encodedURL = encodeURIComponent(content);
       const currentURL = window.location.pathname + window.location.search;
 
-      if (`/amp-react/results/${encodedURL}` === currentURL) {
+      if (`/amp/results/${encodedURL}` === currentURL) {
         window.location.href = currentURL;
       } else {
-        navigate(`/amp-react/results/${encodedURL}`);
+        navigate(`/amp/results/${encodedURL}`);
       }
     }
   };
 
   const seeCode = () => {
     const encodedURL = encodeURIComponent(content);
-    navigate(`/amp-react/results/${encodedURL}/code`, {
+    navigate(`/amp/results/${encodedURL}/code`, {
       state: {
         content: dataProcess,
         original: originalData,
@@ -148,7 +124,7 @@ export default function Resume({ setAllData, setEle }) {
       title: "Acessibilidade.gov.pt",
       href: "https://www.acessibilidade.gov.pt/",
     },
-    { title: "Access Monitor", href: "/amp-react" },
+    { title: "Access Monitor", href: "/amp" },
     {
       title: dataProcess?.metadata?.url || "html",
       href: dataProcess?.metadata?.url,

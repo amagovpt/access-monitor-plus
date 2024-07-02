@@ -4,7 +4,13 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-export function ButtonsActions({ reRequest, seeCode, downloadCSV, href, themeClass }) {
+export function ButtonsActions({
+  reRequest,
+  seeCode,
+  downloadCSV,
+  href,
+  themeClass,
+}) {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [seePage, setSeePage] = useState(false);
@@ -15,12 +21,14 @@ export function ButtonsActions({ reRequest, seeCode, downloadCSV, href, themeCla
 
   return (
     <>
-      <div className={`d-flex flex-row justify-content-between deskGroupMobile ${themeClass}`}>
+      <div
+        className={`d-flex flex-row justify-content-between deskGroupMobile ${themeClass}`}
+      >
         <Button
           size="md"
           text={t("HEADER.evaluate_new_page")}
           iconRight={<Icon name="AMA-Setalongaoficial-Line" />}
-          onClick={() => navigate("/amp-react")}
+          onClick={() => navigate("/amp")}
         />
 
         <div className="d-flex flex-row gap-3 other">
@@ -38,12 +46,19 @@ export function ButtonsActions({ reRequest, seeCode, downloadCSV, href, themeCla
               size="md"
               variant="secondary"
               text={t("RESULTS.actions.see_page")}
-              iconRight={<Icon name={seePage ? "AMA-SetaCima3-Line" : "AMA-SetaBaixo3-Line"} />}
+              iconRight={
+                <Icon
+                  name={seePage ? "AMA-SetaCima3-Line" : "AMA-SetaBaixo3-Line"}
+                />
+              }
               onClick={openPageLinks}
               aria-expanded={seePage}
             />
             {seePage && (
-              <u className="dropdown-content show_dropdown" aria-labelledby="dropdownMenuButton" >
+              <u
+                className="dropdown-content show_dropdown"
+                aria-labelledby="dropdownMenuButton"
+              >
                 <li>
                   <button onClick={() => seeCode()}>
                     <span>{t("RESULTS.actions.pagecode")}</span>
@@ -51,10 +66,7 @@ export function ButtonsActions({ reRequest, seeCode, downloadCSV, href, themeCla
                   </button>
                 </li>
                 <li>
-                  <a
-                    href={href}
-                    rel="noreferrer"
-                  >
+                  <a href={href} rel="noreferrer">
                     <span>{t("RESULTS.actions.open_webpage")}</span>
                     <Icon name="AMA-Externo-Line" />
                   </a>
@@ -82,7 +94,7 @@ export function ButtonsActions({ reRequest, seeCode, downloadCSV, href, themeCla
             size="md"
             text={t("HEADER.evaluate_new_page")}
             iconRight={<Icon name="AMA-Setalongaoficial-Line" />}
-            onClick={() => navigate("/amp-react")}
+            onClick={() => navigate("/amp")}
           />
 
           <div>
@@ -91,12 +103,19 @@ export function ButtonsActions({ reRequest, seeCode, downloadCSV, href, themeCla
               size="md"
               variant="secondary"
               text={t("RESULTS.actions.see_page")}
-              iconRight={<Icon name={seePage ? "AMA-SetaCima3-Line" : "AMA-SetaBaixo3-Line"} />}
+              iconRight={
+                <Icon
+                  name={seePage ? "AMA-SetaCima3-Line" : "AMA-SetaBaixo3-Line"}
+                />
+              }
               onClick={openPageLinks}
               aria-expanded={seePage}
             />
             {seePage && (
-              <u className="dropdown-content show_dropdown" aria-labelledby="dropdownMenuButton" >
+              <u
+                className="dropdown-content show_dropdown"
+                aria-labelledby="dropdownMenuButton"
+              >
                 <li>
                   <button onClick={() => seeCode()}>
                     <span>{t("RESULTS.actions.pagecode")}</span>
@@ -104,10 +123,7 @@ export function ButtonsActions({ reRequest, seeCode, downloadCSV, href, themeCla
                   </button>
                 </li>
                 <li>
-                  <a
-                    href={href}
-                    rel="noreferrer"
-                  >
+                  <a href={href} rel="noreferrer">
                     <span>{t("RESULTS.actions.open_webpage")}</span>
                     <Icon name="AMA-Externo-Line" />
                   </a>

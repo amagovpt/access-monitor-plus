@@ -32,7 +32,7 @@ export default function Resume() {
       title: "Acessibilidade.gov.pt",
       href: "https://www.acessibilidade.gov.pt/",
     },
-    { title: "Access Monitor", href: "/amp-react" },
+    { title: "Access Monitor", href: "/amp" },
     {
       title: dataProcess?.metadata?.url || "html",
       href: "",

@@ -17,28 +17,28 @@ export default function App() {
     <ThemeProvider>
       <Router>
         <Layout>
-          <Routes basename="/amp-react">
-            <Route path="amp-react/" element={<Home />} />
+          <Routes basename="/amp">
+            <Route path="amp/" element={<Home />} />
 
             <Route
-              path="/amp-react/results/:content"
+              path="/amp/results/:content"
               element={<Resume setAllData={setAllData} setEle={setEle} />}
             />
 
             <Route
-              path="/amp-react/results/:content/:details"
+              path="/amp/results/:content/:details"
               element={<Detail allData={allData} />}
             />
 
             <Route
-              path="/amp-react/results/:content/code"
+              path="/amp/results/:content/code"
               element={<PageCode setAllData={setAllData} setEle={setEle} />}
             />
 
             {/* Outras rotas */}
 
             {/* Error page needs to be last */}
-            <Route path="/amp-react/*" element={<Error />} />
+            <Route path="/amp/*" element={<Error />} />
           </Routes>
         </Layout>
       </Router>

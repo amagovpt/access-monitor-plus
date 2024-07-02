@@ -5,9 +5,7 @@ export default function LogoAcessmonitor() {
   const { theme } = useContext(ThemeContext);
 
   const logoURL =
-    theme === "light"
-      ? "/amp-react/img/logo.svg"
-      : "/amp-react/img/logo-dark.svg";
+    theme === "light" ? "/amp/img/logo.svg" : "/amp/img/logo-dark.svg";
   return (
     <>
       <img src={logoURL} alt="accessMonitor" lang="en" />
