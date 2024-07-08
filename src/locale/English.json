@@ -179,7 +179,10 @@
         "line": "Line:",
         "location": "Location:",
         "property": "Property:",
-        "value": "Value:"
+        "value": "Value:",
+        "caption": "Occurrences of this practice",
+        "ocurrenceNumber": "Occurrence Nº",
+        "ocurrenceDetail": "Details of the occurrence"
       }
     },
     "CODE": {

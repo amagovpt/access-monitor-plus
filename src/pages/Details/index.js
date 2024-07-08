@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Breadcrumb, Icon, Tabs } from "../../components";
+import { Breadcrumb, Icon } from "../../components";
 
 import { getTestResults } from "../../services";
 import { useEffect, useState } from "react";
@@ -52,20 +52,6 @@ export default function Details({ allData }) {
   useEffect(() => {
     getDetails();
   }, []);
-
-  const detailsTabs = [
-    {
-      eventKey: "tab1",
-      title: t("ELEMENT_RESULTS.elements_tab"),
-      component: (
-        <>
-          <div className="tabContent_container-details">
-            <TableDetails data={dataTable?.elements} />
-          </div>
-        </>
-      ),
-    },
-  ];
 
   let iconName;
 
@@ -120,11 +106,10 @@ export default function Details({ allData }) {
           </div>
         </div>
 
-        <Tabs
-          tabs={detailsTabs && detailsTabs}
-          defaultActiveKey="tab1"
-          vertical={false}
-        />
+        <div className="tabContent_container-details">
+          <TableDetails data={dataTable?.elements} />
+        </div>
+
       </div>
     </>
   );
