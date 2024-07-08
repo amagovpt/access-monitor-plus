@@ -31,7 +31,14 @@ export function WidgetBar({ description, logo }) {
           <div className="row ml-0 mr-0">
             <div className="col-12 col-lg-6 align-self-center">
               <div className="d-flex justify-content-between">
-                <h1 className="logo">{logo}</h1>
+                <p className="logo">
+                  <a
+                    href="/"
+                    title="ir para a página de entrada do AccessMonitor"
+                  >
+                    {logo}
+                  </a>
+                </p>
 
                 <div className="d-flex d-lg-none flex-column align-items-center">
                   {/* <button

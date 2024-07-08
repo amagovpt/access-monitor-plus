@@ -58,3 +58,7 @@ ul {
   color: #b6dcf6 !important;
   background-image: url("/public/img/chevron-right-light.svg");
 }
+
+#ANDI508 #ANDI508-moduleMenu {
+  position: relative !important;
+}

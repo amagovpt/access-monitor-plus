@@ -127,8 +127,11 @@
 .practices_found {
   font-size: 1.25em;
   font-weight: 700;
-  margin-left: 0.2em;
   font-family: var(--font-lato);
+}
+
+.number_found {
+  margin-right: 10px !important;
 }
 
 .mobile-row {

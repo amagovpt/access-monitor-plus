@@ -26,7 +26,7 @@ button,
   gap: 10px !important;
 
   font-family: var(--font-lato) !important;
-  border: 2px solid inherit #fff;
+  border: 2px solid inherit;
 }
 
 button,

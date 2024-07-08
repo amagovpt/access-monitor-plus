@@ -18,23 +18,18 @@ const Breadcrumb = ({ data, onClick, ...props }) => {
     }
   };
   return (
-    <nav>
-      <BBreadcrumb {...props}>
-        {data.map((item, index) => (
-          <Item
-            key={`id-${index}`}
-            href={item.href === "" ? "" : item.href}
-            active={index === size}
-            onClick={handleOnClick(item)}
-            aria-label={
-              index === size ? t("HEADER.DROPDOWN.youarehere") : undefined
-            }
-          >
-            {item.title}
-          </Item>
-        ))}
-      </BBreadcrumb>
-    </nav>
+    <BBreadcrumb {...props} aria-label={t("HEADER.DROPDOWN.youarehere")}>
+      {data.map((item, index) => (
+        <Item
+          key={`id-${index}`}
+          href={item.href === "" ? "" : item.href}
+          active={index === size}
+          onClick={handleOnClick(item)}
+        >
+          {item.title}
+        </Item>
+      ))}
+    </BBreadcrumb>
   );
 };
 

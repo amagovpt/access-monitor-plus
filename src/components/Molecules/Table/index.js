@@ -49,7 +49,7 @@ const TableComponent = ({ data, allData, setAllData }) => {
 
         <tbody>
           {optionsArray.map((option) => (
-            <tr id={option.id} key={option.id}>
+            <tr key={option.id}>
               <td className={option?.tdClassName}>
                 <span className="visually-hidden">
                   {t(`RESULTS.results.image_title.${option.iconName}`)}
@@ -60,7 +60,7 @@ const TableComponent = ({ data, allData, setAllData }) => {
                 <Accordion options={[option]} flush={true} id={option.id} />
 
                 <div className="hide_desktop-screen">
-                  <span>
+                  <span className="info_level">
                     {t("RESULTS.results.lvl")}: {option?.lvl}
                   </span>
 

@@ -68,11 +68,7 @@ export default function Home({ changeState }) {
           </div>
 
           <div className="d-flex flex-row align-items-start right_container">
-            <img
-              src={imgUrl}
-              alt={t("HOME_PAGE.intro_img_text")}
-              className="verify_img"
-            />
+            <img src={imgUrl} className="verify_img" alt="" />
           </div>
         </section>
       </div>
