@@ -3,10 +3,11 @@ import { ThemeContext } from "../../../../context/ThemeContext";
 import { useTranslation } from "react-i18next";
 
 import { Icon } from "../../../index";
+import { useLocation } from "react-router-dom";
 
 export function WidgetBar({ description, logo }) {
   const { theme, toggleTheme } = useContext(ThemeContext);
-
+  const location = useLocation();
   const themeClass = theme === "light" ? "" : "dark_mode";
 
   const {
@@ -31,29 +32,24 @@ export function WidgetBar({ description, logo }) {
           <div className="row ml-0 mr-0">
             <div className="col-12 col-lg-6 align-self-center">
               <div className="d-flex justify-content-between">
-                <p className="logo">
-                  <a
-                    href="/"
-                    title="ir para a página de entrada do AccessMonitor"
-                  >
-                    {logo}
-                  </a>
-                </p>
+                {location.pathname === "/amp" ? (
+                  <>
+                    <h1>{logo}</h1>
+                  </>
+                ) : (
+                  <>
+                    <p className="logo">
+                      <a
+                        href="/amp"
+                        title="ir para a página de entrada do AccessMonitor"
+                      >
+                        {logo}
+                      </a>
+                    </p>
+                  </>
+                )}
 
-                <div className="d-flex d-lg-none flex-column align-items-center">
-                  {/* <button
-                    type="button"
-                    className="open-mobile-menu menu-hamburger rounded-circle"
-                  >
-                    <span
-                      className="icon-AMA-Menu-Line"
-                      aria-hidden="true"
-                    ></span>
-                    <span className="visually-hidden">
-                      {t("HEADER.mobile_menu")} 
-                    </span>
-                  </button> */}
-                </div>
+                <div className="d-flex d-lg-none flex-column align-items-center"></div>
               </div>
             </div>
 
