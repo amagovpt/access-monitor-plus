@@ -26,9 +26,9 @@ export function TableDetails({ data }) {
                 <td className="counter">{index + 1}</td>
                 <td>
                   <dl className="text-start">
-                    <dt>{t("ELEMENT_RESULTS.result.element")}</dt>
+                    <dt className="mb-2">{t("ELEMENT_RESULTS.result.element")}</dt>
                     <dd className="mb-4">{item?.ele}</dd>
-                    <dt>{t("ELEMENT_RESULTS.result.code")}</dt>
+                    <dt className="mb-2">{t("ELEMENT_RESULTS.result.code")}</dt>
                     <dd className="mb-4"><code>{item?.code}</code></dd>
                     <dt>{t("ELEMENT_RESULTS.result.content")}</dt>
                     <dd className="mb-4">
@@ -37,7 +37,7 @@ export function TableDetails({ data }) {
                         dangerouslySetInnerHTML={renderHTML(item.showCode)}
                       />
                     </dd>
-                    <dt>{t("ELEMENT_RESULTS.result.location")}</dt>
+                    <dt className="mb-2">{t("ELEMENT_RESULTS.result.location")}</dt>
                     <dd>{item?.pointer}</dd>
                   </dl>
                 </td>
