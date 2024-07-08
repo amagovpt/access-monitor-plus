@@ -41,7 +41,7 @@ export function WidgetBar({ description, logo }) {
                     <p className="logo">
                       <a
                         href="/amp"
-                        title="ir para a página de entrada do AccessMonitor"
+                        title={t("HEADER.logo_title")}
                       >
                         {logo}
                       </a>

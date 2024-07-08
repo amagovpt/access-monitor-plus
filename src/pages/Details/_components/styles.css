@@ -63,6 +63,14 @@
   overflow-wrap: break-word;
 }
 
+.table thead th.th_size {
+  width: 12%;
+}
+
+.table tbody tr dl dd {
+
+}
+
 .table1 h1,
 h2,
 h3,

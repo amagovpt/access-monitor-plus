@@ -4,6 +4,7 @@
       "tool": "Uma ferramenta do ecossistema do",
       "logo_alt": "AccessMonitor - o validador de práticas de acessibilidade Web",
       "header_arial_label": "Cabeçalho da página do AccessMonitor",
+      "logo_title": "ir para a página de entrada do AccessMonitor",
       "NAV": {
         "location": "Você está em",
         "ecosystem": "ecossistema",

@@ -14,7 +14,7 @@ export function TableDetails({ data }) {
       </caption>
       <thead>
         <tr>
-          <th>{t("ELEMENT_RESULTS.result.ocurrenceNumber")}</th>
+          <th className="th_size">{t("ELEMENT_RESULTS.result.ocurrenceNumber")}</th>
           <th>{t("ELEMENT_RESULTS.result.ocurrenceDetail")}</th>
         </tr>
       </thead>
@@ -27,11 +27,11 @@ export function TableDetails({ data }) {
                 <td>
                   <dl className="text-start">
                     <dt>{t("ELEMENT_RESULTS.result.element")}</dt>
-                    <dd>{item?.ele}</dd>
+                    <dd className="mb-4">{item?.ele}</dd>
                     <dt>{t("ELEMENT_RESULTS.result.code")}</dt>
-                    <dd><code>{item?.code}</code></dd>
+                    <dd className="mb-4"><code>{item?.code}</code></dd>
                     <dt>{t("ELEMENT_RESULTS.result.content")}</dt>
-                    <dd>
+                    <dd className="mb-4">
                       <div
                         className="img"
                         dangerouslySetInnerHTML={renderHTML(item.showCode)}
