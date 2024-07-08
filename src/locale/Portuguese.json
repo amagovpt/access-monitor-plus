@@ -178,10 +178,7 @@
         "line": "Linha:",
         "location": "Localização:",
         "property": "Propriedade:",
-        "value": "Valor:",
-        "caption": "Ocorrências encontradas desta prática",
-        "ocurrenceNumber": "Nº Ocorrência",
-        "ocurrenceDetail": "Detalhe da ocorrência"
+        "value": "Valor:"
       }
     },
     "CODE": {

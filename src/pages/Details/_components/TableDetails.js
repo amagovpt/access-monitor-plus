@@ -8,39 +8,54 @@ const renderHTML = (htmlString) => {
 export function TableDetails({ data }) {
   const { t } = useTranslation();
   return (
-    <table className="table1 table">
+    <table className="table1">
       <caption className="visually-hidden">
-        {t("ELEMENT_RESULTS.result.caption")}
+        {" "}
+        {t("ELEMENT_RESULTS.caption", { value: 1 })}{" "}
       </caption>
-      <thead>
-        <tr>
-          <th>{t("ELEMENT_RESULTS.result.ocurrenceNumber")}</th>
-          <th>{t("ELEMENT_RESULTS.result.ocurrenceDetail")}</th>
-        </tr>
-      </thead>
       <tbody>
         {data &&
           data.map((item, index) => (
             <>
-              <tr key={index} className="table_container-details">
-                <td className="counter">{index + 1}</td>
-                <td>
-                  <dl className="text-start">
-                    <dt>{t("ELEMENT_RESULTS.result.element")}</dt>
-                    <dd>{item?.ele}</dd>
-                    <dt>{t("ELEMENT_RESULTS.result.code")}</dt>
-                    <dd><code>{item?.code}</code></dd>
-                    <dt>{t("ELEMENT_RESULTS.result.content")}</dt>
-                    <dd>
-                      <div
-                        className="img"
-                        dangerouslySetInnerHTML={renderHTML(item.showCode)}
-                      />
-                    </dd>
-                    <dt>{t("ELEMENT_RESULTS.result.location")}</dt>
-                    <dd>{item?.pointer}</dd>
-                  </dl>
-                </td>
+              <tr className="table_container-details">
+                <tr key={index} className="border-table-1">
+                  <td rowSpan="4" className="counter">
+                    <span>{index + 1}</span>
+                  </td>
+                  <th scope="row" className="label">
+                    <strong>{t("ELEMENT_RESULTS.result.element")}</strong>
+                  </th>
+                  <td className="value">
+                    <span className="element">{item?.ele}</span>
+                  </td>
+                </tr>
+                <tr key={`${index}-code`}>
+                  <th scope="row" className="label">
+                    <strong>{t("ELEMENT_RESULTS.result.code")}</strong>
+                  </th>
+                  <td className="value">
+                    <code>{item?.code}</code>
+                  </td>
+                </tr>
+                <tr key={`${index}-showCode`}>
+                  <th scope="row" className="label">
+                    <strong>{t("ELEMENT_RESULTS.result.content")}</strong>
+                  </th>
+                  <td className="value">
+                    <div
+                      className="img"
+                      dangerouslySetInnerHTML={renderHTML(item.showCode)}
+                    />
+                  </td>
+                </tr>
+                <tr key={`${index}-pointer`}>
+                  <th scope="row" className="label">
+                    <strong>{t("ELEMENT_RESULTS.result.location")}</strong>
+                  </th>
+                  <td className="value">
+                    <span className="element">{item?.pointer}</span>
+                  </td>
+                </tr>
               </tr>
             </>
           ))}
