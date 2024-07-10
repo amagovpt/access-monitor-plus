@@ -1,7 +1,7 @@
-import { Breadcrumb } from "../../components/index";
 import { ButtonsActions } from "./_components/buttons-revalidation";
 import "./styles.css";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Breadcrumb } from 'ama-design-system'
 
 import { useTranslation } from "react-i18next";
 import { useContext } from "react";
@@ -45,13 +45,13 @@ export default function Resume() {
   return (
     <div className={`container ${themeClass} `}>
       <div className="link_breadcrumb_container">
-        <Breadcrumb data={dataBreadCrumb} onClick={handleGoBack} />
+        <Breadcrumb data={dataBreadCrumb} onClick={handleGoBack} darkTheme={theme} />
       </div>
       <div className="report_container">
         <div className="acess_monitor" lang="en">
           AccessMonitor
         </div>
-        <h1 className="report_container_title">
+        <h1 className="report_container_title py-3">
           {dataProcess?.metadata?.url || "html"}
         </h1>
         <p className="report_container_subtitle">{t("HEADER.NAV.code")}</p>
@@ -62,7 +62,7 @@ export default function Resume() {
         />
       </div>
       <section className="html_code">
-        <pre>{code || `<></>`}</pre>
+        <pre tabindex="0">{code || `<></>`}</pre>
       </section>
     </div>
   );

@@ -1,6 +1,6 @@
 .main {
   height: auto;
-  background-color: var(--background);
+  background-color: var(--ama-color-background-light-darker);
   position: relative;
   padding-bottom: 4rem;
 }
@@ -12,5 +12,5 @@
 /* DARK */
 
 .main_dark {
-  background-color: #20242c !important;
+  background-color: var(--ama-color-background-dark-darker) !important;
 }

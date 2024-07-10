@@ -1,109 +1,36 @@
 /* TableComponent.css */
-
 .table1 {
   width: 100% !important;
   border-collapse: collapse;
-  color: #333 !important;
 }
 
-.counter {
-  width: 80px;
-  font-size: 30px;
-  font-weight: 700;
-  padding: 15px;
-
-  vertical-align: middle;
+.table1 tbody tr {
+  border-bottom: 1px solid var(--ama-color-text-gray);
 }
 
-.label {
-  background-color: #f1f1f1;
-
-  font-family: Lato;
-  font-size: 16px;
-  font-weight: bold;
-  letter-spacing: 0;
-  text-align: right;
-  vertical-align: top;
-  width: 140px !important;
-  padding-right: 15px;
-  padding-left: 10px;
-}
-
-.value {
-  text-align: left;
-  padding-bottom: 32px;
-  font-size: 16px;
-  letter-spacing: 0;
-  padding-left: 15px;
-  text-align: left;
-}
-
-.label {
-  width: 100px;
-}
-
-.table_container-details {
-  border-bottom: 1px solid #333;
-}
-
-.table_container-details:first-child {
-  border-top: 1px solid #333;
-}
-
-.table1 th {
-  font-family: var(--font-lato);
-  font-weight: bold !important;
+.table1 thead th {
+  background-color: var(--ama-color-text-gray);
+  color: var(--ama-color-background-white);
 }
 
 .table1 code {
   text-decoration: none;
   font-weight: normal !important;
-  color: #e83e8c !important;
+  color: #DC3545 !important;
   word-break: break-all;
   overflow-wrap: break-word;
 }
 
-.table thead th.th_size {
-  width: 12%;
+.table1 thead th.th_size {
+  width: 16%;
 }
 
-.table tbody tr dl dd {
-
-}
-
-.table1 h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-lato);
-  font-weight: 500 !important;
-  font-size: 28px;
-  color: #333;
+.table1 thead {
+  border-color: transparent;
 }
 
 @media only screen and (max-width: 768px) {
-  .table1,
-  .table1 tbody,
-  .table1 tr,
-  .table1 td,
-  .table1 th {
-    display: block;
-    width: 100% !important;
-  }
-
-  .counter {
-    width: 100%;
-    font-size: 20px;
-    padding: 10px 15px;
-    text-align: center;
-  }
-
-  .label,
-  .value {
-    width: 100%;
-    text-align: left;
-    padding: 10px 15px;
+  .table thead th.th_size {
+    width: auto;
   }
 }

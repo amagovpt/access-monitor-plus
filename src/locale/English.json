@@ -111,6 +111,7 @@
         },
         "table": {
           "title": "practices found",
+          "typeLabel": "Type of practice",
           "labels": {
             "p": "P",
             "ok": "Acceptable",
@@ -154,6 +155,10 @@
           "AMA-Check-Line": "Acceptable practice",
           "AMA-Wrong-Line": "Non acceptable practice",
           "AMA-Middle-Line": "Practice to view manually"
+        },
+        "ariaLabels": {
+          "AA": "double ",
+          "AAA": "triple "
         }
       },
       "scoreboard": {

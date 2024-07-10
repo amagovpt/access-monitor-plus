@@ -37,28 +37,6 @@ ul {
   list-style: none;
 }
 
-/* Dark for all pages */
-
-.dark_mode-resume .acess_monitor,
-.dark_mode-details .acess_monitor,
-.dark_mode-code .acess_monitor {
-  background-color: #b6dcf6;
-  color: #20242c;
-}
-
-.dark_mode-resume .breadcrumb-item a,
-.dark_mode-details .breadcrumb-item a,
-.dark_mode-code .breadcrumb-item a {
-  color: #b6dcf6 !important;
-}
-
-.dark_mode-resume .breadcrumb .breadcrumb-item:not(:first-child),
-.dark_mode-details .breadcrumb .breadcrumb-item:not(:first-child),
-.dark_mode-code .breadcrumb .breadcrumb-item:not(:first-child) {
-  color: #b6dcf6 !important;
-  background-image: url("/public/img/chevron-right-light.svg");
-}
-
 #ANDI508 #ANDI508-moduleMenu {
   position: relative !important;
 }

@@ -1,10 +1,14 @@
 import { useState } from "react";
-import { Button, Icon, TextArea } from "../../../components";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useContext } from "react";
+import { ThemeContext } from "../../../context/ThemeContext";
+
+import { TextArea, Button, Icon } from 'ama-design-system'
 
 export function InsertHtml() {
   const { t } = useTranslation();
+  const { theme } = useContext(ThemeContext);
   const [htmlValue, setHtmlValue] = useState("");
   const navigate = useNavigate();
 
@@ -20,8 +24,9 @@ export function InsertHtml() {
   }
 
   return (
-    <form className="tab_content_view" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <TextArea
+        darkTheme={theme}
         id="html"
         label={t("HOME_PAGE.html_label")}
         placeholder={t("HOME_PAGE.html_placeholder")}
@@ -30,6 +35,7 @@ export function InsertHtml() {
       />
 
       <Button
+        darkTheme={theme}
         text={t("HOME_PAGE.submit")}
         size="lg"
         id="btn-html"

@@ -1,13 +1,18 @@
 import { useState } from "react";
-import { Button, Icon, Input } from "../../../components";
 import { validateURL } from "../../../utils/utils";
 import { useNavigate } from "react-router-dom";
 import "./styles.css";
 import { useTranslation } from "react-i18next";
 
+import { useContext } from "react";
+import { ThemeContext } from "../../../context/ThemeContext";
+
+import { Button, Icon, Input } from 'ama-design-system'
+
 export function InsertUrl() {
   const [url, setURL] = useState("");
   const [error, setError] = useState(null);
+  const { theme } = useContext(ThemeContext);
   const navigate = useNavigate();
   const { t } = useTranslation();
 
@@ -35,8 +40,9 @@ export function InsertUrl() {
   };
 
   return (
-    <form className="tab_content_view" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <Input
+        darkTheme={theme}
         id="url"
         label={t("HOME_PAGE.url_label")}
         placeholder="http(s)"
@@ -46,6 +52,7 @@ export function InsertUrl() {
         onKeyDown={handleKeyDown}
       />
       <Button
+        darkTheme={theme}
         text={t("HOME_PAGE.submit")}
         size="lg"
         id="btn-url"

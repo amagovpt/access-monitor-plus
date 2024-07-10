@@ -1,28 +1,12 @@
-.loadingContainer {
-  background-color: #fff;
-  display: flex;
-
-  height: 87px;
-  padding: 0px 75px 0px 64px;
-  align-items: center;
-  gap: 300px;
-  flex-shrink: 0;
-  font-family: var(--font-lato);
-
-  margin-bottom: 10rem !important;
-}
-
 .group_mobile {
   display: none;
 }
 
+.other button {
+  border-color: transparent;
+}
+
 @media (min-width: 320px) and (max-width: 480px) {
-  .loadingContainer {
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: start;
-    gap: unset;
-  }
   .deskGroupMobile {
     display: none !important;
   }
@@ -53,67 +37,6 @@
   margin-bottom: 10px;
 }
 
-/* LOADING */
-
-.loader {
-  width: 220px;
-  height: 25px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--primary);
-  animation: dotAnimation 3.6s infinite linear;
-}
-
-.dot:nth-child(1) {
-  animation-delay: 0s;
-}
-.dot:nth-child(2) {
-  animation-delay: 0.4s;
-}
-.dot:nth-child(3) {
-  animation-delay: 0.8s;
-}
-.dot:nth-child(4) {
-  animation-delay: 1.2s;
-}
-.dot:nth-child(5) {
-  animation-delay: 1.6s;
-}
-.dot:nth-child(6) {
-  animation-delay: 2s;
-}
-.dot:nth-child(7) {
-  animation-delay: 2.4s;
-}
-.dot:nth-child(8) {
-  animation-delay: 2.8s;
-}
-.dot:nth-child(9) {
-  animation-delay: 3.2s;
-}
-
-@keyframes dotAnimation {
-  0% {
-    transform: scale(1, 1);
-  }
-  33% {
-    transform: scale(2, 2);
-  }
-  66% {
-    transform: scale(1, 1);
-  }
-  100% {
-    transform: scale(1, 1);
-  }
-}
-
 .show_dropdown {
   display: block !important;
 }
@@ -123,16 +46,16 @@
   width: fit-content;
   margin-top: 1em;
   padding: 1em;
-  color: var(--white);
+  color: var(--ama-color-background-white);
   border-radius: 25px;
-  background-color: var(--primary);
+  background-color: var(--ama-color-brand-primary);
   position: absolute;
   z-index: 1;
   text-decoration: none;
 }
 
 .dropdown-content a {
-  color: var(--white);
+  color: var(--ama-color-background-white);
   padding: .5em;
   text-decoration: none;
   font-weight: 700;
@@ -150,7 +73,7 @@
 
 .dropdown-content button {
   background-color: transparent;
-  color: var(--white);
+  color: var(--ama-color-background-white);
   border: none;
   text-align: left;
   font-size: 16px;
@@ -170,29 +93,29 @@
 /* Dark Mode */
 .dark_mode-resume .deskGroupMobile button,
 .dark_mode-resume .group_mobile button {
-  background-color: #b6dcf6 !important;
-  border-color: #b6dcf6 !important;
-  color: #2c3241;
+  background-color: var(--ama-color-text-blue) !important;
+  border-color: var(--ama-color-text-blue) !important;
+  color: var(--ama-color-background-dark-lighter);
 }
 
 .dark_mode-resume .deskGroupMobile button:active,
 .dark_mode-resume .group_mobile button:active {
-  background-color: #b6dcf6 !important;
-  border-color: #b6dcf6 !important;
-  color: #2c3241 !important;
+  background-color: var(--ama-color-text-blue) !important;
+  border-color: var(--ama-color-text-blue) !important;
+  color: var(--ama-color-background-dark-lighter) !important;
 }
 
 .dark_mode-resume .deskGroupMobile button:hover,
 .dark_mode-resume .group_mobile button:hover {
   background-color: transparent !important;
-  border-color: #b6dcf6 !important;
-  color: #b6dcf6;
+  border-color: var(--ama-color-text-blue) !important;
+  color: var(--ama-color-text-blue);
 }
 
 .dark_mode-resume .other button {
-  background-color: #2c3241 !important;
-  border-color: #2c3241 !important;
-  color: #b6dcf6;
+  background-color: var(--ama-color-background-dark-lighter) !important;
+  border-color: var(--ama-color-background-dark-lighter) !important;
+  color: var(--ama-color-text-blue);
 }
 
 .dark_mode-resume .dropdown-content {
@@ -203,16 +126,7 @@
 .dark_mode-resume .other button:hover,
 .dark_mode-resume .dropdown-content li button,
 .dark_mode-resume .dropdown-content a {
-  background-color: #b6dcf6 !important;
-  border-color: #b6dcf6 !important;
-  color: #2c3241;
-}
-
-.dark_mode-resume .loadingContainer {
-  background-color: #2c3241 !important;
-  color: #b6dcf6;
-}
-
-.dark_mode-resume .dot {
-  background-color: #b6dcf6;
+  background-color: var(--ama-color-text-blue) !important;
+  border-color: var(--ama-color-text-blue) !important;
+  color: var(--ama-color-background-dark-lighter);
 }

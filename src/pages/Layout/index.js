@@ -1,18 +1,38 @@
 import { useContext } from "react";
-import { Footer, Header } from "../../components";
 import { ThemeContext } from "../../context/ThemeContext";
+import { Footer, Header } from 'ama-design-system'
+import { useLocation } from 'react-router-dom'
 import "./styles.css";
 import { useTranslation } from "react-i18next";
 
 export default function Layout({ children }) {
-  const { theme } = useContext(ThemeContext);
+  const { theme, toggleTheme } = useContext(ThemeContext);
+  const location = useLocation()
   const mainDark = theme === "light" ? "" : "main_dark";
 
-  const { t } = useTranslation();
+  const { t, i18n: {language, changeLanguage} } = useTranslation();
+
+  const toggleLanguage = () => {
+    if (language === "en") {
+      changeLanguage("pt");
+      document.querySelector("html")?.setAttribute("lang", "pt-PT");
+    } else {
+      changeLanguage("en");
+      document.querySelector("html")?.setAttribute("lang", "en");
+    }
+  };
 
   return (
     <>
-      <Header />
+      <Header
+        darkTheme={theme}
+        logo={theme === "light" ? "/amp/img/logo.svg" : "/amp/img/logo-dark.svg"}
+        description={t("HEADER.line_text")}
+        homePage={location.pathname === "/amp" ? true : false}
+        language={language}
+        changeLanguage={toggleLanguage}
+        changeTheme={toggleTheme}
+      />
       <main
         className={`main ${mainDark}`}
         id="content"
@@ -21,7 +41,7 @@ export default function Layout({ children }) {
         {children}
       </main>
 
-      <Footer />
+      <Footer darkTheme={theme} />
     </>
   );
 }

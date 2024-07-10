@@ -1,20 +1,15 @@
 import { useContext, useEffect, useState } from "react";
-import {
-  Breadcrumb,
-  Gauge,
-  TableAlternative,
-  TableComponent,
-} from "../../components/index";
+import { Breadcrumb, Gauge, LoadingComponent, StatsTable, TableComponent } from "ama-design-system";
 
 import { api } from "../../config/api";
 import { processData } from "../../services";
-import { LoadingComponent } from "./_components/loading";
 import { ButtonsActions } from "./_components/buttons-revalidation";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
 import { downloadCSV } from "../../utils/utils";
 import { ThemeContext } from "../../context/ThemeContext";
+import { optionForAccordion, callbackImgT } from "./utils";
 import "./styles.css";
 
 export let tot;
@@ -119,6 +114,19 @@ export default function Resume({ setAllData, setEle }) {
     });
   };
 
+  function setAllDataResult(ele, allData) {
+    setAllData(allData);
+    const type = allData.rawUrl;
+
+    if (type === "") {
+      const content = "html";
+      navigate(`/amp/results/${content}/${ele}`);
+    } else {
+      const encodedURL = encodeURIComponent(allData?.rawUrl);
+      navigate(`/amp/results/${encodedURL}/${ele}`);
+    }
+  }
+
   const dataBreadCrumb = [
     {
       title: "Acessibilidade.gov.pt",
@@ -141,13 +149,13 @@ export default function Resume({ setAllData, setEle }) {
   return (
     <div className={`container ${themeClass}`}>
       <div className="link_breadcrumb_container">
-        <Breadcrumb data={dataBreadCrumb} />
+        <Breadcrumb data={dataBreadCrumb} darkTheme={theme} tagHere={t("HEADER.DROPDOWN.youarehere")} />
       </div>
 
       <div className="report_container">
         <h1 className="report_container_subtitle">{t("RESULTS.title")}</h1>
         {loadingProgress ? (
-          <LoadingComponent />
+          <LoadingComponent loadingText={t("MISC.loading")} darkTheme={theme} />
         ) : (
           <ButtonsActions
             reRequest={reRequest}
@@ -164,12 +172,12 @@ export default function Resume({ setAllData, setEle }) {
             <h2>{t("RESULTS.summary.title")}</h2>
             <div className="d-flex flex-row mt-5 mb-5 justify-content-between container_uri_chart">
               <div className="chart_container">
-                <Gauge percentage={scoreDataFormatted} />
+                <Gauge percentage={scoreDataFormatted} darkTheme={theme} title={t("RESULTS.summary.score")}  />
               </div>
               <div className="resume_info_about_uri d-flex flex-column gap-4">
                 <div className="d-flex flex-column">
                   <span>URL</span>
-                  <span>{dataProcess?.metadata?.url}</span>
+                  <span className="break_url">{dataProcess?.metadata?.url}</span>
                 </div>
 
                 <div className="d-flex flex-column">
@@ -191,17 +199,37 @@ export default function Resume({ setAllData, setEle }) {
                 </div>
               </div>
               <div className="table_container_sumary">
-                <TableAlternative data={dataProcess} />
+                <StatsTable
+                  data={{data: dataProcess}}
+                  darkTheme={theme}
+                  ok={t("RESULTS.summary.table.labels.ok")}
+                  warning={t("RESULTS.summary.table.labels.warn")}
+                  error={t("RESULTS.summary.table.labels.err")}
+                  title={t("RESULTS.summary.table.title")}
+                  caption={t("RESULTS.summary.metadata.caption")}
+                  type={t("RESULTS.summary.table.typeLabel")}
+                />
               </div>
             </div>
           </section>
           <section className="bg-white avaliation_container">
-            <h2 className="avaliation_title">{t("RESULTS.results.title")}</h2>
+            <h2 className="avaliation_title mb-3">{t("RESULTS.results.title")}</h2>
             <TableComponent
-              data={dataProcess}
-              allData={originalData?.result?.data}
-              setAllData={setAllData}
-              setEle={setEle}
+              data={optionForAccordion(t, dataProcess)}
+              onClick={(ele) => setAllDataResult(ele, originalData?.result?.data)}
+              imageTitlesCallback={(img) => callbackImgT(t, img)}
+              caption={t("RESULTS.results.caption")}
+              col1={t("RESULTS.results.practice")}
+              col2={t("RESULTS.results.lvl")}
+              col3={t("RESULTS.results.details")}
+              lvlTitle={t("RESULTS.results.lvl") + ": "}
+              ariaLabel={t("RESULTS.results.details")}
+              darkTheme={theme}
+              ariaLabels={{
+                button: t("RESULTS.results.details"),
+                AA: t("RESULTS.results.ariaLabels.AA"),
+                AAA: t("RESULTS.results.ariaLabels.AAA")
+              }}
             />
           </section>
         </>

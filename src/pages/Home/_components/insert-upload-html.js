@@ -1,10 +1,15 @@
-import { Button, Icon } from "../../../components";
 import { useTranslation } from "react-i18next";
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { useContext } from "react";
+import { ThemeContext } from "../../../context/ThemeContext";
+
+import { Button, Icon } from 'ama-design-system'
+
 export function InsertHtmlUpload() {
   const { t } = useTranslation();
+  const { theme } = useContext(ThemeContext);
   const navigate = useNavigate();
   const [file, setFile] = useState("");
 
@@ -50,13 +55,14 @@ export function InsertHtmlUpload() {
   };
 
   return (
-    <form className="tab_content_view" onSubmit={handleSubmit}>
-      <label className="margin-bottom">{t("HOME_PAGE.file_title")}</label>
+    <form onSubmit={handleSubmit}>
+      <label for={t("HOME_PAGE.file_label")} className="margin-bottom upload_label">{t("HOME_PAGE.file_title")}</label>
       <div className="input-group mb-3 d-flex justify-content-start align-items-start">
         <button className="btn" type="button" onClick={handleButtonClick}>
           {t("HOME_PAGE.file_label")}
         </button>
         <input
+          id={t("HOME_PAGE.file_label")}
           ref={fileInputRef}
           type="file"
           className="form-control"
@@ -66,6 +72,7 @@ export function InsertHtmlUpload() {
       </div>
 
       <Button
+        darkTheme={theme}
         text={t("HOME_PAGE.submit")}
         size="lg"
         id="btn-upload"

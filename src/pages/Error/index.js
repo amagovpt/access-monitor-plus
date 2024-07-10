@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { ThemeContext } from "../../context/ThemeContext";
-import { Icon } from "../../components";
+import { Icon } from 'ama-design-system'
 import "./styles.css";
 
 export default function Resume() {

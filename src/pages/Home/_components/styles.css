@@ -1,22 +1,8 @@
-.tab_content_view input {
-  height: 54px;
-  margin-bottom: 2rem;
-}
-
-.tab_content_view label {
-  margin-top: 1rem;
-  font-weight: 500;
-}
-
-.tab_content_view textarea {
-  margin-bottom: 2rem;
-}
-
 .input-group .btn {
   height: 54px;
-  border: 2px solid var(--primary) !important;
-  background-color: var(--primary);
-  color: var(--white);
+  border: 2px solid var(--ama-color-brand-primary) !important;
+  background-color: var(--ama-color-brand-primary);
+  color: var(--ama-color-background-white);
   font-weight: 400;
   font-size: 1em;
   font-family: var(--font-lato);
@@ -25,12 +11,16 @@
   border-bottom-right-radius: 27px !important;
   margin-right: 10px;
   position: absolute;
-  z-index: 2;
+  z-index: 10;
 }
 
 .input-group .btn:hover {
-  background-color: var(--white);
-  color: var(--primary);
+  background-color: var(--ama-color-background-white);
+  color: var(--ama-color-brand-primary);
+}
+
+.input-group input {
+  height: 54px;
 }
 
 .margin-bottom {
@@ -45,6 +35,6 @@ input[type=file] {
   margin-bottom: 0px;
   margin-left: 100px !important;
   padding-left: 90px;
-  border: 2px solid var(--primary) !important;
+  border: 2px solid var(--ama-color-brand-primary) !important;
   border-radius: 0;
 }

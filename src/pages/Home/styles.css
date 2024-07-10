@@ -28,6 +28,10 @@
   height: 55px;
 }
 
+.link_breadcrumb_container .breadcrumb .breadcrumb-item:not(:first-child) {
+  background-image: url("/public/img/chevron-right-dark.svg");
+}
+
 @media (min-width: 320px) and (max-width: 480px) {
   .link_breadcrumb_container {
     padding: 2rem 0px 1rem 0px;
@@ -52,33 +56,17 @@
 /* DARK */
 
 .main_content_home {
-  background-color: #2c3241 !important;
-  color: #ebf2f6;
-}
-
-.main_content_home .tab_content_view .field label {
-  color: var(--header-top-bar-dark-text);
-}
-
-.main_content_home .tab_content_view .field input,
-.main_content_home .tab_content_view .field textarea {
-  color: var(--header-top-bar-dark-text) !important;
-  background-color: transparent !important;
-  border-color: var(--header-top-bar-dark-text) !important;
-}
-
-.main_content_home .tab_content_view .field input::placeholder,
-.main_content_home .tab_content_view .field textarea::placeholder {
-  color: var(--header-top-bar-dark-text) !important;
+  background-color: var(--ama-color-background-dark-lighter) !important;
+  color: var(--ama-color-background-white);
 }
 
 .main_content_home .nav-tabs {
-  background-color: #20242c !important;
+  background-color: var(--ama-color-background-dark-darker) !important;
   border-bottom: 0px;
 }
 
 .main_content_home .nav-item button {
-  background-color: #20242c !important;
+  background-color: var(--ama-color-background-dark-darker) !important;
   color: var(--header-top-bar-dark-text) !important;
 }
 
@@ -98,35 +86,29 @@
   color: var(--header-top-bar-dark-text) !important;
 }
 
-.main_dark #btn-url,
-.main_dark #btn-html,
-.main_dark #btn-upload {
-  color: #000;
-  background-color: #b6dcf6;
-  border-color: transparent;
-}
-
-.main_dark #btn-url:disabled,
-.main_dark #btn-html:disabled,
-.main_dark #btn-upload:disabled {
-  background-color: #808080 !important;
-  color: #000;
-}
-
 .main_content_home input[type="file"].form-control {
-  background-color: #2c3241;
-  color: #b6dcf6;
-  border-color: #b6dcf6 !important;
+  background-color: var(--ama-color-background-dark-lighter);
+  color: var(--ama-color-text-blue);
+  border-color: var(--ama-color-text-blue) !important;
+  padding-top: 12px;
 }
 
 .main_content_home .input-group .btn {
-  background-color: #b6dcf6;
-  color: #000;
-  border-color: #b6dcf6 !important;
+  background-color: var(--ama-color-text-blue);
+  color: var(--ama-color-text-gray);
+  border-color: var(--ama-color-text-blue) !important;
 }
 
 .main_content_home .input-group .btn:hover {
-  background-color: #2c3241;
-  color: #b6dcf6;
-  border-color: #b6dcf6 !important;
+  background-color: var(--ama-color-background-dark-lighter);
+  color: var(--ama-color-text-blue);
+  border-color: var(--ama-color-text-blue) !important;
+}
+
+.main_content_home .upload_label {
+  color: var(--ama-color-text-blue);
+}
+
+.link_breadcrumb_container .breadcrumbs.dark .breadcrumb .breadcrumb-item:not(:first-child) {
+  background-image: url("/public/img/chevron-right-light.svg");
 }

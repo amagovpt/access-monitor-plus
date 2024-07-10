@@ -7,7 +7,7 @@
 }
 
 .container_error a {
-    color: #000;
+    color: var(--ama-color-text-gray);
     text-decoration: none;
 }
 
@@ -23,5 +23,5 @@
 /* DARK MODE */
 .dark_mode-error,
 .dark_mode-error a {
-    color: var(--white);
+    color: var(--ama-color-background-white);
 }

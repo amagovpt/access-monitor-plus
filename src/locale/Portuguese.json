@@ -110,6 +110,7 @@
         },
         "table": {
           "title": "práticas encontradas",
+          "typeLabel": "Tipo de prática",
           "labels": {
             "p": "P",
             "ok": "Aceitáveis",
@@ -153,6 +154,10 @@
           "AMA-Check-Line": "Prática aceitável",
           "AMA-Wrong-Line": "Prática não aceitável",
           "AMA-Middle-Line": "Prática para ver manualmente"
+        },
+        "ariaLabels": {
+          "AA": "duplo ",
+          "AAA": "triplo "
         }
       },
       "scoreboard": {

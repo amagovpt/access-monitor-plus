@@ -1,14 +1,17 @@
 import "./styles/theme.css";
+import "./styles/fontStyle.css";
+
+import { useState } from "react";
+import { ThemeProvider } from "./context/ThemeContext";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./i18n";
+
 import Layout from "./pages/Layout";
 import Home from "./pages/Home/";
-import "./i18n";
 import Resume from "./pages/Resume";
 import Detail from "./pages/Details";
 import PageCode from "./pages/PageCode";
 import Error from "./pages/Error";
-import { useState } from "react";
-import { ThemeProvider } from "./context/ThemeContext";
 
 export default function App() {
   const [allData, setAllData] = useState([]);

@@ -14,16 +14,16 @@ export function TableDetails({ data }) {
       </caption>
       <thead>
         <tr>
-          <th className="th_size">{t("ELEMENT_RESULTS.result.ocurrenceNumber")}</th>
-          <th>{t("ELEMENT_RESULTS.result.ocurrenceDetail")}</th>
+          <th scope="col" className="th_size">{t("ELEMENT_RESULTS.result.ocurrenceNumber")}</th>
+          <th scope="col" >{t("ELEMENT_RESULTS.result.ocurrenceDetail")}</th>
         </tr>
       </thead>
       <tbody>
         {data &&
           data.map((item, index) => (
             <>
-              <tr key={index} className="table_container-details">
-                <td className="counter">{index + 1}</td>
+              <tr key={index}>
+                <td className="ama-typography-display-4 align-middle text-center">{index + 1}</td>
                 <td>
                   <dl className="text-start">
                     <dt className="mb-2">{t("ELEMENT_RESULTS.result.element")}</dt>

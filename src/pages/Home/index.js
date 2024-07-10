@@ -3,9 +3,9 @@ import { InsertUrl } from "./_components/insert-url";
 import { InsertHtml } from "./_components/insert-html";
 import "./styles.css";
 
-import { Breadcrumb, Tabs } from "../../components/index";
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
+import { Breadcrumb, Tabs } from "ama-design-system";
 
 import { useTranslation } from "react-i18next";
 
@@ -33,7 +33,7 @@ export default function Home({ changeState }) {
   const breadcrumbs = [
     {
       title: "Acessibilidade.gov.pt",
-      href: "/",
+      href: "https://www.acessibilidade.gov.pt/",
     },
     { title: "Access Monitor", href: "/amp" },
   ];
@@ -47,7 +47,7 @@ export default function Home({ changeState }) {
     <>
       <div className="container">
         <div className="link_breadcrumb_container">
-          <Breadcrumb data={breadcrumbs} />
+          <Breadcrumb data={breadcrumbs} darkTheme={theme} tagHere={t("HEADER.DROPDOWN.youarehere")} />
         </div>
 
         <section

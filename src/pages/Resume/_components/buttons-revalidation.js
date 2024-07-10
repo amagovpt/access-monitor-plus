@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { Button, Icon } from "../../../components";
+import { Button, Icon } from 'ama-design-system'
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import "./styles.css";
 
 export function ButtonsActions({
   reRequest,

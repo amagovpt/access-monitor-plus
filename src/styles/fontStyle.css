@@ -1,11 +1,11 @@
 @font-face {
   font-family: "AMA";
-  src: url("../../../fonts/AMA.eot?9zvrzh");
+  src: url("/public/fonts/AMA.eot?9zvrzh");
   src:
-    url("../../../fonts/AMA.eot?9zvrzh#iefix") format("embedded-opentype"),
-    url("../../../fonts/AMA.ttf?9zvrzh") format("truetype"),
-    url("../../../fonts/AMA.woff?9zvrzh") format("woff"),
-    url("../../../fonts/AMA.svg?9zvrzh#AMA") format("svg");
+    url("/public/fonts/AMA.eot?9zvrzh#iefix") format("embedded-opentype"),
+    url("/public/fonts/AMA.ttf?9zvrzh") format("truetype"),
+    url("/public/fonts/AMA.woff?9zvrzh") format("woff"),
+    url("/public/fonts/AMA.svg?9zvrzh#AMA") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;

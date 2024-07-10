@@ -199,3 +199,7 @@ export function optionForAccordion(t, data) {
 
   return optionsArray;
 }
+
+export function callbackImgT(t, img) {
+  return t(`RESULTS.results.image_title.${img}`)
+}
