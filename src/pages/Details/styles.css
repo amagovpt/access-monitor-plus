@@ -14,7 +14,7 @@
 }
 
 .textHeader code {
-  color: #e83e8c !important;
+  color: #DC3545 !important;
   text-decoration: none;
 }
 
@@ -97,6 +97,10 @@
   color: var(--ama-color-background-white);
 }
 
+.dark_mode-details .table1 thead th {
+  background-color: var(--ama-color-background-dark-darker) !important;
+}
+
 .dark_mode-details .table1 tbody tr td a {
   color: var(--ama-color-text-blue);
 }
@@ -105,6 +109,7 @@
   border-color: var(--ama-color-background-white) !important;
 }
 
-.dark_mode-details .table1 code {
+.dark_mode-details .table1 code,
+.dark_mode-details .textHeader code {
   color: var(--ama-color-red-300) !important;
 }
