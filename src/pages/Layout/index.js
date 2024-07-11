@@ -32,6 +32,7 @@ export default function Layout({ children }) {
         language={language}
         changeLanguage={toggleLanguage}
         changeTheme={toggleTheme}
+        linkTo={"/amp"}
       />
       <main
         className={`main ${mainDark}`}
