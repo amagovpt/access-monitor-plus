@@ -56,7 +56,7 @@ export function InsertHtmlUpload() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label for={t("HOME_PAGE.file_label")} className="margin-bottom upload_label">{t("HOME_PAGE.file_title")}</label>
+      <label htmlFor={t("HOME_PAGE.file_label")} className="margin-bottom upload_label">{t("HOME_PAGE.file_title")}</label>
       <div className="input-group mb-3 d-flex justify-content-start align-items-start">
         <button className="btn" type="button" onClick={handleButtonClick}>
           {t("HOME_PAGE.file_label")}
