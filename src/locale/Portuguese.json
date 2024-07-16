@@ -56,8 +56,8 @@
           "link5": "Requisitos do Selo"
         },
         "youarehere": "você está aqui",
-        "open_dropdown": "pressione para comprimir a nossa lista de aplicações e sítios web",
-        "close_dropdown": "pressione para expandir a nossa lista de aplicações e sítios web"
+        "open_dropdown": "pressione para expandir a nossa lista de aplicações e sítios web",
+        "close_dropdown": "pressione para comprimir a nossa lista de aplicações e sítios web"
       }
     },
     "HOME_PAGE": {
@@ -156,8 +156,9 @@
           "AMA-Middle-Line": "Prática para ver manualmente"
         },
         "ariaLabels": {
-          "AA": "duplo ",
-          "AAA": "triplo "
+          "A": "A",
+          "AA": "duplo A",
+          "AAA": "triplo A"
         }
       },
       "scoreboard": {

@@ -62,6 +62,7 @@ export default function Resume({ setAllData, setEle }) {
             ? await api.post("/eval/html", { html: contentHtml })
             : await api.get(`/eval/${decodedUrl}`);
 
+
         if (content !== "html") {
           localStorage.setItem("evaluation", JSON.stringify(response.data));
           localStorage.setItem("evaluationUrl", currentUrl);
@@ -76,6 +77,7 @@ export default function Resume({ setAllData, setEle }) {
       } catch (error) {
         console.error("Erro", error);
         setLoadingProgress(false);
+        navigate("/amp/error")
       }
     };
 
@@ -227,6 +229,7 @@ export default function Resume({ setAllData, setEle }) {
               darkTheme={theme}
               ariaLabels={{
                 button: t("RESULTS.results.details"),
+                A: t("RESULTS.results.ariaLabels.A"),
                 AA: t("RESULTS.results.ariaLabels.AA"),
                 AAA: t("RESULTS.results.ariaLabels.AAA")
               }}

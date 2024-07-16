@@ -30,7 +30,7 @@ export default function App() {
 
             <Route
               path="/amp/results/:content/:details"
-              element={<Detail allData={allData} />}
+              element={<Detail setAllData={setAllData} allData={allData} />}
             />
 
             <Route
