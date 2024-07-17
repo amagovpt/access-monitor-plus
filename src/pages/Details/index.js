@@ -139,7 +139,9 @@ export default function Details({ allData, setAllData }) {
         </div>
 
         {loadingProgress ? (
-          <LoadingComponent loadingText={t("MISC.loading")} darkTheme={theme} />
+          <section className={`loading_container bg-white`}>
+            <LoadingComponent loadingText={t("MISC.loading")} darkTheme={theme} />
+          </section>
         ) : 
           <>
             <div className="bg-white show_details">

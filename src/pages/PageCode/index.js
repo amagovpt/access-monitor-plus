@@ -114,7 +114,9 @@ export default function Resume() {
         </h1>
         <p className="report_container_subtitle">{t("HEADER.NAV.code")}</p>
         {loadingProgress ? (
-          <LoadingComponent loadingText={t("MISC.loading")} darkTheme={theme} />
+          <section className={`loading_container bg-white`}>
+            <LoadingComponent loadingText={t("MISC.loading")} darkTheme={theme} />
+          </section>
         ) : (
           <ButtonsActions
             downloadCSV={() => downloadCSV(dataProcess, originalData, t)}

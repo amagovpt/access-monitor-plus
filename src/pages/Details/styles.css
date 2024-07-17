@@ -113,3 +113,7 @@
 .dark_mode-details .textHeader code {
   color: var(--ama-color-red-300) !important;
 }
+
+.dark_mode-details .loading_container {
+  background-color: var(--ama-color-background-dark-lighter) !important;
+}
