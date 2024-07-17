@@ -56,8 +56,8 @@
           "link5": "Badge requirements"
         },
           "youarehere": "you are here",
-          "open_dropdown": "press to compress our list of applications and websites",
-          "close_dropdown": "press to expand our list of applications and websites"
+          "open_dropdown": "press to expand our list of applications and websites",
+          "close_dropdown": "press to compress our list of applications and websites"
       }
     },
     "HOME_PAGE": {
@@ -157,8 +157,9 @@
           "AMA-Middle-Line": "Practice to view manually"
         },
         "ariaLabels": {
-          "AA": "double ",
-          "AAA": "triple "
+          "A": "A",
+          "AA": "double A",
+          "AAA": "triple A"
         }
       },
       "scoreboard": {
