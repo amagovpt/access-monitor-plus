@@ -12,7 +12,9 @@ import { api } from "../../config/api";
 
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 
-export let tot;
+import { tot } from '../Resume'
+
+export let tot2;
 
 export default function Details({ allData, setAllData }) {
   const location = useLocation();
@@ -56,7 +58,12 @@ export default function Details({ allData, setAllData }) {
   };
 
   function getDetails() {
-    const response = getTestResults(details, allData);
+    const response = getTestResults(details, allData, tot);
+    setDataTable(response);
+  }
+
+  function getDetailsData(data) {
+    const response = getTestResults(details, data, tot2);
     setDataTable(response);
   }
 
@@ -65,7 +72,7 @@ export default function Details({ allData, setAllData }) {
       setLoadingProgress(true);
 
       try {
-        if(allData && allData.length > 0) {
+        if(allData && allData.tot && allData.elems) {
           getDetails();
           setLoadingProgress(false);
           return;
@@ -78,8 +85,9 @@ export default function Details({ allData, setAllData }) {
         if (storedData && storedUrl === currentUrl) {
           const parsedStoredData = JSON.parse(storedData);
           setAllData(parsedStoredData.result?.data);
+          tot2 = parsedStoredData?.result?.data?.tot;
+          getDetailsData(parsedStoredData.result?.data);
           setLoadingProgress(false);
-          tot = parsedStoredData?.result?.data?.tot;
           return;
         }
         const response = await api.get(`/eval/${currentUrl}`)
@@ -87,10 +95,10 @@ export default function Details({ allData, setAllData }) {
           localStorage.setItem("evaluation", JSON.stringify(response.data));
           localStorage.setItem("evaluationUrl", currentUrl);
         }
-        tot = response?.data?.result?.data.tot;
+        tot2 = response?.data?.result?.data.tot;
 
         setAllData(response.data?.result?.data);
-        getDetails();
+        getDetailsData(response.data?.result?.data);
         setLoadingProgress(false);
       } catch (error) {
         console.error("Erro", error);
@@ -101,9 +109,9 @@ export default function Details({ allData, setAllData }) {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    getDetails();
-  }, [allData]);
+  // useEffect(() => {
+  //   getDetailsData(allData);
+  // }, [allData]);
 
   let iconName;
 

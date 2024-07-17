@@ -132,24 +132,24 @@ export function processData(tot) {
   return datax;
 }
 
-export function getTestResults(test, data) {
+export function getTestResults(test, data, totPassed) {
   const { nodes } = data;
   const allNodes = nodes;
   const ele = test;
 
-  return getElements(allNodes, ele);
+  return getElements(allNodes, ele, totPassed);
 }
 
-export function getElements(allNodes, ele) {
+export function getElements(allNodes, ele, totPassed) {
   // const ead = processData(tot);
 
-  const dataTransform = processData(tot);
+  const dataTransform = processData(totPassed);
 
   if (ele === "form") {
     ele = "formSubmitNo";
   }
 
-  const elements = getElementsList(allNodes && allNodes[ele]);
+  const elements = getElementsList(allNodes && allNodes[ele], totPassed);
 
   let result = "G";
   const results = dataTransform?.results.map((r) => r.msg);
@@ -185,7 +185,7 @@ export function getTagName(element) {
   return name;
 }
 
-export function fixCode(code) {
+export function fixCode(code, totPassed) {
   code = code.replace(/_cssrules="true"/g, "");
   code = code.replace(/_documentselector="undefined"/g, "");
 
@@ -209,10 +209,10 @@ export function fixCode(code) {
     index = code.indexOf('_selector="');
   }
 
-  return fixeSrcAttribute(code);
+  return fixeSrcAttribute(code, totPassed);
 }
 
-export function getElementsList(nodes) {
+export function getElementsList(nodes, totPassed) {
   const elements = new Array();
   for (const node of nodes || []) {
     if (node.elements) {
@@ -225,8 +225,8 @@ export function getElementsList(nodes) {
               ? element.attributes
               : ele === "title"
                 ? this.evaluation.processed.metadata.title
-                : fixCode(element.htmlCode),
-          showCode: ele === "style" ? undefined : fixCode(element.htmlCode),
+                : fixCode(element.htmlCode, totPassed),
+          showCode: ele === "style" ? undefined : fixCode(element.htmlCode, totPassed),
           pointer: element.pointer,
         });
       }
@@ -234,8 +234,8 @@ export function getElementsList(nodes) {
       const ele = getTagName(node);
       elements.push({
         ele,
-        code: ele === "style" ? node.attributes : fixCode(node.htmlCode),
-        showCode: ele === "style" ? undefined : fixCode(node.htmlCode),
+        code: ele === "style" ? node.attributes : fixCode(node.htmlCode, totPassed),
+        showCode: ele === "style" ? undefined : fixCode(node.htmlCode, totPassed),
         pointer: node.pointer,
       });
     }
@@ -244,8 +244,8 @@ export function getElementsList(nodes) {
   return elements;
 }
 
-function fixeSrcAttribute(code) {
-  const ead = processData(tot);
+function fixeSrcAttribute(code, totPassed) {
+  const ead = processData(totPassed);
 
   if (code.startsWith("<img")) {
     const protocol = ead.metadata.url.startsWith("https://")
