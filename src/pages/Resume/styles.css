@@ -1,0 +1,200 @@
+.acess_monitor {
+  font-size: 19px;
+  line-height: 48px;
+  color: var(--ama-color-background-white);
+  background-color: var(--ama-color-brand-primary);
+  font-weight: 700;
+  font-family: var(--fonte-lato);
+  height: 31px;
+  width: 157px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0.38px;
+}
+
+.report_container_title {
+  font-size: 2.6em;
+  color: var(--ama-color-text-gray);
+  font-weight: 900;
+  font-family: "Lato";
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  word-break: break-all;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.report_container_subtitle {
+  font-size: 2em;
+  color: var(--ama-color-text-gray);
+  font-weight: 700;
+  font-family: "Lato";
+  margin-top: 0;
+  margin-bottom: 2em !important;
+}
+
+.sumary_container {
+  margin: 40px 0;
+  padding: 30px 60px;
+}
+
+.chart_container {
+  width: 20%;
+  margin-right: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resume_info_about_uri {
+  width: 80%;
+}
+
+.resume_info_about_uri div span:first-child {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.resume_info_about_uri div span:last-child {
+  font-size: 18px;
+}
+
+.size_container {
+  width: 20%;
+  margin-right: 4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.size_container div span:first-child {
+  font-size: 2.25em;
+  font-weight: 700;
+  color: var(--ama-color-text-gray);
+}
+
+.size_container div span:last-child {
+  font-size: 1em;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--ama-color-text-gray);
+}
+
+.table_container_sumary {
+  width: 80%;
+}
+
+.avaliation_container {
+  padding: 30px 60px;
+}
+
+.avaliation_title {
+  margin-bottom: 3rem;
+}
+
+.break_url {
+  word-break: break-all;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .report_container_title {
+    font-size: 38px;
+    font-weight: bold !important;
+  }
+
+  .report_container_subtitle {
+    font-size: 22px;
+    margin-top: 15px;
+  }
+
+  .sumary_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 30px 15px;
+  }
+
+  .container_uri_chart {
+    display: flex;
+    width: 100% !important;
+    flex-direction: column !important;
+    margin-top: 1rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .chart_container {
+    display: flex;
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .resume_info_about_uri {
+    display: flex;
+    margin-top: 2rem;
+    width: 100% !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .size_and_table_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column !important;
+  }
+
+  .size_container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center !important;
+    margin-bottom: 2rem;
+  }
+
+  .avaliation_container {
+    padding: 30px 15px;
+  }
+
+  .dark_mode-resume .mobile_row-container-total {
+    margin-top: 5px;
+    padding: 5px 0;
+    background-color: var(--ama-color-background-light-lighter) !important;
+  }
+  
+  .dark_mode-resume .mobile-row {
+    background-color: var(--ama-color-background-light-lighter) !important;
+  }
+}
+
+/* Dark mode */
+.dark_mode-resume .avaliation_container {
+  background-color: var(--ama-color-background-dark-lighter) !important;
+}
+
+.dark_mode-resume .avaliation_title {
+  color: var(--ama-color-background-white);
+}
+
+.dark_mode-resume .report_container_subtitle,
+.dark_mode-resume .sumary_container .size_container span {
+  color: var(--ama-color-background-white) !important;
+}
+
+.dark_mode-resume .sumary_container {
+  background-color: var(--ama-color-background-dark-lighter) !important;
+  color: var(--ama-color-background-white);
+}
+
+.dark_mode-resume .loading_container {
+  background-color: var(--ama-color-background-dark-lighter) !important;
+}

@@ -1,0 +1,114 @@
+.main .link_breadcrumb_container {
+  padding: 3rem 0px 2rem 0px;
+}
+
+.validator_container {
+  padding: 62px 60px;
+  display: grid;
+  grid-template-columns: 55% 45%;
+}
+
+.validator_container_description {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.75em;
+}
+
+.validator_container .right_container {
+  place-content: flex-start center;
+}
+
+.verify_img {
+  width: 237px;
+}
+
+.nav-item button {
+  width: 200px;
+  min-width: 210px;
+  height: 55px;
+}
+
+.link_breadcrumb_container .breadcrumb .breadcrumb-item:not(:first-child) {
+  background-image: url("/public/img/chevron-right-dark.svg");
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .link_breadcrumb_container {
+    padding: 2rem 0px 1rem 0px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .validator_container {
+    grid-template-columns: 100%;
+    padding: 20px;
+  }
+
+  .validator_container .left_container {
+    width: 100%;
+  }
+
+  .validator_container .right_container {
+    display: none !important;
+  }
+}
+
+/* DARK */
+
+.main_content_home {
+  background-color: var(--ama-color-background-dark-lighter) !important;
+  color: var(--ama-color-background-white);
+}
+
+.main_content_home .nav-tabs {
+  background-color: var(--ama-color-background-dark-darker) !important;
+  border-bottom: 0px;
+}
+
+.main_content_home .nav-item button {
+  background-color: var(--ama-color-background-dark-darker) !important;
+  color: var(--header-top-bar-dark-text) !important;
+}
+
+.main_content_home .nav-tabs .nav-link.active {
+  border-bottom-color: var(--header-top-bar-dark-text);
+}
+
+.main_dark .breadcrumb-item {
+  color: var(--header-top-bar-dark-text) !important;
+}
+
+.main_dark .breadcrumb-item a {
+  color: var(--header-top-bar-dark-text) !important;
+}
+
+.main_dark .breadcrumb-item::before {
+  color: var(--header-top-bar-dark-text) !important;
+}
+
+.main_content_home input[type="file"].form-control {
+  background-color: var(--ama-color-background-dark-lighter);
+  color: var(--ama-color-text-blue);
+  border-color: var(--ama-color-text-blue) !important;
+  padding-top: 12px;
+}
+
+.main_content_home .input-group .btn {
+  background-color: var(--ama-color-text-blue);
+  color: var(--ama-color-text-gray);
+  border-color: var(--ama-color-text-blue) !important;
+}
+
+.main_content_home .input-group .btn:hover {
+  background-color: var(--ama-color-background-dark-lighter);
+  color: var(--ama-color-text-blue);
+  border-color: var(--ama-color-text-blue) !important;
+}
+
+.main_content_home .upload_label {
+  color: var(--ama-color-text-blue);
+}
+
+.link_breadcrumb_container .breadcrumbs.dark .breadcrumb .breadcrumb-item:not(:first-child) {
+  background-image: url("/public/img/chevron-right-light.svg");
+}

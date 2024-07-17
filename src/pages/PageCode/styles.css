@@ -1,0 +1,86 @@
+.acess_monitor {
+  font-size: 19px;
+  line-height: 48px;
+  color: var(--ama-color-background-white);
+  background-color: var(--ama-color-brand-primary);
+  font-weight: 700;
+  height: 31px;
+  width: 157px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0.38px;
+}
+
+.report_container_title {
+  color: var(--ama-color-text-gray);
+  word-break: break-all;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.report_container_subtitle {
+  font-size: 1.5em;
+  color: var(--ama-color-text-gray);
+  font-weight: 700;
+  font-family: "Lato";
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+.html_code {
+  padding: 15px;
+  background-color: var(--white);
+  margin-bottom: 100px;
+  word-break: normal;
+  white-space: pre;
+  margin: 40px 0;
+}
+
+.html_code pre {
+  display: block !important;
+  font-size: 87.5%;
+  color: var(--ama-color-text-gray);
+  word-wrap: break-word;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .report_container_title {
+    font-size: 38px;
+    font-weight: bold !important;
+  }
+
+  .report_container_subtitle {
+    font-size: 22px;
+    margin-top: 15px;
+  }
+}
+
+/* Dark mode */
+.dark_mode-code .report_container_title,
+.dark_mode-code .report_container_subtitle,
+.dark_mode-code .sumary_container h2,
+.dark_mode-code .sumary_container .size_container span {
+  color: var(--ama-color-background-white) !important;
+}
+
+.dark_mode-code .html_code {
+  background-color: var(--ama-color-background-dark-lighter) !important;
+  color: var(--ama-color-background-white) !important;
+}
+
+.dark_mode-code .html_code pre {
+  color: var(--ama-color-background-white) !important;
+}
+
+.dark_mode-code .acess_monitor {
+  background-color: var(--ama-color-text-blue);
+  color: var(--ama-color-text-gray);
+}
+
+.dark_mode-code .loading_container {
+  background-color: var(--ama-color-background-dark-lighter) !important;
+}
