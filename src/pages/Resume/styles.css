@@ -194,3 +194,7 @@
   background-color: var(--ama-color-background-dark-lighter) !important;
   color: var(--ama-color-background-white);
 }
+
+.dark_mode-resume .loading_container {
+  background-color: var(--ama-color-background-dark-lighter) !important;
+}

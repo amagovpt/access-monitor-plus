@@ -157,7 +157,9 @@ export default function Resume({ setAllData, setEle }) {
       <div className="report_container">
         <h1 className="report_container_subtitle">{t("RESULTS.title")}</h1>
         {loadingProgress ? (
-          <LoadingComponent loadingText={t("MISC.loading")} darkTheme={theme} />
+          <section className={`loading_container bg-white`}>
+            <LoadingComponent loadingText={t("MISC.loading")} darkTheme={theme} />
+          </section>
         ) : (
           <ButtonsActions
             reRequest={reRequest}

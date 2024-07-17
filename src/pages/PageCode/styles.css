@@ -80,3 +80,7 @@
   background-color: var(--ama-color-text-blue);
   color: var(--ama-color-text-gray);
 }
+
+.dark_mode-code .loading_container {
+  background-color: var(--ama-color-background-dark-lighter) !important;
+}
