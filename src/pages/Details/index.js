@@ -7,7 +7,6 @@ import { useTranslation } from "react-i18next";
 import { ThemeContext } from "../../context/ThemeContext";
 import { Breadcrumb, Icon, LoadingComponent } from "ama-design-system";
 
-import { processData } from "../../services";
 import { api } from "../../config/api";
 
 import { useParams, useNavigate, useLocation } from "react-router-dom";
@@ -57,13 +56,8 @@ export default function Details({ allData, setAllData }) {
     return url.replace(/^(https?:\/\/)?(www\.)?/, "");
   };
 
-  function getDetails() {
-    const response = getTestResults(details, allData, tot);
-    setDataTable(response);
-  }
-
-  function getDetailsData(data) {
-    const response = getTestResults(details, data, tot2);
+  function getDetailsData(data, tt) {
+    const response = getTestResults(details, data, tt);
     setDataTable(response);
   }
 
@@ -73,7 +67,7 @@ export default function Details({ allData, setAllData }) {
 
       try {
         if(allData && allData.tot && allData.elems) {
-          getDetails();
+          getDetailsData(allData, tot);
           setLoadingProgress(false);
           return;
         }
@@ -86,7 +80,7 @@ export default function Details({ allData, setAllData }) {
           const parsedStoredData = JSON.parse(storedData);
           setAllData(parsedStoredData.result?.data);
           tot2 = parsedStoredData?.result?.data?.tot;
-          getDetailsData(parsedStoredData.result?.data);
+          getDetailsData(parsedStoredData.result?.data, tot2);
           setLoadingProgress(false);
           return;
         }
@@ -95,8 +89,8 @@ export default function Details({ allData, setAllData }) {
           localStorage.setItem("evaluation", JSON.stringify(response.data));
           localStorage.setItem("evaluationUrl", currentUrl);
         }
-        tot2 = response?.data?.result?.data.tot;
 
+        tot2 = response?.data?.result?.data.tot;
         setAllData(response.data?.result?.data);
         getDetailsData(response.data?.result?.data);
         setLoadingProgress(false);
@@ -108,10 +102,6 @@ export default function Details({ allData, setAllData }) {
 
     fetchData();
   }, []);
-
-  // useEffect(() => {
-  //   getDetailsData(allData);
-  // }, [allData]);
 
   let iconName;
 
