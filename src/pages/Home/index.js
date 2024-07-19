@@ -9,6 +9,8 @@ import { Breadcrumb, Tabs } from "ama-design-system";
 
 import { useTranslation } from "react-i18next";
 
+import { pathURL } from "../../App";
+
 export default function Home({ changeState }) {
   const { t } = useTranslation();
 
@@ -35,13 +37,13 @@ export default function Home({ changeState }) {
       title: "Acessibilidade.gov.pt",
       href: "https://www.acessibilidade.gov.pt/",
     },
-    { title: "Access Monitor", href: "/amp" },
+    { title: "Access Monitor", href: `${pathURL}` },
   ];
 
   const { theme } = useContext(ThemeContext);
   const main_content_home = theme === "light" ? "" : "main_content_home";
   const imgUrl =
-    theme === "light" ? "/amp/img/verify.svg" : "/amp/img/verify-dark.svg";
+    theme === "light" ? `${pathURL}img/verify.svg` : `${pathURL}img/verify-dark.svg`;
 
   return (
     <>
