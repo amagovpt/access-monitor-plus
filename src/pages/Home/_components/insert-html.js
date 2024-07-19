@@ -6,6 +6,8 @@ import { ThemeContext } from "../../../context/ThemeContext";
 
 import { TextArea, Button, Icon } from 'ama-design-system'
 
+import { pathURL } from "../../../App";
+
 export function InsertHtml() {
   const { t } = useTranslation();
   const { theme } = useContext(ThemeContext);
@@ -15,7 +17,7 @@ export function InsertHtml() {
   async function handleSubmit() {
     try {
       const type = "html";
-      navigate(`/amp/results/${type}`, {
+      navigate(`${pathURL}results/${type}`, {
         state: { contentHtml: htmlValue },
       });
     } catch (error) {

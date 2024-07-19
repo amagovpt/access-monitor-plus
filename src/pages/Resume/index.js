@@ -12,6 +12,8 @@ import { ThemeContext } from "../../context/ThemeContext";
 import { optionForAccordion, callbackImgT } from "./utils";
 import "./styles.css";
 
+import { pathURL } from "../../App";
+
 export let tot;
 
 export default function Resume({ setAllData, setEle }) {
@@ -77,7 +79,7 @@ export default function Resume({ setAllData, setEle }) {
       } catch (error) {
         console.error("Erro", error);
         setLoadingProgress(false);
-        navigate("/amp/error")
+        navigate(`${pathURL}error`)
       }
     };
 
@@ -88,26 +90,26 @@ export default function Resume({ setAllData, setEle }) {
     if (content === "html") {
       const currentURL = window.location.pathname + window.location.search;
 
-      if (`/amp/results/${content}` === currentURL) {
+      if (`${pathURL}results/${content}` === currentURL) {
         window.location.href = currentURL;
       } else {
-        navigate(`/amp/results/${content}`, { state: { contentHtml } });
+        navigate(`${pathURL}results/${content}`, { state: { contentHtml } });
       }
     } else {
       const encodedURL = encodeURIComponent(content);
       const currentURL = window.location.pathname + window.location.search;
 
-      if (`/amp/results/${encodedURL}` === currentURL) {
+      if (`${pathURL}results/${encodedURL}` === currentURL) {
         window.location.href = currentURL;
       } else {
-        navigate(`/amp/results/${encodedURL}`);
+        navigate(`${pathURL}results/${encodedURL}`);
       }
     }
   };
 
   const seeCode = () => {
     const encodedURL = encodeURIComponent(content);
-    navigate(`/amp/results/${encodedURL}/code`, {
+    navigate(`${pathURL}results/${encodedURL}/code`, {
       state: {
         content: dataProcess,
         original: originalData,
@@ -122,10 +124,10 @@ export default function Resume({ setAllData, setEle }) {
 
     if (type === "") {
       const content = "html";
-      navigate(`/amp/results/${content}/${ele}`);
+      navigate(`${pathURL}results/${content}/${ele}`);
     } else {
       const encodedURL = encodeURIComponent(allData?.rawUrl);
-      navigate(`/amp/results/${encodedURL}/${ele}`);
+      navigate(`${pathURL}results/${encodedURL}/${ele}`);
     }
   }
 
@@ -134,7 +136,7 @@ export default function Resume({ setAllData, setEle }) {
       title: "Acessibilidade.gov.pt",
       href: "https://www.acessibilidade.gov.pt/",
     },
-    { title: "Access Monitor", href: "/amp" },
+    { title: "Access Monitor", href: `${pathURL}` },
     {
       title: dataProcess?.metadata?.url || "html",
       href: dataProcess?.metadata?.url,

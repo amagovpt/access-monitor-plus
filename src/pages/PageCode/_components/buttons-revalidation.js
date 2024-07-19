@@ -4,6 +4,8 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import "./styles.css";
 
+import { pathURL } from "../../../App";
+
 export function ButtonsActions({ downloadCSV, handleGoBack, themeClass }) {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -15,7 +17,7 @@ export function ButtonsActions({ downloadCSV, handleGoBack, themeClass }) {
           size="md"
           text={t("HEADER.evaluate_new_page")}
           iconRight={<Icon name="AMA-Setalongaoficial-Line" />}
-          onClick={() => navigate("/amp")}
+          onClick={() => navigate(`${pathURL}`)}
         />
 
         <div className="d-flex flex-row gap-3 other">
