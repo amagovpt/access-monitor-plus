@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./styles.css";
 
+import { pathURL } from "../../../App";
+
 export function ButtonsActions({
   reRequest,
   seeCode,
@@ -29,7 +31,7 @@ export function ButtonsActions({
           size="md"
           text={t("HEADER.evaluate_new_page")}
           iconRight={<Icon name="AMA-Setalongaoficial-Line" />}
-          onClick={() => navigate("/amp")}
+          onClick={() => navigate(`${pathURL}`)}
         />
 
         <div className="d-flex flex-row gap-3 other">
@@ -95,7 +97,7 @@ export function ButtonsActions({
             size="md"
             text={t("HEADER.evaluate_new_page")}
             iconRight={<Icon name="AMA-Setalongaoficial-Line" />}
-            onClick={() => navigate("/amp")}
+            onClick={() => navigate(`${pathURL}`)}
           />
 
           <div>

@@ -11,7 +11,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 
 import { downloadCSV } from "../../utils/utils";
 
-export let tot;
+import { pathURL } from "../../App";
 
 export default function Resume() {
   const location = useLocation();
@@ -33,7 +33,7 @@ export default function Resume() {
 
   const handleGoBack = () => {
     const test = location.pathname.split("/")
-    navigate(`/amp/results/${test[3]}`);
+    navigate(`${pathURL}results/${test[3]}`);
   };
 
   const removeProtocol = (url) => {
@@ -62,8 +62,6 @@ export default function Resume() {
           setDataProcess(processData(parsedStoredData?.result?.data?.tot));
           setPageCode(parsedStoredData?.result?.pagecode || "html");
           setLoadingProgress(false);
-
-          tot = parsedStoredData?.result?.data?.tot;
           return;
         }
         const response = await api.get(`/eval/${currentUrl}`)
@@ -71,7 +69,7 @@ export default function Resume() {
           localStorage.setItem("evaluation", JSON.stringify(response.data));
           localStorage.setItem("evaluationUrl", currentUrl);
         }
-        tot = response?.data?.result?.data.tot;
+        
         setOriginalData(response.data);
         setDataProcess(processData(response.data?.result?.data?.tot));
         setPageCode(response.data?.result?.pagecode || "html");
@@ -90,7 +88,7 @@ export default function Resume() {
       title: "Acessibilidade.gov.pt",
       href: "https://www.acessibilidade.gov.pt/",
     },
-    { title: "Access Monitor", href: "/amp" },
+    { title: "Access Monitor", href: `${pathURL}` },
     {
       title: dataProcess?.metadata?.url || "html",
       href: "",

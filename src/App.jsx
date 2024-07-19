@@ -13,35 +13,39 @@ import Detail from "./pages/Details";
 import PageCode from "./pages/PageCode";
 import Error from "./pages/Error";
 
+export const pathURL = process.env.REACT_APP_DEV_SERVER_URL;
+//export const pathURL = process.env.REACT_APP_PROD_SERVER_URL;
+
 export default function App() {
   const [allData, setAllData] = useState([]);
   const [setEle] = useState([]);
+
   return (
     <ThemeProvider>
       <Router>
         <Layout>
-          <Routes basename="/amp">
-            <Route path="amp/" element={<Home />} />
+          <Routes basename={`${pathURL}`}>
+            <Route path={`${pathURL}`} element={<Home />} />
 
             <Route
-              path="/amp/results/:content"
+              path={`${pathURL}results/:content`}
               element={<Resume setAllData={setAllData} setEle={setEle} />}
             />
 
             <Route
-              path="/amp/results/:content/:details"
+              path={`${pathURL}results/:content/:details`}
               element={<Detail setAllData={setAllData} allData={allData} />}
             />
 
             <Route
-              path="/amp/results/:content/code"
+              path={`${pathURL}results/:content/code`}
               element={<PageCode setAllData={setAllData} setEle={setEle} />}
             />
 
             {/* Outras rotas */}
 
             {/* Error page needs to be last */}
-            <Route path="/amp/*" element={<Error />} />
+            <Route path={`${pathURL}*`} element={<Error />} />
           </Routes>
         </Layout>
       </Router>
