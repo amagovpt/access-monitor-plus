@@ -5,6 +5,8 @@ import { useLocation } from 'react-router-dom'
 import "./styles.css";
 import { useTranslation } from "react-i18next";
 
+import { pathURL } from "../../App";
+
 export default function Layout({ children }) {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const location = useLocation()
@@ -26,13 +28,13 @@ export default function Layout({ children }) {
     <>
       <Header
         darkTheme={theme}
-        logo={theme === "light" ? "/amp/img/logo.svg" : "/amp/img/logo-dark.svg"}
+        logo={theme === "light" ? `${pathURL}img/logo.svg` : `${pathURL}img/logo-dark.svg`}
         description={t("HEADER.line_text")}
-        homePage={location.pathname === "/amp" ? true : false}
+        homePage={location.pathname === `${pathURL}` ? true : false}
         language={language}
         changeLanguage={toggleLanguage}
         changeTheme={toggleTheme}
-        linkTo={"/amp"}
+        linkTo={`${pathURL}`}
       />
       <main
         className={`main ${mainDark}`}

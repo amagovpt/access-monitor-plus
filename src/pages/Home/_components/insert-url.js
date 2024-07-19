@@ -9,6 +9,8 @@ import { ThemeContext } from "../../../context/ThemeContext";
 
 import { Button, Icon, Input } from 'ama-design-system'
 
+import { pathURL } from "../../../App";
+
 export function InsertUrl() {
   const [url, setURL] = useState("");
   const [error, setError] = useState(null);
@@ -25,7 +27,7 @@ export function InsertUrl() {
   const handleSubmit = () => {
     if (!error) {
       const encodedURL = encodeURIComponent(url);
-      navigate(`/amp/results/${encodedURL}`);
+      navigate(`${pathURL}results/${encodedURL}`);
     }
   };
 

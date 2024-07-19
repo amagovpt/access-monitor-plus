@@ -13,6 +13,8 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 
 import { tot } from '../Resume'
 
+import { pathURL } from "../../App";
+
 export let tot2;
 
 export default function Details({ allData, setAllData }) {
@@ -28,7 +30,7 @@ export default function Details({ allData, setAllData }) {
 
   const handleGoBack = () => {
     const test = location.pathname.split("/")
-    navigate(`/amp/results/${test[3]}`);
+    navigate(`${pathURL}results/${test[3]}`);
   };
 
   const url = allData?.rawUrl;
@@ -38,9 +40,9 @@ export default function Details({ allData, setAllData }) {
   const dataBreadCrumb = [
     {
       title: "Acessibilidade.gov.pt",
-      href: "/",
+      href: "https://www.acessibilidade.gov.pt/",
     },
-    { title: "Access Monitor", href: "/amp" },
+    { title: "Access Monitor", href: `${pathURL}` },
     {
       title: url || "html",
       href: "",

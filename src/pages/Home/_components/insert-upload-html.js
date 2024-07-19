@@ -7,6 +7,8 @@ import { ThemeContext } from "../../../context/ThemeContext";
 
 import { Button, Icon } from 'ama-design-system'
 
+import { pathURL } from "../../../App";
+
 export function InsertHtmlUpload() {
   const { t } = useTranslation();
   const { theme } = useContext(ThemeContext);
@@ -40,7 +42,7 @@ export function InsertHtmlUpload() {
   async function handleSubmit() {
     try {
       const type = "html";
-      navigate(`/amp/results/${type}`, {
+      navigate(`${pathURL}results/${type}`, {
         state: { contentHtml: file },
       });
     } catch (error) {

@@ -11,6 +11,8 @@ import { ThemeContext } from "../../context/ThemeContext";
 
 import { downloadCSV } from "../../utils/utils";
 
+import { pathURL } from "../../App";
+
 export default function Resume() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -31,7 +33,7 @@ export default function Resume() {
 
   const handleGoBack = () => {
     const test = location.pathname.split("/")
-    navigate(`/amp/results/${test[3]}`);
+    navigate(`${pathURL}results/${test[3]}`);
   };
 
   const removeProtocol = (url) => {
@@ -86,7 +88,7 @@ export default function Resume() {
       title: "Acessibilidade.gov.pt",
       href: "https://www.acessibilidade.gov.pt/",
     },
-    { title: "Access Monitor", href: "/amp" },
+    { title: "Access Monitor", href: `${pathURL}` },
     {
       title: dataProcess?.metadata?.url || "html",
       href: "",
