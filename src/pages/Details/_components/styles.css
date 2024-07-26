@@ -1,0 +1,36 @@
+/* TableComponent.css */
+.table1 {
+  width: 100% !important;
+  border-collapse: collapse;
+}
+
+.table1 tbody tr {
+  border-bottom: 1px solid var(--ama-color-text-gray);
+}
+
+.table1 thead th {
+  background-color: var(--ama-color-text-gray);
+  color: var(--ama-color-background-white);
+}
+
+.table1 code {
+  text-decoration: none;
+  font-weight: normal !important;
+  color: #DC3545 !important;
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
+.table1 thead th.th_size {
+  width: 16%;
+}
+
+.table1 thead {
+  border-color: transparent;
+}
+
+@media only screen and (max-width: 768px) {
+  .table thead th.th_size {
+    width: auto;
+  }
+}

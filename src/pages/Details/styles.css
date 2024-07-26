@@ -1,0 +1,119 @@
+.result_left_container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  border-left: 1px solid var(--ama-color-background-white);
+}
+
+.show_details {
+  margin-bottom: 2rem;
+}
+
+.details-container .nav-tabs {
+  margin-bottom: 0 !important;
+}
+
+.textHeader code {
+  color: #DC3545 !important;
+  text-decoration: none;
+}
+
+.tabContent_container-details {
+  background: var(--ama-color-background-white);
+  padding: 32px 48px;
+  overflow: auto;
+}
+
+@media (max-width: 768px) {
+  .show_details-container {
+    display: flex;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .tabContent_container-details {
+    background: var(--ama-color-background-white);
+    padding: 32px 18px;
+  }
+
+  .test_result {
+    font-weight: normal;
+  }
+}
+
+/* Dark mode */
+
+.dark_mode-details .report_container_title,
+.dark_mode-details .report_container_subtitle,
+.dark_mode-details .sumary_container h2,
+.dark_mode-details .sumary_container .size_container span {
+  color: var(--ama-color-background-white) !important;
+}
+
+.dark_mode-details .show_details {
+  background-color: var(--ama-color-background-dark-lighter) !important;
+}
+
+.dark_mode-details .show_details span {
+  color: var(--ama-color-background-white);
+}
+
+.dark_mode-details .nav-tabs {
+  background-color: transparent !important;
+  border-bottom: 0 !important;
+}
+
+.dark_mode-details .nav-tabs .nav-item button {
+  background-color: transparent !important;
+  color: var(--ama-color-text-blue) !important;
+  border-bottom-color: var(--ama-color-text-blue);
+}
+
+.dark_mode-details .tabContent_container-details {
+  background-color: var(--ama-color-background-dark-lighter) !important;
+}
+
+.dark_mode-details .label {
+  background-color: var(--ama-color-background-dark-darker);
+  color: var(--ama-color-background-white) !important;
+}
+
+.dark_mode-details .counter,
+.dark_mode-details .img {
+  color: var(--ama-color-background-white) !important;
+}
+
+.dark_mode-details .img h1,
+.dark_mode-details .img h2,
+.dark_mode-details .img h3,
+.dark_mode-details .img h4,
+.dark_mode-details .img h5,
+.dark_mode-details .img h6 {
+  color: var(--ama-color-background-white) !important;
+}
+
+.dark_mode-details .table1 tbody tr td {
+  background-color: transparent !important;
+  color: var(--ama-color-background-white);
+}
+
+.dark_mode-details .table1 thead th {
+  background-color: var(--ama-color-background-dark-darker) !important;
+}
+
+.dark_mode-details .table1 tbody tr td a {
+  color: var(--ama-color-text-blue);
+}
+
+.dark_mode-details .table1 tbody tr {
+  border-color: var(--ama-color-background-white) !important;
+}
+
+.dark_mode-details .table1 code,
+.dark_mode-details .textHeader code {
+  color: var(--ama-color-red-300) !important;
+}
+
+.dark_mode-details .loading_container {
+  background-color: var(--ama-color-background-dark-lighter) !important;
+}

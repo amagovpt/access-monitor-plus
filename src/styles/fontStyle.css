@@ -1,0 +1,941 @@
+@font-face {
+  font-family: "AMA";
+  src: url("/public/fonts/AMA.eot?9zvrzh");
+  src:
+    url("/public/fonts/AMA.eot?9zvrzh#iefix") format("embedded-opentype"),
+    url("/public/fonts/AMA.ttf?9zvrzh") format("truetype"),
+    url("/public/fonts/AMA.woff?9zvrzh") format("woff"),
+    url("/public/fonts/AMA.svg?9zvrzh#AMA") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "AMA" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-AMA-ArticleIdea-Line:before {
+  content: "\e9eb";
+}
+.icon-AMA-Aviso-Solid:before {
+  content: "\e9ec";
+}
+.icon-AMA-BracoPartido-Line:before {
+  content: "\e9ef";
+}
+.icon-AMA-Braille-Line:before {
+  content: "\e9f0";
+}
+.icon-AMA-CadeiraRodasPC-Line:before {
+  content: "\e9f1";
+}
+.icon-AMA-Carteira-Line1:before {
+  content: "\e9f2";
+}
+.icon-AMA-DeclaracaoDark-Line:before {
+  content: "\e9f3";
+}
+.icon-AMA-Declaracao-Line:before {
+  content: "\e9f4";
+}
+.icon-AMA-DocPartilhar-Solid:before {
+  content: "\e9f5";
+}
+.icon-AMA-DownloadFile-Line:before {
+  content: "\e9f6";
+}
+.icon-AMA-Esfera-Line:before {
+  content: "\e9f7";
+}
+.icon-AMA-Exit-Line:before {
+  content: "\e9f8";
+}
+.icon-AMA-Filter-Line:before {
+  content: "\e9f9";
+}
+.icon-AMA-Idoso-Line:before {
+  content: "\e9fa";
+}
+.icon-AMA-Invisible-Solid:before {
+  content: "\e9fb";
+}
+.icon-AMA-LastPage-Solid:before {
+  content: "\e9fc";
+}
+.icon-AMA-LoadURL-Line:before {
+  content: "\e9fd";
+}
+.icon-AMA-ManualIdeia-Line:before {
+  content: "\e9fe";
+}
+.icon-AMA-MarcadorGrande-Line:before {
+  content: "\e9ff";
+}
+.icon-AMA-MarcadorGrande-Solid:before {
+  content: "\ea00";
+}
+.icon-AMA-MenuCimaGrande-Line:before {
+  content: "\ea01";
+}
+.icon-AMA-Negativo-Solid:before {
+  content: "\ea02";
+}
+.icon-AMA-Ponto-Solid:before {
+  content: "\ea03";
+}
+.icon-AMA-Premio-Line:before {
+  content: "\ea04";
+}
+.icon-AMA-SeloDark2-Line:before {
+  content: "\ea05";
+}
+.icon-AMA-SeloDark-Line:before {
+  content: "\ea06";
+}
+.icon-AMA-SetaDir3-Solid:before {
+  content: "\ea07";
+}
+.icon-AMA-SiteAcessibilidade-Line:before {
+  content: "\ea08";
+}
+.icon-AMA-UploadFile-Line:before {
+  content: "\ea09";
+}
+.icon-AMA-Visible-Line:before {
+  content: "\ea0a";
+}
+.icon-AMA-X-Line:before {
+  content: "\ea0b";
+}
+.icon-AMA-Detalhe-Line:before {
+  content: "\e9e9";
+}
+.icon-AMA-Desktop-Line:before {
+  content: "\e9bc";
+}
+.icon-AMA-Plus-Line:before {
+  content: "\e9dd";
+}
+.icon-AMA-SetacurtaoficialDto-Line:before {
+  content: "\e9e4";
+}
+.icon-AMA-Code-Line:before {
+  content: "\e99f";
+}
+.icon-AMA-DownloadSetacurta-Line:before {
+  content: "\e9a0";
+}
+.icon-AMA-Reload-Line:before {
+  content: "\e9bb";
+}
+.icon-AMA-Check-Line:before {
+  content: "\e98f";
+}
+.icon-AMA-Wrong-Line:before {
+  content: "\e991";
+}
+.icon-AMA-Middle-Line:before {
+  content: "\e998";
+}
+.icon-AMA-SetacurtaoficialEsq-Line:before {
+  content: "\e96e";
+}
+.icon-AMA-SetadoisoficialCima-Line:before {
+  content: "\e986";
+}
+.icon-AMA-Setalongaoficial-Line:before {
+  content: "\e951";
+}
+.icon-AMA-Assistente-Solid:before {
+  content: "\e900";
+}
+.icon-AMA-Calculadora-Solid:before {
+  content: "\e901";
+}
+.icon-AMA-CartaAberta-Solid:before {
+  content: "\e902";
+}
+.icon-AMA-Cartao-Solid:before {
+  content: "\e903";
+}
+.icon-AMA-Carta-Solid:before {
+  content: "\e904";
+}
+.icon-AMA-Carteira-Solid:before {
+  content: "\e905";
+}
+.icon-AMA-Casa-Solid:before {
+  content: "\e906";
+}
+.icon-AMA-Conversa-Solid:before {
+  content: "\e907";
+}
+.icon-AMA-Estrela-Solid:before {
+  content: "\e908";
+}
+.icon-AMA-MarcadorEsq-Solid:before {
+  content: "\e909";
+}
+.icon-AMA-Calculadora-Line:before {
+  content: "\e90a";
+}
+.icon-AMA-Cartao-Line:before {
+  content: "\e90b";
+}
+.icon-AMA-Ticket-Line:before {
+  content: "\e90c";
+}
+.icon-AMA-Carteira-Line:before {
+  content: "\e90d";
+}
+.icon-AMA-MarcadorEsq-Line:before {
+  content: "\e90e";
+}
+.icon-AMA-Sino-Line:before {
+  content: "\e90f";
+}
+.icon-AMA-Assistente-Line:before {
+  content: "\e910";
+}
+.icon-AMA-Conversa-Line:before {
+  content: "\e911";
+}
+.icon-AMA-Carta-Line:before {
+  content: "\e912";
+}
+.icon-AMA-CartaAberta-Line:before {
+  content: "\e913";
+}
+.icon-AMA-Email-Line:before {
+  content: "\e914";
+}
+.icon-AMA-Casa-Line:before {
+  content: "\e915";
+}
+.icon-AMA-Estrela-Line:before {
+  content: "\e916";
+}
+.icon-AMA-Entrar-Line:before {
+  content: "\e917";
+}
+.icon-AMA-Sair-Line:before {
+  content: "\e918";
+}
+.icon-AMA-Pesquisar-Line:before {
+  content: "\e919";
+}
+.icon-AMA-Menu-Line:before {
+  content: "\e91a";
+}
+.icon-AMA-Grafico-Line:before {
+  content: "\e91b";
+}
+.icon-AMA-Externo-Line:before {
+  content: "\e91c";
+}
+.icon-AMA-Copiar-Line:before {
+  content: "\e91d";
+}
+.icon-AMA-Atualizar-Line:before {
+  content: "\e91e";
+}
+.icon-AMA-Natal-Line:before {
+  content: "\e91f";
+}
+.icon-AMA-Pasta-Line:before {
+  content: "\e920";
+}
+.icon-AMA-Doc-Line:before {
+  content: "\e921";
+}
+.icon-AMA-Folha-Line:before {
+  content: "\e922";
+}
+.icon-AMA-Livro-Line:before {
+  content: "\e923";
+}
+.icon-AMA-Caixa-Line:before {
+  content: "\e924";
+}
+.icon-AMA-DocPartilhar-Line:before {
+  content: "\e925";
+}
+.icon-AMA-Editar-Line:before {
+  content: "\e926";
+}
+.icon-AMA-Mais-Line:before {
+  content: "\e927";
+}
+.icon-AMA-SimplesMais-Line:before {
+  content: "\e928";
+}
+.icon-AMA-Menus-Line:before {
+  content: "\e929";
+}
+.icon-AMA-SimplesMenus-Line:before {
+  content: "\e92a";
+}
+.icon-AMA-Carregar-Line:before {
+  content: "\e92b";
+}
+.icon-AMA-Descarregar-Line:before {
+  content: "\e92c";
+}
+.icon-AMA-Anexar-Line:before {
+  content: "\e92d";
+}
+.icon-AMA-ListaPonto-Line:before {
+  content: "\e92e";
+}
+.icon-AMA-Configurar-Line:before {
+  content: "\e92f";
+}
+.icon-AMA-Ponto-Line:before {
+  content: "\e930";
+}
+.icon-AMA-Transferir-Line:before {
+  content: "\e931";
+}
+.icon-AMA-OrdenarDescendente-Line:before {
+  content: "\e932";
+}
+.icon-AMA-OrdenarAscendente-Line:before {
+  content: "\e933";
+}
+.icon-AMA-OrdenarAlfabetico-Line:before {
+  content: "\e934";
+}
+.icon-AMA-Lixo-Line:before {
+  content: "\e935";
+}
+.icon-AMA-Imprimir-Line:before {
+  content: "\e936";
+}
+.icon-AMA-Apagar-Line:before {
+  content: "\e937";
+}
+.icon-AMA-Cafe-Line:before {
+  content: "\e938";
+}
+.icon-AMA-Opcao-Line:before {
+  content: "\e939";
+}
+.icon-AMA-Wifi-Line:before {
+  content: "\e93a";
+}
+.icon-AMA-GPS-Line:before {
+  content: "\e93b";
+}
+.icon-AMA-Conduzir-Line:before {
+  content: "\e93c";
+}
+.icon-AMA-Mapa-Line:before {
+  content: "\e93d";
+}
+.icon-AMA-Pin-Line:before {
+  content: "\e93e";
+}
+.icon-AMA-Centrar-Line:before {
+  content: "\e93f";
+}
+.icon-AMA-Mala-Line:before {
+  content: "\e940";
+}
+.icon-AMA-Bandeira-Line:before {
+  content: "\e941";
+}
+.icon-AMA-Filmar-Line:before {
+  content: "\e942";
+}
+.icon-AMA-FilmarDesligar-Line:before {
+  content: "\e943";
+}
+.icon-AMA-Microfone-Line:before {
+  content: "\e944";
+}
+.icon-AMA-FilmarDesligar2-Line:before {
+  content: "\e945";
+}
+.icon-AMA-Video-Line:before {
+  content: "\e946";
+}
+.icon-AMA-Camara-Line:before {
+  content: "\e947";
+}
+.icon-AMA-Monitor-Line:before {
+  content: "\e948";
+}
+.icon-AMA-PartilharEcran-Line:before {
+  content: "\e949";
+}
+.icon-AMA-PartilharEcran-Solid:before {
+  content: "\e94a";
+}
+.icon-AMA-Anunciar-Line:before {
+  content: "\e94b";
+}
+.icon-AMA-VolumeAlto-Line:before {
+  content: "\e94c";
+}
+.icon-AMA-VolumeMedio-Line:before {
+  content: "\e94d";
+}
+.icon-AMA-VolumeBaixo-Line:before {
+  content: "\e94e";
+}
+.icon-AMA-VolumeDesligar-Line:before {
+  content: "\e94f";
+}
+.icon-AMA-Musica-Line:before {
+  content: "\e950";
+}
+.icon-AMA-Telemovel-Line:before {
+  content: "\e952";
+}
+.icon-AMA-SetaBaixo-Line:before {
+  content: "\e953";
+}
+.icon-AMA-SetaCima-Line:before {
+  content: "\e954";
+}
+.icon-AMA-SetaDir-Line:before {
+  content: "\e955";
+}
+.icon-AMA-SetaEsq-Line:before {
+  content: "\e956";
+}
+.icon-AMA-SetaBaixoC-Line:before {
+  content: "\e957";
+}
+.icon-AMA-SetaCimaC-Line:before {
+  content: "\e958";
+}
+.icon-AMA-SetaDirC-Line:before {
+  content: "\e959";
+}
+.icon-AMA-SetaEsqC-Line:before {
+  content: "\e95a";
+}
+.icon-AMA-SetaCima2-Line:before {
+  content: "\e95b";
+}
+.icon-AMA-SetaBaixo2-Line:before {
+  content: "\e95c";
+}
+.icon-AMA-SetaDireita2-Line:before {
+  content: "\e95d";
+}
+.icon-AMA-SetaEsq2-Line:before {
+  content: "\e95e";
+}
+.icon-AMA-SetaBaixo3-Line:before {
+  content: "\e95f";
+}
+.icon-AMA-SetaCima3-Line:before {
+  content: "\e960";
+}
+.icon-AMA-SetaDir3-Line:before {
+  content: "\e961";
+}
+.icon-AMA-SetaEsq3-Line:before {
+  content: "\e962";
+}
+.icon-AMA-SetaBaixoDuplo-Line:before {
+  content: "\e963";
+}
+.icon-AMA-SetaCimaDuplo-Line:before {
+  content: "\e964";
+}
+.icon-AMA-SetaCimaDuplo2-Line:before {
+  content: "\e965";
+}
+.icon-AMA-SetaDirDuplo-Line:before {
+  content: "\e966";
+}
+.icon-AMA-Defesa-Line:before {
+  content: "\e967";
+}
+.icon-AMA-Desbloquear-Line:before {
+  content: "\e968";
+}
+.icon-AMA-Bloquear-Line:before {
+  content: "\e969";
+}
+.icon-AMA-Mostrar-Line:before {
+  content: "\e96a";
+}
+.icon-AMA-Esconder-Line:before {
+  content: "\e96b";
+}
+.icon-AMA-Justica-Line:before {
+  content: "\e96c";
+}
+.icon-AMA-PDefesa-Line:before {
+  content: "\e96d";
+}
+.icon-AMA-Twitter-Line:before {
+  content: "\e96f";
+}
+.icon-AMA-Instagram-Line:before {
+  content: "\e970";
+}
+.icon-AMA-Facebook-Line:before {
+  content: "\e971";
+}
+.icon-AMA-Youtube-Line:before {
+  content: "\e972";
+}
+.icon-AMA-Linkedin-Line:before {
+  content: "\e973";
+}
+.icon-AMA-Partilhar2-Line:before {
+  content: "\e974";
+}
+.icon-AMA-Marcador-Line:before {
+  content: "\e975";
+}
+.icon-AMA-Erro-Line:before {
+  content: "\e976";
+}
+.icon-AMA-Cruz-Line:before {
+  content: "\e977";
+}
+.icon-AMA-Certo-Line:before {
+  content: "\e978";
+}
+.icon-AMA-SimplesCerto-Line:before {
+  content: "\e979";
+}
+.icon-AMA-Questao-Line:before {
+  content: "\e97a";
+}
+.icon-AMA-Afirmacao-Line:before {
+  content: "\e97b";
+}
+.icon-AMA-interrogacao-Line:before {
+  content: "\e97c";
+}
+.icon-AMA-Aviso-Line:before {
+  content: "\e97d";
+}
+.icon-AMA-Carregar2-Line:before {
+  content: "\e97e";
+}
+.icon-AMA-Negativo-Line:before {
+  content: "\e97f";
+}
+.icon-AMA-Autocarro-Line:before {
+  content: "\e980";
+}
+.icon-AMA-Carrinha-Line:before {
+  content: "\e981";
+}
+.icon-AMA-Calendario-Line:before {
+  content: "\e982";
+}
+.icon-AMA-Relogio-Line:before {
+  content: "\e983";
+}
+.icon-AMA-DuasPessoas-Line:before {
+  content: "\e984";
+}
+.icon-AMA-Pessoa-Line:before {
+  content: "\e985";
+}
+.icon-AMA-Menu2-Line:before {
+  content: "\e987";
+}
+.icon-AMA-Edificio-Line:before {
+  content: "\e988";
+}
+.icon-AMA-Organizacao-Line:before {
+  content: "\e989";
+}
+.icon-AMA-Certificado-Solid:before {
+  content: "\e98a";
+}
+.icon-AMA-Mais2-Line:before {
+  content: "\e98b";
+}
+.icon-AMA-Outros-Line:before {
+  content: "\e98c";
+}
+.icon-AMA-MenuCima-Line:before {
+  content: "\e98d";
+}
+.icon-AMA-Pesquisar-Solid:before {
+  content: "\e98e";
+}
+.icon-AMA-Mais2V-Solid:before {
+  content: "\e990";
+}
+.icon-AMA-Natal-Solid:before {
+  content: "\e992";
+}
+.icon-AMA-Pasta-Solid:before {
+  content: "\e993";
+}
+.icon-AMA-Doc-Solid:before {
+  content: "\e994";
+}
+.icon-AMA-Folha-Solid:before {
+  content: "\e995";
+}
+.icon-AMA-Livro-Solid:before {
+  content: "\e996";
+}
+.icon-AMA-Caixa-Solid:before {
+  content: "\e997";
+}
+.icon-AMA-Filtrar-Line:before {
+  content: "\e999";
+}
+.icon-AMA-Filtrar-Solid:before {
+  content: "\e99a";
+}
+.icon-AMA-Editar-Solid:before {
+  content: "\e99b";
+}
+.icon-AMA-Mais-Solid:before {
+  content: "\e99c";
+}
+.icon-AMA-Menus-Solid:before {
+  content: "\e99d";
+}
+.icon-AMA-Configurar-Solid:before {
+  content: "\e99e";
+}
+.icon-AMA-Lixo-Solid:before {
+  content: "\e9a1";
+}
+.icon-AMA-Imprimir-Solid:before {
+  content: "\e9a2";
+}
+.icon-AMA-Apagar-Solid:before {
+  content: "\e9a3";
+}
+.icon-AMA-Cafe-Solid:before {
+  content: "\e9a4";
+}
+.icon-AMA-Opcao-Solid:before {
+  content: "\e9a5";
+}
+.icon-AMA-GPS-Solid:before {
+  content: "\e9a6";
+}
+.icon-AMA-Conduzir-Solid:before {
+  content: "\e9a7";
+}
+.icon-AMA-Mapa-Solid:before {
+  content: "\e9a8";
+}
+.icon-AMA-Pin-Solid:before {
+  content: "\e9a9";
+}
+.icon-AMA-Centrar-Solid:before {
+  content: "\e9aa";
+}
+.icon-AMA-Mala-Solid:before {
+  content: "\e9ab";
+}
+.icon-AMA-Bandeira-Solid:before {
+  content: "\e9ac";
+}
+.icon-AMA-Filmar-Solid:before {
+  content: "\e9ad";
+}
+.icon-AMA-DesligarFilmar-Solid:before {
+  content: "\e9ae";
+}
+.icon-AMA-Microfone-Solid:before {
+  content: "\e9af";
+}
+.icon-AMA-DesligarMicrofone-Solid:before {
+  content: "\e9b0";
+}
+.icon-AMA-Video-Solid:before {
+  content: "\e9b1";
+}
+.icon-AMA-Camara-Solid:before {
+  content: "\e9b2";
+}
+.icon-AMA-Ecran-Solid:before {
+  content: "\e9b3";
+}
+.icon-AMA-Anunciar-Solid:before {
+  content: "\e9b4";
+}
+.icon-AMA-VolumeAlto-Solid:before {
+  content: "\e9b5";
+}
+.icon-AMA-VolumeMedio-Solid:before {
+  content: "\e9b6";
+}
+.icon-AMA-VolumeBaixo-Solid:before {
+  content: "\e9b7";
+}
+.icon-AMA-VolumeDesligado-Solid:before {
+  content: "\e9b8";
+}
+.icon-AMA-Musica-Solid:before {
+  content: "\e9b9";
+}
+.icon-AMA-Telemovel-Solid:before {
+  content: "\e9ba";
+}
+.icon-AMA-SetaBaixoC-Solid:before {
+  content: "\e9bd";
+}
+.icon-AMA-SetaCimaC-Solid:before {
+  content: "\e9be";
+}
+.icon-AMA-SetaDirC-Solid:before {
+  content: "\e9bf";
+}
+.icon-AMA-SetaEsqC-Solid:before {
+  content: "\e9c0";
+}
+.icon-AMA-Cima2-Solid:before {
+  content: "\e9c1";
+}
+.icon-AMA-Baixo2-Solid:before {
+  content: "\e9c2";
+}
+.icon-AMA-Direita2-Solid:before {
+  content: "\e9c3";
+}
+.icon-AMA-Esquerda2-Solid:before {
+  content: "\e9c4";
+}
+.icon-AMA-DuploBaixo-Solid:before {
+  content: "\e9c5";
+}
+.icon-AMA-DuploCima-Solid:before {
+  content: "\e9c6";
+}
+.icon-AMA-DuploEsquerda-Solid:before {
+  content: "\e9c7";
+}
+.icon-AMA-DuploDireita-Solid:before {
+  content: "\e9c8";
+}
+.icon-AMA-Defesa-Solid:before {
+  content: "\e9c9";
+}
+.icon-AMA-Desbloquear-Solid:before {
+  content: "\e9ca";
+}
+.icon-AMA-Bloquear-Solid:before {
+  content: "\e9cb";
+}
+.icon-AMA-Mostrar-Solid:before {
+  content: "\e9cc";
+}
+.icon-AMA-Esconder-Solid:before {
+  content: "\e9cd";
+}
+.icon-AMA-Justica-Solid:before {
+  content: "\e9ce";
+}
+.icon-AMA-PessoaDefender-Solid:before {
+  content: "\e9cf";
+}
+.icon-AMA-Twitter-Solid:before {
+  content: "\e9d0";
+}
+.icon-AMA-Instagram-Solid:before {
+  content: "\e9d1";
+}
+.icon-AMA-Facebook-Solid:before {
+  content: "\e9d2";
+}
+.icon-AMA-Youtube-Solid:before {
+  content: "\e9d3";
+}
+.icon-AMA-Linkedin-Solid:before {
+  content: "\e9d4";
+}
+.icon-AMA-Partilhar-Solid:before {
+  content: "\e9d5";
+}
+.icon-AMA-Marcador-Solid:before {
+  content: "\e9d6";
+}
+.icon-AMA-Erro-Solid:before {
+  content: "\e9d7";
+}
+.icon-AMA-Certo-Solid:before {
+  content: "\e9d8";
+}
+.icon-AMA-Pergunta-Solid:before {
+  content: "\e9d9";
+}
+.icon-AMA-Afirmacao-Solid:before {
+  content: "\e9da";
+}
+.icon-AMA-Interrogacao-Solid:before {
+  content: "\e9db";
+}
+.icon-AMA-Alerta-Solid:before {
+  content: "\e9dc";
+}
+.icon-AMA-Autocarro-Solid:before {
+  content: "\e9de";
+}
+.icon-AMA-Carrinha-Solid:before {
+  content: "\e9df";
+}
+.icon-AMA-Calendario-Solid:before {
+  content: "\e9e0";
+}
+.icon-AMA-Relogio-Solid:before {
+  content: "\e9e1";
+}
+.icon-AMA-PessoaDupla-Solid:before {
+  content: "\e9e2";
+}
+.icon-AMA-Pessoa-Solid:before {
+  content: "\e9e3";
+}
+.icon-AMA-Edificio-Solid:before {
+  content: "\e9e5";
+}
+.icon-AMA-Organizacao-Solid:before {
+  content: "\e9e6";
+}
+.icon-AMA-Premio-Solid:before {
+  content: "\e9e7";
+}
+.icon-AMA-Menu-Solid:before {
+  content: "\e9e8";
+}
+.icon-AMA-Objeto-Solid:before {
+  content: "\e9ea";
+}
+.icon-AMA-Sino-Solid:before {
+  content: "\e9ed";
+}
+.icon-AMA-Ticket-Solid:before {
+  content: "\e9ee";
+}
+.icon-AMA-SetaBaixo3-Solid:before {
+  content: "\62";
+}
+.icon-AMA-Lista-Line:before {
+  content: "\63";
+}
+.icon-AMA-Valido-Line:before {
+  content: "\64";
+}
+.icon-AMA-Erro2-Line:before {
+  content: "\65";
+}
+.icon-AMA-AlinhadoEsq-Line:before {
+  content: "\66";
+}
+.icon-AMA-OrdenarBaixo-Line:before {
+  content: "\67";
+}
+.icon-AMA-EsqAlinhado-Line:before {
+  content: "\68";
+}
+.icon-AMA-DirAlinhado-Line:before {
+  content: "\69";
+}
+.icon-AMA-OrdenarCima2-Line:before {
+  content: "\6a";
+}
+.icon-AMA-EscuroClaro-Line:before {
+  content: "\6b";
+}
+.icon-AMA-MenuHamburguer-Solid:before {
+  content: "\6c";
+}
+.icon-AMA-Info-Line:before {
+  content: "\6d";
+}
+.icon-xl-conversation:before {
+  content: "\6e";
+}
+.icon-AMA-Codigo-Line:before {
+  content: "\6f";
+}
+.icon-AMA-MockupIdeia-Line:before {
+  content: "\70";
+}
+.icon-AMA-Alerta3-Line:before {
+  content: "\71";
+}
+.icon-AMA-Duvida-Line:before {
+  content: "\72";
+}
+.icon-AMA-Twitter2-Solid:before {
+  content: "\73";
+}
+.icon-AMA-Twitter2-Line:before {
+  content: "\74";
+}
+.icon-AMA-Linkedin2-Solid:before {
+  content: "\75";
+}
+.icon-AMA-Linkedin2-Line:before {
+  content: "\76";
+}
+.icon-AMA-Facebook2-Solid:before {
+  content: "\77";
+}
+.icon-AMA-Facebook2-Line:before {
+  content: "\78";
+}
+.icon-AMA-Pesquisa3-Line:before {
+  content: "\79";
+}
+.icon-AMA-RSS-Line:before {
+  content: "\7a";
+}
+.icon-AMA-Formulario-Line:before {
+  content: "\41";
+}
+.icon-AMA-Email2-Line:before {
+  content: "\42";
+}
+.icon-AMA-ListaPesquisa-Line:before {
+  content: "\43";
+}
+.icon-AMA-Equipa-Line:before {
+  content: "\44";
+}
+.icon-AMA-Selecao-Line:before {
+  content: "\45";
+}
+.icon-AMA-Globo-Line:before {
+  content: "\46";
+}
+.icon-AMA-Paginas-Line:before {
+  content: "\47";
+}
+.icon-AMA-Validador-Line:before {
+  content: "\49";
+}
+.icon-AMA-Ferramentas-Line:before {
+  content: "\4a";
+}
+.icon-AMA-ManualIdeia-Solid:before {
+  content: "\4b";
+}
+.icon-AMA-Lei-Line:before {
+  content: "\4c";
+}
