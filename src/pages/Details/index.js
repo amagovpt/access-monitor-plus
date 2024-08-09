@@ -28,12 +28,16 @@ export default function Details({ allData, setAllData }) {
 
   const themeClass = theme === "light" ? "" : "dark_mode-details";
 
+  const url = allData?.rawUrl;
   const handleGoBack = () => {
     const test = location.pathname.split("/")
-    navigate(`${pathURL}results/${test[3]}`);
+    if(pathURL === process.env.REACT_APP_DEV_SERVER_URL) {
+      navigate(`${pathURL}results/${test[3]}`);
+    } else {
+      navigate(`${pathURL}results/${test[2]}`);
+    }
   };
 
-  const url = allData?.rawUrl;
   const textHeading = t(`ELEMS.${details}`);
   const [dataTable, setDataTable] = useState([]);
 
@@ -75,8 +79,13 @@ export default function Details({ allData, setAllData }) {
         }
         const storedData = localStorage.getItem("evaluation");
         const storedUrl = localStorage.getItem("evaluationUrl");
-        const url = location.pathname.split("/")[3]
-        const currentUrl = removeProtocol(url.split("%2F")[2])
+        let url
+        if(pathURL === process.env.REACT_APP_DEV_SERVER_URL) {
+          url = location.pathname.split("/")[3]
+        } else {
+          url = location.pathname.split("/")[2]
+        }
+        const currentUrl = removeProtocol(url.split("%2F")[2]) +"/"
 
         if (storedData && storedUrl === currentUrl) {
           const parsedStoredData = JSON.parse(storedData);
@@ -91,13 +100,12 @@ export default function Details({ allData, setAllData }) {
           localStorage.setItem("evaluation", JSON.stringify(response.data));
           localStorage.setItem("evaluationUrl", currentUrl);
         }
-
+        
         tot2 = response?.data?.result?.data.tot;
         setAllData(response.data?.result?.data);
         getDetailsData(response.data?.result?.data);
         setLoadingProgress(false);
       } catch (error) {
-        console.error("Erro", error);
         setLoadingProgress(false);
       }
     };

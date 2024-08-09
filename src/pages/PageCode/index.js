@@ -33,7 +33,12 @@ export default function Resume() {
 
   const handleGoBack = () => {
     const test = location.pathname.split("/")
-    navigate(`${pathURL}results/${test[3]}`);
+
+    if(pathURL === process.env.REACT_APP_DEV_SERVER_URL) {
+      navigate(`${pathURL}results/${test[3]}`);
+    } else {
+      navigate(`${pathURL}results/${test[2]}`);
+    }
   };
 
   const removeProtocol = (url) => {
@@ -54,8 +59,13 @@ export default function Resume() {
         }
         const storedData = localStorage.getItem("evaluation");
         const storedUrl = localStorage.getItem("evaluationUrl");
-        const url = location.pathname.split("/")[3]
-        const currentUrl = removeProtocol(url.split("%2F")[2])
+        let url
+        if(pathURL === process.env.REACT_APP_DEV_SERVER_URL) {
+          url = location.pathname.split("/")[3]
+        } else {
+          url = location.pathname.split("/")[2]
+        }
+        const currentUrl = removeProtocol(url.split("%2F")[2]) +"/"
         if (storedData && storedUrl === currentUrl) {
           const parsedStoredData = JSON.parse(storedData);
           setOriginalData(parsedStoredData);
