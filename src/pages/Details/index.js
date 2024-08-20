@@ -7,7 +7,8 @@ import { useTranslation } from "react-i18next";
 import { ThemeContext } from "../../context/ThemeContext";
 import { Breadcrumb, Icon, LoadingComponent } from "ama-design-system";
 
-import { api } from "../../config/api";
+// Api
+import { getEvalData } from "../../config/api";
 
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 
@@ -31,11 +32,8 @@ export default function Details({ allData, setAllData }) {
   const url = allData?.rawUrl;
   const handleGoBack = () => {
     const test = location.pathname.split("/")
-    if(pathURL === process.env.REACT_APP_DEV_SERVER_URL) {
-      navigate(`${pathURL}results/${test[3]}`);
-    } else {
-      navigate(`${pathURL}results/${test[2]}`);
-    }
+
+    navigate(`${pathURL}results/${test[test.length-2]}`);
   };
 
   const textHeading = t(`ELEMS.${details}`);
@@ -79,12 +77,8 @@ export default function Details({ allData, setAllData }) {
         }
         const storedData = localStorage.getItem("evaluation");
         const storedUrl = localStorage.getItem("evaluationUrl");
-        let url
-        if(pathURL === process.env.REACT_APP_DEV_SERVER_URL) {
-          url = location.pathname.split("/")[3]
-        } else {
-          url = location.pathname.split("/")[2]
-        }
+        const test = location.pathname.split("/")
+        let url = test[test.length-2]
         const currentUrl = removeProtocol(url.split("%2F")[2]) +"/"
 
         if (storedData && storedUrl === currentUrl) {
@@ -95,7 +89,8 @@ export default function Details({ allData, setAllData }) {
           setLoadingProgress(false);
           return;
         }
-        const response = await api.get(`/eval/${currentUrl}`)
+        const response = await getEvalData(false, currentUrl);
+
         if (url !== "html") {
           localStorage.setItem("evaluation", JSON.stringify(response.data));
           localStorage.setItem("evaluationUrl", currentUrl);

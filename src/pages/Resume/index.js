@@ -1,7 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { Breadcrumb, Gauge, LoadingComponent, StatsTable, TableComponent } from "ama-design-system";
 
-import { api } from "../../config/api";
+// Api
+import { getEvalData } from "../../config/api";
+
 import { processData } from "../../services";
 import { ButtonsActions } from "./_components/buttons-revalidation";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
@@ -59,10 +61,7 @@ export default function Resume({ setAllData, setEle }) {
           return;
         }
 
-        const response =
-          content === "html"
-            ? await api.post("/eval/html", { html: contentHtml })
-            : await api.get(`/eval/${decodedUrl}`);
+        const response = await getEvalData(content, currentUrl);
 
 
         if (content !== "html") {
