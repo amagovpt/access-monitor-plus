@@ -19,7 +19,7 @@ export const getEvalData = async (content, currentURL) => {
 const getEvalDataByAPI = async (content, currentURL) => {
   const response = content === "html" ? 
       await api.post("/eval/html", { html: currentURL })
-    : await api.get(`/eval/${currentURL}`);
+    : await api.get(`/eval/${encodeURIComponent(currentURL)}`);
 
   return response;
 }
