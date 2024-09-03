@@ -56,10 +56,6 @@ export default function Details({ allData, setAllData }) {
     },
   ];
 
-  const removeProtocol = (url) => {
-    return url.replace(/^(https?:\/\/)?(www\.)?/, "");
-  };
-
   function getDetailsData(data, tt) {
     const response = getTestResults(details, data, tt);
     setDataTable(response);
@@ -79,7 +75,8 @@ export default function Details({ allData, setAllData }) {
         const storedUrl = localStorage.getItem("evaluationUrl");
         const test = location.pathname.split("/")
         let url = test[test.length-2]
-        const currentUrl = removeProtocol(url.split("%2F")[2]) +"/"
+        
+        const currentUrl = decodeURIComponent(url)
 
         if (storedData && storedUrl === currentUrl) {
           const parsedStoredData = JSON.parse(storedData);
