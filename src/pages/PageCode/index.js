@@ -38,10 +38,6 @@ export default function Resume() {
     navigate(`${pathURL}results/${test[test.length-2]}`);
   };
 
-  const removeProtocol = (url) => {
-    return url.replace(/^(https?:\/\/)?(www\.)?/, "");
-  };
-
   useEffect(() => {
     const fetchData = async () => {
       setLoadingProgress(true);
@@ -58,7 +54,7 @@ export default function Resume() {
         const storedUrl = localStorage.getItem("evaluationUrl");
         const test = location.pathname.split("/")
         let url = test[test.length-2]
-        const currentUrl = removeProtocol(url.split("%2F")[2]) +"/"
+        const currentUrl = decodeURIComponent(url)
         if (storedData && storedUrl === currentUrl) {
           const parsedStoredData = JSON.parse(storedData);
           setOriginalData(parsedStoredData);
