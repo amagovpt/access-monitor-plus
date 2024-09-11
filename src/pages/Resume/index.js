@@ -43,7 +43,7 @@ export default function Resume({ setAllData, setEle }) {
 
       try {
         const compressedData = localStorage.getItem("evaluation");
-        const storedData = JSON.parse(LZString.decompressFromUTF16(compressedData));
+        const storedData = LZString.decompressFromUTF16(compressedData);
         const storedUrl = localStorage.getItem("evaluationUrl");
 
         const currentUrl = content === "html" ? contentHtml : content;
@@ -61,7 +61,7 @@ export default function Resume({ setAllData, setEle }) {
         }
         
         const response = await getEvalData(content, currentUrl);
-        if(response.success !== 1 && !response.result) {
+        if(response.data.success !== 1 && !response.result) {
           setError(t("MISC.unexpected_error"))
           setLoadingProgress(false);
         } else {

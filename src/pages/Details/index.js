@@ -75,7 +75,7 @@ export default function Details({ allData, setAllData }) {
           return;
         }
         const compressedData = localStorage.getItem("evaluation");
-        const storedData = JSON.parse(LZString.decompressFromUTF16(compressedData));
+        const storedData = LZString.decompressFromUTF16(compressedData);
         const storedUrl = localStorage.getItem("evaluationUrl");
         const test = location.pathname.split("/")
         let url = test[test.length-2]
@@ -91,7 +91,7 @@ export default function Details({ allData, setAllData }) {
           return;
         }
         const response = await getEvalData(false, currentUrl);
-        if(response.success !== 1 && !response.result) {
+        if(response.data.success !== 1 && !response.result) {
           setError(t("MISC.unexpected_error"))
           setLoadingProgress(false);
         } else {

@@ -27,7 +27,7 @@ export function InsertHtmlUpload() {
   const handleChange = async (event) => {
     const file = event.target.files[0];
 
-    if (file.type === "text/html") {
+    if (file && file.type === "text/html") {
       const reader = new FileReader();
       reader.onload = async () => {
         const html = reader.result;
