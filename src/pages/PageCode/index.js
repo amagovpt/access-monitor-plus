@@ -12,12 +12,16 @@ import { ThemeContext } from "../../context/ThemeContext";
 
 import { downloadCSV } from "../../utils/utils";
 
+import LZString from 'lz-string';
+
 import { pathURL } from "../../App";
 
 export default function Resume() {
   const location = useLocation();
   const navigate = useNavigate();
   const { t } = useTranslation();
+
+  const [error, setError] = useState(false);
 
   const [dataProcess, setDataProcess] = useState([]);
   const [loadingProgress, setLoadingProgress] = useState(true);
@@ -50,7 +54,8 @@ export default function Resume() {
           setLoadingProgress(false);
           return;
         }
-        const storedData = localStorage.getItem("evaluation");
+        const compressedData = localStorage.getItem("evaluation");
+        const storedData = JSON.parse(LZString.decompressFromUTF16(compressedData));
         const storedUrl = localStorage.getItem("evaluationUrl");
         const test = location.pathname.split("/")
         let url = test[test.length-2]
@@ -64,18 +69,25 @@ export default function Resume() {
           return;
         }
         const response = await getEvalData(false, currentUrl);
-        if (url !== "html") {
-          localStorage.setItem("evaluation", JSON.stringify(response.data));
-          localStorage.setItem("evaluationUrl", currentUrl);
+        if(response.success !== 1 && !response.result) {
+          setError(t("MISC.unexpected_error"))
+          setLoadingProgress(false);
+        } else {
+          if (url !== "html") {
+            const compressedData = LZString.compressToUTF16(JSON.stringify(response.data));
+            localStorage.setItem("evaluation", compressedData);
+            localStorage.setItem("evaluationUrl", currentUrl);
+          }
+          
+          setOriginalData(response.data);
+          setDataProcess(processData(response.data?.result?.data?.tot));
+          setPageCode(response.data?.result?.pagecode || "html");
+          setLoadingProgress(false);
         }
-        
-        setOriginalData(response.data);
-        setDataProcess(processData(response.data?.result?.data?.tot));
-        setPageCode(response.data?.result?.pagecode || "html");
-        setLoadingProgress(false);
       } catch (error) {
         console.error("Erro", error);
         setLoadingProgress(false);
+        setError(t("MISC.unexpected_error"))
       }
     };
 
@@ -115,14 +127,14 @@ export default function Resume() {
             <LoadingComponent loadingText={t("MISC.loading")} darkTheme={theme} />
           </section>
         ) : (
-          <ButtonsActions
-            downloadCSV={() => downloadCSV(dataProcess, originalData, t)}
-            handleGoBack={() => handleGoBack()}
-            themeClass={themeClass}
-          />
+          !error ? <ButtonsActions
+              downloadCSV={() => downloadCSV(dataProcess, originalData, t)}
+              handleGoBack={() => handleGoBack()}
+              themeClass={themeClass}
+            /> : <h3>{error}</h3>
         )}
       </div>
-      {!loadingProgress ? <section className="html_code">
+      {!loadingProgress && !error ? <section className="html_code">
         <pre tabIndex="0">{pageCode || `<></>`}</pre>
       </section> : null}
     </div>
