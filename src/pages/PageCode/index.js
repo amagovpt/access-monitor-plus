@@ -37,9 +37,16 @@ export default function Resume() {
   const code = location.state?.code || null;
 
   const handleGoBack = () => {
-    const test = location.pathname.split("/")
-
-    navigate(`${pathURL}results/${test[test.length-2]}`);
+    if(!dataProcess?.metadata?.url) {
+      navigate(`${pathURL}results/html`, {
+        state: {
+          contentHtml: pageCode
+        },
+      })
+    } else {
+      const test = location.pathname.split("/")
+      navigate(`${pathURL}results/${test[test.length-2]}`);
+    }
   };
 
   useEffect(() => {

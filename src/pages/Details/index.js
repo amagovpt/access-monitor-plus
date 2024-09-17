@@ -30,13 +30,23 @@ export default function Details({ allData, setAllData }) {
   const [loadingProgress, setLoadingProgress] = useState(true);
   const [error, setError] = useState(false);
 
+  const contentHtml = location.state?.contentHtml || null;
+
   const themeClass = theme === "light" ? "" : "dark_mode-details";
 
   const url = allData?.rawUrl;
-  const handleGoBack = () => {
-    const test = location.pathname.split("/")
 
-    navigate(`${pathURL}results/${test[test.length-2]}`);
+  const handleGoBack = () => {
+    if(!url) {
+      navigate(`${pathURL}results/html`, {
+        state: {
+          contentHtml: contentHtml
+        },
+      })
+    } else {
+      const test = location.pathname.split("/")
+      navigate(`${pathURL}results/${test[test.length-2]}`);
+    }
   };
 
   const textHeading = t(`ELEMS.${details}`);
@@ -52,7 +62,6 @@ export default function Details({ allData, setAllData }) {
       title: url || "html",
       href: "",
     },
-
     {
       title: textHeading,
       href: "#",

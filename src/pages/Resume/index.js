@@ -43,11 +43,10 @@ export default function Resume({ setAllData, setEle }) {
 
       try {
         const compressedData = localStorage.getItem("evaluation");
+        const type = localStorage.getItem("evaluationType");
         const storedData = LZString.decompressFromUTF16(compressedData);
-        const storedUrl = localStorage.getItem("evaluationUrl");
-
+        const storedUrl = type === "html" ? LZString.decompressFromUTF16(localStorage.getItem("evaluationHtml")) : localStorage.getItem("evaluationUrl");
         const currentUrl = content === "html" ? contentHtml : content;
-
         if (storedData && storedUrl === currentUrl) {
           const parsedStoredData = JSON.parse(storedData);
           setOriginalData(parsedStoredData);
@@ -65,10 +64,14 @@ export default function Resume({ setAllData, setEle }) {
           setError(t("MISC.unexpected_error"))
           setLoadingProgress(false);
         } else {
+          const compressedData = LZString.compressToUTF16(JSON.stringify(response.data));
+          localStorage.setItem("evaluation", compressedData);
+          localStorage.setItem("evaluationType", content);
           if (content !== "html") {
-            const compressedData = LZString.compressToUTF16(JSON.stringify(response.data));
-            localStorage.setItem("evaluation", compressedData);
             localStorage.setItem("evaluationUrl", currentUrl);
+          } else {
+            const compressedHTML = LZString.compressToUTF16(response.data.result?.pagecode);
+            localStorage.setItem("evaluationHtml", compressedHTML);
           }
   
           tot = response?.data?.result?.data.tot;
@@ -126,7 +129,11 @@ export default function Resume({ setAllData, setEle }) {
 
     if (type === "") {
       const content = "html";
-      navigate(`${pathURL}results/${content}/${ele}`);
+      navigate(`${pathURL}results/${content}/${ele}`, {
+        state: {
+          contentHtml: pageCode,
+        },
+      });
     } else {
       const encodedURL = encodeURIComponent(allData?.rawUrl);
       navigate(`${pathURL}results/${encodedURL}/${ele}`);
