@@ -50,7 +50,7 @@ export default function Resume({ setAllData, setEle }) {
         if (storedData && storedUrl === currentUrl) {
           const parsedStoredData = JSON.parse(storedData);
           setOriginalData(parsedStoredData);
-          setDataProcess(processData(parsedStoredData?.result?.data?.tot));
+          setDataProcess(processData(parsedStoredData?.result?.data?.tot, currentUrl));
           setPageCode(parsedStoredData?.result?.pagecode || "html");
           setLoadingProgress(false);
 
@@ -77,7 +77,7 @@ export default function Resume({ setAllData, setEle }) {
           tot = response?.data?.result?.data.tot;
   
           setOriginalData(response.data);
-          setDataProcess(processData(response.data?.result?.data?.tot));
+          setDataProcess(processData(response.data?.result?.data?.tot, currentUrl));
           setPageCode(response.data?.result?.pagecode || "html");
           setLoadingProgress(false);
         }
@@ -129,14 +129,24 @@ export default function Resume({ setAllData, setEle }) {
 
     if (type === "") {
       const content = "html";
-      navigate(`${pathURL}results/${content}/${ele}`, {
-        state: {
-          contentHtml: pageCode,
-        },
-      });
+      if(ele.startsWith('http://') || ele.startsWith('https://')) {
+        console.log("é URL")
+        window.open(ele, '_blank');
+      } else {
+        navigate(`${pathURL}results/${content}/${ele}`, {
+          state: {
+            contentHtml: pageCode,
+          },
+        });
+      }
     } else {
-      const encodedURL = encodeURIComponent(allData?.rawUrl);
-      navigate(`${pathURL}results/${encodedURL}/${ele}`);
+      if(ele.startsWith('http://') || ele.startsWith('https://')) {
+        console.log("é URL")
+        window.open(ele, '_blank');
+      } else {
+        const encodedURL = encodeURIComponent(allData?.rawUrl);
+        navigate(`${pathURL}results/${encodedURL}/${ele}`);
+      }
     }
   }
 

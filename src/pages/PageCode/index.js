@@ -70,7 +70,7 @@ export default function Resume() {
         if (storedData && storedUrl === currentUrl) {
           const parsedStoredData = JSON.parse(storedData);
           setOriginalData(parsedStoredData);
-          setDataProcess(processData(parsedStoredData?.result?.data?.tot));
+          setDataProcess(processData(parsedStoredData?.result?.data?.tot, url));
           setPageCode(parsedStoredData?.result?.pagecode || "html");
           setLoadingProgress(false);
           return;
@@ -87,7 +87,7 @@ export default function Resume() {
           }
           
           setOriginalData(response.data);
-          setDataProcess(processData(response.data?.result?.data?.tot));
+          setDataProcess(processData(response.data?.result?.data?.tot, url));
           setPageCode(response.data?.result?.pagecode || "html");
           setLoadingProgress(false);
         }
